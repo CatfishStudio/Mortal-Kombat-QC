@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+	<Button>
+		<Name>menuButtonTournament</Name>
+		<TextRus>Турнир</TextRus>
+		<TextEng>Tournament</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>menuButtonSattings</Name>
+		<TextRus>Настройки</TextRus>
+		<TextEng>Settings</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+</Menu>

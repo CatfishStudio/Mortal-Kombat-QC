@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CharacterSmall>
+	<Background>character_background_small.png</Background>
+	<Border>character_border_small.png</Border>
+	<Characteristic>
+		<Name>characterHit1</Name>
+		<Texture>character_hit_1.png</Texture>
+		<TexturePosX>10</TexturePosX>
+		<TexturePosY>10</TexturePosY>
+		<TextRus>Удар ногой</TextRus>
+		<TextEng>Удар ногой</TextEng>
+		<TextPosX>50</TextPosX>
+		<TextPosY>15</TextPosY>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<Value>0</Value>
+		<ValuePosX>150</ValuePosX>
+		<ValuePosY>15</ValuePosY>
+	</Characteristic>
+	<Characteristic>
+		<Name>characterHit2</Name>
+		<Texture>character_hit_2.png</Texture>
+		<TexturePosX>10</TexturePosX>
+		<TexturePosY>60</TexturePosY>
+		<TextRus>Удар рукой</TextRus>
+		<TextEng>Удар рукой</TextEng>
+		<TextPosX>50</TextPosX>
+		<TextPosY>65</TextPosY>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<Value>0</Value>
+		<ValuePosX>150</ValuePosX>
+		<ValuePosY>65</ValuePosY>
+	</Characteristic>
+	<Characteristic>
+		<Name>characterHit3</Name>
+		<Texture>character_hit_3.png</Texture>
+		<TexturePosX>10</TexturePosX>
+		<TexturePosY>110</TexturePosY>
+		<TextRus>Блок</TextRus>
+		<TextEng>Блок</TextEng>
+		<TextPosX>50</TextPosX>
+		<TextPosY>115</TextPosY>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<Value>0</Value>
+		<ValuePosX>150</ValuePosX>
+		<ValuePosY>115</ValuePosY>
+	</Characteristic>
+	<Characteristic>
+		<Name>characterHit4</Name>
+		<Texture>character_hit_4.png</Texture>
+		<TexturePosX>10</TexturePosX>
+		<TexturePosY>160</TexturePosY>
+		<TextRus>Апперкот</TextRus>
+		<TextEng>Апперкот</TextEng>
+		<TextPosX>50</TextPosX>
+		<TextPosY>165</TextPosY>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<Value>0</Value>
+		<ValuePosX>150</ValuePosX>
+		<ValuePosY>165</ValuePosY>
+	</Characteristic>
+	<Characteristic>
+		<Name>characterHit5</Name>
+		<Texture>character_hit_5.png</Texture>
+		<TexturePosX>10</TexturePosX>
+		<TexturePosY>210</TexturePosY>
+		<TextRus>С разворота</TextRus>
+		<TextEng>С разворота</TextEng>
+		<TextPosX>50</TextPosX>
+		<TextPosY>215</TextPosY>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<Value>0</Value>
+		<ValuePosX>150</ValuePosX>
+		<ValuePosY>215</ValuePosY>
+	</Characteristic>
+</CharacterSmall>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites_character.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="character_background_left.png"	x="0"	y="510"	width="395"	height="254" frameX="-0" frameY="-0" frameWidth="395" frameHeight="254"/>
+	<SubTexture name="character_background_right.png"	x="0"	y="0"	width="395"	height="254" frameX="-0" frameY="-0" frameWidth="395" frameHeight="254"/>
+	<SubTexture name="character_background_small.png"	x="0"	y="765"	width="205"	height="254" frameX="-0" frameY="-0" frameWidth="205" frameHeight="254"/>
+	<SubTexture name="character_baraka.png"	x="759"	y="320"	width="164"	height="148" frameX="-4" frameY="-84" frameWidth="168" frameHeight="254"/>
+	<SubTexture name="character_border.png"	x="0"	y="255"	width="395"	height="254" frameX="-0" frameY="-0" frameWidth="395" frameHeight="254"/>
+	<SubTexture name="character_border_small.png"	x="206"	y="765"	width="205"	height="254" frameX="-0" frameY="-0" frameWidth="205" frameHeight="254"/>
+	<SubTexture name="character_button_plus.png"	x="617"	y="954"	width="38"	height="38" frameX="-0" frameY="-0" frameWidth="38" frameHeight="38"/>
+	<SubTexture name="character_hit_1.png"	x="412"	y="954"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_2.png"	x="576"	y="954"	width="40"	height="38" frameX="-0" frameY="-1" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_3.png"	x="535"	y="954"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_4.png"	x="494"	y="954"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_5.png"	x="453"	y="954"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_jax_left.png"	x="412"	y="633"	width="181"	height="154" frameX="-1" frameY="-81" frameWidth="184" frameHeight="254"/>
+	<SubTexture name="character_jax_right.png"	x="396"	y="478"	width="181"	height="154" frameX="-2" frameY="-81" frameWidth="184" frameHeight="254"/>
+	<SubTexture name="character_johnnycage_left.png"	x="580"	y="326"	width="178"	height="165" frameX="-3" frameY="-70" frameWidth="181" frameHeight="254"/>
+	<SubTexture name="character_johnnycage_right.png"	x="592"	y="788"	width="178"	height="165" frameX="-0" frameY="-70" frameWidth="181" frameHeight="254"/>
+	<SubTexture name="character_kitana_left.png"	x="599"	y="0"	width="173"	height="158" frameX="-8" frameY="-75" frameWidth="181" frameHeight="254"/>
+	<SubTexture name="character_kitana_right.png"	x="590"	y="161"	width="173"	height="158" frameX="-0" frameY="-75" frameWidth="181" frameHeight="254"/>
+	<SubTexture name="character_kunglao_right.png"	x="396"	y="0"	width="202"	height="160" frameX="-0" frameY="-70" frameWidth="207" frameHeight="254"/>
+	<SubTexture name="character_liukang_right.png"	x="762"	y="623"	width="160"	height="136" frameX="-5" frameY="-79" frameWidth="168" frameHeight="254"/>
+	<SubTexture name="character_mileena_right.png"	x="753"	y="492"	width="161"	height="130" frameX="-0" frameY="-81" frameWidth="180" frameHeight="254"/>
+	<SubTexture name="character_raiden_right.png"	x="396"	y="161"	width="193"	height="164" frameX="-0" frameY="-70" frameWidth="195" frameHeight="254"/>
+	<SubTexture name="character_reptile_right.png"	x="578"	y="492"	width="174"	height="137" frameX="-0" frameY="-83" frameWidth="181" frameHeight="254"/>
+	<SubTexture name="character_scorpion_right.png"	x="412"	y="788"	width="179"	height="148" frameX="-0" frameY="-69" frameWidth="181" frameHeight="254"/>
+	<SubTexture name="character_shangtsung_right.png"	x="396"	y="326"	width="183"	height="151" frameX="-0" frameY="-81" frameWidth="185" frameHeight="254"/>
+	<SubTexture name="character_subzero_right.png"	x="594"	y="630"	width="167"	height="154" frameX="-0" frameY="-68" frameWidth="181" frameHeight="254"/>
+</TextureAtlas>

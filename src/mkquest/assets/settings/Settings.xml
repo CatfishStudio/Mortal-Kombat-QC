@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+	<Name>settings</Name>
+	<Background>settings_background.png</Background>
+	<Border>settings_border.png</Border>
+	<Button>
+		<Name>settingsButtonApply</Name>
+		<Texture>button.png</Texture>
+		<TextRus>Принять</TextRus>
+		<TextEng>Apply</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>5</PosX>
+		<PosY>70</PosY>
+	</Button>
+	<Buttons>
+		<Name>settingsButtonSound</Name>
+		<TexturesOn>sound.png</TexturesOn>
+		<TexturesOff>sound_off.png</TexturesOff>
+		<PosX>20</PosX>
+		<PosY>25</PosY>
+	</Buttons>
+	<Buttons>
+		<Name>settingsButtonMusic</Name>
+		<TexturesOn>music.png</TexturesOn>
+		<TexturesOff>music_off.png</TexturesOff>
+		<PosX>75</PosX>
+		<PosY>25</PosY>
+	</Buttons>
+	<Buttons>
+		<Name>settingsButtonInformation</Name>
+		<TexturesOn>information.png</TexturesOn>
+		<TexturesOff>information.png</TexturesOff>
+		<PosX>140</PosX>
+		<PosY>25</PosY>
+	</Buttons>
+</Settings>
