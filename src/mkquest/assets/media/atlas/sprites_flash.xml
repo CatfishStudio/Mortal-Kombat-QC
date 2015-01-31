@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites_flash.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="flash_01.png"	x="56"	y="466"	width="29"	height="21" frameX="-71" frameY="-59" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_02.png"	x="0"	y="466"	width="55"	height="45" frameX="-59" frameY="-47" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_03.png"	x="154"	y="0"	width="67"	height="55" frameX="-53" frameY="-42" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_04.png"	x="146"	y="192"	width="73"	height="59" frameX="-50" frameY="-40" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_05.png"	x="146"	y="128"	width="77"	height="63" frameX="-48" frameY="-38" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_06.png"	x="134"	y="252"	width="101"	height="83" frameX="-37" frameY="-30" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_07.png"	x="122"	y="364"	width="117"	height="97" frameX="-29" frameY="-24" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_08.png"	x="0"	y="364"	width="121"	height="101" frameX="-25" frameY="-22" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_09.png"	x="0"	y="252"	width="133"	height="111" frameX="-19" frameY="-17" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_10.png"	x="0"	y="128"	width="145"	height="123" frameX="-13" frameY="-13" frameWidth="179" frameHeight="153"/>
+	<SubTexture name="flash_11.png"	x="0"	y="0"	width="153"	height="127" frameX="-10" frameY="-11" frameWidth="179" frameHeight="153"/>
+</TextureAtlas>

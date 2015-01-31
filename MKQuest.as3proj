@@ -71,6 +71,9 @@
     <asset path="src\mkquest\assets\media\atlas\sprites_game.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_spinner.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_character.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_blood.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_flash.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_liukang.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'29.01.2015'</value>
+      <value>'30.01.2015'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -32,15 +32,15 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\Nika Developer\Dropbox\develop\MortalKombatCards\MKQuest\src</path-element>
-      <path-element>C:\Users\Nika Developer\Desktop\FlashDevelop-4.7.1\Library\AS3\classes</path-element>
+      <path-element>C:\Program Code\Git\MKQuest\src</path-element>
+      <path-element>C:\Users\Catfish\Desktop\FlashDevelop-4.7.1\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\Users\Nika Developer\Dropbox\develop\MortalKombatCards\MKQuest\lib\starling.swc</path-element>
+      <path-element>C:\Program Code\Git\MKQuest\lib\starling.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Nika Developer\Dropbox\develop\MortalKombatCards\MKQuest\src\mkquest\Main.as</path-element>
+    <path-element>C:\Program Code\Git\MKQuest\src\mkquest\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
