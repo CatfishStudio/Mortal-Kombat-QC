@@ -25,17 +25,15 @@ package mkquest.assets
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Navigation.CHANGE_SCREEN, onChangeScreen);
 			
-			if (Resource.LoadResource() == true)
-			{
-				showBackground();
-				menu()
-			}
+			showBackground();
+			menu()
 		}
 		
 		
 		private function showBackground():void
 		{
-			addChild(new Image(Resource.texturesAtlasGame.getTexture("background_game.png")));
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+			addChild(new Image(Resource.textureAtlas.getTexture("background_game.png")));
 		}
 		
 		private function menu():void

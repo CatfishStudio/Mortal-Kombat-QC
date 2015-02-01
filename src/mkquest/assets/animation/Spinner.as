@@ -13,7 +13,8 @@ package mkquest.assets.animation
 		
 		public function Spinner(_x:int, _y:int) 
 		{
-			super(Resource.texturesAtlasSpinner.getTextures("spinner_"), 10);
+			Resource.textureAtlas = Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesSpinner, Resource.AtlasSpritesSpinnerXML);
+			super(Resource.textureAtlas.getTextures("spinner_"), 10);
 			x = _x;
 			y = _y;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);

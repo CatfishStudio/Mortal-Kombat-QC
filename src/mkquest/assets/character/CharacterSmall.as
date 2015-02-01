@@ -37,13 +37,15 @@ package mkquest.assets.character
 		
 		private function createCharacterSmallFromXML():void
 		{
-			_image = new Image(Resource.texturesAtlasCharacter.getTexture(_fileXML.Background));
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
+			
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
 						
 			var n:int = _fileXML.Characteristic.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				_image = new Image(Resource.texturesAtlasCharacter.getTexture(_fileXML.Characteristic[i].Texture));
+				_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Characteristic[i].Texture));
 				_image.x = _fileXML.Characteristic[i].TexturePosX;
 				_image.y = _fileXML.Characteristic[i].TexturePosY;
 				addChild(_image);
@@ -70,7 +72,7 @@ package mkquest.assets.character
 				
 			}
 			
-			_image = new Image(Resource.texturesAtlasCharacter.getTexture(_fileXML.Border));
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
 			
 		}

@@ -57,12 +57,14 @@ package mkquest.assets.settings
 		
 		private function createWindowSettingsFromXML():void 
 		{
-			_image = new Image(Resource.texturesAtlasGame.getTexture(_fileXML.Background));
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+			
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
-			_image = new Image(Resource.texturesAtlasGame.getTexture(_fileXML.Border));
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
 			
-			_button = new Button(Resource.texturesAtlasGame.getTexture(_fileXML.Button.Texture));
+			_button = new Button(Resource.textureAtlas.getTexture(_fileXML.Button.Texture));
 			_button.name = _fileXML.Button.Name;
 			if (Resource.languageRus == true)
 			{
@@ -82,7 +84,7 @@ package mkquest.assets.settings
 			var n:int = _fileXML.Buttons.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				_button = new Button(Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[i].TexturesOn));
+				_button = new Button(Resource.textureAtlas.getTexture(_fileXML.Buttons[i].TexturesOn));
 				_button.name = _fileXML.Buttons[i].Name;
 				_button.x = _fileXML.Buttons[i].PosX;
 				_button.y = _fileXML.Buttons[i].PosY;
@@ -94,55 +96,61 @@ package mkquest.assets.settings
 		
 		private function settingsSoundMusic():void
 		{
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_SOUND));
 			if (Resource.soundOn == true)
 			{
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[0].TexturesOn);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[0].TexturesOn);
 			
 			}
 			else
 			{
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[0].TexturesOff);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[0].TexturesOff);
 			}
 			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_MUSIC));
 			if (Resource.musicOn == true)
 			{
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[1].TexturesOn);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[1].TexturesOn);
 			}
 			else
 			{
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[1].TexturesOff);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[1].TexturesOff);
 			}
 		}
 		
 		private function soundOnOff():void
 		{
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_SOUND));
 			if (Resource.soundOn == true)
 			{
 				Resource.soundOn = false;
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[0].TexturesOff);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[0].TexturesOff);
 			}
 			else
 			{
 				Resource.soundOn = true;
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[0].TexturesOn);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[0].TexturesOn);
 			}
 		}
 		
 		private function musicOnOff():void
 		{
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_MUSIC));
 			if (Resource.musicOn == true)
 			{
 				Resource.musicOn = false;
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[1].TexturesOff);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[1].TexturesOff);
 			}
 			else
 			{
 				Resource.musicOn = true;
-				_button.upState = Resource.texturesAtlasGame.getTexture(_fileXML.Buttons[1].TexturesOn);
+				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[1].TexturesOn);
 			}
 		}
 		

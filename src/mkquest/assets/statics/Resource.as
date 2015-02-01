@@ -23,62 +23,51 @@ package mkquest.assets.statics
 		/* -------------------------------- */
 		
 		/* Атласы ------------------------- */
+		public static var textureAtlas:TextureAtlas;
+		
 		[Embed(source = '../media/atlas/sprites_game.png')]
-		private static var AtlasSpritesGame:Class;
+		public static var AtlasSpritesGame:Class;
 		[Embed(source = '../media/atlas/sprites_game.xml', mimeType='application/octet-stream')]
-		private static var AtlasSpritesGameXML:Class;
-		public static var texturesAtlasGame:TextureAtlas;
+		public static var AtlasSpritesGameXML:Class;
 		
 		[Embed(source = '../media/atlas/sprites_character.png')]
-		private static var AtlasSpritesCharacter:Class;
+		public static var AtlasSpritesCharacter:Class;
 		[Embed(source = '../media/atlas/sprites_character.xml', mimeType='application/octet-stream')]
-		private static var AtlasSpritesCharacterXML:Class;
-		public static var texturesAtlasCharacter:TextureAtlas;
+		public static var AtlasSpritesCharacterXML:Class;
 		
 		[Embed(source = '../media/atlas/sprites_spinner.png')]
-		private static var AtlasSpritesSpinner:Class;
+		public static var AtlasSpritesSpinner:Class;
 		[Embed(source = '../media/atlas/sprites_spinner.xml', mimeType='application/octet-stream')]
-		private static var AtlasSpritesSpinnerXML:Class;
-		public static var texturesAtlasSpinner:TextureAtlas;
+		public static var AtlasSpritesSpinnerXML:Class;
 		/* -------------------------------- */
 		
-		public static function LoadResource():Boolean 
+		
+		public static function getTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):TextureAtlas
 		{
-			var bitmap:Bitmap;
-			var xml:XML;
-			var contentfile:ByteArray;
-			var contentstr:String;
-			
-			contentfile = new AtlasSpritesGameXML();
-			contentstr = contentfile.readUTFBytes(contentfile.length);
-			xml = new XML(contentstr);
-			bitmap = new AtlasSpritesGame();
-			texturesAtlasGame = new TextureAtlas(Texture.fromBitmap(bitmap), xml);
-			
-			contentfile = new AtlasSpritesCharacterXML();
-			contentstr = contentfile.readUTFBytes(contentfile.length);
-			xml = new XML(contentstr);
-			bitmap = new AtlasSpritesCharacter();
-			texturesAtlasCharacter = new TextureAtlas(Texture.fromBitmap(bitmap), xml);
-			
-			contentfile = new AtlasSpritesSpinnerXML();
-			contentstr = contentfile.readUTFBytes(contentfile.length);
-			xml = new XML(contentstr);
-			texturesAtlasSpinner = new TextureAtlas(Texture.fromEmbeddedAsset(AtlasSpritesSpinner), xml);
+			var contentfile:ByteArray = new ClassAtlasSpritesXML();
+			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
+			var xml:XML = new XML(contentstr);
+			var bitmap:Bitmap = new ClassAtlasSprite();
 			
 			contentfile = null;
 			contentstr = null;
-			bitmap = null;
-			xml = null;
-			AtlasSpritesGame = null;
-			AtlasSpritesGameXML = null;
-			AtlasSpritesCharacter = null;
-			AtlasSpritesCharacterXML = null;
-			AtlasSpritesSpinner = null;
-			AtlasSpritesSpinnerXML = null;
 			
-			return true;
+			return new TextureAtlas(Texture.fromBitmap(bitmap), xml);
+			
 		}
+		
+		public static function getTextureAtlasEmbeddedAsset(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):TextureAtlas
+		{
+			var contentfile:ByteArray = new ClassAtlasSpritesXML();
+			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
+			var xml:XML = new XML(contentstr);
+			
+			contentfile = null;
+			contentstr = null;
+			
+			return new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
+		}
+		
 		
 	}
 

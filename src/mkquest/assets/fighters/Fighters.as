@@ -85,12 +85,14 @@ package mkquest.assets.fighters
 		
 		private function createPanelIconButtonsXML():void
 		{
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+			
 			_fileXML = FileXML.getFileXML(ClassFileXML1);
 			
 			var n:int = _fileXML.Icon.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				_button = new Button(Resource.texturesAtlasGame.getTexture(_fileXML.Icon[i].Texture));
+				_button = new Button(Resource.textureAtlas.getTexture(_fileXML.Icon[i].Texture));
 				_button.name = _fileXML.Icon[i].Name;
 				_button.x = _fileXML.Icon[i].PosX;
 				_button.y = _fileXML.Icon[i].PosY;
@@ -102,7 +104,7 @@ package mkquest.assets.fighters
 			n = _fileXML.Button.length();
 			for (var k:int = 0; k < n; k++)
 			{
-				_button = new Button(Resource.texturesAtlasGame.getTexture(_fileXML.Button[k].Texture));
+				_button = new Button(Resource.textureAtlas.getTexture(_fileXML.Button[k].Texture));
 				_button.name = _fileXML.Button[k].Name;
 				if (Resource.languageRus == true)
 				{

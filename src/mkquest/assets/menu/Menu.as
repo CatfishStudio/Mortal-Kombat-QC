@@ -39,10 +39,12 @@ package mkquest.assets.menu
 		
 		private function createPanelButtonsFromXML():void
 		{
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+						
 			var n:int = _fileXML.Button.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				_button = new Button(Resource.texturesAtlasGame.getTexture(_fileXML.Button[i].Texture));
+				_button = new Button(Resource.textureAtlas.getTexture(_fileXML.Button[i].Texture));
 				_button.name = _fileXML.Button[i].Name;
 				if (Resource.languageRus == true)
 				{

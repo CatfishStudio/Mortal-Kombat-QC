@@ -35,10 +35,12 @@ package mkquest.assets.character
 		
 		private function createCharacterAnimationFromXML():void 
 		{
-			_image = new Image(Resource.texturesAtlasCharacter.getTexture(_fileXML.Background));
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
+						
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
 			
-			_image = new Image(Resource.texturesAtlasCharacter.getTexture(_fileXML.Border));
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
 		}
 		
