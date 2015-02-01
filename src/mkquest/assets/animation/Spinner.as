@@ -2,7 +2,6 @@ package mkquest.assets.animation
 {
 	import starling.events.Event;
 	import starling.display.MovieClip;
-	import starling.textures.TextureAtlas;
 	import starling.core.Starling;
 	
 	import mkquest.assets.statics.Constants;

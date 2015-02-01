@@ -7,6 +7,7 @@ package mkquest.assets.character
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.xml.FileXML;
+	import mkquest.assets.animation.Actions;
 	
 	public class CharacterAnimation extends Sprite 
 	{
@@ -36,10 +37,12 @@ package mkquest.assets.character
 		private function createCharacterAnimationFromXML():void 
 		{
 			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
-						
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
 			
+			addChild(new Actions(50, 25, true, Constants.LIUKANG, Constants.STANCE, Constants.LEFT_TO_RIGHT));
+
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
 		}

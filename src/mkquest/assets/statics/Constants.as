@@ -45,6 +45,18 @@ package mkquest.assets.statics
 		
 		public static const SPINNER:String = "spinner";
 		
+		public static const ACTIONS:String = "actions";
+		public static const DAMAGE:String = "damage";
+		public static const HIT_1:String = "hit1";
+		public static const HIT_2:String = "hit2";
+		public static const HIT_3:String = "hit3";
+		public static const HIT_4:String = "hit4";
+		public static const HIT_5:String = "hit5";
+		public static const LOST:String = "lost";
+		public static const STANCE:String = "stance";
+		public static const VICTORY:String = "victory";
+		public static const LEFT_TO_RIGHT:String = "left_to_right";
+		public static const RIGHT_TO_LEFT:String = "right_to_left";
 	}
 
 }

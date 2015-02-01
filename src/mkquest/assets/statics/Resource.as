@@ -39,6 +39,11 @@ package mkquest.assets.statics
 		public static var AtlasSpritesSpinner:Class;
 		[Embed(source = '../media/atlas/sprites_spinner.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesSpinnerXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_liukang.png')]
+		public static var AtlasSpritesLiukang:Class;
+		[Embed(source = '../media/atlas/sprites_liukang.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesLiukangXML:Class;
 		/* -------------------------------- */
 		
 		
