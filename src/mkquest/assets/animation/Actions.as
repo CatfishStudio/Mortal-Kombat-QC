@@ -3,6 +3,7 @@ package mkquest.assets.animation
 	import starling.events.Event;
 	import starling.display.MovieClip;
 	import starling.core.Starling;
+	import starling.events.EventDispatcher;
 	import starling.textures.TextureAtlas;
 	
 	import mkquest.assets.statics.Constants;
@@ -23,7 +24,7 @@ package mkquest.assets.animation
 			_direction = direction;
 			
 			Resource.textureAtlas = getSelectFighterTextureAtlas(_fighterName);
-			super(Resource.textureAtlas.getTextures(_nameGroupTexture + "_" + _direction + "_"), 10);
+			super(Resource.textureAtlas.getTextures(_nameGroupTexture + "_" + _direction + "_"), 12);
 			x = _x;
 			y = _y;
 			scaleX += 0.5;
@@ -31,6 +32,7 @@ package mkquest.assets.animation
 			
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			addEventListener(Event.COMPLETE, onComplete);
 		}
 		
 		private function getSelectFighterTextureAtlas(fighterName:String):TextureAtlas
@@ -47,7 +49,7 @@ package mkquest.assets.animation
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			name = Constants.ACTIONS;
 						
-			loop = true;
+			loop = _statusLoop;
 			play();
 			
 			Starling.juggler.add(this);
@@ -59,7 +61,14 @@ package mkquest.assets.animation
 			stop();
 		}
 		
-		
+		private function onComplete(e:Event):void 
+		{
+			if (_statusLoop == false)
+			{
+				removeEventListener(Event.COMPLETE, onComplete);
+				dispatchEvent(new Event(Event.COMPLETE));
+			}
+		}
 	}
 
 }
