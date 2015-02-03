@@ -38,7 +38,7 @@ package mkquest.assets.settings
 			addEventListener(Event.TRIGGERED, onButtonsClick);
 			
 			name = Constants.SETTINGS;
-			x = Constants.GAME_WINDOW_WIDTH / 2.5;
+			x = Constants.GAME_WINDOW_WIDTH / 2.55;
 			y = Constants.GAME_WINDOW_HEIGHT / 2.5;
 			
 			createQuad();
