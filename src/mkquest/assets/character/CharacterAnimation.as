@@ -27,7 +27,7 @@ package mkquest.assets.character
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			
-			name = Constants.CHARACTER_SMALL;
+			name = Constants.CHARACTER_ANIMATION;
 			x = 0 - (Constants.GAME_WINDOW_WIDTH / 3.5) //Constants.GAME_WINDOW_WIDTH / 25 * (-1);
 			y = 0;
 			
@@ -45,6 +45,15 @@ package mkquest.assets.character
 			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
+		}
+		
+		public function selectCharacterAnimamation(fighterName:String):void
+		{
+			if (getChildByName(Constants.ACTIONS) != null)
+			{
+				removeChild(getChildByName(Constants.ACTIONS));
+				addChild(new Actions(50, 25, true, fighterName, Constants.STANCE, Constants.LEFT_TO_RIGHT));
+			}
 		}
 		
 		private function onRemoveFromStage(e:Event):void 

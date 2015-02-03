@@ -72,12 +72,14 @@ package mkquest.assets.fighters
 		private function showCharacteristics(name:String):void
 		{
 			var characterSmall:CharacterSmall = CharacterSmall(this.getChildByName(Constants.CHARACTER_SMALL));
+			var characterAnimation:CharacterAnimation = CharacterAnimation(this.getChildByName(Constants.CHARACTER_ANIMATION));
 			var n:int = _characteristics.length;
 			for (var i:int = 0; i < n; i++)
 			{
 				if (_characteristics[i][0].toString() == name)
 				{
 					characterSmall.setValueCharacter(_characteristics[i]);
+					characterAnimation.selectCharacterAnimamation(name);
 					return;
 				}
 			}
@@ -101,6 +103,7 @@ package mkquest.assets.fighters
 			
 			showCharacteristics(_fileXML.Icon[0].Name);
 			
+			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
 			n = _fileXML.Button.length();
 			for (var k:int = 0; k < n; k++)
 			{
@@ -155,6 +158,7 @@ package mkquest.assets.fighters
 			_button.dispose();
 			_button = null;
 			_characteristics = null;
+			this.dispose();
 		}
 	}
 

@@ -41,6 +41,10 @@ package mkquest.assets.animation
 			{
 				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesLiukang, Resource.AtlasSpritesLiukangXML);
 			}
+			if (fighterName == Constants.KUNGLAO)
+			{
+				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesKunglao, Resource.AtlasSpritesKunglaoXML);
+			}
 			return null;
 		}
 		
@@ -58,6 +62,7 @@ package mkquest.assets.animation
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			this.dispose();
 			stop();
 		}
 		

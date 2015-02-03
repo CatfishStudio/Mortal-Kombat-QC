@@ -21,6 +21,7 @@ package mkquest.assets.statics
 		
 		public static const FIGHTERS:String = "fighters";
 		public static const CHARACTER_SMALL:String = "characterSmall";
+		public static const CHARACTER_ANIMATION:String = "characterAnimation";
 		public static const CHARACTER_HIT_1:String = "characterHit1";
 		public static const CHARACTER_HIT_2:String = "characterHit2";
 		public static const CHARACTER_HIT_3:String = "characterHit3";
