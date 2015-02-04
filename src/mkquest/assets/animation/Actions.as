@@ -45,6 +45,10 @@ package mkquest.assets.animation
 			{
 				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesKunglao, Resource.AtlasSpritesKunglaoXML);
 			}
+			if (fighterName == Constants.JOHNNYCAGE)
+			{
+				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesJohnnycage, Resource.AtlasSpritesJohnnycageXML);
+			}
 			return null;
 		}
 		

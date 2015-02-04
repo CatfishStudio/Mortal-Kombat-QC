@@ -50,6 +50,11 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_kunglao.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesKunglaoXML:Class;
 		
+		[Embed(source = '../media/atlas/sprites_johnnycage.png')]
+		public static var AtlasSpritesJohnnycage:Class;
+		[Embed(source = '../media/atlas/sprites_johnnycage.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesJohnnycageXML:Class;
+		
 		/* -------------------------------- */
 		
 		
