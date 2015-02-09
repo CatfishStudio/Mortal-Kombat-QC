@@ -100,6 +100,7 @@ package mkquest.assets.character
 			//_image = null;
 			//_textField.dispose();
 			//_textField = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildAt(0, true);

@@ -74,6 +74,7 @@ package mkquest.assets.animation
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			
 			while (this.numFrames > 1)
 			{
 				this.removeFrameAt(0);

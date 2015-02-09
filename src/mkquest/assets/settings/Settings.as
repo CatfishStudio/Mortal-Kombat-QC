@@ -190,6 +190,7 @@ package mkquest.assets.settings
 			//_button = null;
 			//_quad.dispose();
 			//_quad = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildAt(0, true);

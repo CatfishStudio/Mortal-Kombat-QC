@@ -63,6 +63,7 @@ package mkquest.assets.character
 			//_fileXML = null;
 			//_image.dispose();
 			//_image = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildAt(0, true);
