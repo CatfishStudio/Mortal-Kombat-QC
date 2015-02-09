@@ -78,8 +78,8 @@ package mkquest.assets.fighters
 			{
 				if (_characteristics[i][0].toString() == name)
 				{
-					characterSmall.setValueCharacter(_characteristics[i]);
-					characterAnimation.selectCharacterAnimamation(name);
+					characterSmall.setValueCharacter(_characteristics[i]);	// окно характеристик
+					characterAnimation.selectCharacterAnimamation(name);	// окно анимации бойца
 					return;
 				}
 			}

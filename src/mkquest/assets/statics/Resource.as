@@ -60,6 +60,11 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_reptile.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesReptileXML:Class;
 		
+		[Embed(source = '../media/atlas/sprites_subzero.png')]
+		public static var AtlasSpritesSubzero:Class;
+		[Embed(source = '../media/atlas/sprites_subzero.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesSubzeroXML:Class;
+		
 		/* -------------------------------- */
 		
 		
@@ -74,7 +79,6 @@ package mkquest.assets.statics
 			contentstr = null;
 			
 			return new TextureAtlas(Texture.fromBitmap(bitmap), xml);
-			
 		}
 		
 		public static function getTextureAtlasEmbeddedAsset(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):TextureAtlas

@@ -3,6 +3,7 @@ package mkquest.assets
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.core.Starling;
 	
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
@@ -24,6 +25,8 @@ package mkquest.assets
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Navigation.CHANGE_SCREEN, onChangeScreen);
+			
+			Starling.current.showStats = true;
 			
 			showBackground();
 			menu()

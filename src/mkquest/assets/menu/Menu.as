@@ -74,6 +74,7 @@ package mkquest.assets.menu
 			_fileXML = null;
 			_button.dispose();
 			_button = null;
+			this.dispose();
 		}
 	}
 

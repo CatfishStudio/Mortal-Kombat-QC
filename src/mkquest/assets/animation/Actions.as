@@ -53,6 +53,10 @@ package mkquest.assets.animation
 			{
 				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesReptile, Resource.AtlasSpritesReptileXML);
 			}
+			if (fighterName == Constants.SUBZERO)
+			{
+				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesSubzero, Resource.AtlasSpritesSubzeroXML);
+			}
 			return null;
 		}
 		

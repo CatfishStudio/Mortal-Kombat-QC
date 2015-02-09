@@ -63,6 +63,7 @@ package mkquest.assets.character
 			_fileXML = null;
 			_image.dispose();
 			_image = null;
+			this.dispose();
 		}
 		
 	}
