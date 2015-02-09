@@ -100,8 +100,7 @@ package mkquest.assets.character
 			_image = null;
 			_textField.dispose();
 			_textField = null;
-			this.dispose();
-			
+			this.removeFromParent(true);
 		}
 	}
 

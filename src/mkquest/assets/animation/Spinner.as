@@ -34,6 +34,7 @@ package mkquest.assets.animation
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			this.removeFromParent(true);
 			stop();
 		}
 		

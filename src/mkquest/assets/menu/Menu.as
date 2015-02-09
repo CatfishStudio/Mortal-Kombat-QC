@@ -70,11 +70,17 @@ package mkquest.assets.menu
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			ClassFileXML = null;
-			_fileXML = null;
-			_button.dispose();
-			_button = null;
-			this.dispose();
+			//ClassFileXML = null;
+			//_fileXML = null;
+			//_button.dispose();
+			//_button = null;
+			
+			while (this.numChildren)
+			{
+				this.removeChildAt(0, true);
+			}
+			
+			this.removeFromParent(true);
 		}
 	}
 

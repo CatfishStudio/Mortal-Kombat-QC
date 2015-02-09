@@ -152,13 +152,19 @@ package mkquest.assets.fighters
 		private function onRemovedFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
-			ClassFileXML1 = null;
-			ClassFileXML2 = null;
-			_fileXML = null;
-			_button.dispose();
-			_button = null;
-			_characteristics = null;
-			this.dispose();
+			//ClassFileXML1 = null;
+			//ClassFileXML2 = null;
+			//_fileXML = null;
+			//_button.dispose();
+			//_button = null;
+			//_characteristics = null;
+			
+			while (this.numChildren)
+			{
+				this.removeChildAt(0, true);
+			}
+			
+			this.removeFromParent(true);
 		}
 	}
 
