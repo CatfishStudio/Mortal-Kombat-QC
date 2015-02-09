@@ -79,7 +79,6 @@ package mkquest.assets.menu
 			{
 				this.removeChildAt(0, true);
 			}
-			
 			this.removeFromParent(true);
 		}
 	}

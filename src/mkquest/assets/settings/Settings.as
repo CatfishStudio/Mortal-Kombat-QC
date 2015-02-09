@@ -182,14 +182,18 @@ package mkquest.assets.settings
 		private function onRemovedFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
-			ClassFileXML = null;
-			_fileXML = null;
-			_image.dispose();
-			_image = null;
-			_button.dispose();
-			_button = null;
-			_quad.dispose();
-			_quad = null;
+			//ClassFileXML = null;
+			//_fileXML = null;
+			//_image.dispose();
+			//_image = null;
+			//_button.dispose();
+			//_button = null;
+			//_quad.dispose();
+			//_quad = null;
+			while (this.numChildren)
+			{
+				this.removeChildAt(0, true);
+			}
 			this.removeFromParent(true);
 		}
 	}
