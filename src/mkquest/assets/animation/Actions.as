@@ -57,6 +57,10 @@ package mkquest.assets.animation
 			{
 				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesSubzero, Resource.AtlasSpritesSubzeroXML);
 			}
+			if (fighterName == Constants.SHANGTSUNG)
+			{
+				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesShangtsung, Resource.AtlasSpritesShangtsungXML);
+			}
 			return null;
 		}
 		
@@ -74,13 +78,14 @@ package mkquest.assets.animation
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			
+			/*
 			while (this.numFrames > 1)
 			{
 				this.removeFrameAt(0);
 			}
+			*/
 			Starling.juggler.removeTweens(this);
-			this.removeFromParent(true);
+			//this.removeFromParent(true);
 			stop();
 		}
 		

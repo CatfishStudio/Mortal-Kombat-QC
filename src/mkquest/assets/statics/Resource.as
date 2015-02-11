@@ -65,6 +65,11 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_subzero.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesSubzeroXML:Class;
 		
+		[Embed(source = '../media/atlas/sprites_shangtsung.png')]
+		public static var AtlasSpritesShangtsung:Class;
+		[Embed(source = '../media/atlas/sprites_shangtsung.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesShangtsungXML:Class;
+		
 		/* -------------------------------- */
 		
 		

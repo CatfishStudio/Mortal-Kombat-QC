@@ -74,12 +74,13 @@ package mkquest.assets.menu
 			//_fileXML = null;
 			//_button.dispose();
 			//_button = null;
-			
+			/*
 			while (this.numChildren)
 			{
-				this.removeChildAt(0, true);
+				this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
+			*/
 		}
 	}
 

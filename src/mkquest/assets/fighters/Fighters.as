@@ -158,12 +158,13 @@ package mkquest.assets.fighters
 			//_button.dispose();
 			//_button = null;
 			//_characteristics = null;
-			
+			/*
 			while (this.numChildren)
 			{
-				this.removeChildAt(0, true);
+				this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
+			*/
 		}
 	}
 
