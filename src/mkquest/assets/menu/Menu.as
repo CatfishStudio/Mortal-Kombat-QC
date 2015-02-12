@@ -39,8 +39,6 @@ package mkquest.assets.menu
 		
 		private function createPanelButtonsFromXML():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-						
 			var n:int = _fileXML.Button.length();
 			for (var i:int = 0; i < n; i++)
 			{
@@ -70,17 +68,17 @@ package mkquest.assets.menu
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			//ClassFileXML = null;
-			//_fileXML = null;
-			//_button.dispose();
-			//_button = null;
-			/*
+			
+			ClassFileXML = null;
+			_fileXML = null;
+			_button.dispose();
+			_button = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
-			*/
 		}
 	}
 

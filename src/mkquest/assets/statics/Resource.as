@@ -22,6 +22,13 @@ package mkquest.assets.statics
 		public static var moveSound:Sound;
 		/* -------------------------------- */
 		
+		/* Текстуры ----------------------- */
+		[Embed(source = '../media/textures/background_game.jpg')]
+		public static var TextureBackgroundGame:Class;
+		[Embed(source = '../media/textures/button.png')]
+		public static var TextureButton:Class;
+		/* -------------------------------- */
+		
 		/* Атласы ------------------------- */
 		public static var textureAtlas:TextureAtlas;
 		
@@ -30,16 +37,11 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_game.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesGameXML:Class;
 		
-		[Embed(source = '../media/atlas/sprites_character.png')]
-		public static var AtlasSpritesCharacter:Class;
-		[Embed(source = '../media/atlas/sprites_character.xml', mimeType='application/octet-stream')]
-		public static var AtlasSpritesCharacterXML:Class;
-		
-		[Embed(source = '../media/atlas/sprites_spinner.png')]
-		public static var AtlasSpritesSpinner:Class;
-		[Embed(source = '../media/atlas/sprites_spinner.xml', mimeType='application/octet-stream')]
-		public static var AtlasSpritesSpinnerXML:Class;
-		
+		[Embed(source = '../media/atlas/sprites_level.png')]
+		public static var AtlasSpritesLevel:Class;
+		[Embed(source = '../media/atlas/sprites_level.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesLevelXML:Class;
+				
 		[Embed(source = '../media/atlas/sprites_liukang.png')]
 		public static var AtlasSpritesLiukang:Class;
 		[Embed(source = '../media/atlas/sprites_liukang.xml', mimeType='application/octet-stream')]
@@ -72,7 +74,54 @@ package mkquest.assets.statics
 		
 		/* -------------------------------- */
 		
+		public static function setTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void
+		{
+			var contentfile:ByteArray = new ClassAtlasSpritesXML();
+			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
+			var xml:XML = new XML(contentstr);
+			var bitmap:Bitmap = new ClassAtlasSprite();
+			
+			if (textureAtlas == null)
+			{
+				textureAtlas = new TextureAtlas(Texture.fromBitmap(bitmap), xml);
+			}
+			else
+			{
+				textureAtlas.dispose();
+				textureAtlas = null;
+				textureAtlas = new TextureAtlas(Texture.fromBitmap(bitmap), xml);
+			}
+			
+			contentfile = null;
+			contentstr = null;
+			xml = null;
+			bitmap = null;
+		}
 		
+		public static function setTextureAtlasEmbeddedAsset(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void
+		{
+			var contentfile:ByteArray = new ClassAtlasSpritesXML();
+			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
+			var xml:XML = new XML(contentstr);
+			
+			if (textureAtlas == null)
+			{
+				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
+			}
+			else
+			{
+				textureAtlas.dispose();
+				textureAtlas = null;
+				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
+			}
+			
+			contentfile = null;
+			contentstr = null;
+			xml = null;
+		}
+		
+		
+		/*
 		public static function getTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):TextureAtlas
 		{
 			var contentfile:ByteArray = new ClassAtlasSpritesXML();
@@ -97,6 +146,7 @@ package mkquest.assets.statics
 			
 			return new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
 		}
+		*/
 		
 		
 	}

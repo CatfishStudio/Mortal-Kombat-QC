@@ -87,8 +87,6 @@ package mkquest.assets.fighters
 		
 		private function createPanelIconButtonsXML():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-			
 			_fileXML = FileXML.getFileXML(ClassFileXML1);
 			
 			var n:int = _fileXML.Icon.length();
@@ -103,7 +101,6 @@ package mkquest.assets.fighters
 			
 			showCharacteristics(_fileXML.Icon[0].Name);
 			
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
 			n = _fileXML.Button.length();
 			for (var k:int = 0; k < n; k++)
 			{
@@ -152,19 +149,19 @@ package mkquest.assets.fighters
 		private function onRemovedFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
-			//ClassFileXML1 = null;
-			//ClassFileXML2 = null;
-			//_fileXML = null;
-			//_button.dispose();
-			//_button = null;
-			//_characteristics = null;
-			/*
+			
+			ClassFileXML1 = null;
+			ClassFileXML2 = null;
+			_fileXML = null;
+			_button.dispose();
+			_button = null;
+			_characteristics = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
-			*/
 		}
 	}
 

@@ -69,7 +69,6 @@
   <!-- Assets to embed into the output SWF -->
   <library>
     <asset path="src\mkquest\assets\media\atlas\sprites_game.png" />
-    <asset path="src\mkquest\assets\media\atlas\sprites_spinner.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_character.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_blood.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_flash.png" />
@@ -79,6 +78,9 @@
     <asset path="src\mkquest\assets\media\atlas\sprites_reptile.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_subzero.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_shangtsung.png" />
+    <asset path="src\mkquest\assets\media\textures\background_game.jpg" />
+    <asset path="src\mkquest\assets\media\textures\button.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_level.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

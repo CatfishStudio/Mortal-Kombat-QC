@@ -57,8 +57,6 @@ package mkquest.assets.settings
 		
 		private function createWindowSettingsFromXML():void 
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-			
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
@@ -96,8 +94,6 @@ package mkquest.assets.settings
 		
 		private function settingsSoundMusic():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_SOUND));
 			if (Resource.soundOn == true)
 			{
@@ -122,8 +118,6 @@ package mkquest.assets.settings
 		
 		private function soundOnOff():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_SOUND));
 			if (Resource.soundOn == true)
 			{
@@ -139,8 +133,6 @@ package mkquest.assets.settings
 		
 		private function musicOnOff():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-			
 			_button = Button(this.getChildByName(Constants.SETTINGS_BUTTON_MUSIC));
 			if (Resource.musicOn == true)
 			{
@@ -182,22 +174,22 @@ package mkquest.assets.settings
 		private function onRemovedFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
-			//ClassFileXML = null;
-			//_fileXML = null;
-			//_image.dispose();
-			//_image = null;
-			//_button.dispose();
-			//_button = null;
-			//_quad.dispose();
-			//_quad = null;
-			/*
+			
+			ClassFileXML = null;
+			_fileXML = null;
+			_image.dispose();
+			_image = null;
+			_button.dispose();
+			_button = null;
+			_quad.dispose();
+			_quad = null;
+			
 			while (this.numChildren)
 			{
-				//this.removeChildAt(0, true);
-				this.removeChildren(0, -1, true);
+				this.removeChildAt(0, true);
+				//this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
-			*/
 		}
 	}
 

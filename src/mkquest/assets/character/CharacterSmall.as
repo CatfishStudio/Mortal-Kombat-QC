@@ -37,8 +37,6 @@ package mkquest.assets.character
 		
 		private function createCharacterSmallFromXML():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
-			
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
 						
@@ -94,19 +92,19 @@ package mkquest.assets.character
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			//ClassFileXML = null;
-			//_fileXML = null;
-			//_image.dispose();
-			//_image = null;
-			//_textField.dispose();
-			//_textField = null;
-			/*
+			
+			ClassFileXML = null;
+			_fileXML = null;
+			_image.dispose();
+			_image = null;
+			_textField.dispose();
+			_textField = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildAt(0, true);
 			}
 			this.removeFromParent(true);
-			*/
 		}
 	}
 

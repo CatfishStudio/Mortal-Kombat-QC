@@ -1,10 +1,13 @@
 package mkquest.assets.animation 
 {
+	import flash.utils.ByteArray;
+	
 	import starling.events.Event;
 	import starling.display.MovieClip;
 	import starling.core.Starling;
 	import starling.events.EventDispatcher;
 	import starling.textures.TextureAtlas;
+	import starling.textures.Texture;
 	
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
@@ -16,6 +19,8 @@ package mkquest.assets.animation
 		private var _nameGroupTexture:String;
 		private var _direction:String;
 		
+		private var textureAtlas:TextureAtlas;
+		
 		public function Actions(_x:int, _y:int, statusLoop:Boolean, fighterName:String, nameGroupTexture:String, direction:String) 
 		{
 			_statusLoop = statusLoop;
@@ -23,8 +28,9 @@ package mkquest.assets.animation
 			_nameGroupTexture = nameGroupTexture;
 			_direction = direction;
 			
-			Resource.textureAtlas = getSelectFighterTextureAtlas(_fighterName);
-			super(Resource.textureAtlas.getTextures(_nameGroupTexture + "_" + _direction + "_"), 12);
+			selectFighterTextureAtlas(_fighterName);
+			super(textureAtlas.getTextures(_nameGroupTexture + "_" + _direction + "_"), 12);
+			
 			x = _x;
 			y = _y;
 			scaleX += 0.5;
@@ -35,33 +41,54 @@ package mkquest.assets.animation
 			addEventListener(Event.COMPLETE, onComplete);
 		}
 		
-		private function getSelectFighterTextureAtlas(fighterName:String):TextureAtlas
+		public function setTextureAtlasEmbeddedAsset(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void
+		{
+			var contentfile:ByteArray = new ClassAtlasSpritesXML();
+			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
+			var xml:XML = new XML(contentstr);
+			
+			if (textureAtlas == null)
+			{
+				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
+			}
+			else
+			{
+				textureAtlas.dispose();
+				textureAtlas = null;
+				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
+			}
+			
+			contentfile = null;
+			contentstr = null;
+			xml = null;
+		}
+		
+		private function selectFighterTextureAtlas(fighterName:String):void
 		{
 			if (fighterName == Constants.LIUKANG)
 			{
-				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesLiukang, Resource.AtlasSpritesLiukangXML);
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesLiukang, Resource.AtlasSpritesLiukangXML);
 			}
 			if (fighterName == Constants.KUNGLAO)
 			{
-				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesKunglao, Resource.AtlasSpritesKunglaoXML);
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesKunglao, Resource.AtlasSpritesKunglaoXML);
 			}
 			if (fighterName == Constants.JOHNNYCAGE)
 			{
-				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesJohnnycage, Resource.AtlasSpritesJohnnycageXML);
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesJohnnycage, Resource.AtlasSpritesJohnnycageXML);
 			}
 			if (fighterName == Constants.REPTILE)
 			{
-				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesReptile, Resource.AtlasSpritesReptileXML);
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesReptile, Resource.AtlasSpritesReptileXML);
 			}
 			if (fighterName == Constants.SUBZERO)
 			{
-				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesSubzero, Resource.AtlasSpritesSubzeroXML);
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesSubzero, Resource.AtlasSpritesSubzeroXML);
 			}
 			if (fighterName == Constants.SHANGTSUNG)
 			{
-				return Resource.getTextureAtlasEmbeddedAsset(Resource.AtlasSpritesShangtsung, Resource.AtlasSpritesShangtsungXML);
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesShangtsung, Resource.AtlasSpritesShangtsungXML);
 			}
-			return null;
 		}
 		
 		private function onAddedToStage(e:Event):void 
@@ -78,15 +105,17 @@ package mkquest.assets.animation
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			/*
+			
+			stop();
+			Starling.juggler.removeTweens(this);
+			
 			while (this.numFrames > 1)
 			{
 				this.removeFrameAt(0);
 			}
-			*/
-			Starling.juggler.removeTweens(this);
-			//this.removeFromParent(true);
-			stop();
+			textureAtlas.dispose();
+			textureAtlas = null;
+			this.removeFromParent(true);
 		}
 		
 		private function onComplete(e:Event):void 

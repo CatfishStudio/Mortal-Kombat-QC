@@ -1,6 +1,9 @@
 package mkquest.assets 
 {
+	import flash.display.Bitmap;
+	
 	import starling.display.Image;
+	import starling.textures.Texture;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.core.Starling;
@@ -29,14 +32,28 @@ package mkquest.assets
 			Starling.current.showStats = true;
 			
 			showBackground();
-			menu()
+			
+			initGameTextureAtlas();
+				
+			menu();
 		}
 		
 		
 		private function showBackground():void
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
-			addChild(new Image(Resource.textureAtlas.getTexture("background_game.png")));
+			var bitmap:Bitmap = new Resource.TextureBackgroundGame();
+			var image:Image = new Image(Texture.fromBitmap(bitmap));
+			
+			addChild(image);
+			
+			bitmap = null;
+			image.dispose();
+			image = null;
+		}
+		
+		private function initGameTextureAtlas():void
+		{
+			Resource.setTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
 		}
 		
 		private function menu():void

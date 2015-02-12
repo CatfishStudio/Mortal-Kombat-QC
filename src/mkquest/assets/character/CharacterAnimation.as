@@ -36,13 +36,11 @@ package mkquest.assets.character
 		
 		private function createCharacterAnimationFromXML():void 
 		{
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			addChild(_image);
 			
 			addChild(new Actions(50, 25, true, Constants.LIUKANG, Constants.STANCE, Constants.LEFT_TO_RIGHT));
 
-			Resource.textureAtlas = Resource.getTextureAtlasFromBitmap(Resource.AtlasSpritesCharacter, Resource.AtlasSpritesCharacterXML);
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
 		}
@@ -59,17 +57,17 @@ package mkquest.assets.character
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			//ClassFileXML = null;
-			//_fileXML = null;
-			//_image.dispose();
-			//_image = null;
-			/*
+			
+			ClassFileXML = null;
+			_fileXML = null;
+			_image.dispose();
+			_image = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildAt(0, true);
 			}
 			this.removeFromParent(true);
-			*/
 		}
 		
 	}
