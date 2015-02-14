@@ -72,6 +72,20 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_shangtsung.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesShangtsungXML:Class;
 		
+		[Embed(source = '../media/atlas/sprites_kitana.png')]
+		public static var AtlasSpritesKitana:Class;
+		[Embed(source = '../media/atlas/sprites_kitana.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesKitanaXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_jax.png')]
+		public static var AtlasSpritesJax:Class;
+		[Embed(source = '../media/atlas/sprites_jax.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesJaxXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_mileena.png')]
+		public static var AtlasSpritesMileena:Class;
+		[Embed(source = '../media/atlas/sprites_mileena.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesMileenaXML:Class;
 		/* -------------------------------- */
 		
 		public static function setTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void

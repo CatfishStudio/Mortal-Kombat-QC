@@ -89,6 +89,18 @@ package mkquest.assets.animation
 			{
 				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesShangtsung, Resource.AtlasSpritesShangtsungXML);
 			}
+			if (fighterName == Constants.KITANA)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesKitana, Resource.AtlasSpritesKitanaXML);
+			}
+			if (fighterName == Constants.JAX)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesJax, Resource.AtlasSpritesJaxXML);
+			}
+			if (fighterName == Constants.MILEENA)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesMileena, Resource.AtlasSpritesMileenaXML);
+			}
 		}
 		
 		private function onAddedToStage(e:Event):void 
