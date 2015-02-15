@@ -10,6 +10,21 @@ package mkquest.assets.statics
 	
 	public class Resource 
 	{
+		/* Характеристики Пользователя ------------------------------------------ */
+		public static var user_hit_1:int = 0;
+		public static var user_hit_2:int = 0;
+		public static var user_hit_3:int = 0;
+		public static var user_hit_4:int = 0;
+		public static var user_hit_5:int = 0;
+		public static var tournamentProgress = 1;
+		/* Характеристики ИИ ---------------------------------------------------- */
+		public static var ai_hit_1:int = 0;
+		public static var ai_hit_2:int = 0;
+		public static var ai_hit_3:int = 0;
+		public static var ai_hit_4:int = 0;
+		public static var ai_hit_5:int = 0;
+		/*----------------------------------------------------------------------- */
+		
 		/* Настройки игры ------------------*/
 		public static var soundOn:Boolean = true;
 		public static var musicOn:Boolean = true;

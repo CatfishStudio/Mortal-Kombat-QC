@@ -6,9 +6,6 @@ package mkquest.assets.statics
 		public static const GAME_WINDOW_WIDTH:int = 860;
 		public static const GAME_WINDOW_HEIGHT:int = 730;
 		
-		public static const MK2_WINDOW_WIDTH:int = 800;
-		public static const MK2_WINDOW_HEIGHT:int = 600;
-		
 		public static const MENU:String = "menu";
 		public static const MENU_BUTTON_TOURNAMENT:String = "menuButtonTournament";
 		public static const MENU_BUTTON_SATTINGS:String = "menuButtonSattings";
@@ -58,6 +55,16 @@ package mkquest.assets.statics
 		public static const VICTORY:String = "victory";
 		public static const LEFT_TO_RIGHT:String = "left_to_right";
 		public static const RIGHT_TO_LEFT:String = "right_to_left";
+		
+		/*-------------------------------------------------------------------------*/
+		public static const MK_WINDOW_WIDTH:int = 800;
+		public static const MK_WINDOW_HEIGHT:int = 600;
+		
+		public static const MK_WINDOW_STAIRS:String = "mkWindowStairs";
+		public static const MK_WINDOW_STAIRS_CHARACTER_USER:String = "mkWindowStairsCharacterUser";
+		public static const MK_WINDOW_STAIRS_CHARACTER_AI:String = "mkWindowStairsCharacterAI";
+		
+		
 	}
 
 }
