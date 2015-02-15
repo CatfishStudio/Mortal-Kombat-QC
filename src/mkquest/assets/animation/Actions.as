@@ -105,6 +105,14 @@ package mkquest.assets.animation
 			{
 				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesBaraka, Resource.AtlasSpritesBarakaXML);
 			}
+			if (fighterName == Constants.SCORPION)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesScorpion, Resource.AtlasSpritesScorpionXML);
+			}
+			if (fighterName == Constants.RAIDEN)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesRaiden, Resource.AtlasSpritesRainedXML);
+			}
 		}
 		
 		private function onAddedToStage(e:Event):void 

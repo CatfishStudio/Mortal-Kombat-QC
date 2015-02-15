@@ -85,6 +85,8 @@
     <asset path="src\mkquest\assets\media\atlas\sprites_jax.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_mileena.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_baraka.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_scorpion.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_raiden.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
