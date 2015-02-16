@@ -3,6 +3,7 @@ package mkquest.assets.stairs
 	import starling.core.Starling;
 	import starling.animation.Tween;
 	import starling.animation.Transitions;
+	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	
@@ -13,7 +14,7 @@ package mkquest.assets.stairs
 	
 	public class Stairs extends Sprite
 	{
-		[Embed(source = 'Stair.xml', mimeType='application/octet-stream')]
+		[Embed(source = 'Stairs.xml', mimeType='application/octet-stream')]
 		private var ClassFileXML:Class;
 		private var _fileXML:XML = FileXML.getFileXML(ClassFileXML);
 		
@@ -22,6 +23,8 @@ package mkquest.assets.stairs
 		private var _yStart:int;
 		private var _xEnd:int;
 		private var _yEnd:int;
+		
+		private var _image:Image;
 
 		public function Stairs() 
 		{
@@ -30,18 +33,29 @@ package mkquest.assets.stairs
 			this.addEventListener(Event.REMOVED, onRemoveStage);
 		}
 		
-		private function onRemoveStage(e:Event):void
-		{
-			Starling.juggler.remove(_tween);
-		}
-
 		private function onAddedToStage(e:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.x = _xStart; 
-			this.y = _yStart;
-
+			
+			width = Constants.MK_WINDOW_WIDTH;
+			height = Constants.MK_WINDOW_HEIGHT;
+			name = Constants.MK_WINDOW_STAIRS;
+			
+			createStairsFromXML();
+			
 			animation();
+		}
+		
+		private function createStairsFromXML():void
+		{
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
+			_image.scaleX += 1;
+			_image.scaleY += 1.35;
+			addChild(_image);
+			
+			
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
+			addChild(_image);
 		}
 
 		private function animation():void
@@ -61,7 +75,19 @@ package mkquest.assets.stairs
 			Starling.juggler.add(_tween);
 		}
 		
-		
+		private function onRemoveStage(e:Event):void
+		{
+			Starling.juggler.remove(_tween);
+			_tween = null;
+			_image.dispose();
+			_image = null;
+			
+			while (this.numChildren)
+			{
+				this.removeChildAt(0, true);
+			}
+			this.removeFromParent(true);
+		}
 	}
 
 }

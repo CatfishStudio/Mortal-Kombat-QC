@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Stairs>
+	<Background>blueportal.png</Background>
+	<Border>border_screen.png</Border>
+	<Button>
+		<Name>buttonBackInMenu</Name>
+		<TextRus>Назад</TextRus>
+		<TextEng>Back</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>-250</PosX>
+		<PosY>400</PosY>
+	</Button>
+	<Button>
+		<Name>menuButtonSattings</Name>
+		<TextRus>Настройки</TextRus>
+		<TextEng>Settings</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>50</PosX>
+		<PosY>400</PosY>
+	</Button>
+	<Button>
+		<Name>buttonFight</Name>
+		<TextRus>Драка</TextRus>
+		<TextEng>Fight</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>350</PosX>
+		<PosY>400</PosY>
+	</Button>
+	
+</Stairs>

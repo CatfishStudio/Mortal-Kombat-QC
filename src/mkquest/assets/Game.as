@@ -14,6 +14,7 @@ package mkquest.assets
 	import mkquest.assets.menu.Menu;
 	import mkquest.assets.fighters.Fighters;
 	import mkquest.assets.settings.Settings;
+	import mkquest.assets.stairs.Stairs;
 	
 	public class Game extends Sprite 
 	{
@@ -92,6 +93,17 @@ package mkquest.assets
 			}
 		}
 		
+		private function stairs():void
+		{
+			if (getChildByName(Constants.MK_WINDOW_STAIRS) != null)
+			{
+				removeChild(getChildByName(Constants.MK_WINDOW_STAIRS));
+			}
+			else
+			{
+				addChild(new Stairs());
+			}
+		}
 		
 		
 		private function onChangeScreen(event:Navigation):void 
@@ -118,6 +130,29 @@ package mkquest.assets
 				}
 				
 				case Constants.BUTTON_BACK:
+				{
+					menu();
+					fighters();
+					break;
+				}
+				
+				case Constants.BUTTON_BACK_IN_MENU:
+				{
+					menu();
+					stairs();
+					Resource.clearUser();
+					Resource.clearAI();
+					break;
+				}
+				
+				case Constants.BUTTON_PLAY:
+				{
+					fighters();
+					stairs();
+					break;
+				}
+				
+				case Constants.BUTTON_FIGHTER:
 				{
 					menu();
 					fighters();

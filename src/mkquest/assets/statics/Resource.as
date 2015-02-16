@@ -11,18 +11,20 @@ package mkquest.assets.statics
 	public class Resource 
 	{
 		/* Характеристики Пользователя ------------------------------------------ */
-		public static var user_hit_1:int = 0;
-		public static var user_hit_2:int = 0;
-		public static var user_hit_3:int = 0;
-		public static var user_hit_4:int = 0;
-		public static var user_hit_5:int = 0;
-		public static var tournamentProgress = 1;
+		public static var user_hit_1:int = 0;		// Удар ногой
+		public static var user_hit_2:int = 0;		// Удар рукой
+		public static var user_hit_3:int = 0;		// Блок
+		public static var user_hit_4:int = 0;		// Апперкот
+		public static var user_hit_5:int = 0;		// С разворота
+		public static var tournamentProgress:int = 1;	// Прогресс прохождения турника (индекс врага)
+		public static var experiencePoints:int = 0;	// Очки опыта
+		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
 		/* Характеристики ИИ ---------------------------------------------------- */
-		public static var ai_hit_1:int = 0;
-		public static var ai_hit_2:int = 0;
-		public static var ai_hit_3:int = 0;
-		public static var ai_hit_4:int = 0;
-		public static var ai_hit_5:int = 0;
+		public static var ai_hit_1:int = 0;			// Удар ногой
+		public static var ai_hit_2:int = 0;			// Удар рукой
+		public static var ai_hit_3:int = 0;			// Блок
+		public static var ai_hit_4:int = 0;			// Апперкот
+		public static var ai_hit_5:int = 0;			// С разворота
 		/*----------------------------------------------------------------------- */
 		
 		/* Настройки игры ------------------*/
@@ -165,32 +167,26 @@ package mkquest.assets.statics
 		}
 		
 		
-		/*
-		public static function getTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):TextureAtlas
+		public static function clearUser():void
 		{
-			var contentfile:ByteArray = new ClassAtlasSpritesXML();
-			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
-			var xml:XML = new XML(contentstr);
-			var bitmap:Bitmap = new ClassAtlasSprite();
-			
-			contentfile = null;
-			contentstr = null;
-			
-			return new TextureAtlas(Texture.fromBitmap(bitmap), xml);
+			user_hit_1 = 0;			// Удар ногой
+			user_hit_2 = 0;			// Удар рукой
+			user_hit_3 = 0;			// Блок
+			user_hit_4 = 0;			// Апперкот
+			user_hit_5 = 0;			// С разворота
+			tournamentProgress = 1;		// Прогресс прохождения турника (индекс врага)
+			experiencePoints = 0;	// Очки опыта
+			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
 		}
 		
-		public static function getTextureAtlasEmbeddedAsset(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):TextureAtlas
+		public static function clearAI():void
 		{
-			var contentfile:ByteArray = new ClassAtlasSpritesXML();
-			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
-			var xml:XML = new XML(contentstr);
-			
-			contentfile = null;
-			contentstr = null;
-			
-			return new TextureAtlas(Texture.fromEmbeddedAsset(ClassAtlasSprite), xml);
+			ai_hit_1 = 0;				// Удар ногой
+			ai_hit_2 = 0;				// Удар рукой
+			ai_hit_3 = 0;				// Блок
+			ai_hit_4 = 0;				// Апперкот
+			ai_hit_5 = 0;				// С разворота
 		}
-		*/
 		
 		
 	}
