@@ -8,6 +8,8 @@ package mkquest.assets.statics
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 	
+	import mkquest.assets.stairs.Enemy;
+	
 	public class Resource 
 	{
 		/* Характеристики Пользователя ------------------------------------------ */
@@ -27,6 +29,7 @@ package mkquest.assets.statics
 		public static var ai_hit_3:int = 0;			// Блок
 		public static var ai_hit_4:int = 0;			// Апперкот
 		public static var ai_hit_5:int = 0;			// С разворота
+		public static var ai_enemies:Vector.<Vector.<Enemy>>; // массив вграгов
 		/*----------------------------------------------------------------------- */
 		
 		/* Настройки игры ------------------*/
