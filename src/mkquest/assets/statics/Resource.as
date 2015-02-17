@@ -11,6 +11,7 @@ package mkquest.assets.statics
 	public class Resource 
 	{
 		/* Характеристики Пользователя ------------------------------------------ */
+		public static var user_name:String;			// Имя бойца пользователя
 		public static var user_hit_1:int = 0;		// Удар ногой
 		public static var user_hit_2:int = 0;		// Удар рукой
 		public static var user_hit_3:int = 0;		// Блок
@@ -20,6 +21,7 @@ package mkquest.assets.statics
 		public static var experiencePoints:int = 0;	// Очки опыта
 		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
 		/* Характеристики ИИ ---------------------------------------------------- */
+		public static var ai_name:String;			// Имя бойца ИИ
 		public static var ai_hit_1:int = 0;			// Удар ногой
 		public static var ai_hit_2:int = 0;			// Удар рукой
 		public static var ai_hit_3:int = 0;			// Блок
@@ -169,23 +171,25 @@ package mkquest.assets.statics
 		
 		public static function clearUser():void
 		{
+			user_name = null;		// Имя бойца пользователя
 			user_hit_1 = 0;			// Удар ногой
 			user_hit_2 = 0;			// Удар рукой
 			user_hit_3 = 0;			// Блок
 			user_hit_4 = 0;			// Апперкот
 			user_hit_5 = 0;			// С разворота
-			tournamentProgress = 1;		// Прогресс прохождения турника (индекс врага)
+			tournamentProgress = 1;	// Прогресс прохождения турника (индекс врага)
 			experiencePoints = 0;	// Очки опыта
 			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
 		}
 		
 		public static function clearAI():void
 		{
-			ai_hit_1 = 0;				// Удар ногой
-			ai_hit_2 = 0;				// Удар рукой
-			ai_hit_3 = 0;				// Блок
-			ai_hit_4 = 0;				// Апперкот
-			ai_hit_5 = 0;				// С разворота
+			ai_name = null;			// Имя бойца ИИ
+			ai_hit_1 = 0;			// Удар ногой
+			ai_hit_2 = 0;			// Удар рукой
+			ai_hit_3 = 0;			// Блок
+			ai_hit_4 = 0;			// Апперкот
+			ai_hit_5 = 0;			// С разворота
 		}
 		
 		

@@ -81,23 +81,23 @@ package mkquest.assets.character
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
 			Resource.user_hit_1 = int(value[1]);
-			_textField.text = value[1].toString();
+			_textField.text = Resource.user_hit_1.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
 			Resource.user_hit_2 = int(value[2]);
-			_textField.text = value[2].toString();
+			_textField.text = Resource.user_hit_2.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
 			Resource.user_hit_3 = int(value[3]);
-			_textField.text = value[3].toString();
+			_textField.text = Resource.user_hit_3.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
 			Resource.user_hit_4 = int(value[4]);
-			_textField.text = value[4].toString();
+			_textField.text = Resource.user_hit_4.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
 			Resource.user_hit_5 = int(value[5]);
-			_textField.text = value[5].toString();
+			_textField.text = Resource.user_hit_5.toString();
 		}
 		
 		private function onRemoveFromStage(e:Event):void 

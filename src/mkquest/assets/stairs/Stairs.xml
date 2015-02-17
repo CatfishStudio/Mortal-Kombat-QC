@@ -2,6 +2,16 @@
 <Stairs>
 	<Background>blueportal.png</Background>
 	<Border>border_screen.png</Border>
+	<WindowPosX>30</WindowPosX>
+	<WindowPosY>40</WindowPosY>
+	<StairsUp>Stairs_up.png</StairsUp>
+	<StairsUpHeight>95</StairsUpHeight>
+	<StairsUpWidth>349</StairsUpWidth>
+	<StairsDown>Stairs_down.png</StairsDown>
+	<StairsCount>12</StairsCount>
+	<StairsPosX>240</StairsPosX>
+	<StairsPosY>700</StairsPosY>
+	
 	<Button>
 		<Name>buttonBackInMenu</Name>
 		<TextRus>Назад</TextRus>
@@ -10,8 +20,8 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>-250</PosX>
-		<PosY>400</PosY>
+		<PosX>37</PosX>
+		<PosY>661</PosY>
 	</Button>
 	<Button>
 		<Name>menuButtonSattings</Name>
@@ -21,8 +31,8 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>50</PosX>
-		<PosY>400</PosY>
+		<PosX>337</PosX>
+		<PosY>661</PosY>
 	</Button>
 	<Button>
 		<Name>buttonFight</Name>
@@ -32,8 +42,14 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>350</PosX>
-		<PosY>400</PosY>
+		<PosX>637</PosX>
+		<PosY>661</PosY>
 	</Button>
+	
+	<Icon>
+		<Name>Соперник1</Name>
+		<PosX>0</PosX>
+		<PosY>0</PosY>
+	</Icon>
 	
 </Stairs>
