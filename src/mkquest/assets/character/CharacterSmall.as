@@ -116,6 +116,8 @@ package mkquest.assets.character
 				this.removeChildAt(0, true);
 			}
 			this.removeFromParent(true);
+			
+			super.dispose();
 		}
 	}
 

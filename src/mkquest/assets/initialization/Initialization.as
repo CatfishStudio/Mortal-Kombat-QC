@@ -28,12 +28,14 @@ package mkquest.assets.initialization
 		public static function initEnemies(fileXML:XML, userFighterName:String):Vector.<Enemy>
 		{
 			var matrix:Vector.<Enemy> = new Vector.<Enemy>();
+			var enemy:Enemy;
+			
 			var n:int = fileXML.Fighter.length();
 			for (var i:int = 0; i < n; i++)
 			{
 				if (fileXML.Fighter[i].Name != userFighterName)
 				{
-					var enemy:Enemy = new Enemy();
+					enemy = new Enemy();
 					enemy.aiName = fileXML.Fighter[i].Name;
 					enemy.aiHit1 = fileXML.Fighter[i].CharacterHit1;
 					enemy.aiHit2 = fileXML.Fighter[i].CharacterHit2;
@@ -41,11 +43,25 @@ package mkquest.assets.initialization
 					enemy.aiHit4 = fileXML.Fighter[i].CharacterHit4;
 					enemy.aiHit5 = fileXML.Fighter[i].CharacterHit5;
 					matrix.push(enemy);
-					
 				}
 			}
 			
 			var ai_enemies:Vector.<Enemy> = new Vector.<Enemy>();
+			
+			n = fileXML.SuperFighter.length();
+			trace(n);
+			for (var j:int = 0; j < n; j++)
+			{
+				enemy = new Enemy();
+				enemy.aiName = fileXML.SuperFighter[j].Name;
+				enemy.aiHit1 = fileXML.SuperFighter[j].CharacterHit1;
+				enemy.aiHit2 = fileXML.SuperFighter[j].CharacterHit2;
+				enemy.aiHit3 = fileXML.SuperFighter[j].CharacterHit3;
+				enemy.aiHit4 = fileXML.SuperFighter[j].CharacterHit4;
+				enemy.aiHit5 = fileXML.SuperFighter[j].CharacterHit5;
+				ai_enemies.push(enemy);
+			}
+			
 			var index:int;
 			n = matrix.length;
 			for (var k:int = n; k > 0; k--)

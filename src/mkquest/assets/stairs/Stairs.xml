@@ -8,7 +8,7 @@
 	<StairsUpHeight>95</StairsUpHeight>
 	<StairsUpWidth>349</StairsUpWidth>
 	<StairsDown>Stairs_down.png</StairsDown>
-	<StairsCount>12</StairsCount>
+	<StairsCount>13</StairsCount>
 	<StairsPosX>240</StairsPosX>
 	<StairsPosY>700</StairsPosY>
 	
@@ -47,9 +47,69 @@
 	</Button>
 	
 	<Icon>
-		<Name>Enemy1</Name>
-		<PosX>0</PosX>
-		<PosY>0</PosY>
+		<Name>mkWindowStairsEnemyIcon_1</Name>
+		<PosX>162</PosX>
+		<PosY>15</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_2</Name>
+		<PosX>162</PosX>
+		<PosY>110</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_3</Name>
+		<PosX>162</PosX>
+		<PosY>205</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_4</Name>
+		<PosX>162</PosX>
+		<PosY>300</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_5</Name>
+		<PosX>162</PosX>
+		<PosY>395</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_6</Name>
+		<PosX>162</PosX>
+		<PosY>490</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_7</Name>
+		<PosX>162</PosX>
+		<PosY>585</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_8</Name>
+		<PosX>162</PosX>
+		<PosY>680</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_9</Name>
+		<PosX>162</PosX>
+		<PosY>775</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_10</Name>
+		<PosX>162</PosX>
+		<PosY>870</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_11</Name>
+		<PosX>162</PosX>
+		<PosY>965</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_12</Name>
+		<PosX>162</PosX>
+		<PosY>1060</PosY>
+	</Icon>
+	<Icon>
+		<Name>mkWindowStairsEnemyIcon_13</Name>
+		<PosX>162</PosX>
+		<PosY>1155</PosY>
 	</Icon>
 	
 </Stairs>

@@ -37,6 +37,7 @@ package mkquest.assets.stairs
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.addEventListener(Event.REMOVED, onRemoveStage);
+			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
 		private function onAddedToStage(e:Event):void
@@ -66,15 +67,25 @@ package mkquest.assets.stairs
 			
 			/* Столб бойцов */
 			_fighterStairs = new Sprite();
-			var n:int = _fileXML.StairsCount;
+			var n:int = _fileXML.StairsCount - 1;
 			for (var k:int = 0; k < n; k++)
 			{
-				_image = new Image(Resource.textureAtlas.getTexture(_fileXML.StairsUp));
+				_image = new Image(Resource.textureAtlas.getTexture(Resource.ai_enemies[k].aiName + ".png")); // иконка
+				_image.x = _fileXML.Icon[k].PosX;
+				_image.y = _fileXML.Icon[k].PosY;
+				_fighterStairs.addChild(_image);
+				
+				_image = new Image(Resource.textureAtlas.getTexture(_fileXML.StairsUp)); // блок
 				_image.y += k * _fileXML.StairsUpHeight;
 				_fighterStairs.addChild(_image);
 			}
-			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.StairsDown));
-			_image.y += _fileXML.StairsCount * _fileXML.StairsUpHeight;
+			
+			_image = new Image(Resource.textureAtlas.getTexture(Resource.ai_enemies[n].aiName + ".png")); // иконка
+			_image.x = _fileXML.Icon[n].PosX;
+			_image.y = _fileXML.Icon[n].PosY;
+			_fighterStairs.addChild(_image);
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.StairsDown)); // блок
+			_image.y += _fileXML.StairsCount * _fileXML.StairsUpHeight - _fileXML.StairsUpHeight;
 			_fighterStairs.addChild(_image);
 			_fighterStairs.x = _fileXML.StairsPosX;
 			_fighterStairs.y = _fileXML.StairsPosY;
@@ -134,27 +145,39 @@ package mkquest.assets.stairs
 			Starling.juggler.add(_tween);
 		}
 		
+		
+		private function onButtonsClick(event:Event):void 
+		{
+			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
+			{
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
+			}
+		}
+		
 		private function onRemoveStage(e:Event):void
 		{
-			Starling.juggler.remove(_tween);
-			_tween = null;
-			_image.dispose();
+			//_image.dispose();
 			_image = null;
-			_button.dispose();
+			//_button.dispose();
 			_button = null;
 			
-			_window.dispose();
+			//_window.dispose();
 			_window = null;
-			_fighterStairs.dispose();
+			//_fighterStairs.dispose();
 			_fighterStairs = null;
 			
+			/*
 			while (this.numChildren)
 			{
 				this.removeChildAt(0, true);
 			}
 			this.removeFromParent(true);
+			*/
 			
-			//super.dispose();
+			Starling.juggler.remove(_tween);
+			_tween = null;
+			
+			super.dispose();
 		}
 	}
 

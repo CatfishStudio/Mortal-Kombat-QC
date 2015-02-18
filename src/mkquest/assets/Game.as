@@ -138,8 +138,8 @@ package mkquest.assets
 				
 				case Constants.BUTTON_BACK_IN_MENU:
 				{
-					menu();
 					stairs();
+					menu();
 					Resource.clearUser();
 					Resource.clearAI();
 					break;

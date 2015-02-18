@@ -37,6 +37,8 @@ package mkquest.assets.statics
 		public static const BARAKA:String = "baraka";
 		public static const SCORPION:String = "scorpion";
 		public static const RAIDEN:String = "raiden";
+		public static const GORO:String = "goro";
+		public static const SHAOKAHN:String = "shaokahn";
 		
 		public static const BUTTON_BACK:String = "buttonBack";
 		public static const BUTTON_BACK_IN_MENU:String = "buttonBackInMenu";
@@ -64,6 +66,7 @@ package mkquest.assets.statics
 		
 		public static const MK_WINDOW_STAIRS:String = "mkWindowStairs";
 		public static const MK_WINDOW_STAIRS_CHARACTER:String = "mkWindowStairsCharacter";
+		public static const MK_WINDOW_STAIRS_ENEMY_ICON:String = "mkWindowStairsEnemyIcon";
 		
 		
 	}

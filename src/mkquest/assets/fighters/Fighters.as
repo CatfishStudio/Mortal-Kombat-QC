@@ -163,6 +163,8 @@ package mkquest.assets.fighters
 				this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
+			
+			super.dispose();
 		}
 	}
 

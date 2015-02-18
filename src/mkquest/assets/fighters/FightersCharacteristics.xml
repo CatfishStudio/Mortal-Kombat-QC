@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Characteristics>
+	<SuperFighter>
+		<Name>shaokahn</Name>
+		<CharacterHit1>10</CharacterHit1>
+		<CharacterHit2>10</CharacterHit2>
+		<CharacterHit3>10</CharacterHit3>
+		<CharacterHit4>10</CharacterHit4>
+		<CharacterHit5>10</CharacterHit5>
+	</SuperFighter>
+	<SuperFighter>
+		<Name>goro</Name>
+		<CharacterHit1>5</CharacterHit1>
+		<CharacterHit2>5</CharacterHit2>
+		<CharacterHit3>5</CharacterHit3>
+		<CharacterHit4>5</CharacterHit4>
+		<CharacterHit5>5</CharacterHit5>
+	</SuperFighter>
 	<Fighter>
 		<Name>liukang</Name>
 		<CharacterHit1>2</CharacterHit1>

@@ -132,7 +132,6 @@ package mkquest.assets.animation
 			
 			stop();
 			Starling.juggler.removeTweens(this);
-			
 			while (this.numFrames > 1)
 			{
 				this.removeFrameAt(0);
@@ -140,6 +139,8 @@ package mkquest.assets.animation
 			textureAtlas.dispose();
 			textureAtlas = null;
 			this.removeFromParent(true);
+			
+			super.dispose();
 		}
 		
 		private function onComplete(e:Event):void 
