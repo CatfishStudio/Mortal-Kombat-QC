@@ -130,7 +130,7 @@ package mkquest.assets.stairs
 
 			_tween.moveTo(_fighterStairs.x, -710);
 			
-			_tween.onComplete = animationFighterStairs;
+			//_tween.onComplete = animationFighterStairs;
 			Starling.juggler.add(_tween);
 		}
 		

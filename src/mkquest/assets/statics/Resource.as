@@ -23,13 +23,7 @@ package mkquest.assets.statics
 		public static var experiencePoints:int = 0;	// Очки опыта
 		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
 		/* Характеристики ИИ ---------------------------------------------------- */
-		public static var ai_name:String;			// Имя бойца ИИ
-		public static var ai_hit_1:int = 0;			// Удар ногой
-		public static var ai_hit_2:int = 0;			// Удар рукой
-		public static var ai_hit_3:int = 0;			// Блок
-		public static var ai_hit_4:int = 0;			// Апперкот
-		public static var ai_hit_5:int = 0;			// С разворота
-		public static var ai_enemies:Vector.<Vector.<Enemy>>; // массив вграгов
+		public static var ai_enemies:Vector.<Enemy>; // массив вграгов
 		/*----------------------------------------------------------------------- */
 		
 		/* Настройки игры ------------------*/
@@ -187,12 +181,7 @@ package mkquest.assets.statics
 		
 		public static function clearAI():void
 		{
-			ai_name = null;			// Имя бойца ИИ
-			ai_hit_1 = 0;			// Удар ногой
-			ai_hit_2 = 0;			// Удар рукой
-			ai_hit_3 = 0;			// Блок
-			ai_hit_4 = 0;			// Апперкот
-			ai_hit_5 = 0;			// С разворота
+			ai_enemies = null;
 		}
 		
 		

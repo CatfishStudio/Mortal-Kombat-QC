@@ -7,6 +7,7 @@ package mkquest.assets.fighters
 	
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
+	import mkquest.assets.initialization.Initialization;
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.character.CharacterSmall;
 	import mkquest.assets.character.CharacterAnimation;
@@ -45,13 +46,12 @@ package mkquest.assets.fighters
 			createCharacterSmall();
 			createCharacterAnimation();
 			createPanelIconButtonsXML();
-			
 		}
 		
 		private function loadCharacteristics():Vector.<Vector.<String>>
 		{
 			_fileXML = FileXML.getFileXML(ClassFileXML2);
-		
+			
 			var matrix:Vector.<Vector.<String>> = new Vector.<Vector.<String>>();
 			
 			var n:int = _fileXML.Fighter.length();
@@ -80,6 +80,7 @@ package mkquest.assets.fighters
 				{
 					characterSmall.setValueCharacter(_characteristics[i]);	// окно характеристик
 					characterAnimation.selectCharacterAnimamation(name);	// окно анимации бойца
+					Resource.ai_enemies = Initialization.initEnemies(FileXML.getFileXML(ClassFileXML2), name);	// инициализация списка врагов
 					return;
 				}
 			}
@@ -142,7 +143,7 @@ package mkquest.assets.fighters
 			}
 			else 
 			{
-				showCharacteristics(Button(event.target).name);
+				showCharacteristics(Button(event.target).name);	// показать характеристики выброного бойца
 			}
 		}
 		
