@@ -31,6 +31,7 @@ package mkquest.assets.stairs
 		private var _button:Button;
 		private var _window:Sprite;
 		private var _fighterStairs:Sprite;
+		private var _userIcon:Sprite;
 		
 		public function Stairs() 
 		{
@@ -45,10 +46,17 @@ package mkquest.assets.stairs
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			name = Constants.MK_WINDOW_STAIRS;
 			
-			createStairsFromXML();
-			createButtonsPanelFromXML();
+			createStairsFromXML();			// Создание окна турнира
+			createButtonsPanelFromXML();	// Создание кнопок меню
 			
-			animationFighterStairs();
+			if (Resource.tournamentProgress == 12)
+			{
+				animationStartFighterStairs(); // Анимация при первой битве
+			}
+			else
+			{
+				animationNextFighterStairs(); // Анимация перемещения вверх по турнирной лестнице
+			}
 		}
 		
 		/* Создание: окна, столбца бойцов, окна характеристик, кнопки меню */
@@ -88,16 +96,47 @@ package mkquest.assets.stairs
 			_image.y += _fileXML.StairsCount * _fileXML.StairsUpHeight - _fileXML.StairsUpHeight;
 			_fighterStairs.addChild(_image);
 			_fighterStairs.x = _fileXML.StairsPosX;
-			_fighterStairs.y = _fileXML.StairsPosY;
+			if (Resource.tournamentProgress < 12)
+			{
+				_fighterStairs.y = -710 + (95 * (11 - Resource.tournamentProgress)); 
+			}
+			else
+			{
+				_fighterStairs.y = _fileXML.StairsPosY;
+			}
+			
+			
+			/* Иконка Пользователя */
+			_userIcon = new Sprite();
+			if (Resource.tournamentProgress == 12)
+			{
+				_userIcon.x = _fileXML.UserIcon[Resource.tournamentProgress].PosX;
+				_userIcon.y = _fileXML.UserIcon[Resource.tournamentProgress].PosY;
+			}
+			else
+			{
+				_userIcon.x = _fileXML.UserIcon[Resource.tournamentProgress + 1].PosX;
+				_userIcon.y = _fileXML.UserIcon[Resource.tournamentProgress + 1].PosY;
+			}
+			_image = new Image(Resource.textureAtlas.getTexture(Resource.user_name + ".png"));
+			_image.scaleX -= 0.15;
+			_image.scaleY -= 0.15;
+			_userIcon.addChild(_image); 
+			_fighterStairs.addChild(_userIcon); // Добавляем иконку пользователя на столб
+			
+			/* Добавляем столб в окно */
 			_window.addChild(_fighterStairs);
 			
-			/* Рамка окна*/
+			/* Рамка окна */
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			_window.addChild(_image);
 			
+			
+			
 			/* Окна характеристик */
 			
-			/* Добавляем всё в окно */
+			
+			/* Добавляем окно на сцену*/
 			addChild(_window);
 			
 			/* Маска окна */
@@ -135,7 +174,18 @@ package mkquest.assets.stairs
 			_sprite.clipRect = new Rectangle(_x, _y, _width, _height);
 		}
 
-		private function animationFighterStairs():void
+		
+		private function animationNextFighterStairs():void
+		{
+			_tween = new Tween(_fighterStairs, 5.0);
+			_tween.moveTo(_fighterStairs.x, _fighterStairs.y + 95);
+			Starling.juggler.add(_tween);
+			_tween = new Tween(_userIcon, 5.0);
+			_tween.moveTo(_userIcon.x, _userIcon.y - 95);
+			Starling.juggler.add(_tween);
+		}
+		
+		private function animationStartFighterStairs():void
 		{
 			_tween = new Tween(_fighterStairs, 5.0);
 

@@ -79,6 +79,8 @@ package mkquest.assets.character
 		{
 			Resource.clearUser();
 			
+			Resource.user_name = value[0].toString();
+			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
 			Resource.user_hit_1 = int(value[1]);
 			_textField.text = Resource.user_hit_1.toString();

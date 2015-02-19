@@ -19,7 +19,7 @@ package mkquest.assets.statics
 		public static var user_hit_3:int = 0;		// Блок
 		public static var user_hit_4:int = 0;		// Апперкот
 		public static var user_hit_5:int = 0;		// С разворота
-		public static var tournamentProgress:int = 1;	// Прогресс прохождения турника (индекс врага)
+		public static var tournamentProgress:int = 12;	// Прогресс прохождения турника (индекс врага) с конца в начало
 		public static var experiencePoints:int = 0;	// Очки опыта
 		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
 		/* Характеристики ИИ ---------------------------------------------------- */
@@ -174,7 +174,7 @@ package mkquest.assets.statics
 			user_hit_3 = 0;			// Блок
 			user_hit_4 = 0;			// Апперкот
 			user_hit_5 = 0;			// С разворота
-			tournamentProgress = 1;	// Прогресс прохождения турника (индекс врага)
+			tournamentProgress = 12;	// Прогресс прохождения турника (индекс врага) с конца в начало
 			experiencePoints = 0;	// Очки опыта
 			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
 		}

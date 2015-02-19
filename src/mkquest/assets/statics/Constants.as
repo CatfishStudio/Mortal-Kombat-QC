@@ -67,7 +67,7 @@ package mkquest.assets.statics
 		public static const MK_WINDOW_STAIRS:String = "mkWindowStairs";
 		public static const MK_WINDOW_STAIRS_CHARACTER:String = "mkWindowStairsCharacter";
 		public static const MK_WINDOW_STAIRS_ENEMY_ICON:String = "mkWindowStairsEnemyIcon";
-		
+		public static const MK_WINDOW_STAIRS_USER_ICON:String = "mkWindowStairsUserIcon";
 		
 	}
 

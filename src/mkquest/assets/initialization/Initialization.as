@@ -49,7 +49,6 @@ package mkquest.assets.initialization
 			var ai_enemies:Vector.<Enemy> = new Vector.<Enemy>();
 			
 			n = fileXML.SuperFighter.length();
-			trace(n);
 			for (var j:int = 0; j < n; j++)
 			{
 				enemy = new Enemy();
