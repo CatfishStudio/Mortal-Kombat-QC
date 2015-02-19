@@ -14,6 +14,7 @@ package mkquest.assets.stairs
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
+	import mkquest.assets.character.CharacterSmall;
 	
 	public class Stairs extends Sprite
 	{
@@ -32,6 +33,7 @@ package mkquest.assets.stairs
 		private var _window:Sprite;
 		private var _fighterStairs:Sprite;
 		private var _userIcon:Sprite;
+		private var _character:CharacterSmall;
 		
 		public function Stairs() 
 		{
@@ -46,7 +48,7 @@ package mkquest.assets.stairs
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			name = Constants.MK_WINDOW_STAIRS;
 			
-			createStairsFromXML();			// Создание окна турнира
+			createWindow();					// Создание окна турнира
 			createButtonsPanelFromXML();	// Создание кнопок меню
 			
 			if (Resource.tournamentProgress == 12)
@@ -60,7 +62,7 @@ package mkquest.assets.stairs
 		}
 		
 		/* Создание: окна, столбца бойцов, окна характеристик, кнопки меню */
-		private function createStairsFromXML():void
+		private function createWindow():void
 		{
 			/* окно */
 			_window = new Sprite();
@@ -68,12 +70,36 @@ package mkquest.assets.stairs
 			_window.y = _fileXML.WindowPosY;
 			
 			/* Фоновая картинка */
+			createWindowBackground();
+			
+			/* Столб бойцов */
+			createWindowStairFightersAndUserIcon();
+			
+			/* Рамка окна */
+			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
+			_window.addChild(_image);
+			
+			/* Окна характеристик */
+			createWindowCharacters();
+			
+			/* Добавляем окно на сцену*/
+			addChild(_window);
+			
+			/* Маска окна */
+			clipMask(_window, 0, 0, Constants.MK_WINDOW_WIDTH, Constants.MK_WINDOW_HEIGHT);
+		}
+		
+		
+		private function createWindowBackground():void
+		{
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Background));
 			_image.scaleX += 1;
 			_image.scaleY += 1.35;
 			_window.addChild(_image);
-			
-			/* Столб бойцов */
+		}
+		
+		private function createWindowStairFightersAndUserIcon():void
+		{
 			_fighterStairs = new Sprite();
 			var n:int = _fileXML.StairsCount - 1;
 			for (var k:int = 0; k < n; k++)
@@ -127,22 +153,24 @@ package mkquest.assets.stairs
 			/* Добавляем столб в окно */
 			_window.addChild(_fighterStairs);
 			
-			/* Рамка окна */
-			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
-			_window.addChild(_image);
+		}
+		
+		private function createWindowCharacters():void
+		{
+			if (Resource.experiencePoints > 0)
+			{
+				_character = new CharacterSmall(50, 50, true);
+			}
+			else
+			{
+				_character = new CharacterSmall(50, 50, false);
+			}
+			_character.name = Constants.CHARACTER_USER;
+			_window.addChild(_character);
 			
-			
-			
-			/* Окна характеристик */
-			
-			
-			/* Добавляем окно на сцену*/
-			addChild(_window);
-			
-			/* Маска окна */
-			clipMask(_window, 0, 0, Constants.MK_WINDOW_WIDTH, Constants.MK_WINDOW_HEIGHT);
-			
-			
+			_character = new CharacterSmall(550, 50, false);
+			_character.name = Constants.CHARACTER_AI;
+			_window.addChild(_character);
 		}
 		
 		private function createButtonsPanelFromXML():void
@@ -206,24 +234,6 @@ package mkquest.assets.stairs
 		
 		private function onRemoveStage(e:Event):void
 		{
-			//_image.dispose();
-			_image = null;
-			//_button.dispose();
-			_button = null;
-			
-			//_window.dispose();
-			_window = null;
-			//_fighterStairs.dispose();
-			_fighterStairs = null;
-			
-			/*
-			while (this.numChildren)
-			{
-				this.removeChildAt(0, true);
-			}
-			this.removeFromParent(true);
-			*/
-			
 			Starling.juggler.remove(_tween);
 			_tween = null;
 			

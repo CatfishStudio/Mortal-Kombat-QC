@@ -127,7 +127,7 @@ package mkquest.assets.fighters
 		
 		private function createCharacterSmall():void 
 		{
-			addChild(new CharacterSmall());
+			addChild(new CharacterSmall(Constants.GAME_WINDOW_WIDTH / 2.6, 0));
 		}
 		
 		private function createCharacterAnimation():void 

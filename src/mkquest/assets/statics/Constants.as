@@ -24,6 +24,14 @@ package mkquest.assets.statics
 		public static const CHARACTER_HIT_3:String = "characterHit3";
 		public static const CHARACTER_HIT_4:String = "characterHit4";
 		public static const CHARACTER_HIT_5:String = "characterHit5";
+		public static const CHARACTER_BUTTON_PLUS_1:String = "characterButtonPlus1";
+		public static const CHARACTER_BUTTON_PLUS_2:String = "characterButtonPlus2";
+		public static const CHARACTER_BUTTON_PLUS_3:String = "characterButtonPlus3";
+		public static const CHARACTER_BUTTON_PLUS_4:String = "characterButtonPlus4";
+		public static const CHARACTER_BUTTON_PLUS_5:String = "characterButtonPlus5";
+		public static const CHARACTER_USER:String = "characterUser";
+		public static const CHARACTER_AI:String = "characterAI";
+		
 		
 		public static const LIUKANG:String = "liukang";
 		public static const KUNGLAO:String = "kunglao";

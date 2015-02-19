@@ -1,5 +1,6 @@
 package mkquest.assets.character 
 {
+	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -16,12 +17,20 @@ package mkquest.assets.character
 		private var _fileXML:XML = FileXML.getFileXML(ClassFileXML);
 		private var _image:Image;
 		private var _textField:TextField;
+		private var _buttonsCreate:Boolean = false;
+		private var _button:Button;
 		
-		public function CharacterSmall() 
+		public function CharacterSmall(_x:int, _y:int, buttonsCreate:Boolean = false) 
 		{
+			_buttonsCreate = buttonsCreate;
+			
 			super();
+			
+			this.x = _x;
+			this.y = _y;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
 		private function onAddedToStage(e:Event):void 
@@ -29,8 +38,6 @@ package mkquest.assets.character
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			
 			name = Constants.CHARACTER_SMALL;
-			x = Constants.GAME_WINDOW_WIDTH / 2.6;
-			y = 0;
 			
 			createCharacterSmallFromXML();
 		}
@@ -73,6 +80,10 @@ package mkquest.assets.character
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
 			
+			if (_buttonsCreate)
+			{
+				createButtonsPlus();
+			}
 		}
 		
 		public function setValueCharacter(value:Vector.<String>):void
@@ -102,16 +113,85 @@ package mkquest.assets.character
 			_textField.text = Resource.user_hit_5.toString();
 		}
 		
+		private function createButtonsPlus():void
+		{
+			var n:int = _fileXML.ButtonPlus.length();
+			for (var i:int = 0; i < n; i++)
+			{
+				_button = new Button(Resource.textureAtlas.getTexture(_fileXML.ButtonPlus[i].Texture));
+				_button.name = _fileXML.ButtonPlus[i].Name;
+				_button.x = _fileXML.ButtonPlus[i].PosX;
+				_button.y = _fileXML.ButtonPlus[i].PosY;
+				this.addChild(_button);
+			}
+		}
+		
+		private function removeButtonPlus():void
+		{
+			getChildByName(Constants.CHARACTER_BUTTON_PLUS_1).visible = false;
+			getChildByName(Constants.CHARACTER_BUTTON_PLUS_2).visible = false;
+			getChildByName(Constants.CHARACTER_BUTTON_PLUS_3).visible = false;
+			getChildByName(Constants.CHARACTER_BUTTON_PLUS_4).visible = false;
+			getChildByName(Constants.CHARACTER_BUTTON_PLUS_5).visible = false;
+		}
+		
+		private function onButtonsClick(event:Event):void 
+		{
+			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_1)
+			{
+				Resource.user_hit_1++;
+				Resource.experiencePoints--;
+				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
+				_textField.text = Resource.user_hit_1.toString();
+			}
+			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_2)
+			{
+				Resource.user_hit_2++;
+				Resource.experiencePoints--;
+				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
+				_textField.text = Resource.user_hit_2.toString();
+			}
+			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_3)
+			{
+				Resource.user_hit_3++;
+				Resource.experiencePoints--;
+				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
+				_textField.text = Resource.user_hit_3.toString();
+			}
+			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_4)
+			{
+				Resource.user_hit_4++;
+				Resource.experiencePoints--;
+				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
+				_textField.text = Resource.user_hit_4.toString();
+			}
+			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_5)
+			{
+				Resource.user_hit_5++;
+				Resource.experiencePoints--;
+				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
+				_textField.text = Resource.user_hit_5.toString();
+			}
+			if (Resource.experiencePoints == 0)
+			{
+				removeButtonPlus();
+			}
+		}
+
+
+		
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			
 			ClassFileXML = null;
 			_fileXML = null;
-			_image.dispose();
+			if(_image != null) _image.dispose();
 			_image = null;
-			_textField.dispose();
+			if(_textField != null) _textField.dispose();
 			_textField = null;
+			if(_button != null) _button.dispose();
+			_button = null;
 			
 			while (this.numChildren)
 			{

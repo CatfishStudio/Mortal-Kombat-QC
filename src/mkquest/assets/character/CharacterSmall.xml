@@ -15,7 +15,7 @@
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
 		<Value>0</Value>
-		<ValuePosX>150</ValuePosX>
+		<ValuePosX>140</ValuePosX>
 		<ValuePosY>15</ValuePosY>
 	</Characteristic>
 	<Characteristic>
@@ -31,7 +31,7 @@
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
 		<Value>0</Value>
-		<ValuePosX>150</ValuePosX>
+		<ValuePosX>140</ValuePosX>
 		<ValuePosY>65</ValuePosY>
 	</Characteristic>
 	<Characteristic>
@@ -47,7 +47,7 @@
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
 		<Value>0</Value>
-		<ValuePosX>150</ValuePosX>
+		<ValuePosX>140</ValuePosX>
 		<ValuePosY>115</ValuePosY>
 	</Characteristic>
 	<Characteristic>
@@ -63,7 +63,7 @@
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
 		<Value>0</Value>
-		<ValuePosX>150</ValuePosX>
+		<ValuePosX>140</ValuePosX>
 		<ValuePosY>165</ValuePosY>
 	</Characteristic>
 	<Characteristic>
@@ -79,7 +79,39 @@
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
 		<Value>0</Value>
-		<ValuePosX>150</ValuePosX>
+		<ValuePosX>140</ValuePosX>
 		<ValuePosY>215</ValuePosY>
 	</Characteristic>
+	
+	<ButtonPlus>
+		<Name>characterButtonPlus1</Name>
+		<Texture>character_button_plus.png</Texture>
+		<PosX>160</PosX>
+		<PosY>10</PosY>
+	</ButtonPlus>
+	<ButtonPlus>
+		<Name>characterButtonPlus2</Name>
+		<Texture>character_button_plus.png</Texture>
+		<PosX>160</PosX>
+		<PosY>60</PosY>
+	</ButtonPlus>
+	<ButtonPlus>
+		<Name>characterButtonPlus3</Name>
+		<Texture>character_button_plus.png</Texture>
+		<PosX>160</PosX>
+		<PosY>110</PosY>
+	</ButtonPlus>
+	<ButtonPlus>
+		<Name>characterButtonPlus4</Name>
+		<Texture>character_button_plus.png</Texture>
+		<PosX>160</PosX>
+		<PosY>160</PosY>
+	</ButtonPlus>
+	<ButtonPlus>
+		<Name>characterButtonPlus5</Name>
+		<Texture>character_button_plus.png</Texture>
+		<PosX>160</PosX>
+		<PosY>210</PosY>
+	</ButtonPlus>
+	
 </CharacterSmall>
