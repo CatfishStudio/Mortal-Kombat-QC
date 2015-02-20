@@ -154,8 +154,7 @@ package mkquest.assets
 				
 				case Constants.BUTTON_FIGHTER:
 				{
-					menu();
-					fighters();
+					stairs();
 					break;
 				}
 				

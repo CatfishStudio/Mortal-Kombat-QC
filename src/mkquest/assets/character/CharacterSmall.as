@@ -17,17 +17,16 @@ package mkquest.assets.character
 		private var _fileXML:XML = FileXML.getFileXML(ClassFileXML);
 		private var _image:Image;
 		private var _textField:TextField;
-		private var _buttonsCreate:Boolean = false;
 		private var _button:Button;
 		
-		public function CharacterSmall(_x:int, _y:int, buttonsCreate:Boolean = false) 
+		public function CharacterSmall(_x:int, _y:int) 
 		{
-			_buttonsCreate = buttonsCreate;
-			
 			super();
 			
 			this.x = _x;
 			this.y = _y;
+			createCharacterSmallFromXML();
+			
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			addEventListener(Event.TRIGGERED, onButtonsClick);
@@ -38,8 +37,6 @@ package mkquest.assets.character
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			
 			name = Constants.CHARACTER_SMALL;
-			
-			createCharacterSmallFromXML();
 		}
 		
 		private function createCharacterSmallFromXML():void
@@ -79,11 +76,6 @@ package mkquest.assets.character
 			
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			addChild(_image);
-			
-			if (_buttonsCreate)
-			{
-				createButtonsPlus();
-			}
 		}
 		
 		public function setValueCharacter(value:Vector.<String>):void
@@ -113,7 +105,36 @@ package mkquest.assets.character
 			_textField.text = Resource.user_hit_5.toString();
 		}
 		
-		private function createButtonsPlus():void
+		public function selectValueUserCharacter():void
+		{
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
+			_textField.text = Resource.user_hit_1.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
+			_textField.text = Resource.user_hit_2.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
+			_textField.text = Resource.user_hit_3.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
+			_textField.text = Resource.user_hit_4.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
+			_textField.text = Resource.user_hit_5.toString();
+		}
+		
+		public function selectValueAICharacter(indexAI:int):void
+		{
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
+			_textField.text = Resource.ai_enemies[indexAI].aiHit1.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
+			_textField.text = Resource.ai_enemies[indexAI].aiHit2.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
+			_textField.text = Resource.ai_enemies[indexAI].aiHit3.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
+			_textField.text = Resource.ai_enemies[indexAI].aiHit4.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
+			_textField.text = Resource.ai_enemies[indexAI].aiHit5.toString();
+			
+		}
+		
+		public function createButtonsPlus():void
 		{
 			var n:int = _fileXML.ButtonPlus.length();
 			for (var i:int = 0; i < n; i++)

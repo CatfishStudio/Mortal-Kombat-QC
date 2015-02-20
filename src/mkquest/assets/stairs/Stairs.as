@@ -157,20 +157,24 @@ package mkquest.assets.stairs
 		
 		private function createWindowCharacters():void
 		{
+			/* Характеристики пользователя */
+			_character = new CharacterSmall(-200, _fileXML.Character[0].PosY);
+			_character.name = _fileXML.Character[0].Name;
 			if (Resource.experiencePoints > 0)
 			{
-				_character = new CharacterSmall(50, 50, true);
+				_character.createButtonsPlus();
 			}
-			else
-			{
-				_character = new CharacterSmall(50, 50, false);
-			}
-			_character.name = Constants.CHARACTER_USER;
+			_character.selectValueUserCharacter();
 			_window.addChild(_character);
+			animationCharactersStairs(_character, _fileXML.Character[0].PosX, _fileXML.Character[0].PosY);
+		
 			
-			_character = new CharacterSmall(550, 50, false);
-			_character.name = Constants.CHARACTER_AI;
+			/* Характеристики ИИ */
+			_character = new CharacterSmall(800, _fileXML.Character[1].PosY);
+			_character.name = _fileXML.Character[1].Name;
+			_character.selectValueAICharacter(Resource.tournamentProgress);
 			_window.addChild(_character);
+			animationCharactersStairs(_character, _fileXML.Character[1].PosX, _fileXML.Character[1].PosY);
 		}
 		
 		private function createButtonsPanelFromXML():void
@@ -202,6 +206,12 @@ package mkquest.assets.stairs
 			_sprite.clipRect = new Rectangle(_x, _y, _width, _height);
 		}
 
+		private function animationCharactersStairs(character:CharacterSmall, characterX:int, characterY:int):void
+		{
+			_tween = new Tween(character, 1.0);
+			_tween.moveTo(characterX, characterY);
+			Starling.juggler.add(_tween);
+		}
 		
 		private function animationNextFighterStairs():void
 		{

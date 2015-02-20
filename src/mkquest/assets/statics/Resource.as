@@ -174,7 +174,7 @@ package mkquest.assets.statics
 			user_hit_3 = 0;			// Блок
 			user_hit_4 = 0;			// Апперкот
 			user_hit_5 = 0;			// С разворота
-			tournamentProgress = 12;	// Прогресс прохождения турника (индекс врага) с конца в начало
+			tournamentProgress = 12;// Прогресс прохождения турника (индекс врага) с конца в начало
 			experiencePoints = 0;	// Очки опыта
 			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
 		}

@@ -46,6 +46,17 @@
 		<PosY>661</PosY>
 	</Button>
 	
+	<Character>
+		<Name>characterUser</Name>
+		<PosX>50</PosX>
+		<PosY>150</PosY>
+	</Character>
+	<Character>
+		<Name>characterAI</Name>
+		<PosX>550</PosX>
+		<PosY>150</PosY>
+	</Character>
+	
 	<Icon>
 		<Name>mkWindowStairsEnemyIcon_1</Name>
 		<PosX>162</PosX>
