@@ -12,18 +12,10 @@ package mkquest.assets.initialization
 			return index;
 		}
 		
-		/* Генерация случайного индекса врага */
-		private static function randomIndexEnemies(userFighterName:String, count:int):int
-		{
-			var index:int = randomIndex();
-			var result:int = (index * count) * 0.1;
-			if (result == count) result--;
-			return result;
-		}
 		
-		
-		/* Инициализация списка врагов 
-		 * (Используется в классе "Fighters" функция "showCharacteristics" 
+		/* =======================================================================================================
+		 * Инициализация списка врагов 
+		 * (Используется в классе "Fighters" функция "showCharacteristics") 
 		 * */
 		public static function initEnemies(fileXML:XML, userFighterName:String):Vector.<Enemy>
 		{
@@ -73,9 +65,56 @@ package mkquest.assets.initialization
 			return ai_enemies;
 		}
 		
+		/* Генерация случайного индекса врага */
+		private static function randomIndexEnemies(userFighterName:String, count:int):int
+		{
+			var index:int = randomIndex();
+			var result:int = (index * count) * 0.1;
+			if (result == count) result--;
+			return result;
+		}
+		/* =======================================================================================================*/
 		
 		
 		
+		/* =======================================================================================================
+		 * Инициализация прокачки ИИ в соответствии с уровнем
+		 * (Используется в классе "Fighters" функция "showCharacteristics") 
+		 * */
+		public static function initEnemiesCharacteristics(matrix:Vector.<Enemy>):void
+		{
+			var index:int = 0;
+			var experiencePoints:int = 0;
+			
+			var n:int = matrix.length-1;
+			for (var i:int = n; i >= 0; i--)
+			{
+				experiencePoints = 13 - i;
+				for (var j:int = 0; j < experiencePoints; j++)
+				{
+					index = randomIndexEnemiesCharacteristics();
+					if (index == 1) matrix[i].aiHit1++;
+					if (index == 2) matrix[i].aiHit2++;
+					if (index == 3) matrix[i].aiHit3++;
+					if (index == 4) matrix[i].aiHit4++;
+					if (index == 5) matrix[i].aiHit5++;
+				}
+				
+			}
+		}
+		
+		/* Генерация случайного индекса врага */
+		private static function randomIndexEnemiesCharacteristics():int
+		{
+			var index:int = randomIndex();
+			if (index > 0 && index <= 2) return 1;
+			if (index > 2 && index <= 4) return 2;
+			if (index > 4 && index <= 6) return 3;
+			if (index > 6 && index <= 8) return 4;
+			if (index > 8 && index <= 10) return 5;
+			return 1;
+		}
+		/* =======================================================================================================*/
 		
 	}
 

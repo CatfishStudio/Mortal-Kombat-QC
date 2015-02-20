@@ -80,7 +80,10 @@ package mkquest.assets.fighters
 				{
 					characterSmall.setValueCharacter(_characteristics[i]);	// окно характеристик
 					characterAnimation.selectCharacterAnimamation(name);	// окно анимации бойца
+					
 					Resource.ai_enemies = Initialization.initEnemies(FileXML.getFileXML(ClassFileXML2), name);	// инициализация списка врагов
+					Initialization.initEnemiesCharacteristics(Resource.ai_enemies); // инициализация характеристик врагов
+					
 					return;
 				}
 			}
