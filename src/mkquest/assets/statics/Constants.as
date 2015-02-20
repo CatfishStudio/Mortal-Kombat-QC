@@ -53,8 +53,6 @@ package mkquest.assets.statics
 		public static const BUTTON_PLAY:String = "buttonPlay";
 		public static const BUTTON_FIGHTER:String = "buttonFight";
 		
-		public static const SPINNER:String = "spinner";
-		
 		public static const ACTIONS:String = "actions";
 		public static const DAMAGE:String = "damage";
 		public static const HIT_1:String = "hit1";
@@ -73,9 +71,12 @@ package mkquest.assets.statics
 		public static const MK_WINDOW_HEIGHT:int = 600;
 		
 		public static const MK_WINDOW_STAIRS:String = "mkWindowStairs";
-		public static const MK_WINDOW_STAIRS_CHARACTER:String = "mkWindowStairsCharacter";
-		public static const MK_WINDOW_STAIRS_ENEMY_ICON:String = "mkWindowStairsEnemyIcon";
-		public static const MK_WINDOW_STAIRS_USER_ICON:String = "mkWindowStairsUserIcon";
+		//public static const MK_WINDOW_STAIRS_CHARACTER:String = "mkWindowStairsCharacter";
+		//public static const MK_WINDOW_STAIRS_ENEMY_ICON:String = "mkWindowStairsEnemyIcon";
+		//public static const MK_WINDOW_STAIRS_USER_ICON:String = "mkWindowStairsUserIcon";
+		
+		/*-------------------------------------------------------------------------*/
+		public static const MK_WINDOW_LEVEL:String = "mkWindowLevel";
 		
 	}
 

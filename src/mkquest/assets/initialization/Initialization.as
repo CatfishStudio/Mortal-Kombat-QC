@@ -1,6 +1,7 @@
 package mkquest.assets.initialization 
 {
 	import mkquest.assets.stairs.Enemy;
+	import mkquest.assets.levels.Levels;
 	
 	public class Initialization 
 	{
@@ -118,6 +119,21 @@ package mkquest.assets.initialization
 			if (index > 8 && index <= 10) return 5;
 			return 1;
 		}
+		/* =======================================================================================================*/
+		
+		/* =======================================================================================================
+		 *
+		 * Инициализация уровней
+		 * (Используется в классе "Fighters" функция "showCharacteristics") 
+		 * 
+		*/
+		public static function initLevels():Vector.<Levels>
+		{
+			var levels:Vector.<Levels> = new Vector.<Levels>();
+			
+			return levels;
+		}
+		
 		/* =======================================================================================================*/
 		
 	}

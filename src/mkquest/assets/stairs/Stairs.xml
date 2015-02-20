@@ -14,8 +14,8 @@
 	
 	<Button>
 		<Name>buttonBackInMenu</Name>
-		<TextRus>Назад</TextRus>
-		<TextEng>Back</TextEng>
+		<TextRus>Назад в меню</TextRus>
+		<TextEng>Back in menu</TextEng>
 		<Texture>button.png</Texture>
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>

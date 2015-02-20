@@ -11,10 +11,12 @@ package mkquest.assets
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
+	import mkquest.assets.initialization.Initialization;
 	import mkquest.assets.menu.Menu;
 	import mkquest.assets.fighters.Fighters;
 	import mkquest.assets.settings.Settings;
 	import mkquest.assets.stairs.Stairs;
+	import mkquest.assets.levels.Level;
 	
 	public class Game extends Sprite 
 	{
@@ -105,6 +107,18 @@ package mkquest.assets
 			}
 		}
 		
+		private function level():void
+		{
+			if (getChildByName(Constants.MK_WINDOW_LEVEL) != null)
+			{
+				removeChild(getChildByName(Constants.MK_WINDOW_LEVEL));
+			}
+			else
+			{
+				Resource.levels = Initialization.initLevels();
+				addChild(new Level());
+			}
+		}
 		
 		private function onChangeScreen(event:Navigation):void 
 		{
@@ -139,6 +153,7 @@ package mkquest.assets
 				case Constants.BUTTON_BACK_IN_MENU:
 				{
 					stairs();
+					level();
 					menu();
 					Resource.clearUser();
 					Resource.clearAI();
@@ -155,6 +170,7 @@ package mkquest.assets
 				case Constants.BUTTON_FIGHTER:
 				{
 					stairs();
+					level();
 					break;
 				}
 				

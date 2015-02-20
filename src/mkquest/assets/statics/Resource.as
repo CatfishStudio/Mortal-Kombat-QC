@@ -9,6 +9,7 @@ package mkquest.assets.statics
 	import starling.textures.TextureAtlas;
 	
 	import mkquest.assets.stairs.Enemy;
+	import mkquest.assets.levels.Levels;
 	
 	public class Resource 
 	{
@@ -24,6 +25,9 @@ package mkquest.assets.statics
 		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
 		/* Характеристики ИИ ---------------------------------------------------- */
 		public static var ai_enemies:Vector.<Enemy>; // массив вграгов
+		/*----------------------------------------------------------------------- */
+		/* Уровни --------------------------------------------------------------- */
+		public static var levels:Vector.<Levels>; // массив уровней
 		/*----------------------------------------------------------------------- */
 		
 		/* Настройки игры ------------------*/
