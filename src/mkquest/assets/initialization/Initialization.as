@@ -14,8 +14,10 @@ package mkquest.assets.initialization
 		
 		
 		/* =======================================================================================================
+		 * 
 		 * Инициализация списка врагов 
-		 * (Используется в классе "Fighters" функция "showCharacteristics") 
+		 * (Используется в классе "Fighters" функция "showCharacteristics")
+		 * 
 		 * */
 		public static function initEnemies(fileXML:XML, userFighterName:String):Vector.<Enemy>
 		{
@@ -78,8 +80,10 @@ package mkquest.assets.initialization
 		
 		
 		/* =======================================================================================================
+		 * 
 		 * Инициализация прокачки ИИ в соответствии с уровнем
 		 * (Используется в классе "Fighters" функция "showCharacteristics") 
+		 * 
 		 * */
 		public static function initEnemiesCharacteristics(matrix:Vector.<Enemy>):void
 		{
