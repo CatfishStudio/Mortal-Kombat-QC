@@ -4,43 +4,40 @@
 	Created with ShoeBox
 	http://renderhjs.net/shoebox/
 	-->
-	<SubTexture name="Stairs_down.png"	x="801"	y="255"	width="344"	height="177" frameX="-5" frameY="-0" frameWidth="349" frameHeight="177"/>
-	<SubTexture name="Stairs_up.png"	x="191"	y="856"	width="190"	height="95" frameX="-64" frameY="-0" frameWidth="349" frameHeight="95"/>
-	<SubTexture name="baraka.png"	x="871"	y="513"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="Stairs_down.png"	x="401"	y="601"	width="344"	height="177" frameX="-5" frameY="-0" frameWidth="349" frameHeight="177"/>
+	<SubTexture name="Stairs_up.png"	x="0"	y="856"	width="190"	height="95" frameX="-64" frameY="-0" frameWidth="349" frameHeight="95"/>
+	<SubTexture name="baraka.png"	x="801"	y="495"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
 	<SubTexture name="blueportal.png"	x="0"	y="601"	width="400"	height="254" frameX="-0" frameY="-0" frameWidth="400" frameHeight="254"/>
 	<SubTexture name="border_screen.png"	x="0"	y="0"	width="800"	height="600" frameX="-0" frameY="-0" frameWidth="800" frameHeight="600"/>
-	<SubTexture name="button.png"	x="191"	y="952"	width="166"	height="59" frameX="-4" frameY="-1" frameWidth="170" frameHeight="60"/>
-	<SubTexture name="character_background_left.png"	x="801"	y="0"	width="395"	height="254" frameX="-0" frameY="-0" frameWidth="395" frameHeight="254"/>
-	<SubTexture name="character_background_right.png"	x="797"	y="601"	width="395"	height="254" frameX="-0" frameY="-0" frameWidth="395" frameHeight="254"/>
-	<SubTexture name="character_background_small.png"	x="1197"	y="0"	width="205"	height="254" frameX="-0" frameY="-0" frameWidth="205" frameHeight="254"/>
-	<SubTexture name="character_border.png"	x="401"	y="601"	width="395"	height="254" frameX="-0" frameY="-0" frameWidth="395" frameHeight="254"/>
-	<SubTexture name="character_border_small.png"	x="1146"	y="255"	width="205"	height="254" frameX="-0" frameY="-0" frameWidth="205" frameHeight="254"/>
-	<SubTexture name="character_button_plus.png"	x="941"	y="474"	width="38"	height="38" frameX="-0" frameY="-0" frameWidth="38" frameHeight="38"/>
-	<SubTexture name="character_hit_1.png"	x="941"	y="433"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
-	<SubTexture name="character_hit_2.png"	x="923"	y="897"	width="40"	height="38" frameX="-0" frameY="-1" frameWidth="40" frameHeight="40"/>
-	<SubTexture name="character_hit_3.png"	x="923"	y="856"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
-	<SubTexture name="character_hit_4.png"	x="923"	y="936"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
-	<SubTexture name="character_hit_5.png"	x="923"	y="977"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
-	<SubTexture name="eng.png"	x="964"	y="885"	width="31"	height="28" frameX="-1" frameY="-2" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="goro.png"	x="801"	y="513"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="information.png"	x="941"	y="513"	width="32"	height="32" frameX="-0" frameY="-0" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="jax.png"	x="871"	y="433"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="johnnycage.png"	x="783"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="kitana.png"	x="713"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="kunglao.png"	x="713"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="liukang.png"	x="801"	y="433"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="mileena.png"	x="853"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="music.png"	x="964"	y="946"	width="29"	height="31" frameX="-2" frameY="-0" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="music_off.png"	x="964"	y="914"	width="29"	height="31" frameX="-2" frameY="-0" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="raiden.png"	x="853"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="reptile.png"	x="573"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="rus.png"	x="964"	y="856"	width="31"	height="28" frameX="-1" frameY="-2" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="scorpion.png"	x="573"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="settings_background.png"	x="0"	y="856"	width="190"	height="147" frameX="-0" frameY="-0" frameWidth="190" frameHeight="147"/>
-	<SubTexture name="settings_border.png"	x="382"	y="856"	width="190"	height="147" frameX="-0" frameY="-0" frameWidth="190" frameHeight="147"/>
-	<SubTexture name="shangtsung.png"	x="643"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="shaokahn.png"	x="643"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
-	<SubTexture name="sound.png"	x="941"	y="546"	width="32"	height="30" frameX="-0" frameY="-1" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="sound_off.png"	x="964"	y="978"	width="28"	height="30" frameX="-2" frameY="-1" frameWidth="32" frameHeight="32"/>
-	<SubTexture name="subzero.png"	x="783"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="button.png"	x="0"	y="952"	width="166"	height="59" frameX="-4" frameY="-1" frameWidth="170" frameHeight="60"/>
+	<SubTexture name="character_background_small.png"	x="801"	y="0"	width="205"	height="254" frameX="-0" frameY="-0" frameWidth="205" frameHeight="254"/>
+	<SubTexture name="character_border_small.png"	x="746"	y="601"	width="205"	height="254" frameX="-0" frameY="-0" frameWidth="205" frameHeight="254"/>
+	<SubTexture name="character_button_plus.png"	x="853"	y="897"	width="38"	height="38" frameX="-0" frameY="-0" frameWidth="38" frameHeight="38"/>
+	<SubTexture name="character_hit_1.png"	x="442"	y="779"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_2.png"	x="524"	y="779"	width="40"	height="38" frameX="-0" frameY="-1" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_3.png"	x="483"	y="779"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_4.png"	x="853"	y="856"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="character_hit_5.png"	x="401"	y="779"	width="40"	height="40" frameX="-0" frameY="-0" frameWidth="40" frameHeight="40"/>
+	<SubTexture name="eng.png"	x="499"	y="820"	width="31"	height="28" frameX="-1" frameY="-2" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="goro.png"	x="801"	y="415"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="information.png"	x="434"	y="820"	width="32"	height="32" frameX="-0" frameY="-0" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="jax.png"	x="801"	y="255"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="johnnycage.png"	x="783"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="kitana.png"	x="801"	y="335"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="kunglao.png"	x="713"	y="936"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="liukang.png"	x="713"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="mileena.png"	x="643"	y="939"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="music.png"	x="713"	y="779"	width="29"	height="31" frameX="-2" frameY="-0" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="music_off.png"	x="531"	y="818"	width="29"	height="31" frameX="-2" frameY="-0" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="raiden.png"	x="573"	y="939"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="reptile.png"	x="643"	y="859"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="rus.png"	x="467"	y="820"	width="31"	height="28" frameX="-1" frameY="-2" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="scorpion.png"	x="573"	y="779"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="settings_background.png"	x="382"	y="856"	width="190"	height="147" frameX="-0" frameY="-0" frameWidth="190" frameHeight="147"/>
+	<SubTexture name="settings_border.png"	x="191"	y="856"	width="190"	height="147" frameX="-0" frameY="-0" frameWidth="190" frameHeight="147"/>
+	<SubTexture name="shangtsung.png"	x="573"	y="859"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="shaokahn.png"	x="643"	y="779"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
+	<SubTexture name="sound.png"	x="401"	y="820"	width="32"	height="30" frameX="-0" frameY="-1" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="sound_off.png"	x="713"	y="811"	width="28"	height="30" frameX="-2" frameY="-1" frameWidth="32" frameHeight="32"/>
+	<SubTexture name="subzero.png"	x="783"	y="856"	width="69"	height="79" frameX="-0" frameY="-0" frameWidth="69" frameHeight="79"/>
 </TextureAtlas>

@@ -121,6 +121,11 @@ package mkquest.assets.statics
 		public static var AtlasSpritesRaiden:Class;
 		[Embed(source = '../media/atlas/sprites_raiden.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesRainedXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_goro.png')]
+		public static var AtlasSpritesGoro:Class;
+		[Embed(source = '../media/atlas/sprites_goro.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesGoroXML:Class;
 		/* -------------------------------- */
 		
 		public static function setTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void
