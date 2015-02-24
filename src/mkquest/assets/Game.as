@@ -115,7 +115,7 @@ package mkquest.assets
 			}
 			else
 			{
-				Resource.levels = Initialization.initLevels();
+				Resource.levels = Initialization.initLevels(Resource.ClassXMLFileLevel);
 				addChild(new Level());
 			}
 		}

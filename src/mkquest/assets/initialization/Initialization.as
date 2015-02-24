@@ -1,7 +1,9 @@
 package mkquest.assets.initialization 
 {
+	import mkquest.assets.xml.FileXML;
 	import mkquest.assets.stairs.Enemy;
 	import mkquest.assets.levels.Levels;
+	import mkquest.assets.statics.Resource;
 	
 	public class Initialization 
 	{
@@ -124,14 +126,25 @@ package mkquest.assets.initialization
 		/* =======================================================================================================
 		 *
 		 * Инициализация уровней
-		 * (Используется в классе "Fighters" функция "showCharacteristics") 
+		 * (Используется в классе "Game" функция "Level") 
 		 * 
 		*/
-		public static function initLevels():Vector.<Levels>
+		public static function initLevels(classFileXML:Class):Vector.<Levels>
 		{
-			var levels:Vector.<Levels> = new Vector.<Levels>();
+			var xmlFiles:Vector.<XML> = new Vector.<XML>();
+			var backgroundsNames:Vector.<String> = new Vector.<String>();
 			
-			return levels;
+			var fileXML:XML = FileXML.getFileXML(classFileXML);
+			var n:int = fileXML.level.length();
+			for (var i:int = 0; i < n; i++)
+			{
+				xmlFiles.push(Resource.getLevelFileXML(i + 1));
+				backgroundsNames.push(fileXML.level[i].Background);
+			}
+			
+			var vLevels:Vector.<Levels> = new Vector.<Levels>();
+			
+			return vLevels;
 		}
 		
 		/* =======================================================================================================*/

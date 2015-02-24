@@ -10,6 +10,7 @@ package mkquest.assets.statics
 	
 	import mkquest.assets.stairs.Enemy;
 	import mkquest.assets.levels.Levels;
+	import mkquest.assets.xml.FileXML;
 	
 	public class Resource 
 	{
@@ -57,10 +58,15 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_game.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesGameXML:Class;
 		
-		[Embed(source = '../media/atlas/sprites_level.png')]
-		public static var AtlasSpritesLevel:Class;
-		[Embed(source = '../media/atlas/sprites_level.xml', mimeType='application/octet-stream')]
-		public static var AtlasSpritesLevelXML:Class;
+		[Embed(source = '../media/atlas/sprites_level_textures.png')]
+		public static var AtlasSpritesLevelTextures:Class;
+		[Embed(source = '../media/atlas/sprites_level_textures.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesLevelTexturesXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_level_animation.png')]
+		public static var AtlasSpritesLevelAnimation:Class;
+		[Embed(source = '../media/atlas/sprites_level_animation.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesLevelAnimationXML:Class;
 				
 		[Embed(source = '../media/atlas/sprites_liukang.png')]
 		public static var AtlasSpritesLiukang:Class;
@@ -128,6 +134,41 @@ package mkquest.assets.statics
 		public static var AtlasSpritesGoroXML:Class;
 		/* -------------------------------- */
 		
+		/* Уровни ------------------------- */
+		[Embed(source = '../levels/level.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel:Class;
+		
+		[Embed(source = '../levels/level0.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel0:Class;
+		[Embed(source = '../levels/level1.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel1:Class;
+		[Embed(source = '../levels/level2.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel2:Class;
+		[Embed(source = '../levels/level3.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel3:Class;
+		[Embed(source = '../levels/level4.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel4:Class;
+		[Embed(source = '../levels/level5.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel5:Class;
+		[Embed(source = '../levels/level6.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel6:Class;
+		[Embed(source = '../levels/level7.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel7:Class;
+		[Embed(source = '../levels/level8.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel8:Class;
+		[Embed(source = '../levels/level9.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel9:Class;
+		[Embed(source = '../levels/level10.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel10:Class;
+		[Embed(source = '../levels/level11.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel11:Class;
+		[Embed(source = '../levels/level12.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel12:Class;
+		[Embed(source = '../levels/level13.xml', mimeType='application/octet-stream')]
+		public static var ClassXMLFileLevel13:Class;
+		/* -------------------------------- */
+		
+		
 		public static function setTextureAtlasFromBitmap(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void
 		{
 			var contentfile:ByteArray = new ClassAtlasSpritesXML();
@@ -174,6 +215,23 @@ package mkquest.assets.statics
 			xml = null;
 		}
 		
+		public static function getLevelFileXML(indexFile:int):XML
+		{
+			if (indexFile == 1) return FileXML.getFileXML(Resource.ClassXMLFileLevel1);
+			if (indexFile == 2) return FileXML.getFileXML(Resource.ClassXMLFileLevel2);
+			if (indexFile == 3) return FileXML.getFileXML(Resource.ClassXMLFileLevel3);
+			if (indexFile == 4) return FileXML.getFileXML(Resource.ClassXMLFileLevel4);
+			if (indexFile == 5) return FileXML.getFileXML(Resource.ClassXMLFileLevel5);
+			if (indexFile == 6) return FileXML.getFileXML(Resource.ClassXMLFileLevel6);
+			if (indexFile == 7) return FileXML.getFileXML(Resource.ClassXMLFileLevel7);
+			if (indexFile == 8) return FileXML.getFileXML(Resource.ClassXMLFileLevel8);
+			if (indexFile == 9) return FileXML.getFileXML(Resource.ClassXMLFileLevel9);
+			if (indexFile == 10) return FileXML.getFileXML(Resource.ClassXMLFileLevel10);
+			if (indexFile == 11) return FileXML.getFileXML(Resource.ClassXMLFileLevel11);
+			if (indexFile == 12) return FileXML.getFileXML(Resource.ClassXMLFileLevel12);
+			if (indexFile == 13) return FileXML.getFileXML(Resource.ClassXMLFileLevel13);
+			return FileXML.getFileXML(Resource.ClassXMLFileLevel0);
+		}
 		
 		public static function clearUser():void
 		{
