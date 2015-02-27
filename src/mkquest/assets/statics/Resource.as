@@ -10,7 +10,6 @@ package mkquest.assets.statics
 	
 	import mkquest.assets.stairs.Enemy;
 	import mkquest.assets.levels.Levels;
-	import mkquest.assets.xml.FileXML;
 	
 	public class Resource 
 	{
@@ -215,23 +214,6 @@ package mkquest.assets.statics
 			xml = null;
 		}
 		
-		public static function getLevelFileXML(indexFile:int):XML
-		{
-			if (indexFile == 1) return FileXML.getFileXML(Resource.ClassXMLFileLevel1);
-			if (indexFile == 2) return FileXML.getFileXML(Resource.ClassXMLFileLevel2);
-			if (indexFile == 3) return FileXML.getFileXML(Resource.ClassXMLFileLevel3);
-			if (indexFile == 4) return FileXML.getFileXML(Resource.ClassXMLFileLevel4);
-			if (indexFile == 5) return FileXML.getFileXML(Resource.ClassXMLFileLevel5);
-			if (indexFile == 6) return FileXML.getFileXML(Resource.ClassXMLFileLevel6);
-			if (indexFile == 7) return FileXML.getFileXML(Resource.ClassXMLFileLevel7);
-			if (indexFile == 8) return FileXML.getFileXML(Resource.ClassXMLFileLevel8);
-			if (indexFile == 9) return FileXML.getFileXML(Resource.ClassXMLFileLevel9);
-			if (indexFile == 10) return FileXML.getFileXML(Resource.ClassXMLFileLevel10);
-			if (indexFile == 11) return FileXML.getFileXML(Resource.ClassXMLFileLevel11);
-			if (indexFile == 12) return FileXML.getFileXML(Resource.ClassXMLFileLevel12);
-			if (indexFile == 13) return FileXML.getFileXML(Resource.ClassXMLFileLevel13);
-			return FileXML.getFileXML(Resource.ClassXMLFileLevel0);
-		}
 		
 		public static function clearUser():void
 		{

@@ -7,14 +7,14 @@ package mkquest.assets.initialization
 	
 	public class Initialization 
 	{
-		/* Генератор случайный число */
+		/* Генератор случайный число =========================================================================== */
 		private static function randomIndex():int
 		{
 			var indexRandom:Number = Math.random() * 10;
 			var index:int = Math.round(indexRandom);
 			return index;
 		}
-		
+		/* =======================================================================================================*/
 		
 		/* =======================================================================================================
 		 * 
@@ -138,13 +138,57 @@ package mkquest.assets.initialization
 			var n:int = fileXML.level.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				xmlFiles.push(Resource.getLevelFileXML(i + 1));
+				xmlFiles.push(getLevelFileXML(i + 1));
 				backgroundsNames.push(fileXML.level[i].Background);
 			}
 			
+			
 			var vLevels:Vector.<Levels> = new Vector.<Levels>();
+			var index:int;
+			var objLevels:Levels;
+			for (var j:int = n; j > 0; j--)
+			{
+				objLevels = new Levels();
+				
+				index = randomIndexLevels(j);
+				objLevels.levelFileXML = xmlFiles[index];
+				xmlFiles.splice(index, 1);
+				
+				index = randomIndexLevels(j);
+				objLevels.backgroundFileTexture = backgroundsNames[index];
+				backgroundsNames.splice(index, 1);
+			}
+			
 			
 			return vLevels;
+		}
+		
+		/* Получение xml файла соответствующего уровня */
+		public static function getLevelFileXML(indexFile:int):XML
+		{
+			if (indexFile == 1) return FileXML.getFileXML(Resource.ClassXMLFileLevel1);
+			if (indexFile == 2) return FileXML.getFileXML(Resource.ClassXMLFileLevel2);
+			if (indexFile == 3) return FileXML.getFileXML(Resource.ClassXMLFileLevel3);
+			if (indexFile == 4) return FileXML.getFileXML(Resource.ClassXMLFileLevel4);
+			if (indexFile == 5) return FileXML.getFileXML(Resource.ClassXMLFileLevel5);
+			if (indexFile == 6) return FileXML.getFileXML(Resource.ClassXMLFileLevel6);
+			if (indexFile == 7) return FileXML.getFileXML(Resource.ClassXMLFileLevel7);
+			if (indexFile == 8) return FileXML.getFileXML(Resource.ClassXMLFileLevel8);
+			if (indexFile == 9) return FileXML.getFileXML(Resource.ClassXMLFileLevel9);
+			if (indexFile == 10) return FileXML.getFileXML(Resource.ClassXMLFileLevel10);
+			if (indexFile == 11) return FileXML.getFileXML(Resource.ClassXMLFileLevel11);
+			if (indexFile == 12) return FileXML.getFileXML(Resource.ClassXMLFileLevel12);
+			if (indexFile == 13) return FileXML.getFileXML(Resource.ClassXMLFileLevel13);
+			return FileXML.getFileXML(Resource.ClassXMLFileLevel0);
+		}
+		
+		/* Генерация случайного индекса врага */
+		private static function randomIndexLevels(count:int):int
+		{
+			var index:int = randomIndex();
+			var result:int = (index * count) * 0.1;
+			if (result == count) result--;
+			return result;
 		}
 		
 		/* =======================================================================================================*/
