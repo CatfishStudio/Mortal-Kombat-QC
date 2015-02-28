@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Levels>
+	<Border>border_screen.png</Border>
+	<WindowPosX>30</WindowPosX>
+	<WindowPosY>40</WindowPosY>
+	
+	<Button>
+		<Name>buttonBackInMenu</Name>
+		<TextRus>Назад в меню</TextRus>
+		<TextEng>Back in menu</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>37</PosX>
+		<PosY>661</PosY>
+	</Button>
+	<Button>
+		<Name>menuButtonSattings</Name>
+		<TextRus>Настройки</TextRus>
+		<TextEng>Settings</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>337</PosX>
+		<PosY>661</PosY>
+	</Button>
+	<Button>
+		<Name>buttonFight</Name>
+		<TextRus>Драка</TextRus>
+		<TextEng>Fight</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>637</PosX>
+		<PosY>661</PosY>
+	</Button>
+	
+	
 	<level>
 		<FieldFileXML>level1.xml</FieldFileXML>
 		<Background>level_1.png</Background>

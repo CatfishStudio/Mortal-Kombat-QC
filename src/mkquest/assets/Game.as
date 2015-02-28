@@ -56,7 +56,15 @@ package mkquest.assets
 		
 		private function initGameTextureAtlas():void
 		{
+			Resource.disposeTextureAtlas();
 			Resource.setTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
+		}
+		
+		private function initLevelTextureAtlas():void
+		{
+			Resource.disposeTextureAtlas();
+			Resource.setTextureAtlasFromBitmap(Resource.AtlasSpritesLevelTextures, Resource.AtlasSpritesLevelTexturesXML);
+			Resource.setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesLevelAnimation, Resource.AtlasSpritesLevelAnimationXML);
 		}
 		
 		private function menu():void
@@ -112,10 +120,12 @@ package mkquest.assets
 			if (getChildByName(Constants.MK_WINDOW_LEVEL) != null)
 			{
 				removeChild(getChildByName(Constants.MK_WINDOW_LEVEL));
+				initGameTextureAtlas();
 			}
 			else
 			{
 				Resource.levels = Initialization.initLevels(Resource.ClassXMLFileLevel);
+				initLevelTextureAtlas();
 				addChild(new Level());
 			}
 		}

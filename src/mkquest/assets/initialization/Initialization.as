@@ -64,9 +64,11 @@ package mkquest.assets.initialization
 			{
 				index = randomIndexEnemies(userFighterName, k);
 				ai_enemies.push(matrix[index]);
+				trace("... Имя врага: " + matrix[index].aiName);
 				matrix.splice(index, 1);
 			}
 			
+			trace("<- Инициализация врагов: класс Fighters функция showCharacteristics");
 			return ai_enemies;
 		}
 		
@@ -106,8 +108,8 @@ package mkquest.assets.initialization
 					if (index == 4) matrix[i].aiHit4++;
 					if (index == 5) matrix[i].aiHit5++;
 				}
-				
 			}
+			trace("<- Инициализация характеристик врагов: класс Fighters функция showCharacteristics");
 		}
 		
 		/* Генерация случайного индекса врага */
@@ -122,6 +124,8 @@ package mkquest.assets.initialization
 			return 1;
 		}
 		/* =======================================================================================================*/
+		
+		
 		
 		/* =======================================================================================================
 		 *
@@ -157,9 +161,12 @@ package mkquest.assets.initialization
 				index = randomIndexLevels(j);
 				objLevels.backgroundFileTexture = backgroundsNames[index];
 				backgroundsNames.splice(index, 1);
+				
+				vLevels.push(objLevels);
+				trace("... Уровень: имя фона " + objLevels.backgroundFileTexture + " Файл xml номер: " + objLevels.levelFileXML.LevelNumber);
 			}
 			
-			
+			trace("<- Инициализация уровней: класс Game функция Level");
 			return vLevels;
 		}
 		

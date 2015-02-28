@@ -81,6 +81,7 @@ package mkquest.assets.character
 		public function setValueCharacter(value:Vector.<String>):void
 		{
 			Resource.clearUser();
+			Resource.clearAI();
 			
 			Resource.user_name = value[0].toString();
 			
