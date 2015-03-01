@@ -11,6 +11,7 @@ package mkquest.assets.levels
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
+	import mkquest.assets.match3.Engine;
 	
 	
 	public class Level extends Sprite 
@@ -60,6 +61,9 @@ package mkquest.assets.levels
 			/* Рамка окна */
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			_window.addChild(_image);
+			
+			/* Построение игрового поля и объектов игрового поля */
+			Engine.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML);
 			
 			/* Добавляем окно на сцену*/
 			addChild(_window);

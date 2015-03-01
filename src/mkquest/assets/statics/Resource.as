@@ -168,6 +168,8 @@ package mkquest.assets.statics
 		public static var ClassXMLFileLevel13:Class;
 		/* -------------------------------- */
 		
+		
+		
 		/* Инициализация атласа текстур игры / уровня
 		 * (Используется в классе "Games" функция "initGameTextureAtlas")
 		 * */
