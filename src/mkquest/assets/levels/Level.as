@@ -11,7 +11,7 @@ package mkquest.assets.levels
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
-	import mkquest.assets.match3.Engine;
+	import mkquest.assets.match3.Match3;
 	
 	
 	public class Level extends Sprite 
@@ -27,6 +27,7 @@ package mkquest.assets.levels
 			super();
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED, onRemoveStage);
+			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
 		private function onAddedToStage(e:Event):void
@@ -63,7 +64,7 @@ package mkquest.assets.levels
 			_window.addChild(_image);
 			
 			/* Построение игрового поля и объектов игрового поля */
-			Engine.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML);
+			Match3.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML);
 			
 			/* Добавляем окно на сцену*/
 			addChild(_window);
@@ -100,6 +101,16 @@ package mkquest.assets.levels
 				addChild(_button);
 			}
 		}
+		
+		
+		private function onButtonsClick(event:Event):void 
+		{
+			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
+			{
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
+			}
+		}
+		
 		
 		
 	}

@@ -38,8 +38,8 @@ package mkquest.assets.stairs
 		public function Stairs() 
 		{
 			super();
-			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.addEventListener(Event.REMOVED, onRemoveStage);
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			addEventListener(Event.REMOVED, onRemoveStage);
 			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		

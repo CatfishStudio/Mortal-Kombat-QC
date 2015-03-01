@@ -162,8 +162,8 @@ package mkquest.assets
 				
 				case Constants.BUTTON_BACK_IN_MENU:
 				{
-					stairs();
 					level();
+					stairs();
 					menu();
 					Resource.clearUser();
 					Resource.clearAI();

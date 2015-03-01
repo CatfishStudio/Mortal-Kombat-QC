@@ -28,10 +28,10 @@ package mkquest.assets.match3
 			
 			if (cellType == "CELL_TYPE_EMPTY") this.visible = false;
 			if (cellType == "CELL_TYPE_CLEAR") {
-				_cellBG = new Quad(Engine.CELL_WIDTH, Engine.CELL_HEIGHT, 0x000000, true); //0x8000FF
+				_cellBG = new Quad(Match3.CELL_WIDTH, Match3.CELL_HEIGHT, 0x000000, true); //0x8000FF
 				_cellBG.alpha = 0.4;
 				this.addChild(_cellBG);
-				_cell = new Quad(Engine.CELL_WIDTH, Engine.CELL_HEIGHT, 0x000000, true); // 0x8000FF
+				_cell = new Quad(Match3.CELL_WIDTH, Match3.CELL_HEIGHT, 0x000000, true); // 0x8000FF
 				_cell.width = 78; 
 				_cell.height = 78;
 				_cell.alpha = 0.6;
