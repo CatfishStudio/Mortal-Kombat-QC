@@ -8,8 +8,8 @@ package mkquest.assets.match3
 	
 	public class Unit extends Sprite 
 	{
-		public var cellType:String = "CELL_TYPE_CLEAR";	// тип ячейки
-		public var unitType:String = "CRYSTAL_TYPE_0";	// тип кристала			
+		public var cellType:String = "CELL_TYPE_CLEAR";	// тип Cell
+		public var unitType:String = "HIT_0";			// тип Unit			
 		
 		public var flagRemove:Boolean = false;
 		public var posColumnI:int = 0;

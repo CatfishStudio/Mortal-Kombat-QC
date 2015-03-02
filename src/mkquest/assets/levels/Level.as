@@ -12,6 +12,7 @@ package mkquest.assets.levels
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.match3.Match3;
+	import mkquest.assets.match3.Events;
 	
 	
 	public class Level extends Sprite 
@@ -50,6 +51,7 @@ package mkquest.assets.levels
 		{
 			/* окно */
 			_window = new Sprite();
+			_window.addEventListener(Events.MATCH_3_EVENTS, onMatch3Events);
 			_window.x = _fileXML.WindowPosX;
 			_window.y = _fileXML.WindowPosY;
 			
@@ -71,6 +73,11 @@ package mkquest.assets.levels
 			
 			/* Маска окна */
 			clipMask(_window, 0, 0, Constants.MK_WINDOW_WIDTH, Constants.MK_WINDOW_HEIGHT);
+		}
+		
+		private function onMatch3Events(e:Events):void 
+		{
+			
 		}
 		
 		private function clipMask(_sprite:Sprite, _x:int, _y:int, _width:int, _height:int):void

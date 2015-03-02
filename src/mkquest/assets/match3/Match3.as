@@ -12,7 +12,6 @@ package mkquest.assets.match3
 	import starling.events.TouchPhase;
 	import starling.textures.TextureAtlas;
 	
-	
 	public class Match3 
 	{
 		/* Костанты */
@@ -145,6 +144,8 @@ package mkquest.assets.match3
 					index++;
 				}
 			}
+			
+			field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: "Complite_Build_Cells_And_Units" })); // СОБЫТИЕ
 			trace("<> Построен: Игровое поле и объекты игрового поля");
 		}
 		
@@ -156,6 +157,9 @@ package mkquest.assets.match3
 				if (touch.phase == TouchPhase.BEGAN)
 				{
 					Mouse.cursor = MouseCursor.BUTTON;
+					
+					field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: "Unit_Click" })); // СОБЫТИЕ
+					
 					if (fieldBlocked == false) // Игровое поле разблокировано
 					{	
 						if (unit1 == null) unit1 = (e.currentTarget as Unit);
