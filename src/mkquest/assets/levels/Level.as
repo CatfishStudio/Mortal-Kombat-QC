@@ -66,7 +66,7 @@ package mkquest.assets.levels
 			_window.addChild(_image);
 			
 			/* Построение игрового поля и объектов игрового поля */
-			Match3.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML);
+			Match3.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML, FileXML.getFileXML(Resource.ClassXMLFileLevel0));
 			
 			/* Добавляем окно на сцену*/
 			addChild(_window);
