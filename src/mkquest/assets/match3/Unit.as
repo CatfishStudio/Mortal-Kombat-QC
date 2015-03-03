@@ -54,7 +54,7 @@ package mkquest.assets.match3
 				{
 					Mouse.cursor = MouseCursor.BUTTON;
 					
-					Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: "onUnitTouch" })); // СОБЫТИЕ
+					Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: Match3.ON_UNIT_CLICK })); // СОБЫТИЕ 
 					
 					
 					if (Match3.fieldBlocked == false) // Игровое поле разблокировано

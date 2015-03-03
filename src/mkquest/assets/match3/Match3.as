@@ -1,15 +1,10 @@
 package mkquest.assets.match3 
 {
 	import flash.utils.ByteArray;
-	//import flash.ui.Mouse;
-	//import flash.ui.MouseCursor;
 	
 	import starling.display.Sprite;
 	import starling.core.Starling;
 	import starling.animation.Tween;
-	//import starling.events.Touch;
-	//import starling.events.TouchEvent;
-	//import starling.events.TouchPhase;
 	import starling.textures.TextureAtlas;
 	
 	public class Match3 
@@ -19,6 +14,10 @@ package mkquest.assets.match3
 		public static const ROWS:int = 6;
 		public static const CELL_WIDTH:int = 82;
 		public static const CELL_HEIGHT:int = 82;
+		
+		public static const ON_UNIT_CLICK = "onUnitClick";
+		public static const ON_COMPLITE_BUILD_CELLS_UNITS = "onCompliteBuildsCellsUnits";
+		
 		
 		/* Игровое поле */
 		public static var field:Sprite;
@@ -129,9 +128,6 @@ package mkquest.assets.match3
 						(MatrixUnit[iUnit][jUnit] as Unit).unitType = fileXML.cell[index].cellObject;
 						(MatrixUnit[iUnit][jUnit] as Unit).cellType = "CELL_TYPE_CLEAR";
 						(MatrixUnit[iUnit][jUnit] as Unit).UnitShow();
-						/*события */
-						//(MatrixUnit[iUnit][jUnit] as Unit).addEventListener(TouchEvent.TOUCH, onButtonTouch);
-						
 						field.addChild(MatrixUnit[iUnit][jUnit]);
 					}else {
 						/* объект HIT_0 */
@@ -147,53 +143,9 @@ package mkquest.assets.match3
 				}
 			}
 			
-			field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: "Complite_Build_Cells_And_Units" })); // СОБЫТИЕ
+			field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_COMPLITE_BUILD_CELLS_UNITS })); // СОБЫТИЕ
 			trace("<> Построен: Игровое поле и объекты игрового поля");
 		}
-		
-		/*
-		private static function onButtonTouch(e:TouchEvent):void 
-		{
-			var touch:Touch = e.getTouch(field.stage);
-			if (touch)
-			{
-				if (touch.phase == TouchPhase.BEGAN)
-				{
-					Mouse.cursor = MouseCursor.BUTTON;
-					
-					field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: "Unit_Click" })); // СОБЫТИЕ
-					
-					if (fieldBlocked == false) // Игровое поле разблокировано
-					{	
-						if (unit1 == null) unit1 = (e.currentTarget as Unit);
-						else 
-						{
-							if ((e.currentTarget as Unit) != unit1) 
-							{
-								fieldBlocked = true;
-								unit2 = (e.currentTarget as Unit);
-								if(unit2.posColumnI > (unit1.posColumnI - 2) && unit2.posColumnI < (unit1.posColumnI + 2) && unit2.posRowJ > (unit1.posRowJ - 2) && unit2.posRowJ < (unit1.posRowJ + 2) && (unit2.posColumnI == unit1.posColumnI || unit2.posRowJ == unit1.posRowJ))
-									ExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
-								else RecoveryField();
-							}else RecoveryField();
-						}
-					}
-				}
-				else if (touch.phase == TouchPhase.ENDED)
-				{
-					Mouse.cursor = MouseCursor.AUTO;
-				}
-				else if (touch.phase == TouchPhase.HOVER)
-				{
-					Mouse.cursor = MouseCursor.AUTO;
-				}
-				else if (touch.phase == TouchPhase.MOVED)
-				{
-					Mouse.cursor = MouseCursor.BUTTON;
-				}
-			}
-		}
-		*/
 		/* ============================================================================================ */
 		
 		/* Обмен местами в массиве выбранных пользователем  объектов ===================================*/
@@ -533,8 +485,6 @@ package mkquest.assets.match3
 									if (type1 >= 6 && type1 < 8) newUnit1.unitType = "HIT_4";
 									if (type1 >= 8 && type1 <= 10) newUnit1.unitType = "HIT_5";
 									
-									/*события*/
-									//newUnit1.addEventListener(TouchEvent.TOUCH, onButtonTouch);
 									newUnit1.cellType = "CELL_TYPE_CLEAR";
 									newUnit1.UnitShow();
 						
@@ -577,8 +527,6 @@ package mkquest.assets.match3
 								if (type2 >= 6 && type2 < 8) newUnit2.unitType = "HIT_4";
 								if (type2 >= 8 && type2 <= 10) newUnit2.unitType = "HIT_5";
 						
-								/*события*/
-								//newUnit2.addEventListener(TouchEvent.TOUCH, onButtonTouch);
 								newUnit2.cellType = "CELL_TYPE_CLEAR";
 								newUnit2.UnitShow();
 						
@@ -825,7 +773,418 @@ package mkquest.assets.match3
 		/* ============================================================================================ */
 		
 		
+		/* Ход искусственного интеллекта ============================================================== */
+		public static function GetPriorityUnit(unitType:String):int
+		{
+			if (unitType == "HIT_1") return 1;
+			if (unitType == "HIT_2") return 2;
+			if (unitType == "HIT_3") return RandomIndex();
+			if (unitType == "HIT_4") return 4;
+			if (unitType == "HIT_5") return 5;
+			return 0;
+		}
 		
+		public static function ActionAI():void
+		{
+			var priorityUnit:int = 0;
+			
+			/*	   0  1  2  3  4  5
+			 * 	0:[0][0][0][0][1][0]
+				1:[0][0][1][1][0][1]
+				2:[0][0][0][0][1][0]
+				3:[0][0][0][0][0][0]
+				4:[0][0][0][0][0][0]
+				5:[0][0][0][0][0][0]
+			 * */
+			// Проверка строк и колонок
+			for (var iCol:int = 0; iCol < COLUMNS; iCol++) 
+			{
+				for (var iRow:int = 0; iRow < ROWS; iRow++) 
+				{
+					if ((MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0") 
+					{
+							// ПРОВЕРКА СТРОКИ ---------------------------------------------------------------------------------------------
+							if (iRow == 0) 
+							{
+								//[1][1][X][1]
+								if ((iCol + 3) < COLUMNS)
+									if((MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+3][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 3][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 2][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 3][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[1][X][1][1]
+								if ((iCol + 3) < COLUMNS)
+									if((MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+3][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 3][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[0][1][X][1]
+								//[0][0][1][0]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow+1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[0][1][1][X]
+								//[0][0][0][1]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow + 1] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 2][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 2][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[0][X][1][1]
+								//[0][1][0][0]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow+1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow + 1] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow + 1] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow + 1] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow + 1] as Unit).unitType);
+											} 
+										}
+							}else {
+								//[1][1][X][1]
+								if ((iCol + 3) < COLUMNS)
+									if((MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+3][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 3][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 2][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 3][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[1][X][1][1]
+								if ((iCol + 3) < COLUMNS)
+									if((MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+3][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 3][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[0][1][1][X]
+								//[0][0][0][1]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow+1] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow + 1] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 2][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 2][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[0][0][0][1]
+								//[0][1][1][X]
+								if ((iCol + 2) < COLUMNS && (iRow - 1) >= 0)
+									if((MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow-1] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow - 1] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 2][iRow - 1] as Unit);
+												unit2 = (MatrixUnit[iCol + 2][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[0][X][1][1]
+								//[0][1][0][0]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow+1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow + 1] as Unit).unitType == (MatrixUnit[iCol + 1][iRow] as Unit).unitType && (MatrixUnit[iCol][iRow + 1] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow + 1] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow + 1] as Unit).unitType);
+											} 
+										}
+								//[0][1][0][0]
+								//[0][X][1][1]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+1][iRow+1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol+2][iRow+1] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow + 1] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[0][0][1][0]
+								//[0][1][X][1]
+								if ((iCol + 2) < COLUMNS && (iRow - 1) >= 0)
+									if((MatrixUnit[iCol + 1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow - 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 2][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow - 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 1][iRow - 1] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[0][1][X][1]
+								//[0][0][1][0]
+								if ((iCol + 2) < COLUMNS && (iRow + 1) < ROWS)
+									if((MatrixUnit[iCol + 1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 2][iRow] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 2][iRow] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+							}
+							
+							// ПРОВЕРКА КОЛОНКИ -----------------------------------------------------------------------------------------
+							if (iCol == 0) {
+								//[1]
+								//[1]
+								//[X]
+								//[1]
+								if ((iRow + 3) < ROWS)
+									if((MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 3] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 3] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow + 2] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 3] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[1]
+								//[X]
+								//[1]
+								//[1]
+								if ((iRow + 3) < ROWS)
+									if((MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 3] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 3] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[1][0]
+								//[X][1]
+								//[1][0]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol + 1) < COLUMNS)
+									if((MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[1][0]
+								//[1][0]
+								//[X][1]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol + 1) < COLUMNS)
+									if((MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 2] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow + 2] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow + 2] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											} 
+										}
+								//[X][1]
+								//[1][0]
+								//[1][0]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol + 1) < COLUMNS)
+									if((MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol + 1][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol + 1][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol + 1][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol + 1][iRow] as Unit).unitType);
+											}
+										}
+							}else {
+								//[1]
+								//[1]
+								//[X]
+								//[1]
+								if ((iRow + 3) < ROWS)
+									if((MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 3] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 3] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow + 2] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 3] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[1]
+								//[X]
+								//[1]
+								//[1]
+								if ((iRow + 3) < ROWS)
+									if((MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 3] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 3] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[1][0]
+								//[X][1]
+								//[1][0]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol + 1) < COLUMNS)
+									if((MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[0][1]
+								//[1][X]
+								//[0][1]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol - 1) >= 0)
+									if((MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol - 1][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol - 1][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol - 1][iRow + 1] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 1] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[1][0]
+								//[1][0]
+								//[X][1]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol + 1) < COLUMNS)
+									if((MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol + 1][iRow + 2] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow + 2] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow + 2] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[X][1]
+								//[1][0]
+								//[1][0]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol + 1) < COLUMNS)
+									if((MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol + 1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol + 1][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol + 1][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType) 
+										{ 
+											if (GetPriorityUnit((MatrixUnit[iCol + 1][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol + 1][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol + 1][iRow] as Unit).unitType);
+											}
+										}
+								//[0][1]
+								//[0][1]
+								//[1][X]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol - 1) >= 0)
+									if((MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol - 1][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol][iRow] as Unit).unitType == (MatrixUnit[iCol - 1][iRow + 2] as Unit).unitType) 
+										{
+											if (GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol - 1][iRow + 2] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow + 2] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol][iRow] as Unit).unitType);
+											}
+										}
+								//[1][X]
+								//[0][1]
+								//[0][1]
+								//[0][0]
+								if ((iRow + 2) < ROWS && (iCol - 1) >= 0)
+									if((MatrixUnit[iCol][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol - 1][iRow] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 1] as Unit).unitType != "HIT_0" && (MatrixUnit[iCol][iRow + 2] as Unit).unitType != "HIT_0")
+										if ((MatrixUnit[iCol - 1][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 1] as Unit).unitType && (MatrixUnit[iCol - 1][iRow] as Unit).unitType == (MatrixUnit[iCol][iRow + 2] as Unit).unitType) 
+										{	
+											if (GetPriorityUnit((MatrixUnit[iCol - 1][iRow] as Unit).unitType) > priorityUnit) 
+											{
+												unit1 = (MatrixUnit[iCol - 1][iRow] as Unit);
+												unit2 = (MatrixUnit[iCol][iRow] as Unit);
+												priorityUnit = GetPriorityUnit((MatrixUnit[iCol - 1][iRow] as Unit).unitType);
+											}
+										}
+							}
+					}
+				}
+				fieldBlocked = true;
+				ExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
+			}
+			
+			
+			
+			
+			
+		}
+		/* ============================================================================================ */
 		
 		
 		
