@@ -1,15 +1,15 @@
 package mkquest.assets.match3 
 {
 	import flash.utils.ByteArray;
-	import flash.ui.Mouse;
-	import flash.ui.MouseCursor;
+	//import flash.ui.Mouse;
+	//import flash.ui.MouseCursor;
 	
 	import starling.display.Sprite;
 	import starling.core.Starling;
 	import starling.animation.Tween;
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
+	//import starling.events.Touch;
+	//import starling.events.TouchEvent;
+	//import starling.events.TouchPhase;
 	import starling.textures.TextureAtlas;
 	
 	public class Match3 
@@ -130,7 +130,7 @@ package mkquest.assets.match3
 						(MatrixUnit[iUnit][jUnit] as Unit).cellType = "CELL_TYPE_CLEAR";
 						(MatrixUnit[iUnit][jUnit] as Unit).UnitShow();
 						/*события */
-						(MatrixUnit[iUnit][jUnit] as Unit).addEventListener(TouchEvent.TOUCH, onButtonTouch);
+						//(MatrixUnit[iUnit][jUnit] as Unit).addEventListener(TouchEvent.TOUCH, onButtonTouch);
 						
 						field.addChild(MatrixUnit[iUnit][jUnit]);
 					}else {
@@ -151,6 +151,7 @@ package mkquest.assets.match3
 			trace("<> Построен: Игровое поле и объекты игрового поля");
 		}
 		
+		/*
 		private static function onButtonTouch(e:TouchEvent):void 
 		{
 			var touch:Touch = e.getTouch(field.stage);
@@ -192,6 +193,7 @@ package mkquest.assets.match3
 				}
 			}
 		}
+		*/
 		/* ============================================================================================ */
 		
 		/* Обмен местами в массиве выбранных пользователем  объектов ===================================*/
@@ -419,9 +421,9 @@ package mkquest.assets.match3
 		{
 			for (var i:int = 0; i < COLUMNS; i++) /* i - столбецы (обработка слева на право) */
 			{ 
-				var matrixUnits:Vector.<Unit> = new Vector.<Unit>(); // массив юнитов сохраняемых на поле
-				var matrixEmpty:Vector.<Unit> = new Vector.<Unit>(); // массив пустот сохраняемых на поле
-				var matrixAll:Vector.<Unit> = new Vector.<Unit>(); // массив всех эдементов игрового поля (после слияния и добавления)
+				var matrixUnits:Vector.<Unit> = new Vector.<Unit>(fieldTextureAtlas); // массив юнитов сохраняемых на поле
+				var matrixEmpty:Vector.<Unit> = new Vector.<Unit>(fieldTextureAtlas); // массив пустот сохраняемых на поле
+				var matrixAll:Vector.<Unit> = new Vector.<Unit>(fieldTextureAtlas); // массив всех эдементов игрового поля (после слияния и добавления)
 				
 				/* Удаление помеченных кристалов ---------------------------------------------------------------------------------*/
 				for (var j1:int = ROWS - 1; j1 >= 0; j1--) 
@@ -434,8 +436,10 @@ package mkquest.assets.match3
 						//////////////////////level.StarsAnimation((Resource.MatrixUnit[i][j1] as Unit).x, (Resource.MatrixUnit[i][j1] as Unit).y);
 						/* Увеличиваем количество собранных кристалов и очков */
 						//////////////////////level.CollectAmountCrystalsAndScore((Resource.MatrixUnit[i][j1] as Unit).unitType);
+						
 						/* Удаление объект с поля */
-						field.removeChild(MatrixUnit[i][j1]);
+						field.removeChild(MatrixUnit[i][j1] as Unit); //(MatrixUnit[i][j1] as Unit).removeFromParent(true);
+						
 						/* Удаляем в главном массиве */
 						MatrixUnit[i].pop(); // Удаляем из главного массива
 					}
@@ -509,7 +513,7 @@ package mkquest.assets.match3
 									{ 
 										(matrixUnits[0] as Unit).posRowJ = iAdd; // изменяем индекс положения в строке
 										matrixAll.push(matrixUnits[0]); // переносим
-										AnimationMoveDown((matrixUnits[0] as Unit), (matrixUnits[0] as Unit).x, (70 + (50 * iAdd)));
+										AnimationMoveDown((matrixUnits[0] as Unit), (matrixUnits[0] as Unit).x, (70 + (82 * iAdd)));
 										matrixUnits.shift(); // удаляем
 									}
 								}
@@ -517,8 +521,8 @@ package mkquest.assets.match3
 								{ 
 									/* Добавление новых объектов в массив и на поле */
 									var newUnit1:Unit = new Unit(fieldTextureAtlas);
-									newUnit1.x = 165 + (50 * i);
-									newUnit1.y = 0 + (50 * 0);	// начальная позиция для нового объекта
+									newUnit1.x = 155 + (82 * i);
+									newUnit1.y = 0 + (82 * 0);	// начальная позиция для нового объекта
 									newUnit1.posColumnI = i;
 									newUnit1.posRowJ = iAdd;
 									
@@ -530,13 +534,13 @@ package mkquest.assets.match3
 									if (type1 >= 8 && type1 <= 10) newUnit1.unitType = "HIT_5";
 									
 									/*события*/
-									newUnit1.addEventListener(TouchEvent.TOUCH, onButtonTouch);
+									//newUnit1.addEventListener(TouchEvent.TOUCH, onButtonTouch);
 									newUnit1.cellType = "CELL_TYPE_CLEAR";
 									newUnit1.UnitShow();
 						
 									matrixAll.push(newUnit1);
 									field.addChild(newUnit1)
-									AnimationMoveDown(newUnit1, newUnit1.x, (70 + (50 * iAdd)));
+									AnimationMoveDown(newUnit1, newUnit1.x, (70 + (82 * iAdd)));
 								}
 							}
 						}
@@ -553,7 +557,7 @@ package mkquest.assets.match3
 								{ 
 									(matrixUnits[0] as Unit).posRowJ = iAdd; // изменяем индекс положения в строке
 									matrixAll.push(matrixUnits[0]); // переносим
-									AnimationMoveDown((matrixUnits[0] as Unit), (matrixUnits[0] as Unit).x, (70 + (50 * iAdd)));
+									AnimationMoveDown((matrixUnits[0] as Unit), (matrixUnits[0] as Unit).x, (70 + (82 * iAdd)));
 									matrixUnits.shift(); // удаляем
 								}
 							}
@@ -561,8 +565,8 @@ package mkquest.assets.match3
 							{ 
 								/* Добавление новых объектов в массив и на поле */
 								var newUnit2:Unit = new Unit(fieldTextureAtlas);
-								newUnit2.x = 165 + (50 * i);
-								newUnit2.y = 0 + (50 * 0);	// начальная позиция для нового объекта
+								newUnit2.x = 155 + (82 * i);
+								newUnit2.y = 0 + (82 * 0);	// начальная позиция для нового объекта
 								newUnit2.posColumnI = i;
 								newUnit2.posRowJ = iAdd;
 									
@@ -574,13 +578,13 @@ package mkquest.assets.match3
 								if (type2 >= 8 && type2 <= 10) newUnit2.unitType = "HIT_5";
 						
 								/*события*/
-								newUnit2.addEventListener(TouchEvent.TOUCH, onButtonTouch);
+								//newUnit2.addEventListener(TouchEvent.TOUCH, onButtonTouch);
 								newUnit2.cellType = "CELL_TYPE_CLEAR";
 								newUnit2.UnitShow();
 						
 								matrixAll.push(newUnit2);
 								field.addChild(newUnit2)
-								AnimationMoveDown(newUnit2, newUnit2.x, (70 + (50 * iAdd)));
+								AnimationMoveDown(newUnit2, newUnit2.x, (70 + (82 * iAdd)));
 							}
 						}
 					}

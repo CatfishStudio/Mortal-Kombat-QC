@@ -28,7 +28,7 @@ package mkquest.assets.character
 			createCharacterSmallFromXML();
 			
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			addEventListener(Event.REMOVED, onRemoveStage);
 			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
@@ -202,9 +202,9 @@ package mkquest.assets.character
 
 
 		
-		private function onRemoveFromStage(e:Event):void 
+		private function onRemoveStage(e:Event):void 
 		{
-			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			removeEventListener(Event.REMOVED, onRemoveStage);
 			
 			ClassFileXML = null;
 			_fileXML = null;
@@ -222,6 +222,7 @@ package mkquest.assets.character
 			this.removeFromParent(true);
 			
 			super.dispose();
+			trace("[X] Удалена сцена харктеристик бойца");
 		}
 	}
 

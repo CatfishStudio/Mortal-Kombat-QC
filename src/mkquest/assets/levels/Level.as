@@ -27,7 +27,7 @@ package mkquest.assets.levels
 		{
 			super();
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addEventListener(Event.REMOVED, onRemoveStage);
+			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveStage);
 			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
@@ -42,9 +42,8 @@ package mkquest.assets.levels
 		
 		private function onRemoveStage(e:Event):void
 		{
-			//Starling.juggler.remove(_tween);
-			//_tween = null;
 			super.dispose();
+			trace("[X] Удалена сцена уровня");
 		}
 		
 		private function createWindow():void

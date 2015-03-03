@@ -1,10 +1,16 @@
 package mkquest.assets.match3 
 {
+	import flash.ui.Mouse;
+	import flash.ui.MouseCursor;
+	
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.display.Image;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	
 	public class Unit extends Sprite 
 	{
@@ -24,7 +30,8 @@ package mkquest.assets.match3
 			
 			super();
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addEventListener(Event.REMOVED, onRemoveStage);
+			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveStage);
+			addEventListener(TouchEvent.TOUCH, onUnitTouch);
 		}
 		
 		private function onRemoveStage(e:Event):void 
@@ -36,6 +43,54 @@ package mkquest.assets.match3
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
+		
+		
+		private static function onUnitTouch(e:TouchEvent):void 
+		{
+			var touch:Touch = e.getTouch(Match3.field.stage);
+			if (touch)
+			{
+				if (touch.phase == TouchPhase.BEGAN)
+				{
+					Mouse.cursor = MouseCursor.BUTTON;
+					
+					Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: "onUnitTouch" })); // СОБЫТИЕ
+					
+					
+					if (Match3.fieldBlocked == false) // Игровое поле разблокировано
+					{	
+						if (Match3.unit1 == null)
+						{
+							Match3.unit1 = (e.currentTarget as Unit);
+						}
+						else 
+						{
+							if ((e.currentTarget as Unit) != Match3.unit1) 
+							{
+								Match3.fieldBlocked = true;
+								Match3.unit2 = (e.currentTarget as Unit);
+								if(Match3.unit2.posColumnI > (Match3.unit1.posColumnI - 2) && Match3.unit2.posColumnI < (Match3.unit1.posColumnI + 2) && Match3.unit2.posRowJ > (Match3.unit1.posRowJ - 2) && Match3.unit2.posRowJ < (Match3.unit1.posRowJ + 2) && (Match3.unit2.posColumnI == Match3.unit1.posColumnI || Match3.unit2.posRowJ == Match3.unit1.posRowJ))
+									Match3.ExchangeUnits(Match3.unit1.posColumnI, Match3.unit1.posRowJ, Match3.unit2.posColumnI, Match3.unit2.posRowJ);
+								else Match3.RecoveryField();
+							}else Match3.RecoveryField();
+						}
+					}
+				}
+				else if (touch.phase == TouchPhase.ENDED)
+				{
+					Mouse.cursor = MouseCursor.AUTO;
+				}
+				else if (touch.phase == TouchPhase.HOVER)
+				{
+					Mouse.cursor = MouseCursor.AUTO;
+				}
+				else if (touch.phase == TouchPhase.MOVED)
+				{
+					Mouse.cursor = MouseCursor.BUTTON;
+				}
+			}
+		}
+		
 		
 		public function UnitShow():void
 		{

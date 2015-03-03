@@ -136,11 +136,12 @@ package mkquest.assets.animation
 			{
 				this.removeFrameAt(0);
 			}
-			textureAtlas.dispose();
+			if(textureAtlas != null) textureAtlas.dispose();
 			textureAtlas = null;
 			this.removeFromParent(true);
 			
 			super.dispose();
+			trace("[X] Удалена анимации бойца");
 		}
 		
 		private function onComplete(e:Event):void 

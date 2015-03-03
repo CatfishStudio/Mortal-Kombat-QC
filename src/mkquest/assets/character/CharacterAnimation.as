@@ -60,7 +60,7 @@ package mkquest.assets.character
 			
 			ClassFileXML = null;
 			_fileXML = null;
-			_image.dispose();
+			if(_image != null) _image.dispose();
 			_image = null;
 			
 			while (this.numChildren)
@@ -70,6 +70,7 @@ package mkquest.assets.character
 			this.removeFromParent(true);
 			
 			super.dispose();
+			trace("[X] Удалена сцена анимации бойца");
 		}
 		
 	}
