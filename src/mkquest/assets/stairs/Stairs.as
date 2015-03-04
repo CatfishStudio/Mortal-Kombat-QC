@@ -248,6 +248,7 @@ package mkquest.assets.stairs
 			_tween = null;
 			
 			super.dispose();
+			trace("[X] Удалена сцена столб бойцов");
 		}
 	}
 

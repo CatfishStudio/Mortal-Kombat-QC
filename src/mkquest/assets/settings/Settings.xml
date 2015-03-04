@@ -6,7 +6,7 @@
 	<Button>
 		<Name>settingsButtonApply</Name>
 		<Texture>button.png</Texture>
-		<TextRus>Принять</TextRus>
+		<TextRus>Закрыть</TextRus>
 		<TextEng>Apply</TextEng>
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>

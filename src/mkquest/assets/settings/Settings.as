@@ -192,6 +192,7 @@ package mkquest.assets.settings
 			this.removeFromParent(true);
 			*/
 			super.dispose();
+			trace("[X] Удалена сцена настройки");
 		}
 	}
 

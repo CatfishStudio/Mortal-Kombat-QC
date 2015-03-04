@@ -71,7 +71,7 @@ package mkquest.assets.menu
 			
 			ClassFileXML = null;
 			_fileXML = null;
-			_button.dispose();
+			if (_button) _button.dispose();
 			_button = null;
 			
 			while (this.numChildren)
@@ -81,6 +81,7 @@ package mkquest.assets.menu
 			this.removeFromParent(true);
 			
 			super.dispose();
+			trace("[X] Удалена сцена меню");
 		}
 	}
 

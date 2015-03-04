@@ -18,4 +18,13 @@
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
 	</Button>
+	<Button>
+		<Name>VKButtonInvite</Name>
+		<TextRus>Пригласить</TextRus>
+		<TextEng>Invite</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
 </Menu>

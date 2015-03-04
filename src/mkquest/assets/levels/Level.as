@@ -74,9 +74,63 @@ package mkquest.assets.levels
 			clipMask(_window, 0, 0, Constants.MK_WINDOW_WIDTH, Constants.MK_WINDOW_HEIGHT);
 		}
 		
-		private function onMatch3Events(e:Events):void 
+		private function onMatch3Events(event:Events):void 
 		{
-			
+			switch(event.data.id)
+			{
+				case Match3.ON_AI_MOVE:
+				{
+					trace(Match3.ON_AI_MOVE);
+					break;
+				}
+				
+				case Match3.ON_COMPLITE_BUILD_CELLS_UNITS:
+				{
+					trace(Match3.ON_COMPLITE_BUILD_CELLS_UNITS);
+					break;
+				}
+				
+				case Match3.ON_MATCH_GROUP_DEFINED:
+				{
+					trace(Match3.ON_MATCH_GROUP_DEFINED);
+					break;
+				}
+				
+				case Match3.ON_MOVE_BACK:
+				{
+					trace(Match3.ON_MOVE_BACK);
+					break;
+				}
+				
+				case Match3.ON_MOVE_COMPLITE:
+				{
+					trace(Match3.ON_MOVE_COMPLITE);
+					break;
+				}
+				
+				case Match3.ON_UNIT_CLICK:
+				{
+					trace(Match3.ON_UNIT_CLICK);
+					break;
+				}
+				
+				case Match3.ON_UNIT_REMOVE:
+				{
+					trace(Match3.ON_UNIT_REMOVE);
+					break;
+				}
+				
+				case Match3.ON_USER_MOVE:
+				{
+					trace(Match3.ON_USER_MOVE);
+					break;
+				}
+				
+				default:
+				{
+					break;
+				}
+			}
 		}
 		
 		private function clipMask(_sprite:Sprite, _x:int, _y:int, _width:int, _height:int):void

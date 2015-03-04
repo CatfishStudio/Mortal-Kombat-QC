@@ -157,7 +157,7 @@ package mkquest.assets.fighters
 			ClassFileXML1 = null;
 			ClassFileXML2 = null;
 			_fileXML = null;
-			_button.dispose();
+			if(_button != null) _button.dispose();
 			_button = null;
 			_characteristics = null;
 			
@@ -168,6 +168,7 @@ package mkquest.assets.fighters
 			this.removeFromParent(true);
 			
 			super.dispose();
+			trace("[X] Удалена сцена бойцы");
 		}
 	}
 

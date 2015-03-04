@@ -10,6 +10,9 @@ package mkquest.assets.statics
 		public static const MENU_BUTTON_TOURNAMENT:String = "menuButtonTournament";
 		public static const MENU_BUTTON_SATTINGS:String = "menuButtonSattings";
 		
+		public static const VK_BUTTON_INVITE:String = "VKButtonInvite";
+		public static const VK_BUTTON_POST:String = "VKButtonPost";
+		
 		public static const SETTINGS:String = "settings";
 		public static const SETTINGS_BUTTON_APPLY:String = "settingsButtonApply";
 		public static const SETTINGS_BUTTON_SOUND:String = "settingsButtonSound";

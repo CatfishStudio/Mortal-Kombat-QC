@@ -23,7 +23,18 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>337</PosX>
+		<PosX>262</PosX>
+		<PosY>661</PosY>
+	</Button>
+	<Button>
+		<Name>VKButtonInvite</Name>
+		<TextRus>Пригласить</TextRus>
+		<TextEng>Invite</TextEng>
+		<Texture>button.png</Texture>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>412</PosX>
 		<PosY>661</PosY>
 	</Button>
 	<Button>

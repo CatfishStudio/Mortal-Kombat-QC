@@ -15,9 +15,14 @@ package mkquest.assets.match3
 		public static const CELL_WIDTH:int = 82;
 		public static const CELL_HEIGHT:int = 82;
 		
-		public static const ON_UNIT_CLICK = "onUnitClick";
-		public static const ON_COMPLITE_BUILD_CELLS_UNITS = "onCompliteBuildsCellsUnits";
-		
+		public static const ON_UNIT_CLICK:String = "onUnitClick";
+		public static const ON_COMPLITE_BUILD_CELLS_UNITS:String = "onCompliteBuildsCellsUnits";
+		public static const ON_MATCH_GROUP_DEFINED:String = "onMatchGroupDefined";
+		public static const ON_UNIT_REMOVE:String = "onUnitRemove";
+		public static const ON_AI_MOVE:String = "onAIMove";
+		public static const ON_USER_MOVE:String = "onUserMove";
+		public static const ON_MOVE_COMPLITE:String = "onMoveComplite";
+		public static const ON_MOVE_BACK:String = "onMoveBack";
 		
 		/* Игровое поле */
 		public static var field:Sprite;
@@ -229,12 +234,21 @@ package mkquest.assets.match3
 		public static function CheckField(afterDown:Boolean):void
 		{
 			if (CheckFieldFull()) {
-				//if (afterDown == false) reduceAmountMoves(); // уменьшаем количество ходов
+				field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED })); // СОБЫТИЕ
 				SimplyRemove();
 			}
-			else {
-				if (afterDown == false) BackExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
-				else RecoveryField();
+			else 
+			{
+				if (afterDown == false)
+				{
+					BackExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
+					field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MOVE_BACK })); // СОБЫТИЕ
+				}
+				else
+				{
+					RecoveryField();
+					field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MOVE_COMPLITE })); // СОБЫТИЕ
+				}
 			}
 		}
 		
@@ -383,17 +397,14 @@ package mkquest.assets.match3
 					/* Удаление */
 					if ((MatrixUnit[i][j1] as Unit).flagRemove == true && (MatrixUnit[i][j1] as Unit).unitType != "HIT_0") 
 					{
-						/* анимация звёзд */
-						//////////////////////level.addChild(new Flash((Resource.MatrixUnit[i][j1] as Unit).x - 50, (Resource.MatrixUnit[i][j1] as Unit).y - 30));
-						//////////////////////level.StarsAnimation((Resource.MatrixUnit[i][j1] as Unit).x, (Resource.MatrixUnit[i][j1] as Unit).y);
-						/* Увеличиваем количество собранных кристалов и очков */
-						//////////////////////level.CollectAmountCrystalsAndScore((Resource.MatrixUnit[i][j1] as Unit).unitType);
-						
 						/* Удаление объект с поля */
 						field.removeChild(MatrixUnit[i][j1] as Unit); //(MatrixUnit[i][j1] as Unit).removeFromParent(true);
 						
 						/* Удаляем в главном массиве */
 						MatrixUnit[i].pop(); // Удаляем из главного массива
+						
+						/* событие */
+						field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_UNIT_REMOVE })); // СОБЫТИЕ
 					}
 					else 
 					{
@@ -1175,14 +1186,11 @@ package mkquest.assets.match3
 							}
 					}
 				}
-				fieldBlocked = true;
-				ExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
 			}
+			fieldBlocked = true;
+			ExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
 			
-			
-			
-			
-			
+			field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_AI_MOVE })); // СОБЫТИЕ
 		}
 		/* ============================================================================================ */
 		

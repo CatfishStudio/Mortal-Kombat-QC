@@ -69,10 +69,20 @@ package mkquest.assets.match3
 							{
 								Match3.fieldBlocked = true;
 								Match3.unit2 = (e.currentTarget as Unit);
-								if(Match3.unit2.posColumnI > (Match3.unit1.posColumnI - 2) && Match3.unit2.posColumnI < (Match3.unit1.posColumnI + 2) && Match3.unit2.posRowJ > (Match3.unit1.posRowJ - 2) && Match3.unit2.posRowJ < (Match3.unit1.posRowJ + 2) && (Match3.unit2.posColumnI == Match3.unit1.posColumnI || Match3.unit2.posRowJ == Match3.unit1.posRowJ))
+								if (Match3.unit2.posColumnI > (Match3.unit1.posColumnI - 2) && Match3.unit2.posColumnI < (Match3.unit1.posColumnI + 2) && Match3.unit2.posRowJ > (Match3.unit1.posRowJ - 2) && Match3.unit2.posRowJ < (Match3.unit1.posRowJ + 2) && (Match3.unit2.posColumnI == Match3.unit1.posColumnI || Match3.unit2.posRowJ == Match3.unit1.posRowJ))
+								{
 									Match3.ExchangeUnits(Match3.unit1.posColumnI, Match3.unit1.posRowJ, Match3.unit2.posColumnI, Match3.unit2.posRowJ);
-								else Match3.RecoveryField();
-							}else Match3.RecoveryField();
+									Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: Match3.ON_USER_MOVE } )); // СОБЫТИЕ
+								}
+								else
+								{
+									Match3.RecoveryField();
+								}
+							}
+							else
+							{
+								Match3.RecoveryField();
+							}
 						}
 					}
 				}
