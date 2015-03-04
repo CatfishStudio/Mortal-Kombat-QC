@@ -19,7 +19,7 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>-25</PosX>
+		<PosX>-50</PosX>
 		<PosY>400</PosY>
 	</Button>
 	<Button>
@@ -30,7 +30,7 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>125</PosX>
+		<PosX>150</PosX>
 		<PosY>400</PosY>
 	</Button>
 	<Button>

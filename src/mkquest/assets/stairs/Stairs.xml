@@ -31,7 +31,7 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>262</PosX>
+		<PosX>237</PosX>
 		<PosY>661</PosY>
 	</Button>
 	<Button>
@@ -42,12 +42,12 @@
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>
 		<FontSize>14</FontSize>
-		<PosX>412</PosX>
+		<PosX>437</PosX>
 		<PosY>661</PosY>
 	</Button>
 	<Button>
 		<Name>buttonFight</Name>
-		<TextRus>Драка</TextRus>
+		<TextRus>Битва</TextRus>
 		<TextEng>Fight</TextEng>
 		<Texture>button.png</Texture>
 		<FontName>Arial</FontName>
