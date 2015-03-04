@@ -4,6 +4,18 @@
 	<WindowPosX>30</WindowPosX>
 	<WindowPosY>40</WindowPosY>
 	
+	<Timer>
+		<YourHitRus>Ваш удар</YourHitRus>
+		<YourHitEng>Your hit</YourHitEng>
+		<OpponentHitRus>Удар противника</OpponentHitRus>
+		<OpponentHitEng>Beat the opponent</OpponentHitEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<PosX>300</PosX>
+		<PosY>20</PosY>
+	</Timer>
+	
 	<Button>
 		<Name>buttonBackInMenu</Name>
 		<TextRus>Назад в меню</TextRus>

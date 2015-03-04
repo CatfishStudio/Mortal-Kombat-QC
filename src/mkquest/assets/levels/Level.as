@@ -1,6 +1,9 @@
 package mkquest.assets.levels 
 {
 	import flash.geom.Rectangle;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
+	import starling.text.TextField;
 	
 	import starling.display.Button;
 	import starling.display.Image;
@@ -21,7 +24,12 @@ package mkquest.assets.levels
 		private var _image:Image;
 		private var _button:Button;
 		private var _window:Sprite;
+		private var _textField:TextField;
 		
+		private var _countTimer:int = 10; 
+		private var _timer:Timer;
+		
+		private var _activePlayer:String = "USER";
 		
 		public function Level() 
 		{
@@ -38,10 +46,12 @@ package mkquest.assets.levels
 			
 			createWindow();					// Создание окна уровня
 			createButtonsPanelFromXML();	// Создание кнопок меню
+			_timer.start();					// Запуск таймера
 		}
 		
 		private function onRemoveStage(e:Event):void
 		{
+			_timer.stop();
 			super.dispose();
 			trace("[X] Удалена сцена уровня");
 		}
@@ -60,6 +70,17 @@ package mkquest.assets.levels
 			_image.scaleY += 1.35;
 			_window.addChild(_image);
 			
+			/* Таймер */
+			_timer  = new Timer(1000, 1);
+			_timer.addEventListener(TimerEvent.TIMER, timerHandler);
+            _timer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
+			if (Resource.languageRus == true) _textField = new TextField(200, 50, _fileXML.Timer.YourHitRus + " " + _countTimer.toString(), _fileXML.Timer.FontName, _fileXML.Timer.FontSize, _fileXML.Timer.FontColor, true);
+			else _textField = new TextField(200, 50, _fileXML.Timer.YourHitEng + " " + _countTimer.toString(), _fileXML.Timer.FontName, _fileXML.Timer.FontSize, _fileXML.Timer.FontColor, true);
+			_textField.x = _fileXML.Timer.PosX;
+			_textField.y = _fileXML.Timer.PosY;
+			
+			_window.addChild(_textField);
+			
 			/* Рамка окна */
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			_window.addChild(_image);
@@ -74,12 +95,68 @@ package mkquest.assets.levels
 			clipMask(_window, 0, 0, Constants.MK_WINDOW_WIDTH, Constants.MK_WINDOW_HEIGHT);
 		}
 		
+		private function timerHandler(e:TimerEvent):void
+		{
+			//...
+		}
+		
+		private function completeHandler(e:TimerEvent):void
+		{
+			/*
+			if (_countTimer <= 0) {
+				_countTimer = 10;
+				Exchange();
+			}
+			if (actionPlayer == "USER") {
+				if (Resource.Language == "eng") _actionFighter.text = "Your hit " + _countTimer.toString();
+				else _actionFighter.text = "Ваш удар " + _countTimer.toString();
+			}
+			else {
+				if (Resource.Language == "eng") _actionFighter.text = "Beat the opponent " + _countTimer.toString();
+				else _actionFighter.text = "Удар противника " + _countTimer.toString();
+				if (_countTimer == 9) Mechanics.HitAI(this); // ход искуственного интеллекта
+			}
+			*/
+			if (_countTimer <= 0)
+			{
+				_countTimer = 10;
+				Exchange();
+			}
+			if (_activePlayer == "USER")
+			{
+				if (Resource.languageRus == true) _textField.text = _fileXML.Timer.YourHitRus + " " + _countTimer.toString();
+				else _textField.text = _fileXML.Timer.YourHitEng + " " + _countTimer.toString();
+			}
+			else
+			{
+				if (Resource.languageRus == true) _textField.text = _fileXML.Timer.OpponentHitRus + " " + _countTimer.toString();
+				else _textField.text = _fileXML.Timer.OpponentHitEng + " " + _countTimer.toString();
+				if (_countTimer == 9) Match3.ActionAI(); // ход искуственного интеллекта
+			}
+			_countTimer--;
+			_timer.start();
+		} 
+		
+		
+		/* Смена очередности ударов. */
+		private function Exchange():void
+		{
+			if (_activePlayer == "USER") {
+				_activePlayer = "BOT";
+				Match3.fieldBlocked = true;
+			} else {
+				_activePlayer = "USER";
+				Match3.fieldBlocked = false;
+			}
+		}
+		
 		private function onMatch3Events(event:Events):void 
 		{
 			switch(event.data.id)
 			{
 				case Match3.ON_AI_MOVE:
 				{
+					_activePlayer = "BOT";
 					trace(Match3.ON_AI_MOVE);
 					break;
 				}
@@ -104,6 +181,7 @@ package mkquest.assets.levels
 				
 				case Match3.ON_MOVE_COMPLITE:
 				{
+					_countTimer = 0;
 					trace(Match3.ON_MOVE_COMPLITE);
 					break;
 				}
@@ -122,6 +200,7 @@ package mkquest.assets.levels
 				
 				case Match3.ON_USER_MOVE:
 				{
+					_activePlayer = "USER";
 					trace(Match3.ON_USER_MOVE);
 					break;
 				}
