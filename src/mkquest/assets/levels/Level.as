@@ -86,6 +86,7 @@ package mkquest.assets.levels
 			_window.addChild(_image);
 			
 			/* Построение игрового поля и объектов игрового поля */
+			Match3.modeAI = true;
 			Match3.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML, FileXML.getFileXML(Resource.ClassXMLFileLevel0));
 			
 			/* Добавляем окно на сцену*/
@@ -102,21 +103,6 @@ package mkquest.assets.levels
 		
 		private function completeHandler(e:TimerEvent):void
 		{
-			/*
-			if (_countTimer <= 0) {
-				_countTimer = 10;
-				Exchange();
-			}
-			if (actionPlayer == "USER") {
-				if (Resource.Language == "eng") _actionFighter.text = "Your hit " + _countTimer.toString();
-				else _actionFighter.text = "Ваш удар " + _countTimer.toString();
-			}
-			else {
-				if (Resource.Language == "eng") _actionFighter.text = "Beat the opponent " + _countTimer.toString();
-				else _actionFighter.text = "Удар противника " + _countTimer.toString();
-				if (_countTimer == 9) Mechanics.HitAI(this); // ход искуственного интеллекта
-			}
-			*/
 			if (_countTimer <= 0)
 			{
 				_countTimer = 10;
@@ -170,6 +156,36 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED:
 				{
 					trace(Match3.ON_MATCH_GROUP_DEFINED);
+					break;
+				}
+				
+				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_1:
+				{
+					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_1);
+					break;
+				}
+				
+				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_2:
+				{
+					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_2);
+					break;
+				}
+				
+				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_3:
+				{
+					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_3);
+					break;
+				}
+				
+				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_4:
+				{
+					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_4);
+					break;
+				}
+				
+				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_5:
+				{
+					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_5);
 					break;
 				}
 				
@@ -246,8 +262,7 @@ package mkquest.assets.levels
 		{
 			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
 			{
-				//dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
-				Match3.ActionAI();
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}
 		}
 		

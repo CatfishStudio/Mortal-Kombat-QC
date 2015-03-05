@@ -9,6 +9,9 @@ package mkquest.assets.match3
 	
 	public class Match3 
 	{
+		/* Флаг: режим искуственного интелекта (по умолчанию отключен) */
+		public static var modeAI:Boolean = false;
+		
 		/* Костанты */
 		public static const COLUMNS:int = 6;
 		public static const ROWS:int = 6;
@@ -18,6 +21,11 @@ package mkquest.assets.match3
 		public static const ON_UNIT_CLICK:String = "onUnitClick";
 		public static const ON_COMPLITE_BUILD_CELLS_UNITS:String = "onCompliteBuildsCellsUnits";
 		public static const ON_MATCH_GROUP_DEFINED:String = "onMatchGroupDefined";
+		public static const ON_MATCH_GROUP_DEFINED_TYPE_1:String = "onMatchGroupDefinedType1";
+		public static const ON_MATCH_GROUP_DEFINED_TYPE_2:String = "onMatchGroupDefinedType2";
+		public static const ON_MATCH_GROUP_DEFINED_TYPE_3:String = "onMatchGroupDefinedType3";
+		public static const ON_MATCH_GROUP_DEFINED_TYPE_4:String = "onMatchGroupDefinedType4";
+		public static const ON_MATCH_GROUP_DEFINED_TYPE_5:String = "onMatchGroupDefinedType5";
 		public static const ON_UNIT_REMOVE:String = "onUnitRemove";
 		public static const ON_AI_MOVE:String = "onAIMove";
 		public static const ON_USER_MOVE:String = "onUserMove";
@@ -246,7 +254,8 @@ package mkquest.assets.match3
 				}
 				else
 				{
-					RecoveryField();
+					if (modeAI == false) RecoveryField();
+					else RecoveryFieldAI();
 					field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MOVE_COMPLITE })); // СОБЫТИЕ
 				}
 			}
@@ -260,6 +269,15 @@ package mkquest.assets.match3
 				unit1 = null; 
 				unit2 = null; 
 				fieldBlocked = false;
+			}
+		}
+		
+		public static function RecoveryFieldAI():void
+		{
+			if (CheckCombinations())
+			{
+				unit1 = null; 
+				unit2 = null; 
 			}
 		}
 		
@@ -279,6 +297,12 @@ package mkquest.assets.match3
 						/* Группа из 3-х объектов */
 						if (MatrixUnit[i][row].unitType == MatrixUnit[i + 1][row].unitType && MatrixUnit[i][row].unitType == MatrixUnit[i + 2][row].unitType) 
 						{
+							if (MatrixUnit[i][row].unitType == "HIT_1") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_1 } )); // СОБЫТИЕ
+							if (MatrixUnit[i][row].unitType == "HIT_2") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_2 } )); // СОБЫТИЕ
+							if (MatrixUnit[i][row].unitType == "HIT_3") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_3 } )); // СОБЫТИЕ
+							if (MatrixUnit[i][row].unitType == "HIT_4") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_4 } )); // СОБЫТИЕ
+							if (MatrixUnit[i][row].unitType == "HIT_5") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_5 } )); // СОБЫТИЕ
+
 							/*Отмечаем кристалы для удаления */
 							resultCheck = true;
 							(MatrixUnit[i][row] as Unit).flagRemove = true;
@@ -329,6 +353,12 @@ package mkquest.assets.match3
 						/* Группа из 3-х объектов */
 						if (MatrixUnit[column][j].unitType == MatrixUnit[column][j + 1].unitType && MatrixUnit[column][j].unitType == MatrixUnit[column][j + 2].unitType) 
 						{
+							if (MatrixUnit[column][j].unitType == "HIT_1") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_1 } )); // СОБЫТИЕ
+							if (MatrixUnit[column][j].unitType == "HIT_2") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_2 } )); // СОБЫТИЕ
+							if (MatrixUnit[column][j].unitType == "HIT_3") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_3 } )); // СОБЫТИЕ
+							if (MatrixUnit[column][j].unitType == "HIT_4") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_4 } )); // СОБЫТИЕ
+							if (MatrixUnit[column][j].unitType == "HIT_5") field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED_TYPE_5 } )); // СОБЫТИЕ
+
 							/*Отмечаем кристалы для удаления */
 							resultCheck = true;
 							(MatrixUnit[column][j] as Unit).flagRemove = true;
@@ -372,10 +402,11 @@ package mkquest.assets.match3
 			for (var i:int = 0; i < COLUMNS; i++) 
 			{
 				if (CheckColumn(i) == true) resultCheck = true;
-				for (var j:int = 0; j < ROWS; j++) 
-				{
-					if (CheckRow(j) == true) resultCheck = true;
-				}
+				
+			}
+			for (var j:int = 0; j < ROWS; j++) 
+			{
+				if (CheckRow(j) == true) resultCheck = true;
 			}
 			return resultCheck;
 		}
@@ -797,6 +828,8 @@ package mkquest.assets.match3
 		
 		public static function ActionAI():void
 		{
+			modeAI = true;
+			
 			var priorityUnit:int = 0;
 			
 			/*	   0  1  2  3  4  5

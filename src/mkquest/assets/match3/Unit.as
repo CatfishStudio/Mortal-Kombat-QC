@@ -76,12 +76,14 @@ package mkquest.assets.match3
 								}
 								else
 								{
-									Match3.RecoveryField();
+									if (Match3.modeAI == false) Match3.RecoveryField();
+									else Match3.RecoveryFieldAI();
 								}
 							}
 							else
 							{
-								Match3.RecoveryField();
+								if (Match3.modeAI == false) Match3.RecoveryField();
+								else Match3.RecoveryFieldAI();
 							}
 						}
 					}
