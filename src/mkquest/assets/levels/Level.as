@@ -16,6 +16,7 @@ package mkquest.assets.levels
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.match3.Match3;
 	import mkquest.assets.match3.Events;
+	import mkquest.assets.animation.Actions;
 	
 	
 	public class Level extends Sprite 
@@ -30,6 +31,9 @@ package mkquest.assets.levels
 		private var _timer:Timer;
 		
 		private var _activePlayer:String = "USER";
+		
+		private var _userActions:Actions;
+		private var _botActions:Actions;
 		
 		public function Level() 
 		{
@@ -84,6 +88,10 @@ package mkquest.assets.levels
 			/* Рамка окна */
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
 			_window.addChild(_image);
+			
+			/* Бойцы (анимация) */
+			_userActions = new Actions(50, 25, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+			_window.addChild(_userActions);
 			
 			/* Построение игрового поля и объектов игрового поля */
 			Match3.modeAI = true;
@@ -155,6 +163,7 @@ package mkquest.assets.levels
 				
 				case Match3.ON_MATCH_GROUP_DEFINED:
 				{
+					_timer.stop();
 					trace(Match3.ON_MATCH_GROUP_DEFINED);
 					break;
 				}
@@ -198,6 +207,7 @@ package mkquest.assets.levels
 				case Match3.ON_MOVE_COMPLITE:
 				{
 					_countTimer = 0;
+					_timer.start();
 					trace(Match3.ON_MOVE_COMPLITE);
 					break;
 				}

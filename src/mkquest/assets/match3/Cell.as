@@ -39,6 +39,11 @@ package mkquest.assets.match3
 			}
 		}
 		
+		public function setBackgroundColor(colorBG:uint):void
+		{
+			_cellBG.color = colorBG;
+		}
+		
 	}
 
 }

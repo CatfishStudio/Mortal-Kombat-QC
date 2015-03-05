@@ -56,12 +56,12 @@ package mkquest.assets.match3
 					
 					Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: Match3.ON_UNIT_CLICK })); // СОБЫТИЕ 
 					
-					
 					if (Match3.fieldBlocked == false) // Игровое поле разблокировано
 					{	
 						if (Match3.unit1 == null)
 						{
 							Match3.unit1 = (e.currentTarget as Unit);
+							Match3.MatrixCell[Match3.unit1.posColumnI][Match3.unit1.posRowJ].setBackgroundColor(0xFF0000);
 						}
 						else 
 						{
@@ -69,6 +69,7 @@ package mkquest.assets.match3
 							{
 								Match3.fieldBlocked = true;
 								Match3.unit2 = (e.currentTarget as Unit);
+								Match3.MatrixCell[Match3.unit2.posColumnI][Match3.unit2.posRowJ].setBackgroundColor(0xFF0000);
 								if (Match3.unit2.posColumnI > (Match3.unit1.posColumnI - 2) && Match3.unit2.posColumnI < (Match3.unit1.posColumnI + 2) && Match3.unit2.posRowJ > (Match3.unit1.posRowJ - 2) && Match3.unit2.posRowJ < (Match3.unit1.posRowJ + 2) && (Match3.unit2.posColumnI == Match3.unit1.posColumnI || Match3.unit2.posRowJ == Match3.unit1.posRowJ))
 								{
 									Match3.ExchangeUnits(Match3.unit1.posColumnI, Match3.unit1.posRowJ, Match3.unit2.posColumnI, Match3.unit2.posRowJ);
@@ -76,8 +77,9 @@ package mkquest.assets.match3
 								}
 								else
 								{
-									if (Match3.modeAI == false) Match3.RecoveryField();
-									else Match3.RecoveryFieldAI();
+									//if (Match3.modeAI == false) Match3.RecoveryField();
+									//else Match3.RecoveryFieldAI();
+									Match3.RecoveryField();
 								}
 							}
 							else

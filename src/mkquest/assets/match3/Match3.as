@@ -242,11 +242,16 @@ package mkquest.assets.match3
 		public static function CheckField(afterDown:Boolean):void
 		{
 			if (CheckFieldFull()) {
+				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
+				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
 				field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED })); // СОБЫТИЕ
 				SimplyRemove();
 			}
 			else 
 			{
+				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
+				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				
 				if (afterDown == false)
 				{
 					BackExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
@@ -266,6 +271,9 @@ package mkquest.assets.match3
 		{
 			if (CheckCombinations())
 			{
+				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
+				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				
 				unit1 = null; 
 				unit2 = null; 
 				fieldBlocked = false;
@@ -276,6 +284,9 @@ package mkquest.assets.match3
 		{
 			if (CheckCombinations())
 			{
+				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
+				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				
 				unit1 = null; 
 				unit2 = null; 
 			}
@@ -828,7 +839,8 @@ package mkquest.assets.match3
 		
 		public static function ActionAI():void
 		{
-			modeAI = true;
+			if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
+			if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
 			
 			var priorityUnit:int = 0;
 			
