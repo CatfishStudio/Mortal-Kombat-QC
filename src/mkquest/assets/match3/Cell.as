@@ -44,6 +44,14 @@ package mkquest.assets.match3
 			_cellBG.color = colorBG;
 		}
 		
+		public function setBackgroundGradientColor(topColor:uint, bottomColor:uint, leftColor:uint, rightColor:uint):void
+		{
+			_cellBG.setVertexColor(0, topColor);
+			_cellBG.setVertexColor(1, leftColor);
+			_cellBG.setVertexColor(2, bottomColor);
+			_cellBG.setVertexColor(3, rightColor);
+		}
+		
 	}
 
 }

@@ -61,7 +61,7 @@ package mkquest.assets.match3
 						if (Match3.unit1 == null)
 						{
 							Match3.unit1 = (e.currentTarget as Unit);
-							Match3.MatrixCell[Match3.unit1.posColumnI][Match3.unit1.posRowJ].setBackgroundColor(0xFF0000);
+							Match3.CellColorEdit(Match3.unit1.posColumnI, Match3.unit1.posRowJ);
 						}
 						else 
 						{
@@ -69,7 +69,7 @@ package mkquest.assets.match3
 							{
 								Match3.fieldBlocked = true;
 								Match3.unit2 = (e.currentTarget as Unit);
-								Match3.MatrixCell[Match3.unit2.posColumnI][Match3.unit2.posRowJ].setBackgroundColor(0xFF0000);
+								Match3.CellColorEdit(Match3.unit2.posColumnI, Match3.unit2.posRowJ);
 								if (Match3.unit2.posColumnI > (Match3.unit1.posColumnI - 2) && Match3.unit2.posColumnI < (Match3.unit1.posColumnI + 2) && Match3.unit2.posRowJ > (Match3.unit1.posRowJ - 2) && Match3.unit2.posRowJ < (Match3.unit1.posRowJ + 2) && (Match3.unit2.posColumnI == Match3.unit1.posColumnI || Match3.unit2.posRowJ == Match3.unit1.posRowJ))
 								{
 									Match3.ExchangeUnits(Match3.unit1.posColumnI, Match3.unit1.posRowJ, Match3.unit2.posColumnI, Match3.unit2.posRowJ);

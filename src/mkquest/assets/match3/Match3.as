@@ -92,6 +92,19 @@ package mkquest.assets.match3
 		}
 		/* ============================================================================================ */
 		
+		/* Определение цвета ячеек Cell игрового поля ================================================= */
+		public static function CellColorEdit(posColumnI:int, posRowJ:int):void
+		{
+			//MatrixCell[posColumnI][posRowJ].setBackgroundColor(0xFF0000);
+			MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0xFF0000, 0x000000, 0x000000, 0xFF0000);
+		}
+		
+		public static function CellColorBack():void
+		{
+			if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
+			if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+		}
+		/* ============================================================================================ */
 		
 		/* Построение игрового поля и объектов игрового поля ========================================== */
 		public static function BuildCellsAndUnits(parentSprite:Sprite, textureAtlas:TextureAtlas, fileXML:XML, backupFileXML:XML):void
@@ -242,15 +255,13 @@ package mkquest.assets.match3
 		public static function CheckField(afterDown:Boolean):void
 		{
 			if (CheckFieldFull()) {
-				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
-				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				CellColorBack();
 				field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_MATCH_GROUP_DEFINED })); // СОБЫТИЕ
 				SimplyRemove();
 			}
 			else 
 			{
-				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
-				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				CellColorBack();
 				
 				if (afterDown == false)
 				{
@@ -271,8 +282,7 @@ package mkquest.assets.match3
 		{
 			if (CheckCombinations())
 			{
-				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
-				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				CellColorBack();
 				
 				unit1 = null; 
 				unit2 = null; 
@@ -284,8 +294,7 @@ package mkquest.assets.match3
 		{
 			if (CheckCombinations())
 			{
-				if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
-				if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+				CellColorBack();
 				
 				unit1 = null; 
 				unit2 = null; 
@@ -839,8 +848,7 @@ package mkquest.assets.match3
 		
 		public static function ActionAI():void
 		{
-			if(unit1 != null) MatrixCell[unit1.posColumnI][unit1.posRowJ].setBackgroundColor(0x000000);
-			if(unit2 != null) MatrixCell[unit2.posColumnI][unit2.posRowJ].setBackgroundColor(0x000000);
+			CellColorBack();
 			
 			var priorityUnit:int = 0;
 			
