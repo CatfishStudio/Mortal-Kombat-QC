@@ -57,12 +57,14 @@ package mkquest.assets.statics
 		public static const BUTTON_FIGHTER:String = "buttonFight";
 		
 		public static const ACTIONS:String = "actions";
+		public static const BLOOD:String = "blood";
+		
 		public static const DAMAGE:String = "damage";
-		public static const HIT_1:String = "hit1";
-		public static const HIT_2:String = "hit2";
-		public static const HIT_3:String = "hit3";
-		public static const HIT_4:String = "hit4";
-		public static const HIT_5:String = "hit5";
+		public static const HIT_1:String = "hit_1";
+		public static const HIT_2:String = "hit_2";
+		public static const HIT_3:String = "hit_3";
+		public static const HIT_4:String = "hit_4";
+		public static const HIT_5:String = "hit_5";
 		public static const LOST:String = "lost";
 		public static const STANCE:String = "stance";
 		public static const VICTORY:String = "victory";

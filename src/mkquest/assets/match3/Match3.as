@@ -9,6 +9,12 @@ package mkquest.assets.match3
 	
 	public class Match3 
 	{
+		[Embed(source = 'atlas/sprites.png')]
+		public static var AtlasSpritesAnimation:Class;
+		[Embed(source = 'atlas/sprites.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesAnimationXML:Class;
+		
+		
 		/* Флаг: режим искуственного интелекта (по умолчанию отключен) */
 		public static var modeAI:Boolean = false;
 		
@@ -93,10 +99,14 @@ package mkquest.assets.match3
 		/* ============================================================================================ */
 		
 		/* Определение цвета ячеек Cell игрового поля ================================================= */
-		public static function CellColorEdit(posColumnI:int, posRowJ:int):void
+		public static function CellColorEdit(posColumnI:int, posRowJ:int, unitType:String):void
 		{
 			//MatrixCell[posColumnI][posRowJ].setBackgroundColor(0xFF0000);
-			MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0xFF0000, 0x000000, 0x000000, 0xFF0000);
+			if (unitType == "HIT_1") MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0xFFFF00, 0x000000, 0x000000, 0xFFFF00);
+			if (unitType == "HIT_2") MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0xFF0000, 0x000000, 0x000000, 0xFF0000);
+			if (unitType == "HIT_3") MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0xFF00FF, 0x000000, 0x000000, 0xFF00FF);
+			if (unitType == "HIT_4") MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0x0080C0, 0x000000, 0x000000, 0x0080C0);
+			if (unitType == "HIT_5") MatrixCell[posColumnI][posRowJ].setBackgroundGradientColor(0x00FF40, 0x000000, 0x000000, 0x00FF40);
 		}
 		
 		public static function CellColorBack():void
@@ -448,6 +458,9 @@ package mkquest.assets.match3
 					/* Удаление */
 					if ((MatrixUnit[i][j1] as Unit).flagRemove == true && (MatrixUnit[i][j1] as Unit).unitType != "HIT_0") 
 					{
+						/* Анимация */
+						field.addChild(new AnimationRemove(MatrixUnit[i][j1].x - 45, MatrixUnit[i][j1].y - 30, "flash_", AtlasSpritesAnimation, AtlasSpritesAnimationXML)); 
+						
 						/* Удаление объект с поля */
 						field.removeChild(MatrixUnit[i][j1] as Unit); //(MatrixUnit[i][j1] as Unit).removeFromParent(true);
 						

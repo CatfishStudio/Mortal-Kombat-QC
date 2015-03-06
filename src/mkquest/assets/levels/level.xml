@@ -115,4 +115,34 @@
 		<Background>level_13.png</Background>
 	</level>
 	
+	<liukang>
+		<damage>
+			
+		</damage>
+		<hit_1>
+			
+		</hit_1>
+		<hit_2>
+			
+		</hit_2>
+		<hit_3>
+			
+		</hit_3>
+		<hit_4>
+			
+		</hit_4>
+		<hit_5>
+			
+		</hit_5>
+		<lost>
+			
+		</lost>
+		<stance>
+			
+		</stance>
+		<victory>
+			
+		</victory>
+	</liukang>
+	
 </Levels>

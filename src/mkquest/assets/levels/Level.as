@@ -90,8 +90,7 @@ package mkquest.assets.levels
 			_window.addChild(_image);
 			
 			/* Бойцы (анимация) */
-			_userActions = new Actions(50, 25, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
-			_window.addChild(_userActions);
+			showFighters();
 			
 			/* Построение игрового поля и объектов игрового поля */
 			Match3.modeAI = true;
@@ -131,6 +130,26 @@ package mkquest.assets.levels
 			_timer.start();
 		} 
 		
+		
+		/* Отображение бойцов */
+		private function showFighters():void
+		{
+			_userActions = new Actions(25, 370, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+			_window.addChild(_userActions);
+			_botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
+			_window.addChild(_botActions);
+		}
+		
+		private function updateFighters():void
+		{
+			_window.removeChild(_userActions);
+			_userActions = new Actions(25, 370, true, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
+			_window.addChild(_userActions);
+			
+			_window.removeChild(_botActions);
+			_botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+			_window.addChild(_botActions);
+		}
 		
 		/* Смена очередности ударов. */
 		private function Exchange():void
@@ -272,7 +291,8 @@ package mkquest.assets.levels
 		{
 			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
 			{
-				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
+				//dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
+				updateFighters();
 			}
 		}
 		
