@@ -35,7 +35,6 @@ package mkquest.assets.levels
 		private var _userBlock:Boolean = false;
 		private var _botActions:Actions;
 		private var _botBlock:Boolean = false;
-		
 		private var _hitType:String;
 		
 		public function Level() 
@@ -138,13 +137,17 @@ package mkquest.assets.levels
 		private function showFighters():void
 		{
 			if (_userActions != null) _window.removeChild(_userActions);
-			if (_userBlock == false) _userActions = new Actions(25, 370, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
-			else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+			if (_userBlock == false) _userActions = new Actions(0, 0, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+			else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+			_userActions.x = (145 - _userActions.width) / 2;
+			_userActions.y = Constants.MK_WINDOW_HEIGHT - (_userActions.height + 35);
 			_window.addChild(_userActions);
 			
 			if(_botActions != null) _window.removeChild(_botActions);
-			if (_botBlock == false) _botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
-			else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+			if (_botBlock == false) _botActions = new Actions(0, 0, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
+			else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+			_botActions.x = (Constants.MK_WINDOW_WIDTH - 145) + ((145 - _botActions.width) / 2);
+			_botActions.y = Constants.MK_WINDOW_HEIGHT - (_botActions.height + 35);
 			_window.addChild(_botActions);
 		}
 		
@@ -158,72 +161,76 @@ package mkquest.assets.levels
 			{
 				if (_hitType == Constants.HIT_1)
 				{
-					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 				}
 				if (_hitType == Constants.HIT_2)
 				{
-					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_2, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_2, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 				}
 				if (_hitType == Constants.HIT_3)
 				{
-					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 					_userBlock = true;
-					if (_botBlock == false) _botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					if (_botBlock == false) _botActions = new Actions(0, 0, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 				}
 				if (_hitType == Constants.HIT_4)
 				{
-					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_4, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_4, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 				}
 				if (_hitType == Constants.HIT_5)
 				{
-					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_5, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_5, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 				}
 			}
 			else // BOT
 			{
 				if (_hitType == Constants.HIT_1)
 				{
-					_botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_1, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_1, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 				}
 				if (_hitType == Constants.HIT_2)
 				{
-					_botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_2, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_2, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 				}
 				if (_hitType == Constants.HIT_3)
 				{
-					_botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 					_botBlock = true;
-					if (_userBlock == false) _userActions = new Actions(25, 370, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					if (_userBlock == false) _userActions = new Actions(0, 0, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 				}
 				if (_hitType == Constants.HIT_4)
 				{
-					 _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_4, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					 _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_4, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 				}
 				if (_hitType == Constants.HIT_5)
 				{
-					 _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_5, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					 _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_5, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 				}
 			}
 			
+			_userActions.x = (145 - _userActions.width) / 2;
+			_userActions.y = Constants.MK_WINDOW_HEIGHT - (_userActions.height + 35);
 			_window.addChild(_userActions);
+			_botActions.x = (Constants.MK_WINDOW_WIDTH - 145) + ((145 - _botActions.width) / 2);
+			_botActions.y = Constants.MK_WINDOW_HEIGHT - (_botActions.height + 35);
 			_window.addChild(_botActions);
 		}
 		
