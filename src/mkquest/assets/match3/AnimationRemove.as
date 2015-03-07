@@ -75,7 +75,7 @@ package mkquest.assets.match3
 			this.removeFromParent(true);
 			
 			super.dispose();
-			trace("[X] Удалена анимации бойца");
+			trace("[X] Удалена анимации Вспышка");
 		}
 		
 		public function setTextureAtlasEmbeddedAsset(ClassAtlasSprite:Class, ClassAtlasSpritesXML:Class):void

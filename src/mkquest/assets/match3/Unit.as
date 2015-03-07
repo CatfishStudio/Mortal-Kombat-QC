@@ -52,12 +52,13 @@ package mkquest.assets.match3
 			{
 				if (touch.phase == TouchPhase.BEGAN)
 				{
-					Mouse.cursor = MouseCursor.BUTTON;
-					
-					Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: Match3.ON_UNIT_CLICK })); // СОБЫТИЕ 
-					
 					if (Match3.fieldBlocked == false) // Игровое поле разблокировано
 					{	
+						Mouse.cursor = MouseCursor.BUTTON;
+					
+						Match3.field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: Match3.ON_UNIT_CLICK })); // СОБЫТИЕ
+						
+						
 						if (Match3.unit1 == null)
 						{
 							Match3.unit1 = (e.currentTarget as Unit);

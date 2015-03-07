@@ -31,9 +31,12 @@ package mkquest.assets.levels
 		private var _timer:Timer;
 		
 		private var _activePlayer:String = "USER";
-		
 		private var _userActions:Actions;
+		private var _userBlock:Boolean = false;
 		private var _botActions:Actions;
+		private var _botBlock:Boolean = false;
+		
+		private var _hitType:String;
 		
 		public function Level() 
 		{
@@ -134,20 +137,93 @@ package mkquest.assets.levels
 		/* Отображение бойцов */
 		private function showFighters():void
 		{
-			_userActions = new Actions(25, 370, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+			if (_userActions != null) _window.removeChild(_userActions);
+			if (_userBlock == false) _userActions = new Actions(25, 370, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+			else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
 			_window.addChild(_userActions);
-			_botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
+			
+			if(_botActions != null) _window.removeChild(_botActions);
+			if (_botBlock == false) _botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
+			else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 			_window.addChild(_botActions);
 		}
 		
 		private function updateFighters():void
 		{
-			_window.removeChild(_userActions);
-			_userActions = new Actions(25, 370, true, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
-			_window.addChild(_userActions);
+			trace("+++ Удар: " + _hitType + " (" + _activePlayer + ")");
+			if (_userActions != null) _window.removeChild(_userActions);
+			if (_botActions != null) _window.removeChild(_botActions);
 			
-			_window.removeChild(_botActions);
-			_botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+			if (_activePlayer == "USER")
+			{
+				if (_hitType == Constants.HIT_1)
+				{
+					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+				}
+				if (_hitType == Constants.HIT_2)
+				{
+					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_2, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+				}
+				if (_hitType == Constants.HIT_3)
+				{
+					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					_userBlock = true;
+					if (_botBlock == false) _botActions = new Actions(675, 370, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.STANCE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+				}
+				if (_hitType == Constants.HIT_4)
+				{
+					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_4, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+				}
+				if (_hitType == Constants.HIT_5)
+				{
+					_userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_5, Constants.LEFT_TO_RIGHT);
+					if (_botBlock == false) _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					else _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+				}
+			}
+			else // BOT
+			{
+				if (_hitType == Constants.HIT_1)
+				{
+					_botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_1, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+				}
+				if (_hitType == Constants.HIT_2)
+				{
+					_botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_2, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+				}
+				if (_hitType == Constants.HIT_3)
+				{
+					_botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					_botBlock = true;
+					if (_userBlock == false) _userActions = new Actions(25, 370, true, Resource.user_name, Constants.STANCE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+				}
+				if (_hitType == Constants.HIT_4)
+				{
+					 _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_4, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+				}
+				if (_hitType == Constants.HIT_5)
+				{
+					 _botActions = new Actions(675, 370, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_5, Constants.RIGHT_TO_LEFT);
+					if (_userBlock == false) _userActions = new Actions(25, 370, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					else _userActions = new Actions(25, 370, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+				}
+			}
+			
+			_window.addChild(_userActions);
 			_window.addChild(_botActions);
 		}
 		
@@ -156,9 +232,11 @@ package mkquest.assets.levels
 		{
 			if (_activePlayer == "USER") {
 				_activePlayer = "BOT";
+				_botBlock = false;
 				Match3.fieldBlocked = true;
 			} else {
 				_activePlayer = "USER";
+				_userBlock = false;
 				Match3.fieldBlocked = false;
 			}
 		}
@@ -183,36 +261,42 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED:
 				{
 					_timer.stop();
+					updateFighters();
 					trace(Match3.ON_MATCH_GROUP_DEFINED);
 					break;
 				}
 				
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_1:
 				{
+					_hitType = Constants.HIT_1;
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_1);
 					break;
 				}
 				
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_2:
 				{
+					_hitType = Constants.HIT_2;
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_2);
 					break;
 				}
 				
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_3:
 				{
+					_hitType = Constants.HIT_3;
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_3);
 					break;
 				}
 				
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_4:
 				{
+					_hitType = Constants.HIT_4;
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_4);
 					break;
 				}
 				
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_5:
 				{
+					_hitType = Constants.HIT_5;
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_5);
 					break;
 				}
@@ -225,6 +309,7 @@ package mkquest.assets.levels
 				
 				case Match3.ON_MOVE_COMPLITE:
 				{
+					showFighters();
 					_countTimer = 0;
 					_timer.start();
 					trace(Match3.ON_MOVE_COMPLITE);
