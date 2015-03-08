@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites_shaokahn.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="damage_right_to_left_01.png"	x="779"	y="0"	width="62"	height="153" frameX="-3" frameY="-2" frameWidth="70" frameHeight="155"/>
+	<SubTexture name="damage_right_to_left_02.png"	x="779"	y="307"	width="62"	height="153" frameX="-3" frameY="-2" frameWidth="70" frameHeight="155"/>
+	<SubTexture name="damage_right_to_left_03.png"	x="779"	y="154"	width="62"	height="152" frameX="-3" frameY="-3" frameWidth="70" frameHeight="155"/>
+	<SubTexture name="hit_1_right_to_left_01.png"	x="640"	y="762"	width="71"	height="155" frameX="-67" frameY="-0" frameWidth="140" frameHeight="155"/>
+	<SubTexture name="hit_1_right_to_left_02.png"	x="780"	y="461"	width="56"	height="154" frameX="-64" frameY="-1" frameWidth="140" frameHeight="155"/>
+	<SubTexture name="hit_1_right_to_left_03.png"	x="712"	y="471"	width="67"	height="154" frameX="-48" frameY="-1" frameWidth="140" frameHeight="155"/>
+	<SubTexture name="hit_1_right_to_left_04.png"	x="485"	y="659"	width="81"	height="155" frameX="-32" frameY="-0" frameWidth="140" frameHeight="155"/>
+	<SubTexture name="hit_1_right_to_left_05.png"	x="278"	y="632"	width="120"	height="148" frameX="-5" frameY="-7" frameWidth="140" frameHeight="155"/>
+	<SubTexture name="hit_2_right_to_left_01.png"	x="492"	y="302"	width="75"	height="150" frameX="-47" frameY="-4" frameWidth="125" frameHeight="155"/>
+	<SubTexture name="hit_2_right_to_left_02.png"	x="571"	y="159"	width="73"	height="153" frameX="-45" frameY="-1" frameWidth="125" frameHeight="155"/>
+	<SubTexture name="hit_2_right_to_left_03.png"	x="490"	y="504"	width="75"	height="154" frameX="-47" frameY="-0" frameWidth="125" frameHeight="155"/>
+	<SubTexture name="hit_2_right_to_left_04.png"	x="277"	y="479"	width="123"	height="152" frameX="-0" frameY="-3" frameWidth="125" frameHeight="155"/>
+	<SubTexture name="hit_2_right_to_left_05.png"	x="290"	y="303"	width="98"	height="146" frameX="-26" frameY="-9" frameWidth="125" frameHeight="155"/>
+	<SubTexture name="hit_3_right_to_left_01.png"	x="566"	y="453"	width="74"	height="150" frameX="-0" frameY="-0" frameWidth="75" frameHeight="150"/>
+	<SubTexture name="hit_3_right_to_left_02.png"	x="713"	y="309"	width="65"	height="150" frameX="-8" frameY="-0" frameWidth="75" frameHeight="150"/>
+	<SubTexture name="hit_3_right_to_left_03.png"	x="713"	y="0"	width="64"	height="150" frameX="-9" frameY="-0" frameWidth="75" frameHeight="150"/>
+	<SubTexture name="hit_4_right_to_left_01.png"	x="485"	y="815"	width="79"	height="145" frameX="-36" frameY="-14" frameWidth="115" frameHeight="160"/>
+	<SubTexture name="hit_4_right_to_left_02.png"	x="398"	y="0"	width="82"	height="144" frameX="-33" frameY="-15" frameWidth="115" frameHeight="160"/>
+	<SubTexture name="hit_4_right_to_left_03.png"	x="483"	y="159"	width="87"	height="142" frameX="-28" frameY="-17" frameWidth="115" frameHeight="160"/>
+	<SubTexture name="hit_4_right_to_left_04.png"	x="278"	y="781"	width="113"	height="144" frameX="-1" frameY="-15" frameWidth="115" frameHeight="160"/>
+	<SubTexture name="hit_4_right_to_left_05.png"	x="483"	y="0"	width="88"	height="158" frameX="-22" frameY="-2" frameWidth="115" frameHeight="160"/>
+	<SubTexture name="hit_5_right_to_left_01.png"	x="290"	y="146"	width="98"	height="156" frameX="-93" frameY="-29" frameWidth="200" frameHeight="185"/>
+	<SubTexture name="hit_5_right_to_left_02.png"	x="290"	y="0"	width="107"	height="145" frameX="-93" frameY="-40" frameWidth="200" frameHeight="185"/>
+	<SubTexture name="hit_5_right_to_left_03.png"	x="401"	y="504"	width="88"	height="154" frameX="-93" frameY="-31" frameWidth="200" frameHeight="185"/>
+	<SubTexture name="hit_5_right_to_left_04.png"	x="392"	y="781"	width="92"	height="178" frameX="-82" frameY="-7" frameWidth="200" frameHeight="185"/>
+	<SubTexture name="hit_5_right_to_left_05.png"	x="389"	y="146"	width="93"	height="184" frameX="-68" frameY="-1" frameWidth="200" frameHeight="185"/>
+	<SubTexture name="hit_5_right_to_left_06.png"	x="0"	y="0"	width="162"	height="138" frameX="-1" frameY="-46" frameWidth="200" frameHeight="185"/>
+	<SubTexture name="lost_01.png"	x="401"	y="331"	width="90"	height="172" frameX="-27" frameY="-13" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_02.png"	x="151"	y="479"	width="125"	height="156" frameX="-11" frameY="-29" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_03.png"	x="151"	y="139"	width="138"	height="153" frameX="-4" frameY="-32" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_04.png"	x="0"	y="698"	width="138"	height="153" frameX="-4" frameY="-32" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_05.png"	x="0"	y="852"	width="138"	height="165" frameX="-4" frameY="-20" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_06.png"	x="139"	y="698"	width="138"	height="185" frameX="-4" frameY="-0" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_07.png"	x="151"	y="293"	width="138"	height="185" frameX="-4" frameY="-0" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_08.png"	x="0"	y="325"	width="150"	height="185" frameX="-0" frameY="-0" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_09.png"	x="0"	y="139"	width="150"	height="185" frameX="-0" frameY="-0" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_10.png"	x="0"	y="511"	width="150"	height="186" frameX="-0" frameY="-0" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="lost_11.png"	x="0"	y="1018"	width="1"	height="1" frameX="--2" frameY="--2" frameWidth="150" frameHeight="190"/>
+	<SubTexture name="stance_right_to_left_01.png"	x="712"	y="781"	width="67"	height="156" frameX="-16" frameY="-4" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="stance_right_to_left_02.png"	x="641"	y="471"	width="70"	height="156" frameX="-16" frameY="-4" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="stance_right_to_left_03.png"	x="572"	y="0"	width="71"	height="155" frameX="-16" frameY="-5" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="stance_right_to_left_04.png"	x="565"	y="815"	width="74"	height="157" frameX="-13" frameY="-3" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="stance_right_to_left_05.png"	x="567"	y="604"	width="73"	height="157" frameX="-10" frameY="-3" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="stance_right_to_left_06.png"	x="641"	y="313"	width="71"	height="157" frameX="-9" frameY="-3" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="stance_right_to_left_07.png"	x="714"	y="151"	width="64"	height="157" frameX="-16" frameY="-3" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="victory_01.png"	x="644"	y="0"	width="68"	height="158" frameX="-18" frameY="-2" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="victory_02.png"	x="712"	y="626"	width="67"	height="154" frameX="-19" frameY="-6" frameWidth="100" frameHeight="160"/>
+	<SubTexture name="victory_03.png"	x="645"	y="159"	width="68"	height="149" frameX="-19" frameY="-11" frameWidth="100" frameHeight="160"/>
+</TextureAtlas>

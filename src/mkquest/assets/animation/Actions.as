@@ -113,6 +113,15 @@ package mkquest.assets.animation
 			{
 				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesRaiden, Resource.AtlasSpritesRainedXML);
 			}
+			
+			if (fighterName == Constants.GORO)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesGoro, Resource.AtlasSpritesGoroXML);
+			}
+			if (fighterName == Constants.SHAOKAHN)
+			{
+				setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesShaokahn, Resource.AtlasSpritesShaokahnXML);
+			}
 		}
 		
 		private function onAddedToStage(e:Event):void 

@@ -132,6 +132,11 @@ package mkquest.assets.statics
 		public static var AtlasSpritesGoro:Class;
 		[Embed(source = '../media/atlas/sprites_goro.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesGoroXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_shaokahn.png')]
+		public static var AtlasSpritesShaokahn:Class;
+		[Embed(source = '../media/atlas/sprites_shaokahn.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesShaokahnXML:Class;
 		/* -------------------------------- */
 		
 		/* Уровни ------------------------- */

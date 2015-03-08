@@ -91,6 +91,7 @@
     <asset path="src\mkquest\assets\media\atlas\sprites_level_animation.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_level_textures.png" />
     <asset path="src\mkquest\assets\match3\atlas\sprites.png" />
+    <asset path="src\mkquest\assets\media\atlas\sprites_shaokahn.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
