@@ -17,6 +17,7 @@ package mkquest.assets.levels
 	import mkquest.assets.match3.Match3;
 	import mkquest.assets.match3.Events;
 	import mkquest.assets.animation.Actions;
+	import mkquest.assets.animation.Blood;
 	
 	
 	public class Level extends Sprite 
@@ -162,7 +163,7 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_1)
 				{
 					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					if (_botBlock == false)	_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
 					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
 				}
 				if (_hitType == Constants.HIT_2)
@@ -232,6 +233,9 @@ package mkquest.assets.levels
 			_botActions.x = (Constants.MK_WINDOW_WIDTH - 145) + ((145 - _botActions.width) / 2);
 			_botActions.y = Constants.MK_WINDOW_HEIGHT - (_botActions.height + 35);
 			_window.addChild(_botActions);
+			
+			if (_activePlayer == "USER" && _hitType != Constants.HIT_3 && _botBlock == false) _window.addChild(new Blood(_botActions.x - 50, _botActions.y - (_botActions.height / 3)));
+			if (_activePlayer == "BOT" && _hitType != Constants.HIT_3 && _userBlock == false) _window.addChild(new Blood(_userActions.x - 85, _userActions.y - (_userActions.height / 3)));
 		}
 		
 		/* Смена очередности ударов. */

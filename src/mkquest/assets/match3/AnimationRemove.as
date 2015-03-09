@@ -9,9 +9,6 @@ package mkquest.assets.match3
 	import starling.textures.TextureAtlas;
 	import starling.textures.Texture;
 	
-	import mkquest.assets.statics.Constants;
-	import mkquest.assets.statics.Resource;
-	
 	public class AnimationRemove extends MovieClip 
 	{
 		private var textureAtlas:TextureAtlas;
