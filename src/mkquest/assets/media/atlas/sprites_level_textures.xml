@@ -25,7 +25,7 @@
 	<SubTexture name="level_7.png"	x="0"	y="856"	width="400"	height="254" frameX="-0" frameY="-0" frameWidth="400" frameHeight="254"/>
 	<SubTexture name="level_8.png"	x="401"	y="1366"	width="400"	height="254" frameX="-0" frameY="-0" frameWidth="400" frameHeight="254"/>
 	<SubTexture name="level_9.png"	x="401"	y="1111"	width="400"	height="254" frameX="-0" frameY="-0" frameWidth="400" frameHeight="254"/>
-	<SubTexture name="lifebar.png"	x="0"	y="1876"	width="200"	height="16" frameX="-0" frameY="-0" frameWidth="200" frameHeight="16"/>
+	<SubTexture name="lifebar.png"	x="0"	y="1876"	width="206"	height="16" frameX="-0" frameY="-0" frameWidth="206" frameHeight="16"/>
 	<SubTexture name="music.png"	x="704"	y="1957"	width="29"	height="31" frameX="-2" frameY="-0" frameWidth="32" frameHeight="32"/>
 	<SubTexture name="music_off.png"	x="582"	y="1876"	width="29"	height="31" frameX="-2" frameY="-0" frameWidth="32" frameHeight="32"/>
 	<SubTexture name="settings_background.png"	x="191"	y="1893"	width="190"	height="147" frameX="-0" frameY="-0" frameWidth="190" frameHeight="147"/>
