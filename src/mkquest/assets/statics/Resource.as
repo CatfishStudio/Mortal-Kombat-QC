@@ -63,11 +63,25 @@ package mkquest.assets.statics
 		[Embed(source = '../media/atlas/sprites_level_textures.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesLevelTexturesXML:Class;
 		
+		/*
 		[Embed(source = '../media/atlas/sprites_level_animation.png')]
 		public static var AtlasSpritesLevelAnimation:Class;
 		[Embed(source = '../media/atlas/sprites_level_animation.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpritesLevelAnimationXML:Class;
-				
+		*/
+		
+		[Embed(source = '../media/atlas/sprites_blood.png')]
+		public static var AtlasSpritesBlood:Class;
+		[Embed(source = '../media/atlas/sprites_blood.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesBloodXML:Class;
+		
+		[Embed(source = '../media/atlas/sprites_dragon.png')]
+		public static var AtlasSpritesDragon:Class;
+		[Embed(source = '../media/atlas/sprites_dragon.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpritesDragonXML:Class;
+		
+		
+		
 		[Embed(source = '../media/atlas/sprites_liukang.png')]
 		public static var AtlasSpritesLiukang:Class;
 		[Embed(source = '../media/atlas/sprites_liukang.xml', mimeType='application/octet-stream')]

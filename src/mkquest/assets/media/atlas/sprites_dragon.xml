@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites_dragon.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="drugon_left_01.png"	x="162"	y="189"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_02.png"	x="324"	y="378"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_03.png"	x="324"	y="315"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_04.png"	x="324"	y="252"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_05.png"	x="324"	y="189"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_06.png"	x="324"	y="126"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_07.png"	x="324"	y="63"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_08.png"	x="324"	y="0"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_09.png"	x="243"	y="441"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_10.png"	x="243"	y="378"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_11.png"	x="243"	y="315"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_12.png"	x="243"	y="252"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_13.png"	x="243"	y="189"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_14.png"	x="243"	y="126"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_15.png"	x="243"	y="63"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_16.png"	x="243"	y="0"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_17.png"	x="162"	y="441"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_18.png"	x="162"	y="378"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_19.png"	x="162"	y="315"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_left_20.png"	x="162"	y="252"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_01.png"	x="324"	y="441"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_02.png"	x="162"	y="126"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_03.png"	x="162"	y="63"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_04.png"	x="162"	y="0"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_05.png"	x="81"	y="441"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_06.png"	x="81"	y="378"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_07.png"	x="81"	y="315"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_08.png"	x="81"	y="252"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_09.png"	x="81"	y="189"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_10.png"	x="81"	y="126"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_11.png"	x="81"	y="63"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_12.png"	x="81"	y="0"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_13.png"	x="0"	y="441"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_14.png"	x="0"	y="378"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_15.png"	x="0"	y="315"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_16.png"	x="0"	y="252"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_17.png"	x="0"	y="189"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_18.png"	x="0"	y="126"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_19.png"	x="0"	y="63"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+	<SubTexture name="drugon_right_20.png"	x="0"	y="0"	width="80"	height="62" frameX="-0" frameY="-0" frameWidth="80" frameHeight="62"/>
+</TextureAtlas>

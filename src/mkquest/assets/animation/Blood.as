@@ -29,19 +29,19 @@ package mkquest.assets.animation
 		
 		public function setTextureAtlasEmbeddedAsset():void
 		{
-			var contentfile:ByteArray = new Resource.AtlasSpritesLevelAnimationXML;
+			var contentfile:ByteArray = new Resource.AtlasSpritesBloodXML;
 			var contentstr:String = contentfile.readUTFBytes(contentfile.length);
 			var xml:XML = new XML(contentstr);
 			
 			if (textureAtlas == null)
 			{
-				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(Resource.AtlasSpritesLevelAnimation), xml);
+				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(Resource.AtlasSpritesBlood), xml);
 			}
 			else
 			{
 				textureAtlas.dispose();
 				textureAtlas = null;
-				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(Resource.AtlasSpritesLevelAnimation), xml);
+				textureAtlas = new TextureAtlas(Texture.fromEmbeddedAsset(Resource.AtlasSpritesBlood), xml);
 			}
 			
 			contentfile = null;

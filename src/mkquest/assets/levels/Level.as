@@ -85,8 +85,10 @@ package mkquest.assets.levels
 			else _textField = new TextField(200, 50, _fileXML.Timer.YourHitEng + " " + _countTimer.toString(), _fileXML.Timer.FontName, _fileXML.Timer.FontSize, _fileXML.Timer.FontColor, true);
 			_textField.x = _fileXML.Timer.PosX;
 			_textField.y = _fileXML.Timer.PosY;
-			
 			_window.addChild(_textField);
+			
+			/* Индикаторы жизни бойцов */
+			// !!!!!!!!!!!!!!!!!!!!!!!!
 			
 			/* Рамка окна */
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
@@ -234,8 +236,8 @@ package mkquest.assets.levels
 			_botActions.y = Constants.MK_WINDOW_HEIGHT - (_botActions.height + 35);
 			_window.addChild(_botActions);
 			
-			if (_activePlayer == "USER" && _hitType != Constants.HIT_3 && _botBlock == false) _window.addChild(new Blood(_botActions.x - 50, _botActions.y - (_botActions.height / 3)));
-			if (_activePlayer == "BOT" && _hitType != Constants.HIT_3 && _userBlock == false) _window.addChild(new Blood(_userActions.x - 85, _userActions.y - (_userActions.height / 3)));
+			if (_activePlayer == "USER" && _hitType != Constants.HIT_3 && _botBlock == false) _window.addChild(new Blood(_botActions.x - 50, _botActions.y - (_botActions.height / 4)));
+			if (_activePlayer == "BOT" && _hitType != Constants.HIT_3 && _userBlock == false) _window.addChild(new Blood(_userActions.x - 85, _userActions.y - (_userActions.height / 4)));
 		}
 		
 		/* Смена очередности ударов. */
@@ -387,8 +389,7 @@ package mkquest.assets.levels
 		{
 			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
 			{
-				//dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
-				updateFighters();
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}
 		}
 		
