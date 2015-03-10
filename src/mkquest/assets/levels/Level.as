@@ -18,7 +18,7 @@ package mkquest.assets.levels
 	import mkquest.assets.match3.Events;
 	import mkquest.assets.animation.Actions;
 	import mkquest.assets.animation.Blood;
-	
+	import mkquest.assets.levels.Indicator;
 	
 	public class Level extends Sprite 
 	{
@@ -37,6 +37,9 @@ package mkquest.assets.levels
 		private var _botActions:Actions;
 		private var _botBlock:Boolean = false;
 		private var _hitType:String;
+		
+		private var _userLifeBar:Indicator;
+		private var _botLifeBar:Indicator;
 		
 		public function Level() 
 		{
@@ -88,7 +91,10 @@ package mkquest.assets.levels
 			_window.addChild(_textField);
 			
 			/* Индикаторы жизни бойцов */
-			// !!!!!!!!!!!!!!!!!!!!!!!!
+			_userLifeBar = new Indicator(Constants.LEFT_TO_RIGHT, Resource.user_name);
+			_window.addChild(_userLifeBar);
+			_botLifeBar = new Indicator(Constants.RIGHT_TO_LEFT, Resource.ai_enemies[Resource.tournamentProgress].aiName);
+			_window.addChild(_botLifeBar);
 			
 			/* Рамка окна */
 			_image = new Image(Resource.textureAtlas.getTexture(_fileXML.Border));
