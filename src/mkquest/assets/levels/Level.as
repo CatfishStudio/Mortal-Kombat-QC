@@ -418,7 +418,6 @@ package mkquest.assets.levels
 					showFighters();
 					if (_userLife <= 0)
 					{
-						// пользователь проиграл
 						winFighter(false, true);
 						trace("{END} AI победил!");
 					}
@@ -426,9 +425,8 @@ package mkquest.assets.levels
 					{
 						if (_botLife <= 0)
 						{
-							// ИИ проиграл
 							winFighter(true, false);
-							trace("{END} User подубил!");
+							trace("{END} User победил!");
 						}
 						else
 						{
