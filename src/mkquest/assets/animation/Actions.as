@@ -29,7 +29,7 @@ package mkquest.assets.animation
 			_direction = direction;
 			
 			selectFighterTextureAtlas(_fighterName);
-			super(textureAtlas.getTextures(_nameGroupTexture + "_" + _direction + "_"), 12);
+			super(textureAtlas.getTextures(_nameGroupTexture + "_" + _direction), 12);
 			
 			x = _x;
 			y = _y;

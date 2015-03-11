@@ -68,24 +68,21 @@ package mkquest.assets.statics
 		public static const LOST:String = "lost";
 		public static const STANCE:String = "stance";
 		public static const VICTORY:String = "victory";
-		public static const LEFT_TO_RIGHT:String = "left_to_right";
-		public static const RIGHT_TO_LEFT:String = "right_to_left";
+		public static const LEFT_TO_RIGHT:String = "left_to_right_";
+		public static const RIGHT_TO_LEFT:String = "right_to_left_";
 		
 		/* Паказатели урона по умолчанию */
-		public static const DAMAGE_HIT_1:int = 5;
-		public static const DAMAGE_HIT_2:int = 3;
-		public static const DAMAGE_HIT_3:int = 3;
-		public static const DAMAGE_HIT_4:int = 7;
-		public static const DAMAGE_HIT_5:int = 10;
+		public static const DAMAGE_HIT_1:int = 50;
+		public static const DAMAGE_HIT_2:int = 30;
+		public static const DAMAGE_HIT_3:int = 30;
+		public static const DAMAGE_HIT_4:int = 70;
+		public static const DAMAGE_HIT_5:int = 100;
 		
 		/*-------------------------------------------------------------------------*/
 		public static const MK_WINDOW_WIDTH:int = 800;
 		public static const MK_WINDOW_HEIGHT:int = 600;
 		
 		public static const MK_WINDOW_STAIRS:String = "mkWindowStairs";
-		//public static const MK_WINDOW_STAIRS_CHARACTER:String = "mkWindowStairsCharacter";
-		//public static const MK_WINDOW_STAIRS_ENEMY_ICON:String = "mkWindowStairsEnemyIcon";
-		//public static const MK_WINDOW_STAIRS_USER_ICON:String = "mkWindowStairsUserIcon";
 		
 		/*-------------------------------------------------------------------------*/
 		public static const MK_WINDOW_LEVEL:String = "mkWindowLevel";

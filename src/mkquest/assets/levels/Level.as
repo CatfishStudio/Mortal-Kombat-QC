@@ -253,6 +253,31 @@ package mkquest.assets.levels
 			if (_activePlayer == "BOT" && _hitType != Constants.HIT_3 && _userBlock == false) _window.addChild(new Blood(_userActions.x - 85, _userActions.y - (_userActions.height / 4)));
 		}
 		
+		
+		private function winFighter(userWin:Boolean, botWin:Boolean):void
+		{
+			if (_userActions != null) _window.removeChild(_userActions);
+			if (userWin == true) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.VICTORY, "");
+			if (userWin == false) _userActions = new Actions(0, 0, true, Resource.user_name, Constants.LOST, "");
+			_userActions.x = (145 - _userActions.width) / 2;
+			_userActions.y = Constants.MK_WINDOW_HEIGHT - (_userActions.height + 35);
+			_window.addChild(_userActions);
+			
+			if (_botActions != null) _window.removeChild(_botActions);
+			if (botWin == true) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.VICTORY, "");
+			if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.GORO && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.SHAOKAHN)
+			{
+				if (botWin == false) _botActions = new Actions(0, 0, true, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.LOST, "");
+			}
+			else
+			{
+				if (botWin == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.LOST, "");
+			}
+			_botActions.x = (Constants.MK_WINDOW_WIDTH - 145) + ((145 - _botActions.width) / 2);
+			_botActions.y = Constants.MK_WINDOW_HEIGHT - (_botActions.height + 35);
+			_window.addChild(_botActions);
+		}
+		
 		/* Смена очередности ударов. */
 		private function Exchange():void
 		{
@@ -286,8 +311,8 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_5 && _botBlock == false) damage = (Constants.DAMAGE_HIT_5 * Resource.user_hit_5);
 				if (_hitType == Constants.HIT_5 && _botBlock == true) damage = ((Constants.DAMAGE_HIT_5 * Resource.user_hit_5) - (Constants.DAMAGE_HIT_3 * Resource.ai_enemies[Resource.tournamentProgress].aiHit3));
 				
-				if (_botBlock == false) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFF0000));
-				if (_botBlock == true) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFFFF00));
+				if (_botBlock == false && damage >= 0) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFF0000));
+				if (_botBlock == true && damage >= 0) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFFFF00));
 				_botLife -= damage;
 				_botLifeBar.LifeBar = _botLife / (Resource.ai_enemies[Resource.tournamentProgress].aiLife / 200);
 			}
@@ -305,8 +330,8 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_5 && _userBlock == false) damage = (Constants.DAMAGE_HIT_5 * Resource.ai_enemies[Resource.tournamentProgress].aiHit5);
 				if (_hitType == Constants.HIT_5 && _userBlock == true) damage = ((Constants.DAMAGE_HIT_5 * Resource.ai_enemies[Resource.tournamentProgress].aiHit5) - (Constants.DAMAGE_HIT_3 * Resource.user_hit_3));
 				
-				if (_userBlock == false) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFF0000));
-				if (_userBlock == true) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFFFF00));
+				if (_userBlock == false && damage >= 0) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFF0000));
+				if (_userBlock == true && damage >= 0) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFFFF00));
 				_userLife -= damage;
 				_userLifeBar.LifeBar = _userLife / (Resource.user_life / 200);
 			}
@@ -357,6 +382,11 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_3:
 				{
 					_hitType = Constants.HIT_3;
+					if (_activePlayer == "USER") {
+						_botBlock = false;
+					} else {
+						_userBlock = false;
+					}
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_3);
 					break;
 				}
@@ -386,22 +416,23 @@ package mkquest.assets.levels
 				case Match3.ON_MOVE_COMPLITE:
 				{
 					showFighters();
-					_countTimer = 0;
-					
 					if (_userLife <= 0)
 					{
 						// пользователь проиграл
-						trace("{END} User проиграл");
+						winFighter(false, true);
+						trace("{END} AI победил!");
 					}
 					else
 					{
 						if (_botLife <= 0)
 						{
 							// ИИ проиграл
-							trace("{END} AI проиграл");
+							winFighter(true, false);
+							trace("{END} User подубил!");
 						}
 						else
 						{
+							_countTimer = 0;
 							_timer.start();
 						}
 					}
@@ -469,7 +500,8 @@ package mkquest.assets.levels
 		{
 			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
 			{
-				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
+				//dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
+				winFighter(false, false);
 			}
 		}
 		
