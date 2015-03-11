@@ -42,7 +42,7 @@ package mkquest.assets.levels
 			
 			_quad = new Quad(200, 10,  0x0000FF, true);
 			_quad.x = 3;
-			_quad.y = 2;
+			_quad.y = 3;
 			addChild(_quad);
 			
 			_textField = new TextField(200, 30, _fighterName, "Arial", 14, 0xFFFFFF, false);
@@ -78,7 +78,24 @@ package mkquest.assets.levels
 
 		public function set LifeBar(value:int):void
 		{
-			_quad.width = value;
+			if (_direction == Constants.LEFT_TO_RIGHT)
+			{
+				if (value <= 0) _quad.width = 0;
+				else _quad.width = value;
+			}
+			if (_direction == Constants.RIGHT_TO_LEFT)
+			{
+				if (value <= 0)
+				{
+					_quad.width = 0;
+				}
+				else
+				{
+					var shift:int = _quad.width - value;
+					_quad.width = value;
+					_quad.x += shift;
+				}
+			}
 		}
 
 

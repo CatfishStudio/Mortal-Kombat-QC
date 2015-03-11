@@ -8,6 +8,7 @@ package mkquest.assets.stairs
 		private var _ai_hit_3:int = 0;		// Блок
 		private var _ai_hit_4:int = 0;		// Апперкот
 		private var _ai_hit_5:int = 0;		// С разворота
+		private var _ai_life:int = 200;		// количество жизни
 		
 		public function Enemy() 
 		{
@@ -72,6 +73,16 @@ package mkquest.assets.stairs
 		public function set aiHit5(value:int):void
 		{
 			_ai_hit_5 = value;
+		}
+		
+		public function get aiLife():int
+		{
+			return _ai_life;
+		}
+
+		public function set aiLife(value:int):void
+		{
+			_ai_life = value;
 		}
 	}
 

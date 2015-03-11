@@ -23,6 +23,7 @@ package mkquest.assets.statics
 		public static var tournamentProgress:int = 12;	// Прогресс прохождения турника (индекс врага) с конца в начало
 		public static var experiencePoints:int = 0;	// Очки опыта
 		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
+		public static var user_life:int = 200;		// количество жизни
 		/* Характеристики ИИ ---------------------------------------------------- */
 		public static var ai_enemies:Vector.<Enemy>; // массив врагов
 		/*----------------------------------------------------------------------- */
@@ -272,6 +273,7 @@ package mkquest.assets.statics
 			tournamentProgress = 12;// Прогресс прохождения турника (индекс врага) с конца в начало
 			experiencePoints = 0;	// Очки опыта
 			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
+			user_life = 500;		// количество жизни
 			trace("-/- Очистка: данных пользователя");
 		}
 		

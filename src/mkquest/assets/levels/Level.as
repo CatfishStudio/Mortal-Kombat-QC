@@ -1,5 +1,6 @@
 package mkquest.assets.levels 
 {
+	import flash.display.InteractiveObject;
 	import flash.geom.Rectangle;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
@@ -19,6 +20,7 @@ package mkquest.assets.levels
 	import mkquest.assets.animation.Actions;
 	import mkquest.assets.animation.Blood;
 	import mkquest.assets.levels.Indicator;
+	import mkquest.assets.animation.PointsDamage;
 	
 	public class Level extends Sprite 
 	{
@@ -39,7 +41,9 @@ package mkquest.assets.levels
 		private var _hitType:String;
 		
 		private var _userLifeBar:Indicator;
+		private var _userLife:int;
 		private var _botLifeBar:Indicator;
+		private var _botLife:int;
 		
 		public function Level() 
 		{
@@ -91,8 +95,11 @@ package mkquest.assets.levels
 			_window.addChild(_textField);
 			
 			/* Индикаторы жизни бойцов */
+			Resource.user_life = Resource.ai_enemies[Resource.tournamentProgress].aiLife;
+			_userLife = Resource.user_life;
 			_userLifeBar = new Indicator(Constants.LEFT_TO_RIGHT, Resource.user_name);
 			_window.addChild(_userLifeBar);
+			_botLife = Resource.ai_enemies[Resource.tournamentProgress].aiLife;
 			_botLifeBar = new Indicator(Constants.RIGHT_TO_LEFT, Resource.ai_enemies[Resource.tournamentProgress].aiName);
 			_window.addChild(_botLifeBar);
 			
@@ -260,6 +267,52 @@ package mkquest.assets.levels
 			}
 		}
 		
+		/* Уменьшение жизни */
+		private function reductionLife():void
+		{
+			var damage:int = 0;
+			if (_activePlayer == "USER")
+			{
+				// ЖизньИИ -= ((ТипУдара * ЭффективностьУдара) - (ТипБлока * ЭффективностьБлока))
+				if (_hitType == Constants.HIT_1 && _botBlock == false) damage = (Constants.DAMAGE_HIT_1 * Resource.user_hit_1);
+				if (_hitType == Constants.HIT_1 && _botBlock == true) damage = ((Constants.DAMAGE_HIT_1 * Resource.user_hit_1) - (Constants.DAMAGE_HIT_3 * Resource.ai_enemies[Resource.tournamentProgress].aiHit3));
+				
+				if (_hitType == Constants.HIT_2 && _botBlock == false) damage = (Constants.DAMAGE_HIT_2 * Resource.user_hit_2);
+				if (_hitType == Constants.HIT_2 && _botBlock == true) damage = ((Constants.DAMAGE_HIT_2 * Resource.user_hit_2) - (Constants.DAMAGE_HIT_3 * Resource.ai_enemies[Resource.tournamentProgress].aiHit3));
+				
+				if (_hitType == Constants.HIT_4 && _botBlock == false) damage = (Constants.DAMAGE_HIT_4 * Resource.user_hit_4);
+				if (_hitType == Constants.HIT_4 && _botBlock == true) damage = ((Constants.DAMAGE_HIT_4 * Resource.user_hit_4) - (Constants.DAMAGE_HIT_3 * Resource.ai_enemies[Resource.tournamentProgress].aiHit3));
+				
+				if (_hitType == Constants.HIT_5 && _botBlock == false) damage = (Constants.DAMAGE_HIT_5 * Resource.user_hit_5);
+				if (_hitType == Constants.HIT_5 && _botBlock == true) damage = ((Constants.DAMAGE_HIT_5 * Resource.user_hit_5) - (Constants.DAMAGE_HIT_3 * Resource.ai_enemies[Resource.tournamentProgress].aiHit3));
+				
+				if (_botBlock == false) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFF0000));
+				if (_botBlock == true) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFFFF00));
+				_botLife -= damage;
+				_botLifeBar.LifeBar = _botLife / (Resource.ai_enemies[Resource.tournamentProgress].aiLife / 200);
+			}
+			else
+			{
+				if (_hitType == Constants.HIT_1 && _userBlock == false) damage = (Constants.DAMAGE_HIT_1 * Resource.ai_enemies[Resource.tournamentProgress].aiHit1);
+				if (_hitType == Constants.HIT_1 && _userBlock == true) damage = ((Constants.DAMAGE_HIT_1 * Resource.ai_enemies[Resource.tournamentProgress].aiHit1) - (Constants.DAMAGE_HIT_3 * Resource.user_hit_3));
+				
+				if (_hitType == Constants.HIT_2 && _userBlock == false) damage = (Constants.DAMAGE_HIT_2 * Resource.ai_enemies[Resource.tournamentProgress].aiHit2);
+				if (_hitType == Constants.HIT_2 && _userBlock == true) damage = ((Constants.DAMAGE_HIT_2 * Resource.ai_enemies[Resource.tournamentProgress].aiHit2) - (Constants.DAMAGE_HIT_3 * Resource.user_hit_3));
+				
+				if (_hitType == Constants.HIT_4 && _userBlock == false) damage = (Constants.DAMAGE_HIT_4 * Resource.ai_enemies[Resource.tournamentProgress].aiHit4);
+				if (_hitType == Constants.HIT_4 && _userBlock == true) damage = ((Constants.DAMAGE_HIT_4 * Resource.ai_enemies[Resource.tournamentProgress].aiHit4) - (Constants.DAMAGE_HIT_3 * Resource.user_hit_3));
+				
+				if (_hitType == Constants.HIT_5 && _userBlock == false) damage = (Constants.DAMAGE_HIT_5 * Resource.ai_enemies[Resource.tournamentProgress].aiHit5);
+				if (_hitType == Constants.HIT_5 && _userBlock == true) damage = ((Constants.DAMAGE_HIT_5 * Resource.ai_enemies[Resource.tournamentProgress].aiHit5) - (Constants.DAMAGE_HIT_3 * Resource.user_hit_3));
+				
+				if (_userBlock == false) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFF0000));
+				if (_userBlock == true) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFFFF00));
+				_userLife -= damage;
+				_userLifeBar.LifeBar = _userLife / (Resource.user_life / 200);
+			}
+		}
+		
+		
 		private function onMatch3Events(event:Events):void 
 		{
 			switch(event.data.id)
@@ -288,6 +341,7 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_1:
 				{
 					_hitType = Constants.HIT_1;
+					reductionLife();
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_1);
 					break;
 				}
@@ -295,6 +349,7 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_2:
 				{
 					_hitType = Constants.HIT_2;
+					reductionLife();
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_2);
 					break;
 				}
@@ -309,6 +364,7 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_4:
 				{
 					_hitType = Constants.HIT_4;
+					reductionLife();
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_4);
 					break;
 				}
@@ -316,6 +372,7 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_5:
 				{
 					_hitType = Constants.HIT_5;
+					reductionLife();
 					trace(Match3.ON_MATCH_GROUP_DEFINED_TYPE_5);
 					break;
 				}
@@ -330,7 +387,24 @@ package mkquest.assets.levels
 				{
 					showFighters();
 					_countTimer = 0;
-					_timer.start();
+					
+					if (_userLife <= 0)
+					{
+						// пользователь проиграл
+						trace("{END} User проиграл");
+					}
+					else
+					{
+						if (_botLife <= 0)
+						{
+							// ИИ проиграл
+							trace("{END} AI проиграл");
+						}
+						else
+						{
+							_timer.start();
+						}
+					}
 					trace(Match3.ON_MOVE_COMPLITE);
 					break;
 				}
