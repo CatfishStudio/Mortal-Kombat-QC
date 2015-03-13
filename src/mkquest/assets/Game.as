@@ -19,6 +19,7 @@ package mkquest.assets
 	import mkquest.assets.levels.Level;
 	import mkquest.assets.windows.BackMenu;
 	import mkquest.assets.windows.BackStairs;
+	import mkquest.assets.windows.EndedLife;
 	
 	public class Game extends Sprite 
 	{
@@ -89,6 +90,7 @@ package mkquest.assets
 			}
 			else
 			{
+				Resource.levels = Initialization.initLevels(Resource.ClassXMLFileLevel);
 				addChild(new Fighters());
 			}
 		}
@@ -126,7 +128,6 @@ package mkquest.assets
 			}
 			else
 			{
-				Resource.levels = Initialization.initLevels(Resource.ClassXMLFileLevel);
 				initLevelTextureAtlas();
 				addChild(new Level());
 			}
@@ -153,6 +154,18 @@ package mkquest.assets
 			else
 			{
 				addChild(new BackStairs());
+			}
+		}
+		
+		private function windowEndedLife():void
+		{
+			if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
+			}
+			else
+			{
+				addChild(new EndedLife());
 			}
 		}
 		
@@ -258,6 +271,30 @@ package mkquest.assets
 				case Constants.WINDOW_BACK_STAIRS_CLOSE: // завершить битву
 				{
 					windowBackStairs();
+					break;
+				}
+				
+				case Constants.WINDOW_ENDED_LIFE_SHOW: // Окно завершились жизни
+				{
+					windowEndedLife();
+					break;
+				}
+				
+				case Constants.WINDOW_ENDED_LIFE_STAIRS_BACK_MENU: // Окно завершились жизни
+				{
+					windowEndedLife();
+					stairs();
+					menu();
+					Resource.clearUser();
+					Resource.clearAI();
+					break;
+				}
+				
+				case Constants.WINDOW_ENDED_LIFE_INVITE_FRIENDS: // Позвать друга из окна завершения жизни
+				{
+					windowEndedLife();
+					Resource.user_continue++;
+					break;
 				}
 				
 				default:

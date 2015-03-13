@@ -100,7 +100,7 @@ package mkquest.assets.windows
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			super.dispose();
-			trace("[X] Удалено окно BACK IN MENU");
+			trace("[X] Удалено окно BACK IN STAIRS");
 		}
 		
 		private function onButtonsClick(event:Event):void 

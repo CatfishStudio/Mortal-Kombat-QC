@@ -59,6 +59,7 @@ package mkquest.assets.stairs
 			{
 				animationNextFighterStairs(); // Анимация перемещения вверх по турнирной лестнице
 			}
+			if (Resource.user_continue == 0) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_ENDED_LIFE_SHOW } ));
 		}
 		
 		/* Создание: окна, столбца бойцов, окна характеристик, кнопки меню */

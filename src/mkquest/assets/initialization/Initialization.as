@@ -131,7 +131,7 @@ package mkquest.assets.initialization
 		/* =======================================================================================================
 		 *
 		 * Инициализация уровней
-		 * (Используется в классе "Game" функция "Level") 
+		 * (Используется в классе "Game" функция "fighters") 
 		 * 
 		*/
 		public static function initLevels(classFileXML:Class):Vector.<Levels>
