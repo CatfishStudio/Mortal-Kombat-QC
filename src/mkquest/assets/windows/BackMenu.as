@@ -8,6 +8,7 @@ package mkquest.assets.windows
 	import starling.events.Event;
 	import starling.textures.Texture;
 	import starling.display.Quad;
+	import starling.text.TextField;
 	
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.statics.Constants;
@@ -26,12 +27,13 @@ package mkquest.assets.windows
 		private var _image:Image;
 		private var _button:Button;
 		private var _quad:Quad;
+		private var _textField:TextField;
 		
 		public function BackMenu(sender:String) 
 		{
 			super();
 			_sender = sender;
-			x = Constants.GAME_WINDOW_WIDTH / 4;
+			x = Constants.GAME_WINDOW_WIDTH / 3.8;
 			y = Constants.GAME_WINDOW_HEIGHT / 4;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
@@ -50,9 +52,6 @@ package mkquest.assets.windows
 			_quad.y = 0 - this.y;
 			addChild(_quad);
 			
-			var bitmap:Bitmap = new TextureBackground();
-			_image = new Image(Texture.fromBitmap(bitmap));
-			//addChild(_image);
 			
 			_quad = new Quad(Constants.GAME_WINDOW_WIDTH, Constants.GAME_WINDOW_HEIGHT,  0x000000, true);
 			_quad.alpha = 0.9;
@@ -66,7 +65,14 @@ package mkquest.assets.windows
 			_quad.height = 254;
 			addChild(_quad);
 			
-			bitmap = new TextureBorder();
+			_textField = new TextField(400, 200, "Вы собираетесь выйти в главное меню. \nВ таком случае прогресс будет потерян. \n\n Продолжить выход в основное меню?", "Arial", 18, 0xFFFFFF, false);
+			//_textField.hAlign = "left";
+			_textField.x = 0;
+			_textField.y = 0;
+			addChild(_textField);
+			
+			
+			var bitmap:Bitmap = new TextureBorder();
 			_image = new Image(Texture.fromBitmap(bitmap));
 			addChild(_image);
 			

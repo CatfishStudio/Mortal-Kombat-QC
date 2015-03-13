@@ -18,6 +18,7 @@ package mkquest.assets
 	import mkquest.assets.stairs.Stairs;
 	import mkquest.assets.levels.Level;
 	import mkquest.assets.windows.BackMenu;
+	import mkquest.assets.windows.BackStairs;
 	
 	public class Game extends Sprite 
 	{
@@ -143,49 +144,61 @@ package mkquest.assets
 			}
 		}
 		
+		private function windowBackStairs():void
+		{
+			if (getChildByName(Constants.WINDOW_BACK_STAIRS) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_BACK_STAIRS));
+			}
+			else
+			{
+				addChild(new BackStairs());
+			}
+		}
+		
 		private function onChangeScreen(event:Navigation):void 
 		{
 			switch(event.data.id)
 			{
-				case Constants.MENU_BUTTON_TOURNAMENT:
+				case Constants.MENU_BUTTON_TOURNAMENT: // кнопка начать турнир
 				{
 					menu();
 					fighters();
 					break;
 				}
 				
-				case Constants.MENU_BUTTON_SATTINGS:
+				case Constants.MENU_BUTTON_SATTINGS: // кнопка открыть окно настроек
 				{
 					settings();
 					break;
 				}
 				
-				case Constants.SETTINGS_BUTTON_APPLY:
+				case Constants.SETTINGS_BUTTON_APPLY: // кнопка закрыть окно настроек
 				{
 					settings();
 					break;
 				}
 				
-				case Constants.BUTTON_BACK:
+				case Constants.BUTTON_BACK: // кнопка назад (из выбора персонажа в меню)
 				{
 					menu();
 					fighters();
 					break;
 				}
 				
-				case Constants.BUTTON_BACK_IN_MENU:
+				case Constants.BUTTON_BACK_IN_MENU: // кнопка обратно в меню в окне соперников (открывается окно подтверждения)
 				{
 					windowBackMenu(Constants.MK_WINDOW_STAIRS);
 					break;
 				}
 				
-				case Constants.BUTTON_BACK_IN_MENU_LEVEL:
+				case Constants.BUTTON_BACK_IN_MENU_LEVEL: // кнопка обратно в меню в окне уровня (открывается окно подтверждения)
 				{
 					windowBackMenu(Constants.MK_WINDOW_LEVEL);
 					break;
 				}
 				
-				case Constants.WINDOW_LEVEL_BACK_MENU:
+				case Constants.WINDOW_LEVEL_BACK_MENU: // подтверждение возврата в меню из уровня в окне подтверждения
 				{
 					windowBackMenu(null);
 					level();
@@ -195,13 +208,7 @@ package mkquest.assets
 					break;
 				}
 				
-				case Constants.WINDOW_BACK_MENU_CLOSE:
-				{
-					windowBackMenu(null);
-					break;
-				}
-				
-				case Constants.WINDOW_STAIRS_BACK_MENU:
+				case Constants.WINDOW_STAIRS_BACK_MENU: // подтверждение возврата в меню из соперников в окне подтверждения
 				{
 					windowBackMenu(null);
 					stairs();
@@ -211,25 +218,46 @@ package mkquest.assets
 					break;
 				}
 				
-				case Constants.BUTTON_PLAY:
+				case Constants.WINDOW_BACK_MENU_CLOSE: // закрыть окно подтверждения возврата в меню
+				{
+					windowBackMenu(null);
+					break;
+				}
+				
+				
+				case Constants.BUTTON_PLAY: // начать игру
 				{
 					fighters();
 					stairs();
 					break;
 				}
 				
-				case Constants.BUTTON_FIGHT:
+				case Constants.BUTTON_FIGHT: // начать битву
 				{
 					stairs();
 					level();
 					break;
 				}
 				
-				case Constants.BUTTON_FIGHT_END:
+				case Constants.BUTTON_FIGHT_END: // завершить битву
 				{
+					//level();
+					//stairs();
+					windowBackStairs();
+					break;
+				}
+				
+				case Constants.WINDOW_LEVEL_BACK_STAIRS: // завершить битву
+				{
+					windowBackStairs();
 					level();
 					stairs();
 					break;
+				}
+				
+				case Constants.WINDOW_BACK_STAIRS_CLOSE: // завершить битву
+				{
+					windowBackStairs();
 				}
 				
 				default:

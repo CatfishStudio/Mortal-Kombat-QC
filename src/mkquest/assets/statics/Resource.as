@@ -24,6 +24,7 @@ package mkquest.assets.statics
 		public static var experiencePoints:int = 0;	// Очки опыта
 		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
 		public static var user_life:int = 200;		// количество жизни
+		public static var user_continue:int = 9;	// количество жизней (повторов)
 		/* Характеристики ИИ ---------------------------------------------------- */
 		public static var ai_enemies:Vector.<Enemy>; // массив врагов
 		/*----------------------------------------------------------------------- */
@@ -274,6 +275,7 @@ package mkquest.assets.statics
 			experiencePoints = 0;	// Очки опыта
 			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
 			user_life = 500;		// количество жизни
+			user_continue = 9;		// количество жизней (повторов)
 			trace("-/- Очистка: данных пользователя");
 		}
 		
