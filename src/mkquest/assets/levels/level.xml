@@ -17,7 +17,7 @@
 	</Timer>
 	
 	<Button>
-		<Name>buttonBackInMenu</Name>
+		<Name>buttonBackInMenuLevel</Name>
 		<TextRus>Назад в меню</TextRus>
 		<TextEng>Back in menu</TextEng>
 		<Texture>button.png</Texture>
@@ -50,9 +50,9 @@
 		<PosY>661</PosY>
 	</Button>
 	<Button>
-		<Name>buttonFight</Name>
-		<TextRus>Драка</TextRus>
-		<TextEng>Fight</TextEng>
+		<Name>buttonFightEnd</Name>
+		<TextRus>Закончить битву</TextRus>
+		<TextEng>Finish fight</TextEng>
 		<Texture>button.png</Texture>
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>

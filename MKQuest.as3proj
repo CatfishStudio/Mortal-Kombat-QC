@@ -93,6 +93,8 @@
     <asset path="src\mkquest\assets\media\atlas\sprites_shaokahn.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_dragon.png" />
     <asset path="src\mkquest\assets\media\atlas\sprites_blood.png" />
+    <asset path="src\mkquest\assets\media\textures\window_background.png" />
+    <asset path="src\mkquest\assets\media\textures\window_border.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

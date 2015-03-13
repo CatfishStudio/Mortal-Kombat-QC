@@ -66,6 +66,13 @@ package mkquest.assets.levels
 		private function onRemoveStage(e:Event):void
 		{
 			_timer.stop();
+			
+			while (this.numChildren)
+			{
+				//this.removeChildAt(0, true);
+				this.removeChildren(0, -1, true);
+			}
+			
 			super.dispose();
 			trace("[X] Удалена сцена уровня");
 		}
@@ -112,6 +119,7 @@ package mkquest.assets.levels
 			
 			/* Построение игрового поля и объектов игрового поля */
 			Match3.modeAI = true;
+			Match3.fieldBlocked = false;
 			Match3.BuildCellsAndUnits(_window, Resource.textureAtlas, Resource.levels[Resource.tournamentProgress].levelFileXML, FileXML.getFileXML(Resource.ClassXMLFileLevel0));
 			
 			/* Добавляем окно на сцену*/
@@ -311,8 +319,9 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_5 && _botBlock == false) damage = (Constants.DAMAGE_HIT_5 * Resource.user_hit_5);
 				if (_hitType == Constants.HIT_5 && _botBlock == true) damage = ((Constants.DAMAGE_HIT_5 * Resource.user_hit_5) - (Constants.DAMAGE_HIT_3 * Resource.ai_enemies[Resource.tournamentProgress].aiHit3));
 				
-				if (_botBlock == false && damage >= 0) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFF0000));
-				if (_botBlock == true && damage >= 0) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFFFF00));
+				if (damage < 0) damage = 0;
+				if (_botBlock == false) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFF0000));
+				if (_botBlock == true) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFFFF00));
 				_botLife -= damage;
 				_botLifeBar.LifeBar = _botLife / (Resource.ai_enemies[Resource.tournamentProgress].aiLife / 200);
 			}
@@ -330,8 +339,9 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_5 && _userBlock == false) damage = (Constants.DAMAGE_HIT_5 * Resource.ai_enemies[Resource.tournamentProgress].aiHit5);
 				if (_hitType == Constants.HIT_5 && _userBlock == true) damage = ((Constants.DAMAGE_HIT_5 * Resource.ai_enemies[Resource.tournamentProgress].aiHit5) - (Constants.DAMAGE_HIT_3 * Resource.user_hit_3));
 				
-				if (_userBlock == false && damage >= 0) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFF0000));
-				if (_userBlock == true && damage >= 0) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFFFF00));
+				if (damage < 0) damage = 0;
+				if (_userBlock == false) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFF0000));
+				if (_userBlock == true) _window.addChild(new PointsDamage(20, 300, damage.toString(), 0xFFFF00));
 				_userLife -= damage;
 				_userLifeBar.LifeBar = _userLife / (Resource.user_life / 200);
 			}
@@ -496,10 +506,9 @@ package mkquest.assets.levels
 		
 		private function onButtonsClick(event:Event):void 
 		{
-			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
+			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU_LEVEL || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT_END)
 			{
-				//dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
-				winFighter(false, false);
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}
 		}
 		

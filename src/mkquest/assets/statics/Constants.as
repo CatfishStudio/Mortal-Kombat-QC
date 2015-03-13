@@ -53,8 +53,10 @@ package mkquest.assets.statics
 		
 		public static const BUTTON_BACK:String = "buttonBack";
 		public static const BUTTON_BACK_IN_MENU:String = "buttonBackInMenu";
+		public static const BUTTON_BACK_IN_MENU_LEVEL:String = "buttonBackInMenuLevel";
 		public static const BUTTON_PLAY:String = "buttonPlay";
-		public static const BUTTON_FIGHTER:String = "buttonFight";
+		public static const BUTTON_FIGHT:String = "buttonFight";
+		public static const BUTTON_FIGHT_END:String = "buttonFightEnd";
 		
 		public static const ACTIONS:String = "actions";
 		public static const BLOOD:String = "blood";
@@ -86,6 +88,7 @@ package mkquest.assets.statics
 		
 		/*-------------------------------------------------------------------------*/
 		public static const MK_WINDOW_LEVEL:String = "mkWindowLevel";
+		
 		
 	}
 

@@ -236,7 +236,7 @@ package mkquest.assets.stairs
 		
 		private function onButtonsClick(event:Event):void 
 		{
-			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHTER)
+			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU  || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT)
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}

@@ -130,6 +130,8 @@ package mkquest.assets
 			}
 		}
 		
+		
+		
 		private function onChangeScreen(event:Navigation):void 
 		{
 			switch(event.data.id)
@@ -162,8 +164,16 @@ package mkquest.assets
 				
 				case Constants.BUTTON_BACK_IN_MENU:
 				{
-					//level();
 					stairs();
+					menu();
+					Resource.clearUser();
+					Resource.clearAI();
+					break;
+				}
+				
+				case Constants.BUTTON_BACK_IN_MENU_LEVEL:
+				{
+					level();
 					menu();
 					Resource.clearUser();
 					Resource.clearAI();
@@ -177,10 +187,17 @@ package mkquest.assets
 					break;
 				}
 				
-				case Constants.BUTTON_FIGHTER:
+				case Constants.BUTTON_FIGHT:
 				{
 					stairs();
 					level();
+					break;
+				}
+				
+				case Constants.BUTTON_FIGHT_END:
+				{
+					level();
+					stairs();
 					break;
 				}
 				
