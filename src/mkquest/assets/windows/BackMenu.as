@@ -7,6 +7,7 @@ package mkquest.assets.windows
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.textures.Texture;
+	import starling.display.Quad;
 	
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.statics.Constants;
@@ -24,6 +25,7 @@ package mkquest.assets.windows
 		private var _sender:String;
 		private var _image:Image;
 		private var _button:Button;
+		private var _quad:Quad;
 		
 		public function BackMenu(sender:String) 
 		{
@@ -32,7 +34,7 @@ package mkquest.assets.windows
 			x = Constants.GAME_WINDOW_WIDTH / 4;
 			y = Constants.GAME_WINDOW_HEIGHT / 4;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addEventListener(Event.REMOVED, onRemoveStage);
+			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
@@ -42,23 +44,45 @@ package mkquest.assets.windows
 			name = Constants.WINDOW_BACK_MENU;
 			
 			
+			_quad = new Quad(Constants.GAME_WINDOW_WIDTH, Constants.GAME_WINDOW_HEIGHT,  0x000000, true);
+			_quad.alpha = 0.5;
+			_quad.x = 0 - this.x;
+			_quad.y = 0 - this.y;
+			addChild(_quad);
+			
 			var bitmap:Bitmap = new TextureBackground();
 			_image = new Image(Texture.fromBitmap(bitmap));
-			addChild(_image);
+			//addChild(_image);
+			
+			_quad = new Quad(Constants.GAME_WINDOW_WIDTH, Constants.GAME_WINDOW_HEIGHT,  0x000000, true);
+			_quad.alpha = 0.9;
+			_quad.setVertexColor(0, 0x000000);
+			_quad.setVertexColor(1, 0x220000);
+			_quad.setVertexColor(2, 0x220000);
+			_quad.setVertexColor(3, 0x000000);
+			_quad.x = 0;
+			_quad.y = 0;
+			_quad.width = 400;
+			_quad.height = 254;
+			addChild(_quad);
 			
 			bitmap = new TextureBorder();
 			_image = new Image(Texture.fromBitmap(bitmap));
 			addChild(_image);
 			
 			bitmap = new TextureButton();
-			_button = new Button(Texture.fromBitmap(bitmap), "Да");
+			_button = new Button(Texture.fromBitmap(bitmap));
+			_button.text = "Да";
 			_button.name = "yes";
-			_button.x = 10;
+			_button.fontColor = 0xFFFFFF;
+			_button.x = 20;
 			_button.y = 185;
 			addChild(_button);
 			
-			_button = new Button(Texture.fromBitmap(bitmap), "Нет");
+			_button = new Button(Texture.fromBitmap(bitmap));
+			_button.text = "Нет";
 			_button.name = "no";
+			_button.fontColor = 0xFFFFFF;
 			_button.x = 200;
 			_button.y = 185;
 			addChild(_button);
@@ -68,9 +92,10 @@ package mkquest.assets.windows
 			_image = null;
 		}
 		
-		private function onRemoveStage(e:Event):void
+		private function onRemoveFromStage(e:Event):void
 		{
-			//super.dispose();
+			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			super.dispose();
 			trace("[X] Удалено окно BACK IN MENU");
 		}
 		
@@ -78,14 +103,12 @@ package mkquest.assets.windows
 		{
 			if (Button(event.target).name == "yes")
 			{
-				trace(_sender);
-				if (_sender == Constants.MK_WINDOW_STAIRS) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.BUTTON_STAIRS_BACK_IN_MENU } ));
-				this.parent.removeChild(this);
-				//this.removeFromParent(true);
+				if (_sender == Constants.MK_WINDOW_STAIRS) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_STAIRS_BACK_MENU } ));
+				if (_sender == Constants.MK_WINDOW_LEVEL) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_LEVEL_BACK_MENU } ));
 			}
 			else
 			{
-				this.parent.removeChild(this);
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_BACK_MENU_CLOSE } ));
 			}
 		
 		}

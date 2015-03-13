@@ -17,6 +17,7 @@ package mkquest.assets
 	import mkquest.assets.settings.Settings;
 	import mkquest.assets.stairs.Stairs;
 	import mkquest.assets.levels.Level;
+	import mkquest.assets.windows.BackMenu;
 	
 	public class Game extends Sprite 
 	{
@@ -130,7 +131,17 @@ package mkquest.assets
 			}
 		}
 		
-		
+		private function windowBackMenu(sender:String):void
+		{
+			if (getChildByName(Constants.WINDOW_BACK_MENU) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_BACK_MENU));
+			}
+			else
+			{
+				addChild(new BackMenu(sender));
+			}
+		}
 		
 		private function onChangeScreen(event:Navigation):void 
 		{
@@ -164,16 +175,36 @@ package mkquest.assets
 				
 				case Constants.BUTTON_BACK_IN_MENU:
 				{
-					stairs();
+					windowBackMenu(Constants.MK_WINDOW_STAIRS);
+					break;
+				}
+				
+				case Constants.BUTTON_BACK_IN_MENU_LEVEL:
+				{
+					windowBackMenu(Constants.MK_WINDOW_LEVEL);
+					break;
+				}
+				
+				case Constants.WINDOW_LEVEL_BACK_MENU:
+				{
+					windowBackMenu(null);
+					level();
 					menu();
 					Resource.clearUser();
 					Resource.clearAI();
 					break;
 				}
 				
-				case Constants.BUTTON_BACK_IN_MENU_LEVEL:
+				case Constants.WINDOW_BACK_MENU_CLOSE:
 				{
-					level();
+					windowBackMenu(null);
+					break;
+				}
+				
+				case Constants.WINDOW_STAIRS_BACK_MENU:
+				{
+					windowBackMenu(null);
+					stairs();
 					menu();
 					Resource.clearUser();
 					Resource.clearAI();

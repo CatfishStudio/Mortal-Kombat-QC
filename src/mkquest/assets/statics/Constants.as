@@ -89,7 +89,10 @@ package mkquest.assets.statics
 		/*-------------------------------------------------------------------------*/
 		public static const MK_WINDOW_LEVEL:String = "mkWindowLevel";
 		
-		
+		public static const WINDOW_BACK_MENU:String = "windowBackMenu";
+		public static const WINDOW_STAIRS_BACK_MENU:String = "windowStairsBackMenu";
+		public static const WINDOW_LEVEL_BACK_MENU:String = "windowLevelBackMenu";
+		public static const WINDOW_BACK_MENU_CLOSE:String = "windowBackMenuClose";
 	}
 
 }
