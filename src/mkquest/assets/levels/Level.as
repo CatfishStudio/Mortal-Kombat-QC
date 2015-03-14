@@ -58,6 +58,7 @@ package mkquest.assets.levels
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			name = Constants.MK_WINDOW_LEVEL;
 			
+			Resource.totalPointsPlayerLevel = 0;
 			createWindow();					// Создание окна уровня
 			createButtonsPanelFromXML();	// Создание кнопок меню
 			_timer.start();					// Запуск таймера
@@ -339,6 +340,7 @@ package mkquest.assets.levels
 				if (_botBlock == true) _window.addChild(new PointsDamage(700, 300, damage.toString(), 0xFFFF00));
 				_botLife -= damage;
 				_botLifeBar.LifeBar = _botLife / (Resource.ai_enemies[Resource.tournamentProgress].aiLife / 200);
+				Resource.totalPointsPlayerLevel += (damage * 10);
 			}
 			else
 			{

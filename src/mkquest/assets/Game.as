@@ -21,6 +21,7 @@ package mkquest.assets
 	import mkquest.assets.windows.BackStairs;
 	import mkquest.assets.windows.EndedLife;
 	import mkquest.assets.windows.Lost;
+	import mkquest.assets.windows.Victory;
 	
 	public class Game extends Sprite 
 	{
@@ -187,6 +188,19 @@ package mkquest.assets
 			else
 			{
 				addChild(new Lost());
+				trace("LOOOOST!!!");
+			}
+		}
+		
+		private function windowVictory():void
+		{
+			if (getChildByName(Constants.WINDOW_VICTORY) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_VICTORY));
+			}
+			else
+			{
+				addChild(new Victory());
 			}
 		}
 		
@@ -314,6 +328,7 @@ package mkquest.assets
 				{
 					windowEndedLife();
 					Resource.user_continue++;
+					// VK
 					break;
 				}
 				
@@ -336,6 +351,26 @@ package mkquest.assets
 				case Constants.WINDOW_LOST_BACK_STAIRS: // Битва проиграна нажали "продолжить"
 				{
 					windowLost();
+					level();
+					stairs();
+					break;
+				}
+				
+				case Constants.WINDOW_VICTORY: // Битва выиграна показываем окно
+				{
+					windowVictory();
+					break;
+				}
+				
+				case Constants.WINDOW_VICTORY_POST: // Битва выиграна постинг на стену
+				{
+					// VK
+					break;
+				}
+				
+				case Constants.WINDOW_VICTORY_NEXT: // Битва выиграна продолжить
+				{
+					windowVictory();
 					level();
 					stairs();
 					break;

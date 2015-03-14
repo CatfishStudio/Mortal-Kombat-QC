@@ -108,7 +108,8 @@ package mkquest.assets.statics
 		public static const WINDOW_LOST_BACK_MENU:String = "windowLostBackMenu";
 		
 		public static const WINDOW_VICTORY:String = "windowVictory";
-		
+		public static const WINDOW_VICTORY_POST:String = "windowVictoryPost";
+		public static const WINDOW_VICTORY_NEXT:String = "windowVictoryNext";
 	}
 
 }

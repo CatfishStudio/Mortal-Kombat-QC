@@ -22,7 +22,8 @@ package mkquest.assets.statics
 		public static var user_hit_5:int = 0;		// С разворота
 		public static var tournamentProgress:int = 12;	// Прогресс прохождения турника (индекс врага) с конца в начало
 		public static var experiencePoints:int = 0;	// Очки опыта
-		public static var totalPointsPlayer:int = 0;// Общие очки игрока за весь турнир
+		public static var totalPointsPlayerTournament:int = 0;// Общие очки игрока за весь турнир
+		public static var totalPointsPlayerLevel:int = 0;// Общие очки игрока за уровень
 		public static var user_life:int = 200;		// количество жизни
 		public static var user_continue:int = 9;	// количество жизней (повторов)
 		/* Характеристики ИИ ---------------------------------------------------- */
@@ -273,8 +274,9 @@ package mkquest.assets.statics
 			user_hit_5 = 0;			// С разворота
 			tournamentProgress = 12;// Прогресс прохождения турника (индекс врага) с конца в начало
 			experiencePoints = 0;	// Очки опыта
-			totalPointsPlayer = 0;	// Общие очки игрока за весь турнир
-			user_life = 500;		// количество жизни
+			totalPointsPlayerTournament = 0;	// Общие очки игрока за весь турнир
+			totalPointsPlayerLevel = 0;	// Общие очки игрока за уровень
+			user_life = 200;		// количество жизни
 			user_continue = 9;		// количество жизней (повторов)
 			trace("-/- Очистка: данных пользователя");
 		}
