@@ -8,6 +8,7 @@ package mkquest.assets.animation
 	import starling.events.EventDispatcher;
 	import starling.textures.TextureAtlas;
 	import starling.textures.Texture;
+	import starling.textures.TextureSmoothing;
 	
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
@@ -35,6 +36,7 @@ package mkquest.assets.animation
 			y = _y;
 			scaleX += 0.5;
 			scaleY += 0.5;
+			smoothing = TextureSmoothing.BILINEAR;
 			
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);

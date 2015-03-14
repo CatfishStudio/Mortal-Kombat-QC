@@ -43,7 +43,7 @@ package mkquest.assets.windows
 		private function onAddedToStage(e:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			name = Constants.WINDOW_LOST;
+			name = Constants.WINDOW_VICTORY;
 			
 			
 			_quad = new Quad(Constants.GAME_WINDOW_WIDTH, Constants.GAME_WINDOW_HEIGHT,  0x000000, true);
@@ -62,7 +62,8 @@ package mkquest.assets.windows
 			_dragon = new Dragon(320, 0, "drugon_right_");
 			addChild(_dragon);
 			
-			_textField = new TextField(400, 200, "Вы победили! \nОчки за битву " + Resource.totalPointsPlayerLevel.toString(), "Arial", 18, 0xFFFFFF, false);
+			if (Resource.tournamentProgress > 0) _textField = new TextField(400, 200, "Вы победили! \nОчки за битву " + Resource.totalPointsPlayerLevel.toString(), "Arial", 18, 0xFFFFFF, false);
+			else _textField = new TextField(400, 200, "Вы победили в турнире! \nОбщие очки за весь турнир " + Resource.totalPointsPlayerTournament.toString(), "Arial", 18, 0xFFFFFF, false);
 			//_textField.hAlign = "left";
 			_textField.x = 0;
 			_textField.y = 10;

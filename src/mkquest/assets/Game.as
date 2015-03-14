@@ -188,7 +188,6 @@ package mkquest.assets
 			else
 			{
 				addChild(new Lost());
-				trace("LOOOOST!!!");
 			}
 		}
 		
@@ -373,6 +372,13 @@ package mkquest.assets
 					windowVictory();
 					level();
 					stairs();
+					break;
+				}
+				
+				case Constants.GAME_END: // Игра завершена
+				{
+					stairs();
+					menu();
 					break;
 				}
 				

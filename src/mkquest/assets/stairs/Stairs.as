@@ -48,18 +48,25 @@ package mkquest.assets.stairs
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			name = Constants.MK_WINDOW_STAIRS;
 			
-			createWindow();					// Создание окна турнира
-			createButtonsPanelFromXML();	// Создание кнопок меню
-			
-			if (Resource.tournamentProgress == 12)
+			if (Resource.tournamentProgress >= 0)
 			{
-				animationStartFighterStairs(); // Анимация при первой битве
+				createWindow();					// Создание окна турнира
+				createButtonsPanelFromXML();	// Создание кнопок меню
+			
+				if (Resource.tournamentProgress == 12)
+				{
+					animationStartFighterStairs(); // Анимация при первой битве
+				}
+				else
+				{
+					animationNextFighterStairs(); // Анимация перемещения вверх по турнирной лестнице
+				}
+				if (Resource.user_continue == 0) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_ENDED_LIFE_SHOW } ));
 			}
 			else
 			{
-				animationNextFighterStairs(); // Анимация перемещения вверх по турнирной лестнице
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.GAME_END } ));
 			}
-			if (Resource.user_continue == 0) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_ENDED_LIFE_SHOW } ));
 		}
 		
 		/* Создание: окна, столбца бойцов, окна характеристик, кнопки меню */

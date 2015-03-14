@@ -110,6 +110,8 @@ package mkquest.assets.statics
 		public static const WINDOW_VICTORY:String = "windowVictory";
 		public static const WINDOW_VICTORY_POST:String = "windowVictoryPost";
 		public static const WINDOW_VICTORY_NEXT:String = "windowVictoryNext";
+		
+		public static const GAME_END:String = "gameEnd";
 	}
 
 }
