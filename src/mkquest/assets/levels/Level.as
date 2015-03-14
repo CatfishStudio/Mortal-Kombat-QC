@@ -156,6 +156,12 @@ package mkquest.assets.levels
 			_timer.start();
 		} 
 		
+		public function timerPause(status:Boolean):void
+		{
+			if (status == true) _timer.stop();
+			if (status == false) _timer.start();
+		}
+		
 		
 		/* Отображение бойцов */
 		private function showFighters():void
@@ -265,8 +271,17 @@ package mkquest.assets.levels
 		private function winFighter(userWin:Boolean, botWin:Boolean):void
 		{
 			if (_userActions != null) _window.removeChild(_userActions);
-			if (userWin == true) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.VICTORY, "");
-			if (userWin == false) _userActions = new Actions(0, 0, true, Resource.user_name, Constants.LOST, "");
+			if (userWin == true)
+			{
+				_userActions = new Actions(0, 0, false, Resource.user_name, Constants.VICTORY, "");
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_VICTORY } ));
+				
+			}
+			if (userWin == false)
+			{
+				_userActions = new Actions(0, 0, true, Resource.user_name, Constants.LOST, "");
+				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_LOST } ));
+			}
 			_userActions.x = (145 - _userActions.width) / 2;
 			_userActions.y = Constants.MK_WINDOW_HEIGHT - (_userActions.height + 35);
 			_window.addChild(_userActions);

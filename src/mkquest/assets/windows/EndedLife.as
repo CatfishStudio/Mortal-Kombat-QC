@@ -16,8 +16,6 @@ package mkquest.assets.windows
 	
 	public class EndedLife extends Sprite 
 	{
-		[Embed(source = '../media/textures/window_background.png')]
-		public static var TextureBackground:Class;
 		[Embed(source = '../media/textures/window_border.png')]
 		public static var TextureBorder:Class;
 		[Embed(source = '../media/textures/button.png')]

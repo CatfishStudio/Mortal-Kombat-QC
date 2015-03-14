@@ -102,6 +102,13 @@ package mkquest.assets.statics
 		public static const WINDOW_ENDED_LIFE_SHOW:String = "windowEndedShow";
 		public static const WINDOW_ENDED_LIFE_STAIRS_BACK_MENU:String = "windowEndedLifeStairsBackMenu";
 		public static const WINDOW_ENDED_LIFE_INVITE_FRIENDS:String = "windowEndedInviteFriends";
+		
+		public static const WINDOW_LOST:String = "windowLost";
+		public static const WINDOW_LOST_BACK_STAIRS:String = "windowLostBackStairs";
+		public static const WINDOW_LOST_BACK_MENU:String = "windowLostBackMenu";
+		
+		public static const WINDOW_VICTORY:String = "windowVictory";
+		
 	}
 
 }

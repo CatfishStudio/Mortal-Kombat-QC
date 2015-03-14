@@ -20,9 +20,11 @@ package mkquest.assets
 	import mkquest.assets.windows.BackMenu;
 	import mkquest.assets.windows.BackStairs;
 	import mkquest.assets.windows.EndedLife;
+	import mkquest.assets.windows.Lost;
 	
 	public class Game extends Sprite 
 	{
+		private var _level:Level;
 		
 		public function Game() 
 		{
@@ -123,13 +125,16 @@ package mkquest.assets
 		{
 			if (getChildByName(Constants.MK_WINDOW_LEVEL) != null)
 			{
-				removeChild(getChildByName(Constants.MK_WINDOW_LEVEL));
+				//removeChild(getChildByName(Constants.MK_WINDOW_LEVEL));
+				removeChild(_level);
 				initGameTextureAtlas();
 			}
 			else
 			{
 				initLevelTextureAtlas();
-				addChild(new Level());
+				//addChild(new Level());
+				_level = new Level();
+				addChild(_level);
 			}
 		}
 		
@@ -138,9 +143,11 @@ package mkquest.assets
 			if (getChildByName(Constants.WINDOW_BACK_MENU) != null)
 			{
 				removeChild(getChildByName(Constants.WINDOW_BACK_MENU));
+				if (getChildByName(Constants.MK_WINDOW_LEVEL)) _level.timerPause(false);
 			}
 			else
 			{
+				if (sender == Constants.MK_WINDOW_LEVEL) _level.timerPause(true);
 				addChild(new BackMenu(sender));
 			}
 		}
@@ -150,9 +157,11 @@ package mkquest.assets
 			if (getChildByName(Constants.WINDOW_BACK_STAIRS) != null)
 			{
 				removeChild(getChildByName(Constants.WINDOW_BACK_STAIRS));
+				if (getChildByName(Constants.MK_WINDOW_LEVEL)) _level.timerPause(false);
 			}
 			else
 			{
+				_level.timerPause(true);
 				addChild(new BackStairs());
 			}
 		}
@@ -168,6 +177,19 @@ package mkquest.assets
 				addChild(new EndedLife());
 			}
 		}
+		
+		private function windowLost():void
+		{
+			if (getChildByName(Constants.WINDOW_LOST) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_LOST));
+			}
+			else
+			{
+				addChild(new Lost());
+			}
+		}
+		
 		
 		private function onChangeScreen(event:Navigation):void 
 		{
@@ -254,8 +276,6 @@ package mkquest.assets
 				
 				case Constants.BUTTON_FIGHT_END: // завершить битву
 				{
-					//level();
-					//stairs();
 					windowBackStairs();
 					break;
 				}
@@ -294,6 +314,30 @@ package mkquest.assets
 				{
 					windowEndedLife();
 					Resource.user_continue++;
+					break;
+				}
+				
+				case Constants.WINDOW_LOST: // Битва проиграна показываем окно
+				{
+					windowLost();
+					break;
+				}
+				
+				case Constants.WINDOW_LOST_BACK_MENU: // Битва проиграна возвращаемся в основное меню
+				{
+					windowLost();
+					level();
+					menu();
+					Resource.clearUser();
+					Resource.clearAI();
+					break;
+				}
+				
+				case Constants.WINDOW_LOST_BACK_STAIRS: // Битва проиграна нажали "продолжить"
+				{
+					windowLost();
+					level();
+					stairs();
 					break;
 				}
 				
