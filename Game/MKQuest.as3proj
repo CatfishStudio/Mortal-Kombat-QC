@@ -95,6 +95,22 @@
     <asset path="src\mkquest\assets\media\atlas\sprites_blood.png" />
     <asset path="src\mkquest\assets\media\textures\window_background.png" />
     <asset path="src\mkquest\assets\media\textures\window_border.png" />
+    <asset path="src\mkquest\assets\media\sounds\button.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\f_01.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\f_02.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\f_d_03.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\fight.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\hit_1_5.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\hit_2_4.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\hit_block.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\hit_move.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\Lost.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\m_01.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\m_02.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\m_d_03.mp3" />
+    <asset path="src\mkquest\assets\media\sounds\wins.mp3" />
+    <asset path="src\mkquest\assets\media\music\music1.mp3" />
+    <asset path="src\mkquest\assets\media\music\music2.mp3" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
