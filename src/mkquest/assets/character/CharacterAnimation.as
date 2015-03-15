@@ -1,5 +1,6 @@
 package mkquest.assets.character 
 {
+	import flash.system.*;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -70,6 +71,7 @@ package mkquest.assets.character
 			this.removeFromParent(true);
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена сцена анимации бойца");
 		}
 		

@@ -74,11 +74,11 @@ package mkquest.assets.statics
 		public static const RIGHT_TO_LEFT:String = "right_to_left_";
 		
 		/* Паказатели урона по умолчанию */
-		public static const DAMAGE_HIT_1:int = 50;
-		public static const DAMAGE_HIT_2:int = 30;
-		public static const DAMAGE_HIT_3:int = 30;
-		public static const DAMAGE_HIT_4:int = 70;
-		public static const DAMAGE_HIT_5:int = 100;
+		public static const DAMAGE_HIT_1:int = 5;
+		public static const DAMAGE_HIT_2:int = 3;
+		public static const DAMAGE_HIT_3:int = 3;
+		public static const DAMAGE_HIT_4:int = 7;
+		public static const DAMAGE_HIT_5:int = 10;
 		
 		/*-------------------------------------------------------------------------*/
 		public static const MK_WINDOW_WIDTH:int = 800;

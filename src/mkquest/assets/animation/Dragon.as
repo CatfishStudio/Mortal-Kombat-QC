@@ -1,5 +1,6 @@
 package mkquest.assets.animation 
 {
+	import flash.system.*;
 	import flash.utils.ByteArray;
 	
 	import starling.events.Event;
@@ -74,6 +75,7 @@ package mkquest.assets.animation
 			this.removeFromParent(true);
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена анимации DRAGON");
 		}
 	}

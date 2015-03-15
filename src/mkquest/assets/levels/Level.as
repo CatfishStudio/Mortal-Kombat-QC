@@ -1,11 +1,12 @@
 package mkquest.assets.levels 
 {
+	import flash.system.*;
 	import flash.display.InteractiveObject;
 	import flash.geom.Rectangle;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
-	import starling.text.TextField;
 	
+	import starling.text.TextField;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -75,6 +76,7 @@ package mkquest.assets.levels
 			}
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена сцена уровня");
 		}
 		
@@ -409,7 +411,8 @@ package mkquest.assets.levels
 				case Match3.ON_MATCH_GROUP_DEFINED_TYPE_3:
 				{
 					_hitType = Constants.HIT_3;
-					if (_activePlayer == "USER") {
+					if (_activePlayer == "USER") 
+					{
 						_botBlock = false;
 					} else {
 						_userBlock = false;

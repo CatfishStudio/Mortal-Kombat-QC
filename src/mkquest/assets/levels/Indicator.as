@@ -1,5 +1,6 @@
 package mkquest.assets.levels 
 {
+	import flash.system.*;
 	import starling.display.Image;
 	import starling.display.Quad;
 	import starling.display.Sprite;
@@ -66,8 +67,9 @@ package mkquest.assets.levels
 				this.removeChildren(0, -1, true);
 			}
 			this.removeFromParent(true);
-			
+			System.gc();
 			super.dispose();
+			
 			trace("[X] Удалена индикатора жизни");
 		}
 		

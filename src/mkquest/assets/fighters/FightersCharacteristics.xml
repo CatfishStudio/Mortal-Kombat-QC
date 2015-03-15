@@ -26,17 +26,17 @@
 	</Fighter>
 	<Fighter>
 		<Name>kunglao</Name>
-		<CharacterHit1>2</CharacterHit1>
-		<CharacterHit2>1</CharacterHit2>
+		<CharacterHit1>1</CharacterHit1>
+		<CharacterHit2>2</CharacterHit2>
 		<CharacterHit3>1</CharacterHit3>
-		<CharacterHit4>1</CharacterHit4>
-		<CharacterHit5>2</CharacterHit5>
+		<CharacterHit4>2</CharacterHit4>
+		<CharacterHit5>1</CharacterHit5>
 	</Fighter>
 	<Fighter>
 		<Name>johnnycage</Name>
 		<CharacterHit1>1</CharacterHit1>
 		<CharacterHit2>1</CharacterHit2>
-		<CharacterHit3>1</CharacterHit3>
+		<CharacterHit3>2</CharacterHit3>
 		<CharacterHit4>2</CharacterHit4>
 		<CharacterHit5>1</CharacterHit5>
 	</Fighter>
@@ -50,8 +50,8 @@
 	</Fighter>
 	<Fighter>
 		<Name>subzero</Name>
-		<CharacterHit1>1</CharacterHit1>
-		<CharacterHit2>1</CharacterHit2>
+		<CharacterHit1>2</CharacterHit1>
+		<CharacterHit2>2</CharacterHit2>
 		<CharacterHit3>1</CharacterHit3>
 		<CharacterHit4>1</CharacterHit4>
 		<CharacterHit5>1</CharacterHit5>
@@ -61,44 +61,44 @@
 		<CharacterHit1>1</CharacterHit1>
 		<CharacterHit2>1</CharacterHit2>
 		<CharacterHit3>1</CharacterHit3>
-		<CharacterHit4>1</CharacterHit4>
+		<CharacterHit4>3</CharacterHit4>
 		<CharacterHit5>1</CharacterHit5>
 	</Fighter>
 	<Fighter>
 		<Name>kitana</Name>
 		<CharacterHit1>1</CharacterHit1>
 		<CharacterHit2>1</CharacterHit2>
-		<CharacterHit3>1</CharacterHit3>
+		<CharacterHit3>3</CharacterHit3>
 		<CharacterHit4>1</CharacterHit4>
 		<CharacterHit5>1</CharacterHit5>
 	</Fighter>
 	<Fighter>
 		<Name>jax</Name>
 		<CharacterHit1>1</CharacterHit1>
-		<CharacterHit2>1</CharacterHit2>
-		<CharacterHit3>2</CharacterHit3>
+		<CharacterHit2>3</CharacterHit2>
+		<CharacterHit3>1</CharacterHit3>
 		<CharacterHit4>1</CharacterHit4>
 		<CharacterHit5>1</CharacterHit5>
 	</Fighter>
 	<Fighter>
 		<Name>mileena</Name>
 		<CharacterHit1>1</CharacterHit1>
-		<CharacterHit2>1</CharacterHit2>
-		<CharacterHit3>1</CharacterHit3>
+		<CharacterHit2>2</CharacterHit2>
+		<CharacterHit3>2</CharacterHit3>
 		<CharacterHit4>1</CharacterHit4>
 		<CharacterHit5>1</CharacterHit5>
 	</Fighter>
 	<Fighter>
 		<Name>baraka</Name>
 		<CharacterHit1>1</CharacterHit1>
-		<CharacterHit2>2</CharacterHit2>
+		<CharacterHit2>1</CharacterHit2>
 		<CharacterHit3>1</CharacterHit3>
-		<CharacterHit4>2</CharacterHit4>
-		<CharacterHit5>1</CharacterHit5>
+		<CharacterHit4>1</CharacterHit4>
+		<CharacterHit5>3</CharacterHit5>
 	</Fighter>
 	<Fighter>
 		<Name>scorpion</Name>
-		<CharacterHit1>1</CharacterHit1>
+		<CharacterHit1>3</CharacterHit1>
 		<CharacterHit2>1</CharacterHit2>
 		<CharacterHit3>1</CharacterHit3>
 		<CharacterHit4>1</CharacterHit4>
@@ -106,10 +106,10 @@
 	</Fighter>
 	<Fighter>
 		<Name>raiden</Name>
-		<CharacterHit1>1</CharacterHit1>
+		<CharacterHit1>2</CharacterHit1>
 		<CharacterHit2>1</CharacterHit2>
-		<CharacterHit3>1</CharacterHit3>
+		<CharacterHit3>2</CharacterHit3>
 		<CharacterHit4>1</CharacterHit4>
-		<CharacterHit5>1</CharacterHit5>
+		<CharacterHit5>2</CharacterHit5>
 	</Fighter>
 </Characteristics>

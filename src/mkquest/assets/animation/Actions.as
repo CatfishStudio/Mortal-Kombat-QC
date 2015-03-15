@@ -1,5 +1,6 @@
 package mkquest.assets.animation 
 {
+	import flash.system.*;
 	import flash.utils.ByteArray;
 	
 	import starling.events.Event;
@@ -36,7 +37,7 @@ package mkquest.assets.animation
 			y = _y;
 			scaleX += 0.5;
 			scaleY += 0.5;
-			smoothing = TextureSmoothing.BILINEAR;
+			//smoothing = TextureSmoothing.BILINEAR;
 			
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
@@ -152,6 +153,7 @@ package mkquest.assets.animation
 			this.removeFromParent(true);
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена анимации бойца");
 		}
 		

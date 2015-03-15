@@ -1,5 +1,6 @@
 package mkquest.assets.match3 
 {
+	import flash.system.*;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.display.Quad;
@@ -19,7 +20,12 @@ package mkquest.assets.match3
 		
 		private function onRemoveStage(e:Event):void 
 		{
+			_cell.dispose();
+			_cell = null;
+			_cellBG.dispose();
+			_cellBG = null;
 			super.dispose();
+			System.gc();
 		}
 		
 		private function onAddedToStage(e:Event):void 

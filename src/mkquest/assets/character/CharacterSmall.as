@@ -1,5 +1,6 @@
 package mkquest.assets.character 
 {
+	import flash.system.*;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -222,6 +223,7 @@ package mkquest.assets.character
 			this.removeFromParent(true);
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена сцена харктеристик бойца");
 		}
 	}

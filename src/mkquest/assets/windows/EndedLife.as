@@ -1,5 +1,6 @@
 package mkquest.assets.windows 
 {
+	import flash.system.*;
 	import flash.display.Bitmap;
 	
 	import starling.display.Button;
@@ -97,7 +98,18 @@ package mkquest.assets.windows
 		private function onRemoveFromStage(e:Event):void
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			
+			if (_image != null) _image.dispose();
+			_image = null;
+			if (_button != null) _button.dispose();
+			_button = null;
+			if (_quad != null) _quad.dispose();
+			_quad = null;
+			if (_textField != null) _textField.dispose();
+			_textField = null;
+			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалено окно ENDED LIFE");
 		}
 		

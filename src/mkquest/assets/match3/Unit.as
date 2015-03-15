@@ -1,5 +1,6 @@
 package mkquest.assets.match3 
 {
+	import flash.system.*;
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
 	
@@ -36,7 +37,10 @@ package mkquest.assets.match3
 		
 		private function onRemoveStage(e:Event):void 
 		{
+			if (_unitImage != null)_unitImage.dispose();
+			_unitImage = null;
 			super.dispose();
+			System.gc();
 		}
 		
 		private function onAddedToStage(e:Event):void 

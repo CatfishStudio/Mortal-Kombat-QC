@@ -1,5 +1,6 @@
 package mkquest.assets.menu 
 {
+	import flash.system.*;
 	import flash.utils.ByteArray;
 	import starling.display.Sprite;
 	import starling.display.Button;
@@ -81,6 +82,7 @@ package mkquest.assets.menu
 			this.removeFromParent(true);
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена сцена меню");
 		}
 	}

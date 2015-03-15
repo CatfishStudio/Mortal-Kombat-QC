@@ -63,7 +63,7 @@ package mkquest.assets.initialization
 			for (var k:int = n; k > 0; k--)
 			{
 				index = randomIndexEnemies(userFighterName, k);
-				matrix[index].aiLife += 50 * (k - 1);
+				matrix[index].aiLife += 50 * (k - 1) * 2;
 				ai_enemies.push(matrix[index]);
 				trace("... Имя врага: " + matrix[index].aiName + " Жизнь: " + matrix[index].aiLife.toString());
 				matrix.splice(index, 1);

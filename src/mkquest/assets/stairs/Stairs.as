@@ -1,5 +1,6 @@
 package mkquest.assets.stairs 
 {
+	import flash.system.*;
 	import flash.geom.Rectangle;
 	import starling.display.Button;
 	
@@ -256,6 +257,7 @@ package mkquest.assets.stairs
 			_tween = null;
 			
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена сцена столб бойцов");
 		}
 	}

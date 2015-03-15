@@ -1,5 +1,6 @@
 package mkquest.assets.settings 
 {
+	import flash.system.*;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
 	
@@ -196,6 +197,7 @@ package mkquest.assets.settings
 			this.removeFromParent(true);
 			*/
 			super.dispose();
+			System.gc();
 			trace("[X] Удалена сцена настройки");
 		}
 	}
