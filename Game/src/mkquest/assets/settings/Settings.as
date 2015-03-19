@@ -16,6 +16,7 @@ package mkquest.assets.settings
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.xml.FileXML;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class Settings extends Sprite 
 	{
@@ -132,6 +133,7 @@ package mkquest.assets.settings
 			else
 			{
 				Resource.soundOn = true;
+				MusicAndSound.PlaySound(MusicAndSound.Sound1);
 				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[0].TexturesOn);
 			}
 		}
@@ -142,11 +144,13 @@ package mkquest.assets.settings
 			if (Resource.musicOn == true)
 			{
 				Resource.musicOn = false;
+				MusicAndSound.StopMusic();
 				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[1].TexturesOff);
 			}
 			else
 			{
 				Resource.musicOn = true;
+				MusicAndSound.PlayMusic();
 				_button.upState = Resource.textureAtlas.getTexture(_fileXML.Buttons[1].TexturesOn);
 			}
 		}
@@ -160,6 +164,7 @@ package mkquest.assets.settings
 		{
 			if (Button(event.target).name == Constants.SETTINGS_BUTTON_APPLY)
 			{
+				MusicAndSound.PlaySound(MusicAndSound.Sound1);
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}
 			if (Button(event.target).name == Constants.SETTINGS_BUTTON_SOUND)
@@ -168,10 +173,12 @@ package mkquest.assets.settings
 			}
 			if (Button(event.target).name == Constants.SETTINGS_BUTTON_MUSIC)
 			{
+				MusicAndSound.PlaySound(MusicAndSound.Sound1);
 				musicOnOff();
 			}
 			if (Button(event.target).name == Constants.SETTINGS_BUTTON_INFORMATION)
 			{
+				MusicAndSound.PlaySound(MusicAndSound.Sound1);
 				information();
 			}
 		}

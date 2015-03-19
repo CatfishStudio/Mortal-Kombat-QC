@@ -14,6 +14,7 @@ package mkquest.assets.windows
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.events.Navigation;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class BackStairs extends Sprite 
 	{
@@ -115,6 +116,7 @@ package mkquest.assets.windows
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == "yes")
 			{
 				Resource.user_continue--;

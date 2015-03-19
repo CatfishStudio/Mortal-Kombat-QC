@@ -1,0 +1,420 @@
+[33mcommit e2d2f4ae8a586ca62aa5e59d9d0235f9cde3bb88[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 15 13:23:35 2015 +0300
+
+    Add sounds and music
+
+[33mcommit e593deb1b46d041e8d4d218deec391b907ef3f8c[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 15 11:41:26 2015 +0300
+
+    Finished game load add textures background and logo
+
+[33mcommit 75e7b8046ab489deba3c591efa3363a04648ca9f[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 15 10:19:56 2015 +0300
+
+    Create game loader
+
+[33mcommit 240e3eae88e0931fbe01ee11f74c9ee2c89c7d84[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 15 09:41:53 2015 +0300
+
+    Fixed balance. Including garbage collection.
+
+[33mcommit c9a8a48dd32b39462de794fea29557a6ec2c3c62[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Mar 14 20:22:38 2015 +0300
+
+    Fixed show window Lost and end game
+
+[33mcommit a2d315cff3327d91826cd39349b28b2748de5b7b[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Mar 14 18:24:43 2015 +0200
+
+    Create window Victory
+
+[33mcommit 80a7b4156a08424d880666c57450437fd05a3a59[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Mar 14 17:25:21 2015 +0300
+
+    Add new animation Dragon. Create window Lost.
+
+[33mcommit 8a16f263db2bb55c3da21eb2ec3a15e2d4fe8344[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Mar 13 22:29:43 2015 +0200
+
+    Create window ended life in class Stairs
+
+[33mcommit 65856a1c28ae8bd4828bafbeea41516d30957082[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Mar 13 16:45:20 2015 +0300
+
+    Create window back in stairs from level
+
+[33mcommit f3f3fbf4b4cd3503cbbb1f091db00e4aa72f0513[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Mar 13 14:16:15 2015 +0300
+
+    Create window back in menu and add this window in classes Stairs and Level
+
+[33mcommit e10843a92f5affcf1fbef2ebbba64113679fc355[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Mar 13 10:51:22 2015 +0300
+
+    Fixed buttons panel in level
+
+[33mcommit 21fbf54405342d4da9a1f2d53ff6c1ed3c52af69[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Mar 11 18:24:04 2015 +0300
+
+    Add Windows classes
+
+[33mcommit 2f25fe0dd98614944ccc3cf80decfe443b459a54[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Mar 11 13:54:32 2015 +0300
+
+    Add animation victory and lost. Edit class Actions.
+
+[33mcommit 112fe7ef0ab4ce5c64c03708128b780224ccf980[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Mar 11 12:56:09 2015 +0300
+
+    Completed create lifebar and add animation class PointsDamage
+
+[33mcommit 9c14e9a5a4d250ab78519d469c28c064e5b70bc0[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Mar 10 23:03:06 2015 +0300
+
+    Add class Indicator from show lifebar
+
+[33mcommit a2a05f6c9a3ce353a86698f573bdd1eb862b8ca4[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Mar 10 11:14:22 2015 +0300
+
+    Add sprites animation blood and dragon
+
+[33mcommit 36b900281116a563e7fb58f0076afef8b5162e60[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Mar 9 23:15:02 2015 +0200
+
+    Add blood amination
+
+[33mcommit 8a3b40ed093212ca74229066223078f0517b03f1[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Mar 9 17:58:08 2015 +0300
+
+    Fixed texture lifebar in level sprite
+
+[33mcommit 00302b80c2a03165c5de7250fdb6007ab4ccb2ee[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Mar 9 14:12:52 2015 +0300
+
+    Edit texture lifebar in sprite
+
+[33mcommit 188e9776de8f1465e16daafb8d5ca020cdf5d0ba[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 8 13:43:05 2015 +0300
+
+    Add new sprite Shao Kahn
+
+[33mcommit faaf501e5d2a7259cbc26c46ff8f5db9fe02e32c[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Mar 7 23:42:59 2015 +0200
+
+    Level add function calculation of the coordinates fighter animation
+
+[33mcommit a8d99672f532730a786c7dc759f8ec211259c25a[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Mar 7 18:13:28 2015 +0300
+
+    Fixed sprite Baraka. Class Level add animation hit.
+
+[33mcommit 1e5e0f6088b270935b1eb1161f91093fecbaad56[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Mar 6 15:27:01 2015 +0300
+
+    In match3 add animation damage unit
+
+[33mcommit 2c86c906d03078525c2bca32fda40e579289e5ff[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Mar 6 11:11:03 2015 +0300
+
+    In Match3 add function edit and back CellColor
+
+[33mcommit 2ad4138fd63782b2e0a7aa21aa3e08046423aa83[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Thu Mar 5 22:44:38 2015 +0200
+
+    Fixed match3 and add function set color in Cell
+
+[33mcommit 09d4727486c8afbe6f7fdb4fa52a21f9220367cc[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Thu Mar 5 15:51:51 2015 +0300
+
+    Edit Match: add modeAI and event constant type group defined
+
+[33mcommit 09ad6c8efbfd2b95be83fed310615a2425631bdb[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Mar 4 23:18:17 2015 +0200
+
+    Add Timer in class Level
+
+[33mcommit 9383f5620770050b0d01cb9f4d995de3e4743431[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Mar 4 20:23:26 2015 +0300
+
+    Fixed all panel buttons
+
+[33mcommit 3cec25da83f14d06f4d4dfa66bac6694a4a83bfd[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Mar 4 13:24:48 2015 +0300
+
+    Add button vk invate
+
+[33mcommit 19aa71ab5fa25d7ee4d1147563b567ab441c082c[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Mar 3 23:58:31 2015 +0200
+
+    Add AI in class Match3
+
+[33mcommit 0e9c3a31a023223c4621e9d20edb6a224e430927[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Mar 3 11:11:16 2015 +0300
+
+    Fixed class Match3
+
+[33mcommit 01329868c4bd1a938e9f9f5d5c7aa7bf6957378b[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Mar 2 23:46:12 2015 +0200
+
+    Completed transfer mechanics match3
+
+[33mcommit c775dd3ab16470a123b746d9a5cd1745f5a3eadc[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Mar 2 17:35:27 2015 +0300
+
+    Add class Events int packet Match3
+
+[33mcommit 83e2caa159b15daba14b481c4f70554403b41994[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 1 22:07:04 2015 +0200
+
+    Class Match3 add functional create field and move units
+
+[33mcommit 10d0b414f298629f91bc4727a38bae581c7e4bbe[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 1 14:00:24 2015 +0300
+
+    Cteate match3 Engine (Cell and Unit). Fixed sprite hits
+
+[33mcommit 6356f18fcbf9bde2fc3f71b854ce22a2df2ad9ab[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Mar 1 10:30:39 2015 +0300
+
+    Add VK API in project
+
+[33mcommit 4106f7b26e648269c3cb1aa76a3c6c5137136dc8[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Feb 28 20:44:39 2015 +0200
+
+    Finished create level initialization and create Level class
+
+[33mcommit ad7d652f88a2ce6623888074c49ca9fb24cbe445[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Feb 27 21:23:45 2015 +0300
+
+    Initialization levels
+
+[33mcommit c83766d051f3b45297ca7b344737c4248052beff[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Feb 24 21:10:38 2015 +0200
+
+    Edit level sprites and add 3 xml files levels 11, 12, 13
+
+[33mcommit aec7bac122fb86dff4837a5f803668950e501c90[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Feb 22 19:00:43 2015 +0300
+
+    Add new sprite Goro and edit sprites Game and Level
+
+[33mcommit 94e817e0958190720604adf4f80967e138231629[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Feb 20 23:11:16 2015 +0200
+
+    Creale classes Levels and Level
+
+[33mcommit b3345c74c22e20bdb2f3a55454c7e90bff8bc91e[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Feb 20 18:07:10 2015 +0300
+
+    Initialization character enemies
+
+[33mcommit 0dec4e533da95cabad1a9f4b7a40bbe3c69c049f[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Feb 20 17:54:36 2015 +0300
+
+    Create function initialization enemies characters
+
+[33mcommit d74a8e4a94937c5f282b2e2f5da8cc1f6868a6ab[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Feb 20 11:12:07 2015 +0300
+
+    We finished the class Stairs and made edits
+
+[33mcommit e9bc2d8d8f1d3cc211897338f63165b58c4e1029[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Thu Feb 19 22:03:00 2015 +0200
+
+    Create character fighters for Stairs
+
+[33mcommit 7077d48592a69efda60616f2757bc95bc1243d28[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Thu Feb 19 16:23:32 2015 +0300
+
+    Create animation user fighter icon in stairs
+
+[33mcommit 928be6f0b31b2f0288a60ee1397b31b9074258c8[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Feb 18 22:26:40 2015 +0300
+
+    Edit sprite_game and add icons in Stairs (Initialization Enemy)
+
+[33mcommit ff94a7ca27b41192872e221a824e2a70d6f259aa[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Feb 18 16:15:08 2015 +0300
+
+    Create class Initialization from emenies stairs
+
+[33mcommit fc49bfdf2f111e0379dfbe8173f1c062a9a6aa1a[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Feb 17 23:23:12 2015 +0200
+
+    Create Enemy class and Vector enemies
+
+[33mcommit 29190fb8f8e847cbf0a169e9b393d7a5bbb38f7f[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Feb 17 19:28:31 2015 +0300
+
+    Работа над классом Stairs (создание окна и столба бойцов, подготовка анимации)
+
+[33mcommit 8fd5829e42ff4edda4c1102f7d390d0247a2aedd[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Feb 16 20:59:38 2015 +0300
+
+    Работа над классом Stairs, а так же добавление в Resource параметров пользователя и ИИ
+
+[33mcommit 2cc212eab7eaea3b4c76cd6f4dea70d8a212105b[m
+Author: Catfish Studio <somov@i.ua>
+Date:   Sun Feb 15 23:45:20 2015 +0400
+
+    Подготовка класса Stairs
+
+[33mcommit 41c6e28e1f6f6eb7309ec85ba7592b0e61366b66[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Feb 15 14:43:10 2015 +0300
+
+    Добавлены спрайты: Scorpion, Raiden
+
+[33mcommit 872a0c0a33085d8245fb2cf22d1bccfcfb78a36d[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Feb 14 21:17:49 2015 +0300
+
+    Добавлен спрайт Baraka
+
+[33mcommit 5a5cdc883ca5f2aa1ba3f37b1a710cf4dd38acc7[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Feb 14 17:57:10 2015 +0300
+
+    Добавлены спрайты: Kitana, Jax, Mileena
+
+[33mcommit d3b474499d7b9645836b2eb4993cf1ec2fdd81c4[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Thu Feb 12 17:22:00 2015 +0300
+
+    Проведена полная оптимизация. Исправлена утечка памяти при использовании TextureAtlas
+
+[33mcommit 1829c584724820206f7077f5f171dc79156873d1[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Feb 11 21:19:58 2015 +0300
+
+    Добавлен спрайт Shangtsung
+
+[33mcommit c6662a24245d0004fc8b1fa7d6167c60756c6547[m
+Author: Catfish Studio <somov@i.ua>
+Date:   Mon Feb 9 23:53:18 2015 +0400
+
+    Оптимизация утечки памяти
+
+[33mcommit 0627e1715fc4bceb9c56fcd0e6518313d5238c1e[m
+Author: Catfish Studio <somov@i.ua>
+Date:   Mon Feb 9 23:46:28 2015 +0400
+
+    Оптимизация кода (утеска памяти)
+
+[33mcommit 273224f4aa9072fdbf2f740315f7a3557b092dd2[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Feb 9 22:26:26 2015 +0300
+
+    Оптимизация кода (утечка памяти)
+
+[33mcommit 04976667bf11162a2d557d8cc6de559775b1b0e9[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Mon Feb 9 21:19:01 2015 +0300
+
+    Добавлен спрайт Subzero
+
+[33mcommit 7bd9695c6e645672676b900dbc8b31af5f0dd16c[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Feb 7 12:24:28 2015 +0300
+
+    Добавлен спрайт Reptile
+
+[33mcommit 3f3b456332269f40cbd27447432c5297a9b5d895[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Wed Feb 4 23:14:15 2015 +0300
+
+    Добавлен спрайт johnnycage
+
+[33mcommit aa3086ecfcfb0da9996bd4bd948b3cdcd72f951d[m
+Author: Catfish Studio <somov@i.ua>
+Date:   Wed Feb 4 01:52:30 2015 +0400
+
+    Функция изменения анимации при выборе бойца
+
+[33mcommit a4ffb58311a2acc999319daacfbf033c5a49647f[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Tue Feb 3 21:03:53 2015 +0300
+
+    Добавлен спрайт: kunglao,
+    Исправление: изменены координаты окна настроек.
+
+[33mcommit e256ca0115db6eab73216b5fc24b799e6bf369dd[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Feb 1 18:30:10 2015 +0300
+
+    В анимацию движения бойца добавлена опция loop = true  или   false  в зависилости от требований
+
+[33mcommit f665d56ed7043ad9a9f2913bbe6de3443d891b05[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Feb 1 13:24:56 2015 +0300
+
+    Создан общий класс Actions воспроизводящий анимацию движения бойца
+
+[33mcommit e099f5ddcd1119fb3a5c07348895aae8b4498616[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sun Feb 1 11:24:52 2015 +0300
+
+    Изменён способ загрузки ресурсов TextureAtlas в классе Resource
+
+[33mcommit 0b8f87691b3f1a9138f483a3aaf37063a3209d3b[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Sat Jan 31 16:40:31 2015 +0300
+
+    Добавлены спрайты: blood, flash, liukang
+
+[33mcommit 3144719650d43989cb3fb862103a538e691f5335[m
+Author: CatfishStudio <somov@i.ua>
+Date:   Fri Jan 30 15:32:11 2015 +0300
+
+    Создание проекта. (30-01-2015)

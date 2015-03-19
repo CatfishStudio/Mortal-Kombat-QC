@@ -22,6 +22,7 @@ package mkquest.assets.levels
 	import mkquest.assets.animation.Blood;
 	import mkquest.assets.levels.Indicator;
 	import mkquest.assets.animation.PointsDamage;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class Level extends Sprite 
 	{
@@ -63,6 +64,7 @@ package mkquest.assets.levels
 			createWindow();					// Создание окна уровня
 			createButtonsPanelFromXML();	// Создание кнопок меню
 			_timer.start();					// Запуск таймера
+			MusicAndSound.PlaySound(MusicAndSound.Sound5);
 		}
 		
 		private function onRemoveStage(e:Event):void
@@ -195,14 +197,44 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_1)
 				{
 					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_1, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false)	_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					if (_botBlock == false)
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound6);
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound11);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound2);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					}
+					else
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					}
 				}
 				if (_hitType == Constants.HIT_2)
 				{
 					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_2, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					if (_botBlock == false)
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound7);
+						
+						MusicAndSound.PlaySound(MusicAndSound.Sound6);
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound12);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound3);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					}
+					else
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					}
 				}
 				if (_hitType == Constants.HIT_3)
 				{
@@ -214,14 +246,44 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_4)
 				{
 					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_4, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					if (_botBlock == false) 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound7);
+						
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound12);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound3);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					}
+					else 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					}
 				}
 				if (_hitType == Constants.HIT_5)
 				{
 					_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_5, Constants.LEFT_TO_RIGHT);
-					if (_botBlock == false) _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
-					else _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					if (_botBlock == false) 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound6);
+						
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound11);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound2);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.DAMAGE, Constants.RIGHT_TO_LEFT);
+					}
+					else 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_3, Constants.RIGHT_TO_LEFT);
+					}
 				}
 			}
 			else // BOT
@@ -229,14 +291,44 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_1)
 				{
 					_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_1, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					if (_userBlock == false) 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound6);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound11);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound2);
+						
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					}
+					else
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					}
 				}
 				if (_hitType == Constants.HIT_2)
 				{
 					_botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_2, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					if (_userBlock == false) 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound7);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound12);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound3);
+						
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					}
+					else 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					}
 				}
 				if (_hitType == Constants.HIT_3)
 				{
@@ -248,14 +340,44 @@ package mkquest.assets.levels
 				if (_hitType == Constants.HIT_4)
 				{
 					 _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_4, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					if (_userBlock == false) 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound7);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound12);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound3);
+						
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					}
+					else
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					}
 				}
 				if (_hitType == Constants.HIT_5)
 				{
 					 _botActions = new Actions(0, 0, false, Resource.ai_enemies[Resource.tournamentProgress].aiName, Constants.HIT_5, Constants.RIGHT_TO_LEFT);
-					if (_userBlock == false) _userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
-					else _userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					if (_userBlock == false) 
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound6);
+						
+						if (Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.KITANA && Resource.ai_enemies[Resource.tournamentProgress].aiName != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound11);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound2);
+						
+						if (Resource.user_name != Constants.KITANA && Resource.user_name != Constants.MILEENA) MusicAndSound.PlaySound(MusicAndSound.Sound13);
+						else MusicAndSound.PlaySound(MusicAndSound.Sound4);
+						
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.DAMAGE, Constants.LEFT_TO_RIGHT);
+					}
+					else
+					{
+						MusicAndSound.PlaySound(MusicAndSound.Sound8);
+						_userActions = new Actions(0, 0, false, Resource.user_name, Constants.HIT_3, Constants.LEFT_TO_RIGHT);
+					}
 				}
 			}
 			
@@ -276,12 +398,14 @@ package mkquest.assets.levels
 			if (_userActions != null) _window.removeChild(_userActions);
 			if (userWin == true)
 			{
+				MusicAndSound.PlaySound(MusicAndSound.Sound14);
 				_userActions = new Actions(0, 0, false, Resource.user_name, Constants.VICTORY, "");
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_VICTORY } ));
 				
 			}
 			if (userWin == false)
 			{
+				MusicAndSound.PlaySound(MusicAndSound.Sound10);
 				_userActions = new Actions(0, 0, true, Resource.user_name, Constants.LOST, "");
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_LOST } ));
 			}
@@ -374,6 +498,7 @@ package mkquest.assets.levels
 				case Match3.ON_AI_MOVE:
 				{
 					_activePlayer = "BOT";
+					MusicAndSound.PlaySound(MusicAndSound.Sound9);
 					trace(Match3.ON_AI_MOVE);
 					break;
 				}
@@ -439,6 +564,7 @@ package mkquest.assets.levels
 				
 				case Match3.ON_MOVE_BACK:
 				{
+					MusicAndSound.PlaySound(MusicAndSound.Sound9);
 					trace(Match3.ON_MOVE_BACK);
 					break;
 				}
@@ -483,6 +609,7 @@ package mkquest.assets.levels
 				case Match3.ON_USER_MOVE:
 				{
 					_activePlayer = "USER";
+					MusicAndSound.PlaySound(MusicAndSound.Sound9);
 					trace(Match3.ON_USER_MOVE);
 					break;
 				}
@@ -526,6 +653,7 @@ package mkquest.assets.levels
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU_LEVEL || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT_END)
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));

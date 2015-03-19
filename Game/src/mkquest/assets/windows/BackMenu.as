@@ -14,6 +14,7 @@ package mkquest.assets.windows
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.events.Navigation;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class BackMenu extends Sprite 
 	{
@@ -117,6 +118,7 @@ package mkquest.assets.windows
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == "yes")
 			{
 				if (_sender == Constants.MK_WINDOW_STAIRS) dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_STAIRS_BACK_MENU } ));

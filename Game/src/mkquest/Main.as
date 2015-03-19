@@ -12,7 +12,7 @@ package mkquest
 	
 	import mkquest.assets.Game;
 	
-	[SWF(width="860", height="730", frameRate="30", backgroundColor="#ffffff")]
+	[SWF(width="860", height="730", frameRate="60", backgroundColor="#ffffff")]
 	public class Main extends Sprite 
 	{
 		private var _starling:Starling;

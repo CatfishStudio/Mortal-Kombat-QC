@@ -5,7 +5,7 @@
     <movie outputType="Application" />
     <movie input="" />
     <movie path="bin\MKQuest.swf" />
-    <movie fps="30" />
+    <movie fps="60" />
     <movie width="860" />
     <movie height="730" />
     <movie version="11" />
@@ -111,6 +111,8 @@
     <asset path="src\mkquest\assets\media\sounds\wins.mp3" />
     <asset path="src\mkquest\assets\media\music\music1.mp3" />
     <asset path="src\mkquest\assets\media\music\music2.mp3" />
+    <asset path="src\mkquest\assets\media\music\music2.MP3" />
+    <asset path="src\mkquest\assets\media\music\music3.MP3" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

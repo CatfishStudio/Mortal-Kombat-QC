@@ -13,6 +13,7 @@ package mkquest.assets.fighters
 	import mkquest.assets.character.CharacterSmall;
 	import mkquest.assets.character.CharacterAnimation;
 	import mkquest.assets.xml.FileXML;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class Fighters extends Sprite 
 	{
@@ -141,6 +142,7 @@ package mkquest.assets.fighters
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == Constants.BUTTON_BACK || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_PLAY)
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));

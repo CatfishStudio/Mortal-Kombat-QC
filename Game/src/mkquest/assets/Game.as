@@ -8,6 +8,7 @@ package mkquest.assets
 	import starling.events.Event;
 	import starling.core.Starling;
 	
+	import mkquest.assets.sounds.MusicAndSound;
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
@@ -38,13 +39,14 @@ package mkquest.assets
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Navigation.CHANGE_SCREEN, onChangeScreen);
 			
-			Starling.current.showStats = true;
+			//Starling.current.showStats = true;
 			
 			showBackground();
 			
 			initGameTextureAtlas();
 				
 			menu();
+			
 		}
 		
 		
@@ -62,12 +64,27 @@ package mkquest.assets
 		
 		private function initGameTextureAtlas():void
 		{
+			MusicAndSound.StopMusic();
+			MusicAndSound.MusicInit(MusicAndSound.Music2);
+			MusicAndSound.PlayMusic();
+			
 			Resource.disposeTextureAtlas();
 			Resource.setTextureAtlasFromBitmap(Resource.AtlasSpritesGame, Resource.AtlasSpritesGameXML);
 		}
 		
 		private function initLevelTextureAtlas():void
 		{
+			MusicAndSound.StopMusic();
+			if (MusicAndSound.melodyIndex == 0) {
+				MusicAndSound.MusicInit(MusicAndSound.Music1);
+				MusicAndSound.melodyIndex = 1;
+			}else{
+				MusicAndSound.MusicInit(MusicAndSound.Music3);
+				MusicAndSound.melodyIndex = 0;
+			}
+			
+			MusicAndSound.PlayMusic();
+			
 			Resource.disposeTextureAtlas();
 			Resource.setTextureAtlasFromBitmap(Resource.AtlasSpritesLevelTextures, Resource.AtlasSpritesLevelTexturesXML);
 			//Resource.setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesLevelAnimation, Resource.AtlasSpritesLevelAnimationXML);

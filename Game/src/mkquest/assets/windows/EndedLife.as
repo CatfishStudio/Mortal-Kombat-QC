@@ -14,6 +14,7 @@ package mkquest.assets.windows
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.events.Navigation;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class EndedLife extends Sprite 
 	{
@@ -115,6 +116,7 @@ package mkquest.assets.windows
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == "exit")
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_ENDED_LIFE_STAIRS_BACK_MENU } ));

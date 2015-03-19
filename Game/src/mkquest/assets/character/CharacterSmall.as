@@ -10,6 +10,7 @@ package mkquest.assets.character
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.xml.FileXML;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class CharacterSmall extends Sprite 
 	{
@@ -160,6 +161,7 @@ package mkquest.assets.character
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_1)
 			{
 				Resource.user_hit_1++;

@@ -15,6 +15,7 @@ package mkquest.assets.windows
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.animation.Dragon;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class Victory extends Sprite 
 	{
@@ -118,6 +119,7 @@ package mkquest.assets.windows
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			if (Button(event.target).name == "post")
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_VICTORY_POST } ));

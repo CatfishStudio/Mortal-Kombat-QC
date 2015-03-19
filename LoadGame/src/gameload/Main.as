@@ -53,7 +53,7 @@ package gameload
 			_loader = new Loader();
 			_loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain, SecurityDomain.currentDomain);
 			///////////_request = new URLRequest("https://app.vk.com/c420925/u99302165/e9cb1c679adc18.swf");
-			_request = new URLRequest("http://app.vk.com/c420925/u99302165/9ff1b5baffc5a4.swf");
+			_request = new URLRequest("http://app.vk.com/c420925/u99302165/1fe4637def512b.swf");
 			_loader.contentLoaderInfo.addEventListener(Event.COMPLETE, LoadComplite);
 			_loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, onProgress);
 			_loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, LoadError);

@@ -2,11 +2,11 @@
 <Characteristics>
 	<SuperFighter>
 		<Name>shaokahn</Name>
-		<CharacterHit1>10</CharacterHit1>
-		<CharacterHit2>10</CharacterHit2>
-		<CharacterHit3>10</CharacterHit3>
-		<CharacterHit4>10</CharacterHit4>
-		<CharacterHit5>10</CharacterHit5>
+		<CharacterHit1>7</CharacterHit1>
+		<CharacterHit2>7</CharacterHit2>
+		<CharacterHit3>7</CharacterHit3>
+		<CharacterHit4>7</CharacterHit4>
+		<CharacterHit5>7</CharacterHit5>
 	</SuperFighter>
 	<SuperFighter>
 		<Name>goro</Name>

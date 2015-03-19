@@ -11,6 +11,7 @@ package mkquest.assets.menu
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.xml.FileXML;
+	import mkquest.assets.sounds.MusicAndSound;
 	
 	public class Menu extends Sprite 
 	{
@@ -63,6 +64,7 @@ package mkquest.assets.menu
 		
 		private function onButtonsClick(event:Event):void 
 		{
+			MusicAndSound.PlaySound(MusicAndSound.Sound1);
 			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name }));
 		}
 		
