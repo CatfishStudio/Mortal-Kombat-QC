@@ -50,7 +50,7 @@ package mkquest.assets.windows
 			
 			
 			_quad = new Quad(Constants.GAME_WINDOW_WIDTH, Constants.GAME_WINDOW_HEIGHT,  0x000000, true);
-			_quad.alpha = 0.5;
+			_quad.alpha = 0.1;
 			_quad.x = 0 - this.x;
 			_quad.y = 0 - this.y;
 			addChild(_quad);

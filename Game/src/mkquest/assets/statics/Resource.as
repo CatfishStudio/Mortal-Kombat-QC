@@ -273,6 +273,24 @@ package mkquest.assets.statics
 		}
 		
 		
+		public static function getfFighterName(name:String):String
+		{
+			if (name == "baraka") return "Baraka";
+			if (name == "goro") return "Goro";
+			if (name == "jax") return "Jax";
+			if (name == "johnnycage") return "Johnny Cage";
+			if (name == "kitana") return "Kitana";
+			if (name == "kunglao") return "Kung Lao";
+			if (name == "liukang") return "Liu Kang";
+			if (name == "mileena") return "Mileena";
+			if (name == "raiden") return "Raiden";
+			if (name == "reptile") return "Reptile";
+			if (name == "scorpion") return "Scorpion";
+			if (name == "shangtsung") return "Shang Tsung";
+			if (name == "shaokahn") return "Shao Kahn";
+			if (name == "subzero") return "Sub-zero";
+			return "";
+		}
 		
 		
 		

@@ -23,6 +23,7 @@ package mkquest.assets
 	import mkquest.assets.windows.EndedLife;
 	import mkquest.assets.windows.Lost;
 	import mkquest.assets.windows.Victory;
+	import mkquest.assets.vkAPI.VK;
 	
 	public class Game extends Sprite 
 	{
@@ -48,6 +49,7 @@ package mkquest.assets
 			menu();
 			
 		}
+		
 		
 		
 		private function showBackground():void
@@ -98,6 +100,7 @@ package mkquest.assets
 			}
 			else 
 			{
+				windowAllClose();
 				addChild(new Menu());
 			}
 		}
@@ -110,6 +113,7 @@ package mkquest.assets
 			}
 			else
 			{
+				windowAllClose();
 				Resource.levels = Initialization.initLevels(Resource.ClassXMLFileLevel);
 				addChild(new Fighters());
 			}
@@ -120,9 +124,11 @@ package mkquest.assets
 			if (getChildByName(Constants.SETTINGS) != null)
 			{
 				removeChild(getChildByName(Constants.SETTINGS));
+				if (getChildByName(Constants.MK_WINDOW_LEVEL)) _level.timerPause(false);
 			}
 			else
 			{
+				if (getChildByName(Constants.MK_WINDOW_LEVEL)) _level.timerPause(true);
 				addChild(new Settings());
 			}
 		}
@@ -135,6 +141,7 @@ package mkquest.assets
 			}
 			else
 			{
+				windowAllClose();
 				addChild(new Stairs());
 			}
 		}
@@ -179,7 +186,7 @@ package mkquest.assets
 			}
 			else
 			{
-				_level.timerPause(true);
+				if (getChildByName(Constants.MK_WINDOW_LEVEL)) _level.timerPause(true);
 				addChild(new BackStairs());
 			}
 		}
@@ -218,6 +225,16 @@ package mkquest.assets
 			{
 				addChild(new Victory());
 			}
+		}
+		
+		private function windowAllClose():void
+		{
+			if (getChildByName(Constants.WINDOW_BACK_MENU) != null)	removeChild(getChildByName(Constants.WINDOW_BACK_MENU));
+			if (getChildByName(Constants.WINDOW_BACK_STAIRS) != null) removeChild(getChildByName(Constants.WINDOW_BACK_STAIRS));
+			if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
+			if (getChildByName(Constants.WINDOW_LOST) != null)	removeChild(getChildByName(Constants.WINDOW_LOST));
+			if (getChildByName(Constants.WINDOW_VICTORY) != null) removeChild(getChildByName(Constants.WINDOW_VICTORY));
+			if (getChildByName(Constants.SETTINGS) != null) removeChild(getChildByName(Constants.SETTINGS));
 		}
 		
 		
@@ -345,6 +362,14 @@ package mkquest.assets
 					windowEndedLife();
 					Resource.user_continue++;
 					// VK
+					VK.vkConnection.callMethod("showInviteBox");
+					break;
+				}
+				
+				case Constants.VK_BUTTON_INVITE: // Позвать друга
+				{
+					// VK
+					VK.vkConnection.callMethod("showInviteBox");
 					break;
 				}
 				
@@ -381,6 +406,11 @@ package mkquest.assets
 				case Constants.WINDOW_VICTORY_POST: // Битва выиграна постинг на стену
 				{
 					// VK
+					if (Resource.tournamentProgress > 0 ) {
+						VK.vkConnection.api('wall.post', { message: 'Mortal Kombat Quest. \nЯ победил ' + (Resource.getfFighterName(Resource.ai_enemies[Resource.tournamentProgress].aiName)) + ' в смертельной битве! \nНабрал ' + Resource.totalPointsPlayerLevel.toString() + ' очков за раунд. \nПрисоединяйтесь к игре https://vk.com/app4759608', attachments : 'photo-62618339_357271831' } , function(data) {} , function(data) {} );
+					}else {
+						VK.vkConnection.api('wall.post', { message: 'Mortal Kombat Quest. \nЯ победил ' + (Resource.getfFighterName(Resource.ai_enemies[Resource.tournamentProgress].aiName)) + ' в смертельной битве и выиграл турнир! \nНабрал ' + Resource.totalPointsPlayerTournament.toString() + ' очков за весь турнир. \nПрисоединяйтесь к игре https://vk.com/app4759608', attachments : 'photo-62618339_357271831' } , function(data) {} , function(data) {} );
+					}
 					break;
 				}
 				

@@ -47,6 +47,8 @@ package mkquest.assets.levels
 		private var _botLifeBar:Indicator;
 		private var _botLife:int;
 		
+		private var _endBattle:Boolean = false;
+		
 		public function Level() 
 		{
 			super();
@@ -574,14 +576,22 @@ package mkquest.assets.levels
 					showFighters();
 					if (_userLife <= 0)
 					{
-						winFighter(false, true);
+						if (_endBattle == false)
+						{
+							winFighter(false, true);
+							_endBattle = true;
+						}
 						trace("{END} AI победил!");
 					}
 					else
 					{
 						if (_botLife <= 0)
 						{
-							winFighter(true, false);
+							if (_endBattle == false)
+							{
+								winFighter(true, false);
+								_endBattle = true;
+							}
 							trace("{END} User победил!");
 						}
 						else
@@ -654,7 +664,7 @@ package mkquest.assets.levels
 		private function onButtonsClick(event:Event):void 
 		{
 			MusicAndSound.PlaySound(MusicAndSound.Sound1);
-			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU_LEVEL || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT_END)
+			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU_LEVEL || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT_END || Button(event.target).name == Constants.VK_BUTTON_INVITE)
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}

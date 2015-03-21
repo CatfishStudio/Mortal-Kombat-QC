@@ -143,7 +143,7 @@ package mkquest.assets.fighters
 		private function onButtonsClick(event:Event):void 
 		{
 			MusicAndSound.PlaySound(MusicAndSound.Sound1);
-			if (Button(event.target).name == Constants.BUTTON_BACK || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_PLAY)
+			if (Button(event.target).name == Constants.BUTTON_BACK || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_PLAY || Button(event.target).name == Constants.VK_BUTTON_INVITE)
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}

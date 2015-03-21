@@ -247,7 +247,7 @@ package mkquest.assets.stairs
 		private function onButtonsClick(event:Event):void 
 		{
 			MusicAndSound.PlaySound(MusicAndSound.Sound1);
-			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU  || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT)
+			if (Button(event.target).name == Constants.BUTTON_BACK_IN_MENU  || Button(event.target).name == Constants.MENU_BUTTON_SATTINGS || Button(event.target).name == Constants.BUTTON_FIGHT || Button(event.target).name == Constants.VK_BUTTON_INVITE)
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name } ));
 			}

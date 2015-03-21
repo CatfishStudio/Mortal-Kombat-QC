@@ -6,11 +6,13 @@ package mkquest
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
+	import vk.APIConnection;
 	
 	import starling.core.Starling;
 	import starling.display.Stage;
 	
 	import mkquest.assets.Game;
+	import mkquest.assets.vkAPI.VK;
 	
 	[SWF(width="860", height="730", frameRate="60", backgroundColor="#ffffff")]
 	public class Main extends Sprite 
@@ -27,7 +29,16 @@ package mkquest
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
+			vkInit();
+			
 			initializationStarling();
+		}
+		
+		/* Иникиализация ВКонтакте */
+		private function vkInit():void
+		{
+			var flashVars: Object = stage.loaderInfo.parameters as Object;
+			VK.vkConnection = new APIConnection(flashVars);
 		}
 		
 		private function initializationStarling():void
