@@ -153,6 +153,7 @@ package mkquest.assets.fighters
 			}
 		}
 		
+		
 		private function onRemovedFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);

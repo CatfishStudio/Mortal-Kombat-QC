@@ -1,11 +1,16 @@
 package mkquest.assets 
 {
 	import flash.display.Bitmap;
+	import flash.display.StageDisplayState;
 	
 	import starling.display.Image;
+	import starling.display.Button;
 	import starling.textures.Texture;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.core.Starling;
 	
 	import mkquest.assets.sounds.MusicAndSound;
@@ -23,6 +28,7 @@ package mkquest.assets
 	import mkquest.assets.windows.EndedLife;
 	import mkquest.assets.windows.Lost;
 	import mkquest.assets.windows.Victory;
+	import mkquest.assets.tutorial.Tutorial;
 	import mkquest.assets.vkAPI.VK;
 	
 	public class Game extends Sprite 
@@ -44,10 +50,13 @@ package mkquest.assets
 			
 			showBackground();
 			
+			//showButtonFullscreen();
+			
 			initGameTextureAtlas();
 				
 			menu();
 			
+			tutorShow(Resource.tutorialStep);
 		}
 		
 		
@@ -62,6 +71,33 @@ package mkquest.assets
 			bitmap = null;
 			image.dispose();
 			image = null;
+		}
+		
+		private function showButtonFullscreen():void
+		{
+			var bitmap:Bitmap = new Resource.TextureButtonFullscreen();
+			var buttonFullscreen:Button = new Button(Texture.fromBitmap(bitmap));
+			buttonFullscreen.addEventListener(TouchEvent.TOUCH, onFullscreenTouch);
+			addChild(buttonFullscreen);
+			
+			bitmap = null;
+		}
+		
+		private function onFullscreenTouch(e:TouchEvent):void 
+		{
+			var touch:Touch = e.getTouch(stage);
+			if (touch)
+			{
+				if (touch.phase == TouchPhase.BEGAN)
+				{
+					if (Starling.current.nativeStage.displayState == StageDisplayState.NORMAL)
+					{
+						Starling.current.nativeStage.displayState = StageDisplayState.FULL_SCREEN;
+					}else {
+						Starling.current.nativeStage.displayState = StageDisplayState.NORMAL;
+					}
+				}
+			}
 		}
 		
 		private function initGameTextureAtlas():void
@@ -89,7 +125,6 @@ package mkquest.assets
 			
 			Resource.disposeTextureAtlas();
 			Resource.setTextureAtlasFromBitmap(Resource.AtlasSpritesLevelTextures, Resource.AtlasSpritesLevelTexturesXML);
-			//Resource.setTextureAtlasEmbeddedAsset(Resource.AtlasSpritesLevelAnimation, Resource.AtlasSpritesLevelAnimationXML);
 		}
 		
 		private function menu():void
@@ -102,6 +137,20 @@ package mkquest.assets
 			{
 				windowAllClose();
 				addChild(new Menu());
+			}
+		}
+		
+		private function tutorShow(step:int):void
+		{
+			addChild(new Tutorial(step));
+		}
+		
+		private function tutorClose():void
+		{
+			if (getChildByName(Constants.TUTORIAL) != null)
+			{
+				Resource.tutorialStep++;
+				removeChild(getChildByName(Constants.TUTORIAL));
 			}
 		}
 		
@@ -150,14 +199,12 @@ package mkquest.assets
 		{
 			if (getChildByName(Constants.MK_WINDOW_LEVEL) != null)
 			{
-				//removeChild(getChildByName(Constants.MK_WINDOW_LEVEL));
 				removeChild(_level);
 				initGameTextureAtlas();
 			}
 			else
 			{
 				initLevelTextureAtlas();
-				//addChild(new Level());
 				_level = new Level();
 				addChild(_level);
 			}
@@ -244,8 +291,10 @@ package mkquest.assets
 			{
 				case Constants.MENU_BUTTON_TOURNAMENT: // кнопка начать турнир
 				{
+					tutorClose();
 					menu();
 					fighters();
+					if (Resource.tutorialStep == 2) tutorShow(Resource.tutorialStep);
 					break;
 				}
 				
@@ -309,13 +358,16 @@ package mkquest.assets
 				
 				case Constants.BUTTON_PLAY: // начать игру
 				{
+					tutorClose();
 					fighters();
 					stairs();
+					if (Resource.tutorialStep == 3) tutorShow(Resource.tutorialStep);
 					break;
 				}
 				
 				case Constants.BUTTON_FIGHT: // начать битву
 				{
+					tutorClose();
 					stairs();
 					level();
 					break;
@@ -344,11 +396,13 @@ package mkquest.assets
 				case Constants.WINDOW_ENDED_LIFE_SHOW: // Окно завершились жизни
 				{
 					windowEndedLife();
+					if (Resource.tutorialStep == 5 || Resource.tutorialStep == 6) tutorShow(6);
 					break;
 				}
 				
 				case Constants.WINDOW_ENDED_LIFE_STAIRS_BACK_MENU: // Окно завершились жизни
 				{
+					tutorClose();
 					windowEndedLife();
 					stairs();
 					menu();
@@ -359,6 +413,7 @@ package mkquest.assets
 				
 				case Constants.WINDOW_ENDED_LIFE_INVITE_FRIENDS: // Позвать друга из окна завершения жизни
 				{
+					tutorClose();
 					windowEndedLife();
 					Resource.user_continue++;
 					// VK
@@ -419,6 +474,7 @@ package mkquest.assets
 					windowVictory();
 					level();
 					stairs();
+					if (Resource.tournamentProgress == 11 && Resource.tutorialStep == 5) tutorShow(Resource.tutorialStep);
 					break;
 				}
 				
@@ -426,6 +482,12 @@ package mkquest.assets
 				{
 					stairs();
 					menu();
+					break;
+				}
+				
+				case Constants.TUTORIAL_CLOSE: // кнопка начать турнир
+				{
+					tutorClose();
 					break;
 				}
 				

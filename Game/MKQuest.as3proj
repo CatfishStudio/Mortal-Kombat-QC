@@ -113,6 +113,13 @@
     <asset path="src\mkquest\assets\media\music\music2.mp3" />
     <asset path="src\mkquest\assets\media\music\music2.MP3" />
     <asset path="src\mkquest\assets\media\music\music3.MP3" />
+    <asset path="src\mkquest\assets\media\textures\fullscreen.png" />
+    <asset path="src\mkquest\assets\media\textures\tutorial_dialog.png" />
+    <asset path="src\mkquest\assets\media\textures\tutorial_down.png" />
+    <asset path="src\mkquest\assets\media\textures\tutorial_left.png" />
+    <asset path="src\mkquest\assets\media\textures\tutorial_right.png" />
+    <asset path="src\mkquest\assets\media\textures\tutorial_shaokahn.png" />
+    <asset path="src\mkquest\assets\media\textures\tutorial_up.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

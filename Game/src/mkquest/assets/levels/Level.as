@@ -23,6 +23,7 @@ package mkquest.assets.levels
 	import mkquest.assets.levels.Indicator;
 	import mkquest.assets.animation.PointsDamage;
 	import mkquest.assets.sounds.MusicAndSound;
+	import mkquest.assets.tutorial.Tutorial;
 	
 	public class Level extends Sprite 
 	{
@@ -65,7 +66,8 @@ package mkquest.assets.levels
 			Resource.totalPointsPlayerLevel = 0;
 			createWindow();					// Создание окна уровня
 			createButtonsPanelFromXML();	// Создание кнопок меню
-			_timer.start();					// Запуск таймера
+			if (Resource.tutorialStep == 4) tutorShow(Resource.tutorialStep); // тутор
+			else _timer.start();			// Запуск таймера
 			MusicAndSound.PlaySound(MusicAndSound.Sound5);
 		}
 		
@@ -82,6 +84,20 @@ package mkquest.assets.levels
 			super.dispose();
 			System.gc();
 			trace("[X] Удалена сцена уровня");
+		}
+		
+		private function tutorShow(step:int):void
+		{
+			addChild(new Tutorial(step));
+		}
+		
+		private function tutorClose():void
+		{
+			if (getChildByName(Constants.TUTORIAL) != null)
+			{
+				Resource.tutorialStep++;
+				removeChild(getChildByName(Constants.TUTORIAL));
+			}
 		}
 		
 		private function createWindow():void
@@ -515,6 +531,7 @@ package mkquest.assets.levels
 				{
 					_timer.stop();
 					updateFighters();
+					tutorClose();
 					trace(Match3.ON_MATCH_GROUP_DEFINED);
 					break;
 				}

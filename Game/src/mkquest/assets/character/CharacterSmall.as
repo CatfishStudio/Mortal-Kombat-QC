@@ -11,7 +11,8 @@ package mkquest.assets.character
 	import mkquest.assets.statics.Resource;
 	import mkquest.assets.xml.FileXML;
 	import mkquest.assets.sounds.MusicAndSound;
-	
+	import mkquest.assets.events.Navigation;
+		
 	public class CharacterSmall extends Sprite 
 	{
 		[Embed(source = 'CharacterSmall.xml', mimeType='application/octet-stream')]
@@ -157,6 +158,7 @@ package mkquest.assets.character
 			getChildByName(Constants.CHARACTER_BUTTON_PLUS_3).visible = false;
 			getChildByName(Constants.CHARACTER_BUTTON_PLUS_4).visible = false;
 			getChildByName(Constants.CHARACTER_BUTTON_PLUS_5).visible = false;
+			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.TUTORIAL_CLOSE } ));
 		}
 		
 		private function onButtonsClick(event:Event):void 

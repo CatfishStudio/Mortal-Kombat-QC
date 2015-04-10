@@ -125,7 +125,6 @@ package mkquest.assets.windows
 			{
 				dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_ENDED_LIFE_INVITE_FRIENDS } ));
 			}
-		
 		}
 		
 		
