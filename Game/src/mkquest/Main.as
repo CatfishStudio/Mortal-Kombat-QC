@@ -1,5 +1,6 @@
 package mkquest
 {
+	import flash.display.StageDisplayState;
 	import flash.display3D.Context3DRenderMode;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -13,8 +14,9 @@ package mkquest
 	
 	import mkquest.assets.Game;
 	import mkquest.assets.vkAPI.VK;
+	import mkquest.assets.statics.Constants;
 	
-	[SWF(width="860", height="730", frameRate="60", backgroundColor="#ffffff")]
+	[SWF(width="860", height="730", frameRate="60", backgroundColor="#ffffff", allowFullscreen="true")]
 	public class Main extends Sprite 
 	{
 		private var _starling:Starling;
@@ -54,8 +56,8 @@ package mkquest
 		private function resizeListenerFlash(event:Event):void
 		{
 			Starling.current.viewPort = new Rectangle (0, 0, stage.stageWidth, stage.stageHeight);
-			_starling.stage.stageWidth = 860;
-			_starling.stage.stageHeight = 730;
+			_starling.stage.stageWidth = Constants.GAME_WINDOW_WIDTH;
+			_starling.stage.stageHeight = Constants.GAME_WINDOW_HEIGHT;
 		}
 	}
 	

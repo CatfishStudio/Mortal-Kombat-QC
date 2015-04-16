@@ -1,5 +1,7 @@
 package mkquest.assets 
 {
+	import flash.events.MouseEvent;
+	import flash.geom.Rectangle;
 	import flash.display.Bitmap;
 	import flash.display.StageDisplayState;
 	
@@ -50,7 +52,7 @@ package mkquest.assets
 			
 			showBackground();
 			
-			//showButtonFullscreen();
+			showButtonFullscreen();
 			
 			initGameTextureAtlas();
 				
@@ -90,13 +92,30 @@ package mkquest.assets
 			{
 				if (touch.phase == TouchPhase.BEGAN)
 				{
+					Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_UP, onFullScreen);
+					/*
 					if (Starling.current.nativeStage.displayState == StageDisplayState.NORMAL)
 					{
 						Starling.current.nativeStage.displayState = StageDisplayState.FULL_SCREEN;
 					}else {
 						Starling.current.nativeStage.displayState = StageDisplayState.NORMAL;
 					}
+					*/
 				}
+			}
+		}
+		
+		private function onFullScreen(e:MouseEvent):void 
+		{
+			Starling.current.nativeStage.removeEventListener(MouseEvent.MOUSE_UP, onFullScreen);
+			if (Starling.current.nativeStage.displayState == StageDisplayState.NORMAL)
+			{
+				Starling.current.nativeStage.displayState = StageDisplayState.FULL_SCREEN;
+			}else {
+				Starling.current.nativeStage.displayState = StageDisplayState.NORMAL;
+				Starling.current.viewPort = new Rectangle (0, 0, stage.stageWidth, stage.stageHeight);
+				stage.stageWidth = Constants.GAME_WINDOW_WIDTH;
+				stage.stageHeight = Constants.GAME_WINDOW_HEIGHT;
 			}
 		}
 		
