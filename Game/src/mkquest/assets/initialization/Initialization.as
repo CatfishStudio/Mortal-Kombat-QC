@@ -45,7 +45,7 @@ package mkquest.assets.initialization
 			
 			var ai_enemies:Vector.<Enemy> = new Vector.<Enemy>();
 			
-			n = fileXML.SuperFighter.length();
+			n = fileXML.SuperFighter.length(); // shaokahn, goro
 			for (var j:int = 0; j < n; j++)
 			{
 				enemy = new Enemy();
@@ -55,7 +55,9 @@ package mkquest.assets.initialization
 				enemy.aiHit3 = fileXML.SuperFighter[j].CharacterHit3;
 				enemy.aiHit4 = fileXML.SuperFighter[j].CharacterHit4;
 				enemy.aiHit5 = fileXML.SuperFighter[j].CharacterHit5;
+				enemy.aiLife = fileXML.SuperFighter[j].Life;
 				ai_enemies.push(enemy);
+				trace("... Супер враг:" + enemy.aiName + " Жизнь:" + enemy.aiLife + " HIT1:" + enemy.aiHit1  + " HIT2:" + enemy.aiHit2 + " HIT3:" + enemy.aiHit3 + " HIT4:" + enemy.aiHit4 + " HIT5:" + enemy.aiHit5);
 			}
 			
 			var index:int;

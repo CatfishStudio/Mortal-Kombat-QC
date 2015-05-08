@@ -1254,7 +1254,21 @@ package mkquest.assets.match3
 				}
 			}
 			fieldBlocked = true;
-			ExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
+			if (unit1 != null && unit2 != null)
+			{
+				ExchangeUnits(unit1.posColumnI, unit1.posRowJ, unit2.posColumnI, unit2.posRowJ);
+			} else	{
+				/*
+				 * TypeError: Error #1009: Cannot access a property or method of a null object reference.
+					at mkquest.assets.match3::Match3$/ActionAI()[C:\Program Code\Git\MKQuest\Game\src\mkquest\assets\match3\Match3.as:1257]
+					at mkquest.assets.levels::Level/completeHandler()[C:\Program Code\Git\MKQuest\Game\src\mkquest\assets\levels\Level.as:176]
+					at flash.events::EventDispatcher/dispatchEventFunction()
+					at flash.events::EventDispatcher/dispatchEvent()
+					at flash.utils::Timer/tick()
+				 * */
+				trace("ERROR [Match3.as]: unit1 = " + unit1.unitType + "   unit2 = " + unit2.unitType);
+				ActionAI();
+			}
 			
 			field.dispatchEvent(new Events(Events.MATCH_3_EVENTS, true, { id: ON_AI_MOVE })); // СОБЫТИЕ
 		}

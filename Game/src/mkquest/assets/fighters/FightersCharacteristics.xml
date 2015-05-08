@@ -2,19 +2,21 @@
 <Characteristics>
 	<SuperFighter>
 		<Name>shaokahn</Name>
-		<CharacterHit1>7</CharacterHit1>
-		<CharacterHit2>7</CharacterHit2>
-		<CharacterHit3>7</CharacterHit3>
-		<CharacterHit4>7</CharacterHit4>
-		<CharacterHit5>7</CharacterHit5>
+		<CharacterHit1>2</CharacterHit1>
+		<CharacterHit2>2</CharacterHit2>
+		<CharacterHit3>1</CharacterHit3>
+		<CharacterHit4>3</CharacterHit4>
+		<CharacterHit5>2</CharacterHit5>
+		<Life>1200</Life>
 	</SuperFighter>
 	<SuperFighter>
 		<Name>goro</Name>
-		<CharacterHit1>5</CharacterHit1>
-		<CharacterHit2>5</CharacterHit2>
-		<CharacterHit3>5</CharacterHit3>
-		<CharacterHit4>5</CharacterHit4>
-		<CharacterHit5>5</CharacterHit5>
+		<CharacterHit1>2</CharacterHit1>
+		<CharacterHit2>2</CharacterHit2>
+		<CharacterHit3>2</CharacterHit3>
+		<CharacterHit4>2</CharacterHit4>
+		<CharacterHit5>2</CharacterHit5>
+		<Life>1200</Life>
 	</SuperFighter>
 	<Fighter>
 		<Name>liukang</Name>

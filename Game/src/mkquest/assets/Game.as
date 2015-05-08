@@ -30,6 +30,7 @@ package mkquest.assets
 	import mkquest.assets.windows.EndedLife;
 	import mkquest.assets.windows.Lost;
 	import mkquest.assets.windows.Victory;
+	import mkquest.assets.windows.EndGame;
 	import mkquest.assets.tutorial.Tutorial;
 	import mkquest.assets.vkAPI.VK;
 	
@@ -293,6 +294,18 @@ package mkquest.assets
 			}
 		}
 		
+		private function windowEndGame():void
+		{
+			if (getChildByName(Constants.WINDOW_END_GAME) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_END_GAME));
+			}
+			else
+			{
+				addChild(new EndGame());
+			}
+		}
+		
 		private function windowAllClose():void
 		{
 			if (getChildByName(Constants.WINDOW_BACK_MENU) != null)	removeChild(getChildByName(Constants.WINDOW_BACK_MENU));
@@ -300,6 +313,7 @@ package mkquest.assets
 			if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
 			if (getChildByName(Constants.WINDOW_LOST) != null)	removeChild(getChildByName(Constants.WINDOW_LOST));
 			if (getChildByName(Constants.WINDOW_VICTORY) != null) removeChild(getChildByName(Constants.WINDOW_VICTORY));
+			if (getChildByName(Constants.WINDOW_END_GAME) != null) removeChild(getChildByName(Constants.WINDOW_END_GAME));
 			if (getChildByName(Constants.SETTINGS) != null) removeChild(getChildByName(Constants.SETTINGS));
 		}
 		
@@ -501,6 +515,13 @@ package mkquest.assets
 				{
 					stairs();
 					menu();
+					windowEndGame(); // показать окно победы и анонса
+					break;
+				}
+				
+				case Constants.WINDOW_END_GAME_CLOSE: // Закрыть окно победы и анонса
+				{
+					windowEndGame();
 					break;
 				}
 				

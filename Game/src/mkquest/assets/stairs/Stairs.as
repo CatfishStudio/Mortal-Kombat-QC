@@ -173,8 +173,9 @@ package mkquest.assets.stairs
 			if (Resource.experiencePoints > 0)
 			{
 				_character.createButtonsPlus();
+			}else{
+				_character.selectValueUserCharacter();
 			}
-			_character.selectValueUserCharacter();
 			_window.addChild(_character);
 			animationCharactersStairs(_character, _fileXML.Character[0].PosX, _fileXML.Character[0].PosY);
 		

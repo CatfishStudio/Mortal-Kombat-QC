@@ -35,7 +35,7 @@ package mkquest.assets.match3
 			if (cellType == "CELL_TYPE_EMPTY") this.visible = false;
 			if (cellType == "CELL_TYPE_CLEAR") {
 				_cellBG = new Quad(Match3.CELL_WIDTH, Match3.CELL_HEIGHT, 0x000000, true); //0x8000FF
-				_cellBG.alpha = 0.4;
+				_cellBG.alpha = 0.6;
 				this.addChild(_cellBG);
 				_cell = new Quad(Match3.CELL_WIDTH, Match3.CELL_HEIGHT, 0x000000, true); // 0x8000FF
 				_cell.width = 78; 

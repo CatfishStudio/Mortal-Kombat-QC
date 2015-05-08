@@ -77,8 +77,13 @@ package mkquest.assets.statics
 		public static const DAMAGE_HIT_1:int = 5;
 		public static const DAMAGE_HIT_2:int = 3;
 		public static const DAMAGE_HIT_3:int = 3;
-		public static const DAMAGE_HIT_4:int = 7;
+		public static const DAMAGE_HIT_4:int = 6;
 		public static const DAMAGE_HIT_5:int = 10;
+		public static const DAMAGE_MAX_HIT_1:int = 6;
+		public static const DAMAGE_MAX_HIT_2:int = 12;
+		public static const DAMAGE_MAX_HIT_3:int = 12;
+		public static const DAMAGE_MAX_HIT_4:int = 5;
+		public static const DAMAGE_MAX_HIT_5:int = 3;
 		
 		/*-------------------------------------------------------------------------*/
 		public static const MK_WINDOW_WIDTH:int = 800;
@@ -110,6 +115,9 @@ package mkquest.assets.statics
 		public static const WINDOW_VICTORY:String = "windowVictory";
 		public static const WINDOW_VICTORY_POST:String = "windowVictoryPost";
 		public static const WINDOW_VICTORY_NEXT:String = "windowVictoryNext";
+		
+		public static const WINDOW_END_GAME:String = "windowEndGame";
+		public static const WINDOW_END_GAME_CLOSE:String = "windowEndGameClose";
 		
 		public static const GAME_END:String = "gameEnd";
 		

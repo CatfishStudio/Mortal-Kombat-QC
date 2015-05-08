@@ -90,56 +90,74 @@ package mkquest.assets.character
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
 			Resource.user_hit_1 = int(value[1]);
-			_textField.text = Resource.user_hit_1.toString();
+			_textField.text = Constants.DAMAGE_HIT_1.toString() + "  x " + Resource.user_hit_1.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
 			Resource.user_hit_2 = int(value[2]);
-			_textField.text = Resource.user_hit_2.toString();
+			_textField.text = Constants.DAMAGE_HIT_2.toString() + "  x " + Resource.user_hit_2.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
 			Resource.user_hit_3 = int(value[3]);
-			_textField.text = Resource.user_hit_3.toString();
+			_textField.text = Constants.DAMAGE_HIT_3.toString() + "  x " + Resource.user_hit_3.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
 			Resource.user_hit_4 = int(value[4]);
-			_textField.text = Resource.user_hit_4.toString();
+			_textField.text = Constants.DAMAGE_HIT_4.toString() + "  x " + Resource.user_hit_4.toString();
 			
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
 			Resource.user_hit_5 = int(value[5]);
-			_textField.text = Resource.user_hit_5.toString();
+			_textField.text = Constants.DAMAGE_HIT_5.toString() + "  x " + Resource.user_hit_5.toString();
 		}
 		
 		public function selectValueUserCharacter():void
 		{
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
-			_textField.text = Resource.user_hit_1.toString();
+			_textField.text = Constants.DAMAGE_HIT_1.toString() + "  x " + Resource.user_hit_1.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
-			_textField.text = Resource.user_hit_2.toString();
+			_textField.text = Constants.DAMAGE_HIT_2.toString() + "  x " + Resource.user_hit_2.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
-			_textField.text = Resource.user_hit_3.toString();
+			_textField.text = Constants.DAMAGE_HIT_3.toString() + "  x " + Resource.user_hit_3.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
-			_textField.text = Resource.user_hit_4.toString();
+			_textField.text = Constants.DAMAGE_HIT_4.toString() + "  x " + Resource.user_hit_4.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
-			_textField.text = Resource.user_hit_5.toString();
+			_textField.text = Constants.DAMAGE_HIT_5.toString() + "  x " + Resource.user_hit_5.toString();
 		}
 		
 		public function selectValueAICharacter(indexAI:int):void
 		{
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
-			_textField.text = Resource.ai_enemies[indexAI].aiHit1.toString();
+			_textField.text = Constants.DAMAGE_HIT_1.toString() + "  x " + Resource.ai_enemies[indexAI].aiHit1.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
-			_textField.text = Resource.ai_enemies[indexAI].aiHit2.toString();
+			_textField.text = Constants.DAMAGE_HIT_2.toString() + "  x " + Resource.ai_enemies[indexAI].aiHit2.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
-			_textField.text = Resource.ai_enemies[indexAI].aiHit3.toString();
+			_textField.text = Constants.DAMAGE_HIT_3.toString() + "  x " + Resource.ai_enemies[indexAI].aiHit3.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
-			_textField.text = Resource.ai_enemies[indexAI].aiHit4.toString();
+			_textField.text = Constants.DAMAGE_HIT_4.toString() + "  x " + Resource.ai_enemies[indexAI].aiHit4.toString();
 			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
-			_textField.text = Resource.ai_enemies[indexAI].aiHit5.toString();
+			_textField.text = Constants.DAMAGE_HIT_5.toString() + "  x " + Resource.ai_enemies[indexAI].aiHit5.toString();
 			
+			trace("... Имя врага:" + Resource.ai_enemies[indexAI].aiName 
+				+ "  Жизнь:" + Resource.ai_enemies[indexAI].aiLife.toString()  
+				+ "  HIT1:" + Resource.ai_enemies[indexAI].aiHit1.toString()
+				+ "  HIT2:" + Resource.ai_enemies[indexAI].aiHit2.toString()
+				+ "  HIT3:" + Resource.ai_enemies[indexAI].aiHit3.toString()
+				+ "  HIT4:" + Resource.ai_enemies[indexAI].aiHit4.toString()
+				+ "  HIT5:" + Resource.ai_enemies[indexAI].aiHit5.toString());
 		}
 		
 		public function createButtonsPlus():void
 		{
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
+			_textField.text = "x " + Resource.user_hit_1.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
+			_textField.text = "x " + Resource.user_hit_2.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
+			_textField.text = "x " + Resource.user_hit_3.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
+			_textField.text = "x " + Resource.user_hit_4.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
+			_textField.text = "x " + Resource.user_hit_5.toString();
+			
 			var n:int = _fileXML.ButtonPlus.length();
 			for (var i:int = 0; i < n; i++)
 			{
@@ -149,6 +167,12 @@ package mkquest.assets.character
 				_button.y = _fileXML.ButtonPlus[i].PosY;
 				this.addChild(_button);
 			}
+			
+			if (Resource.user_hit_1 >= Constants.DAMAGE_MAX_HIT_1) getChildByName(Constants.CHARACTER_BUTTON_PLUS_1).visible = false;
+			if (Resource.user_hit_2 >= Constants.DAMAGE_MAX_HIT_2) getChildByName(Constants.CHARACTER_BUTTON_PLUS_2).visible = false;
+			if (Resource.user_hit_3 >= Constants.DAMAGE_MAX_HIT_3) getChildByName(Constants.CHARACTER_BUTTON_PLUS_3).visible = false;
+			if (Resource.user_hit_4 >= Constants.DAMAGE_MAX_HIT_4) getChildByName(Constants.CHARACTER_BUTTON_PLUS_4).visible = false;
+			if (Resource.user_hit_5 >= Constants.DAMAGE_MAX_HIT_5) getChildByName(Constants.CHARACTER_BUTTON_PLUS_5).visible = false;
 		}
 		
 		private function removeButtonPlus():void
@@ -168,41 +192,42 @@ package mkquest.assets.character
 			{
 				Resource.user_hit_1++;
 				Resource.experiencePoints--;
-				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
-				_textField.text = Resource.user_hit_1.toString();
 			}
 			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_2)
 			{
 				Resource.user_hit_2++;
 				Resource.experiencePoints--;
-				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
-				_textField.text = Resource.user_hit_2.toString();
 			}
 			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_3)
 			{
 				Resource.user_hit_3++;
 				Resource.experiencePoints--;
-				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
-				_textField.text = Resource.user_hit_3.toString();
 			}
 			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_4)
 			{
 				Resource.user_hit_4++;
 				Resource.experiencePoints--;
-				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
-				_textField.text = Resource.user_hit_4.toString();
 			}
 			if (Button(event.target).name == Constants.CHARACTER_BUTTON_PLUS_5)
 			{
 				Resource.user_hit_5++;
 				Resource.experiencePoints--;
-				_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
-				_textField.text = Resource.user_hit_5.toString();
 			}
 			if (Resource.experiencePoints == 0)
 			{
 				removeButtonPlus();
 			}
+			
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_1));
+			_textField.text = Constants.DAMAGE_HIT_1.toString() + "  x " + Resource.user_hit_1.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_2));
+			_textField.text = Constants.DAMAGE_HIT_2.toString() + "  x " + Resource.user_hit_2.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_3));
+			_textField.text = Constants.DAMAGE_HIT_3.toString() + "  x " + Resource.user_hit_3.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_4));
+			_textField.text = Constants.DAMAGE_HIT_4.toString() + "  x " + Resource.user_hit_4.toString();
+			_textField = TextField(this.getChildByName(Constants.CHARACTER_HIT_5));
+			_textField.text = Constants.DAMAGE_HIT_5.toString() + "  x " + Resource.user_hit_5.toString();
 		}
 
 
