@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+	<Button>
+		<Name>menuButtonSinglePlayer</Name>
+		<TextRus>Одиночная игра</TextRus>
+		<TextEng>Single player</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>menuButtonCardGame</Name>
+		<TextRus>Карточная игра</TextRus>
+		<TextEng>Card game</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>menuButtonStore</Name>
+		<TextRus>Магазин</TextRus>
+		<TextEng>Store</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>menuButtonPersonage</Name>
+		<TextRus>Персонаж</TextRus>
+		<TextEng>Personage</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>menuButtonRating</Name>
+		<TextRus>Рейтинг</TextRus>
+		<TextEng>Rating</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>menuButtonSattings</Name>
+		<TextRus>Настройки</TextRus>
+		<TextEng>Settings</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+	<Button>
+		<Name>VKButtonInvite</Name>
+		<TextRus>Пригласить</TextRus>
+		<TextEng>Invite</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+	</Button>
+</Menu>
