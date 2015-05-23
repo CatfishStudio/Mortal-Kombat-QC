@@ -8,6 +8,14 @@ package mkcards.assets.statics
 	
 	public class Resource 
 	{
+		/* Пользователь ------------------- */
+		public static var userID:String;
+		public static var userName:String;
+		public static var userNickName:String;
+		public static var userSide:String; // DARK or WHITE
+		/* -------------------------------- */
+		
+		
 		/* Настройки игры ------------------*/
 		public static var soundOn:Boolean = true;
 		public static var musicOn:Boolean = true;
@@ -38,6 +46,23 @@ package mkcards.assets.statics
 		public static var TextureTutorialRight:Class;
 		[Embed(source = '../media/textures/tutorial_up.png')]
 		public static var TextureTutorialUp:Class;
+		
+		[Embed(source = '../media/textures/dark_side.png')]
+		public static var TextureDarkSide:Class;
+		[Embed(source = '../media/textures/light_side.png')]
+		public static var TextureLightSide:Class;
+		[Embed(source = '../media/textures/text_box.png')]
+		public static var TextureTextBox:Class;
+		[Embed(source = '../media/textures/white.png')]
+		public static var TextureWhite:Class;
+		[Embed(source = '../media/textures/yellow.png')]
+		public static var TextureYellow:Class;
+		
+		[Embed(source = '../media/textures/window_select_fighter_background.png')]
+		public static var TextureSelectFighterBackground:Class;
+		[Embed(source = '../media/textures/window_select_fighter_border.png')]
+		public static var TextureSelectFighterBorder:Class;
+		
 		/* -------------------------------- */
 		
 	}

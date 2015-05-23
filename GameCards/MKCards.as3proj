@@ -109,6 +109,11 @@
     <asset path="src\mkcards\assets\media\textures\window_select_fighter_sonia.png" />
     <asset path="src\mkcards\assets\media\textures\window_select_fighter_stryker.png" />
     <asset path="src\mkcards\assets\media\textures\window_select_fighter_subzero.png" />
+    <asset path="src\mkcards\assets\media\textures\dark_side.png" />
+    <asset path="src\mkcards\assets\media\textures\light_side.png" />
+    <asset path="src\mkcards\assets\media\textures\text_box.png" />
+    <asset path="src\mkcards\assets\media\textures\white.png" />
+    <asset path="src\mkcards\assets\media\textures\yellow.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

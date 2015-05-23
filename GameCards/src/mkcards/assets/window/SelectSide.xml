@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Side>
+	<Button>
+		<Name>windowSelectSideDark</Name>
+		<X>35</X>
+		<Y>60</Y>
+	</Button>
+	<Button>
+		<Name>windowSelectSideLight</Name>
+		<X>250</X>
+		<Y>60</Y>
+	</Button>
+	<Button>
+	<Name>buttonOK</Name>
+		<TextRus>Готово</TextRus>
+		<TextEng>OK</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<X>150</X>
+		<Y>260</Y>
+	</Button>
+</Side>
+

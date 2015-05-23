@@ -49,7 +49,7 @@
 		<FontSize>14</FontSize>
 	</Button>
 	<Button>
-		<Name>VKButtonInvite</Name>
+		<Name>menuButtonInvite</Name>
 		<TextRus>Пригласить</TextRus>
 		<TextEng>Invite</TextEng>
 		<FontName>Arial</FontName>

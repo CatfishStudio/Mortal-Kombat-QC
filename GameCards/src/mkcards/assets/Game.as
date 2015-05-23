@@ -20,10 +20,10 @@ package mkcards.assets
 	import mkcards.assets.statics.Resource;
 	
 	import mkcards.assets.menu.Menu;
+	import mkcards.assets.window.SelectSide;
 	
 	public class Game extends Sprite 
 	{
-		
 		public function Game() 
 		{
 			super();
@@ -39,14 +39,17 @@ package mkcards.assets
 			
 			showBackground();
 			
-			menu();
+			userInitialization();
+			
+			if (Resource.userID != null) menu();
+			else selectSide();
 		}
 		
 		private function onChangeScreen(event:Navigation):void 
 		{
 			switch(event.data.id)
 			{
-				case Constants.MENU_BUTTON_TOURNAMENT: // кнопка меню
+				case Constants.MENU_BUTTON_SINGLE_PLAYER: // кнопка меню
 				{
 					break;
 				}
@@ -71,8 +74,17 @@ package mkcards.assets
 			image = null;
 		}
 		
+		private function userInitialization():void 
+		{
+			Resource.userID = null;
+			Resource.userName = null;
+			Resource.userNickName = null;
+			Resource.userSide = "DARK";
+		}
+		
 		private function windowAllClose():void
 		{
+			if (getChildByName(Constants.WINDOW_SELECT_SIDE) != null)	removeChild(getChildByName(Constants.WINDOW_SELECT_SIDE));
 			//if (getChildByName(Constants.WINDOW_BACK_MENU) != null)	removeChild(getChildByName(Constants.WINDOW_BACK_MENU));
 			//if (getChildByName(Constants.WINDOW_BACK_STAIRS) != null) removeChild(getChildByName(Constants.WINDOW_BACK_STAIRS));
 			//if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
@@ -92,6 +104,19 @@ package mkcards.assets
 			{
 				windowAllClose();
 				addChild(new Menu());
+			}
+		}
+		
+		private function selectSide():void
+		{
+			if (getChildByName(Constants.WINDOW_SELECT_SIDE) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_SELECT_SIDE));
+			}
+			else 
+			{
+				windowAllClose();
+				addChild(new SelectSide());
 			}
 		}
 		
