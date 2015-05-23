@@ -19,6 +19,7 @@ package mkcards.assets.statics
 		public static const WINDOW_SELECT_SIDE:String = "windowSelectSide";
 		public static const WINDOW_SELECT_SIDE_DARK:String = "windowSelectSideDark";
 		public static const WINDOW_SELECT_SIDE_LIGHT:String = "windowSelectSideLight";
+		public static const WINDOW_SELECT_SIDE_BUTTON_OK:String = "windowSelectSideButtonOK"
 	}
 
 }

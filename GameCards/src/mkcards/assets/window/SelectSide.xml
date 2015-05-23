@@ -3,16 +3,16 @@
 	<Button>
 		<Name>windowSelectSideDark</Name>
 		<X>35</X>
-		<Y>60</Y>
+		<Y>70</Y>
 	</Button>
 	<Button>
 		<Name>windowSelectSideLight</Name>
 		<X>250</X>
-		<Y>60</Y>
+		<Y>70</Y>
 	</Button>
 	<Button>
-	<Name>buttonOK</Name>
-		<TextRus>Готово</TextRus>
+		<Name>windowSelectSideButtonOK</Name>
+		<TextRus>Выбрать</TextRus>
 		<TextEng>OK</TextEng>
 		<FontName>Arial</FontName>
 		<FontColor>0xffffff</FontColor>

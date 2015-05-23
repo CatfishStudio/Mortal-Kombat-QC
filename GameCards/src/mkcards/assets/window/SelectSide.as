@@ -1,11 +1,12 @@
 package mkcards.assets.window 
 {
-	import flash.display.Bitmap;
 	import flash.system.*;
 	import flash.utils.ByteArray;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.display.Button;
+	import flash.display.Bitmap;
+	import starling.text.BitmapFont;
 	import starling.text.TextField;
 	import starling.events.Event;
 	import starling.textures.Texture;
@@ -66,23 +67,26 @@ package mkcards.assets.window
 		private function onButtonsClick(event:Event):void 
 		{
 			//MusicAndSound.PlaySound(MusicAndSound.Sound1);
-			//dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name }));
+			if (Button(event.target).name == Constants.WINDOW_SELECT_SIDE_BUTTON_OK)
+			{
+			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Button(event.target).name }));
+			}else{
+				var image:Image; 
+				image = Image(getChildByName("DARK"));
+				if (Button(event.target).name == Constants.WINDOW_SELECT_SIDE_DARK) {
+					image.visible = true;
+					Resource.userSide = "DARK";
+				} else image.visible = false;
 			
-			var image:Image; 
-			image = Image(getChildByName("DARK"));
-			if (Button(event.target).name == Constants.WINDOW_SELECT_SIDE_DARK) {
-				image.visible = true;
-				Resource.userSide = "DARK";
-			} else image.visible = false;
+				image = Image(getChildByName("WHITE"));
+				if (Button(event.target).name == Constants.WINDOW_SELECT_SIDE_LIGHT) {
+					image.visible = true;
+					Resource.userSide = "WHITE";
+				} else image.visible = false;
 			
-			image = Image(getChildByName("WHITE"));
-			if (Button(event.target).name == Constants.WINDOW_SELECT_SIDE_LIGHT) {
-				image.visible = true;
-				Resource.userSide = "WHITE";
-			} else image.visible = false;
-			
-			image.dispose();
-			image = null;
+				image.dispose();
+				image = null;
+			}
 		}
 		
 		private function showBackground():void
@@ -102,10 +106,15 @@ package mkcards.assets.window
 		
 		private function createFromXML():void
 		{
-			_textField = new TextField(450, 50, "Выбери на чей ты стороне.", "Arial", 17, 0xffffff, false);
+			var texture:Texture = Texture.fromEmbeddedAsset(Resource.FontTexture);
+			var xml:XML = XML(new Resource.FontXml());
+			TextField.registerBitmapFont(new BitmapFont(texture, xml), "Font01");
+			
+			_textField = new TextField(450, 50, "Выбери на чьей ты стороне.", "Arial", 27, 0xffffff, false);
+			_textField.fontName = "Font01";
 			_textField.hAlign = "center";
 			_textField.x = 10;
-			_textField.y = 10;
+			_textField.y = 20;
 			addChild(_textField);
 			
 			var bitmap:Bitmap = new Resource.TextureYellow();
@@ -138,6 +147,12 @@ package mkcards.assets.window
 			_button.y = _fileXML.Button[1].Y;
 			addChild(_button);
 			
+			_textField = new TextField(450, 50, "Изменить свой выбор вы можите в настройках персонажа.", "Arial", 16, 0xffffff, false);
+			_textField.hAlign = "center";
+			_textField.x = 15;
+			_textField.y = 215;
+			addChild(_textField);
+			
 			bitmap = new Resource.TextureButton();
 			_button = new Button(Texture.fromBitmap(bitmap));
 			_button.name = _fileXML.Button[2].Name;
@@ -157,6 +172,7 @@ package mkcards.assets.window
 			addChild(_button);
 				
 			bitmap = null;
+			texture = null;
 			image.dispose();
 			image = null;
 		}

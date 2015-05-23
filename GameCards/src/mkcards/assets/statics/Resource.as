@@ -26,6 +26,13 @@ package mkcards.assets.statics
 		public static var tutorialStep:int = 1;
 		/* -------------------------------- */
 		
+		/* Шрифт (Font) ------------------- */
+		[Embed(source="../media/font/font.fnt", mimeType="application/octet-stream")]
+		public static const FontXml:Class;
+ 		[Embed(source = "../media/font/font.png")]
+		public static const FontTexture:Class;
+		/* -------------------------------- */
+		
 		/* Текстуры ----------------------- */
 		[Embed(source = '../media/textures/background_game.jpg')]
 		public static var TextureBackgroundGame:Class;

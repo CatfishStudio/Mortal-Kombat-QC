@@ -54,6 +54,13 @@ package mkcards.assets
 					break;
 				}
 				
+				case Constants.WINDOW_SELECT_SIDE_BUTTON_OK: // сделан выбор пользователя: свет или тьма
+				{
+					selectSide(); 	// закрываем
+					menu(); 		// открываем
+					break;
+				}
+				
 				default:
 				{
 					break;
