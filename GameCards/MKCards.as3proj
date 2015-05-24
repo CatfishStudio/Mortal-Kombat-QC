@@ -114,7 +114,10 @@
     <asset path="src\mkcards\assets\media\textures\text_box.png" />
     <asset path="src\mkcards\assets\media\textures\white.png" />
     <asset path="src\mkcards\assets\media\textures\yellow.png" />
+    <asset path="src\mkcards\assets\media\font\rusfont.png" />
     <asset path="src\mkcards\assets\media\font\font.png" />
+    <asset path="src\mkcards\assets\media\atlas\mklogo.png" />
+    <asset path="src\mkcards\assets\media\atlas\loader.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

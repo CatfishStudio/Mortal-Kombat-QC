@@ -9,10 +9,13 @@ package mkcards.assets.statics
 	public class Resource 
 	{
 		/* Пользователь ------------------- */
-		public static var userID:String;
-		public static var userName:String;
-		public static var userNickName:String;
-		public static var userSide:String; // DARK or WHITE
+		public static var userID:String;			// Идентификатор пользователя в соц. сети
+		public static var userName:String;			// Имя пользователя как оно значится в соц. сети
+		public static var userSide:String; 			// Выбранная сторона тьма или свет ( DARK or WHITE )
+		public static var userMoney:int;			// Количество денег у пользователя
+		public static var userFighter:Array; 		// Активный боец пользователя
+		public static var userDeckCardsProtection:Array;// Колода карт для защиты
+		public static var userDeckCardsAttack:Array;	// Колода карт для нападения
 		/* -------------------------------- */
 		
 		
@@ -40,6 +43,10 @@ package mkcards.assets.statics
 		public static var TextureButton:Class;
 		[Embed(source = '../media/textures/fullscreen.png')]
 		public static var TextureButtonFullscreen:Class;
+		[Embed(source = '../media/textures/button_left.png')]
+		public static var TextureButtonLeft:Class;
+		[Embed(source = '../media/textures/button_right.png')]
+		public static var TextureButtonRight:Class;
 		
 		[Embed(source = '../media/textures/tutorial_dialog.png')]
 		public static var TextureTutorialDialog:Class;

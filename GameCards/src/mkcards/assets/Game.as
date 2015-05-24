@@ -21,6 +21,7 @@ package mkcards.assets
 	
 	import mkcards.assets.menu.Menu;
 	import mkcards.assets.window.SelectSide;
+	import mkcards.assets.window.BuyFighter;
 	
 	public class Game extends Sprite 
 	{
@@ -56,8 +57,9 @@ package mkcards.assets
 				
 				case Constants.WINDOW_SELECT_SIDE_BUTTON_OK: // сделан выбор пользователя: свет или тьма
 				{
-					selectSide(); 	// закрываем
-					menu(); 		// открываем
+					selectSide(); 									// закрываем выбор стороны
+					if (Resource.userFighter == null) buyFighter(); // открываем покупку бойца
+					else menu(); 									// открываем меню
 					break;
 				}
 				
@@ -85,14 +87,17 @@ package mkcards.assets
 		{
 			Resource.userID = null;
 			Resource.userName = null;
-			Resource.userNickName = null;
 			Resource.userSide = "DARK";
+			Resource.userMoney = 1000;
+			Resource.userFighter = null;
+			Resource.userDeckCardsProtection = [];
+			Resource.userDeckCardsAttack = [];
 		}
 		
 		private function windowAllClose():void
 		{
 			if (getChildByName(Constants.WINDOW_SELECT_SIDE) != null)	removeChild(getChildByName(Constants.WINDOW_SELECT_SIDE));
-			//if (getChildByName(Constants.WINDOW_BACK_MENU) != null)	removeChild(getChildByName(Constants.WINDOW_BACK_MENU));
+			if (getChildByName(Constants.WINDOW_BUY_FIGHTER) != null)	removeChild(getChildByName(Constants.WINDOW_BUY_FIGHTER));
 			//if (getChildByName(Constants.WINDOW_BACK_STAIRS) != null) removeChild(getChildByName(Constants.WINDOW_BACK_STAIRS));
 			//if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
 			//if (getChildByName(Constants.WINDOW_LOST) != null)	removeChild(getChildByName(Constants.WINDOW_LOST));
@@ -124,6 +129,19 @@ package mkcards.assets
 			{
 				windowAllClose();
 				addChild(new SelectSide());
+			}
+		}
+		
+		private function buyFighter():void
+		{
+			if (getChildByName(Constants.WINDOW_BUY_FIGHTER) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_BUY_FIGHTER));
+			}
+			else 
+			{
+				windowAllClose();
+				addChild(new BuyFighter());
 			}
 		}
 		

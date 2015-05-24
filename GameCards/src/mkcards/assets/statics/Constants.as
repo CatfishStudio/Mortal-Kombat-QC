@@ -20,6 +20,12 @@ package mkcards.assets.statics
 		public static const WINDOW_SELECT_SIDE_DARK:String = "windowSelectSideDark";
 		public static const WINDOW_SELECT_SIDE_LIGHT:String = "windowSelectSideLight";
 		public static const WINDOW_SELECT_SIDE_BUTTON_OK:String = "windowSelectSideButtonOK"
+		
+		public static const WINDOW_BUY_FIGHTER:String = "windowBuyFighter";
+		public static const WINDOW_BUY_FIGHTER_BUTTON_BUY:String = "windowBuyFighterButtonBuy";
+		public static const WINDOW_BUY_FIGHTER_BUTTON_BACK:String = "windowBuyFighterButtonBack";
+		public static const WINDOW_BUY_FIGHTER_BUTTON_LEFT:String = "windowBuyFighterButtonLeft";
+		public static const WINDOW_BUY_FIGHTER_BUTTON_RIGHT:String = "windowBuyFighterButtonRight";
 	}
 
 }
