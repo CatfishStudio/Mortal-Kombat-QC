@@ -99,16 +99,6 @@
     <asset path="src\mkcards\assets\media\textures\tutorial_right.png" />
     <asset path="src\mkcards\assets\media\textures\tutorial_shaokahn.png" />
     <asset path="src\mkcards\assets\media\textures\tutorial_up.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_background.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_border.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_cyrax.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_kano.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_nightwolf.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_quanchi.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_sektor.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_sonia.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_stryker.png" />
-    <asset path="src\mkcards\assets\media\textures\window_select_fighter_subzero.png" />
     <asset path="src\mkcards\assets\media\textures\dark_side.png" />
     <asset path="src\mkcards\assets\media\textures\light_side.png" />
     <asset path="src\mkcards\assets\media\textures\text_box.png" />
@@ -118,6 +108,7 @@
     <asset path="src\mkcards\assets\media\font\font.png" />
     <asset path="src\mkcards\assets\media\atlas\mklogo.png" />
     <asset path="src\mkcards\assets\media\atlas\loader.png" />
+    <asset path="src\mkcards\assets\media\atlas\fighter_buy.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

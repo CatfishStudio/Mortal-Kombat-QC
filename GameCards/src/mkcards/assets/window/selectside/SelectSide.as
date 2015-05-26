@@ -1,4 +1,4 @@
-package mkcards.assets.window 
+package mkcards.assets.window.selectside 
 {
 	import flash.system.*;
 	import flash.utils.ByteArray;

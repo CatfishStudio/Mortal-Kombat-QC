@@ -1,7 +1,8 @@
-package mkcards.assets.window 
+package mkcards.assets.window.buyfighter 
 {
 	
 	import starling.display.Image;
+	import starling.text.BitmapFont;
 	import starling.textures.Texture;
 	import starling.display.Sprite;
 	import starling.text.TextField;
@@ -37,6 +38,9 @@ package mkcards.assets.window
 		private var _textField:TextField;
 		private var _button:Button;
 		
+		private var _textureFont:Texture = Texture.fromEmbeddedAsset(Resource.FontTexture);
+		private	var _xmlFont:XML = XML(new Resource.FontXml());
+		
 		public function BuyFighter() 
 		{
 			super();
@@ -49,6 +53,9 @@ package mkcards.assets.window
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			name = Constants.WINDOW_BUY_FIGHTER;
+			TextField.registerBitmapFont(new BitmapFont(_textureFont, _xmlFont), "Font01");
+			
+			Resource.initTextureAtlas(Resource.AtlasFighterBuy, Resource.AtlasFighterBuyXML, true, false) // инициализация атласа
 			
 			buttons(); // Кнопки общего назначения
 			
@@ -63,6 +70,10 @@ package mkcards.assets.window
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			
+			_textureFont.dispose();
+			_textureFont = null;
+			_xmlFont = null;
+			Resource.disposeTextureAtlas(); // очистка атласа
 		}
 		
 		private function onButtonsClick(e:Event):void 
@@ -122,23 +133,17 @@ package mkcards.assets.window
 		private function initListFighters():Vector.<Sprite> 
 		{
 			var list:Vector.<Sprite> = new Vector.<Sprite>();
-			var fighter:Sprite;
-			var bitmap:Bitmap;
-			var image:Image;
-			
+			var fighter:Fighter;
 			
 			var n:int = _fileXML.Fighter.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				fighter = new Sprite();
-				bitmap = new Resource.TextureSelectFighterBackground();
-				fighter.addChild(new Image(Texture.fromBitmap(bitmap)));
-				bitmap = new Resource.TextureSelectFighterBorder();
-				fighter.addChild(new Image(Texture.fromBitmap(bitmap)));
-				fighter.name = _fileXML.Fighter[i].Name;
-				fighter.addEventListener(TouchEvent.TOUCH, onButtonTouch);
+				fighter = new Fighter(_fileXML.Fighter[i].Name);
+				fighter.title = _fileXML.Fighter[i].Title;
+				
 				list.push(fighter);
 			}
+			
 			return list;
 		}
 		
@@ -147,7 +152,11 @@ package mkcards.assets.window
 			var touch:Touch = e.getTouch(stage);
 			if (touch)
 			{
-				if (touch.phase == TouchPhase.BEGAN) { _xStart = touch.globalX; Mouse.cursor = MouseCursor.BUTTON; }
+				if (touch.phase == TouchPhase.BEGAN) 
+				{ 
+					_xStart = touch.globalX; 
+					Mouse.cursor = MouseCursor.BUTTON; 
+				}
 				else if (touch.phase == TouchPhase.ENDED)
 				{
 					if (_xStart > touch.globalX) leafThroughLeft();
@@ -158,7 +167,7 @@ package mkcards.assets.window
 			} 
 		}
 		
-		private function leafThroughLeft():void
+		private function leafThroughRight():void
 		{
 			if((_listFighters[_listFighters.length - 1] as Sprite).x > 300){
 				var fighter:Sprite;
@@ -166,13 +175,13 @@ package mkcards.assets.window
 				for (var i:int = 0; i < n; i++) {
 					fighter = (_listFighters[i] as Sprite); 
 					_tween = new Tween(fighter, 0.5); 
-					_tween.moveTo(fighter.x - 550, 200);
+					_tween.moveTo(fighter.x - 550, Constants.GAME_WINDOW_HEIGHT / 3.5);
 					Starling.juggler.add(_tween);
 				}
 			}
 		}
 		
-		private function leafThroughRight():void
+		private function leafThroughLeft():void
 		{
 			if((_listFighters[0] as Sprite).x < 200){
 				var fighter:Sprite;
@@ -180,7 +189,7 @@ package mkcards.assets.window
 				for (var i:int = 0; i < n; i++) {
 					fighter = (_listFighters[i] as Sprite); 
 					_tween = new Tween(fighter, 0.5); 
-					_tween.moveTo(fighter.x + 550, 200);
+					_tween.moveTo(fighter.x + 550, Constants.GAME_WINDOW_HEIGHT / 3.5);
 					Starling.juggler.add(_tween);
 				}
 			}
@@ -190,7 +199,7 @@ package mkcards.assets.window
 		private function showListFighters():void 
 		{
 			var fighter:Sprite;
-			var xStart:int = -350;
+			var xStart:int = 200; //-350;
 			var n:int = _listFighters.length;
 			for (var i:int = 0; i < n; i++) {
 				fighter = (_listFighters[i] as Sprite); 

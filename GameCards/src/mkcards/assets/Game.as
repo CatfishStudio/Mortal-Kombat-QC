@@ -20,8 +20,8 @@ package mkcards.assets
 	import mkcards.assets.statics.Resource;
 	
 	import mkcards.assets.menu.Menu;
-	import mkcards.assets.window.SelectSide;
-	import mkcards.assets.window.BuyFighter;
+	import mkcards.assets.window.selectside.SelectSide;
+	import mkcards.assets.window.buyfighter.BuyFighter;
 	
 	public class Game extends Sprite 
 	{

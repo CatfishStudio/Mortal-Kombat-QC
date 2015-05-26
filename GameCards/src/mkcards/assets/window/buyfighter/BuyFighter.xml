@@ -23,27 +23,27 @@
 		<Name>windowBuyFighterButtonRight</Name>
 	</Button>
 	<Fighter>
-		<Name>Cyrex</Name>
+		<Name>cyrax</Name>
 		<Title>CYREX</Title>
 	</Fighter>
 	<Fighter>
-		<Name>Kano</Name>
+		<Name>kano</Name>
 		<Title>KANO</Title>
 	</Fighter>
 	<Fighter>
-		<Name>Sektor</Name>
+		<Name>sektor</Name>
 		<Title>SEKTOR</Title>
 	</Fighter>
 	<Fighter>
-		<Name>Sonia</Name>
+		<Name>sonia</Name>
 		<Title>SONIA</Title>
 	</Fighter>
 	<Fighter>
-		<Name>Stryker</Name>
+		<Name>stryker</Name>
 		<Title>STRYKER</Title>
 	</Fighter>
 	<Fighter>
-		<Name>Subzero</Name>
+		<Name>subzero</Name>
 		<Title>SUB-ZERO</Title>
 	</Fighter>
 </data>
