@@ -25,25 +25,67 @@
 	<Fighter>
 		<Name>cyrax</Name>
 		<Title>CYREX</Title>
+		<TextRus>Второй киборг созданный кланом Лин Куэй</TextRus>
+		<TextEng>Second cyborg created clan Lin Kuei</TextEng>
+		<TextLeftCardRus>Атака</TextLeftCardRus>
+		<TextLeftCardEng>Attack</TextLeftCardEng>
+		<TextRightCardRus>Защита</TextRightCardRus>
+		<TextRightCardEng>Defence</TextRightCardEng>
+		<Price>1000</Price>
 	</Fighter>
 	<Fighter>
 		<Name>kano</Name>
 		<Title>KANO</Title>
+		<TextRus></TextRus>
+		<TextEng></TextEng>
+		<TextLeftCardRus>Атака</TextLeftCardRus>
+		<TextLeftCardEng>Attack</TextLeftCardEng>
+		<TextRightCardRus>Защита</TextRightCardRus>
+		<TextRightCardEng>Defence</TextRightCardEng>
+		<Price>1000</Price>
 	</Fighter>
 	<Fighter>
 		<Name>sektor</Name>
 		<Title>SEKTOR</Title>
+		<TextRus></TextRus>
+		<TextEng></TextEng>
+		<TextLeftCardRus>Атака</TextLeftCardRus>
+		<TextLeftCardEng>Attack</TextLeftCardEng>
+		<TextRightCardRus>Защита</TextRightCardRus>
+		<TextRightCardEng>Defence</TextRightCardEng>
+		<Price>1000</Price>
 	</Fighter>
 	<Fighter>
 		<Name>sonia</Name>
 		<Title>SONIA</Title>
+		<TextRus></TextRus>
+		<TextEng></TextEng>
+		<TextLeftCardRus>Атака</TextLeftCardRus>
+		<TextLeftCardEng>Attack</TextLeftCardEng>
+		<TextRightCardRus>Защита</TextRightCardRus>
+		<TextRightCardEng>Defence</TextRightCardEng>
+		<Price>1000</Price>
 	</Fighter>
 	<Fighter>
 		<Name>stryker</Name>
 		<Title>STRYKER</Title>
+		<TextRus></TextRus>
+		<TextEng></TextEng>
+		<TextLeftCardRus>Атака</TextLeftCardRus>
+		<TextLeftCardEng>Attack</TextLeftCardEng>
+		<TextRightCardRus>Защита</TextRightCardRus>
+		<TextRightCardEng>Defence</TextRightCardEng>
+		<Price>1000</Price>
 	</Fighter>
 	<Fighter>
 		<Name>subzero</Name>
 		<Title>SUB-ZERO</Title>
+		<TextRus></TextRus>
+		<TextEng></TextEng>
+		<TextLeftCardRus>Атака</TextLeftCardRus>
+		<TextLeftCardEng>Attack</TextLeftCardEng>
+		<TextRightCardRus>Защита</TextRightCardRus>
+		<TextRightCardEng>Defence</TextRightCardEng>
+		<Price>1000</Price>
 	</Fighter>
 </data>

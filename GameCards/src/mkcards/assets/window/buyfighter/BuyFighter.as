@@ -14,6 +14,7 @@ package mkcards.assets.window.buyfighter
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	
+	import flash.system.*;
 	import flash.display.Bitmap;
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
@@ -70,10 +71,24 @@ package mkcards.assets.window.buyfighter
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			
-			_textureFont.dispose();
+			if(_textureFont) _textureFont.dispose();
 			_textureFont = null;
+			if (_textField) _textField.dispose();
+			_textField = null;
+			if (_button) _button.dispose();
+			_button = null;
 			_xmlFont = null;
+				
 			Resource.disposeTextureAtlas(); // очистка атласа
+			
+			while (this.numChildren)
+			{
+				this.removeChildren(0, -1, true);
+			}
+			this.removeFromParent(true);
+			super.dispose();
+			System.gc();
+			trace("[X] onRemoveFromStage: " + this.name);
 		}
 		
 		private function onButtonsClick(e:Event):void 
@@ -140,11 +155,36 @@ package mkcards.assets.window.buyfighter
 			{
 				fighter = new Fighter(_fileXML.Fighter[i].Name);
 				fighter.title = _fileXML.Fighter[i].Title;
-				
+				if (Resource.languageRus == true)
+				{
+					fighter.text = _fileXML.Fighter[i].TextRus;
+					fighter.textLeftCard = _fileXML.Fighter[i].TextLeftCardRus;
+					fighter.textRightCard = _fileXML.Fighter[i].TextRightCardRus;
+				}
+				else
+				{
+					fighter.text = _fileXML.Fighter[i].TextEng;
+					fighter.textLeftCard = _fileXML.Fighter[i].TextLeftCardEng;
+					fighter.textRightCard = _fileXML.Fighter[i].TextRightCardEng;
+				}
 				list.push(fighter);
 			}
 			
 			return list;
+		}
+		
+		private function showListFighters():void 
+		{
+			var fighter:Sprite;
+			var xStart:int = 200; //-350;
+			var n:int = _listFighters.length;
+			for (var i:int = 0; i < n; i++) {
+				fighter = (_listFighters[i] as Sprite); 
+				fighter.x = xStart; 
+				fighter.y = Constants.GAME_WINDOW_HEIGHT / 3.5; 
+				this.addChild(fighter);
+				xStart += 550;
+			}
 		}
 		
 		private function onButtonTouch(e:TouchEvent):void 
@@ -196,19 +236,7 @@ package mkcards.assets.window.buyfighter
 		}
 		
 		
-		private function showListFighters():void 
-		{
-			var fighter:Sprite;
-			var xStart:int = 200; //-350;
-			var n:int = _listFighters.length;
-			for (var i:int = 0; i < n; i++) {
-				fighter = (_listFighters[i] as Sprite); 
-				fighter.x = xStart; 
-				fighter.y = Constants.GAME_WINDOW_HEIGHT / 3.5; 
-				this.addChild(fighter);
-				xStart += 550;
-			}
-		}
+		
 		
 	}
 

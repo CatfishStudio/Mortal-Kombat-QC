@@ -26,6 +26,8 @@ package mkcards.assets.statics
 		public static const WINDOW_BUY_FIGHTER_BUTTON_BACK:String = "windowBuyFighterButtonBack";
 		public static const WINDOW_BUY_FIGHTER_BUTTON_LEFT:String = "windowBuyFighterButtonLeft";
 		public static const WINDOW_BUY_FIGHTER_BUTTON_RIGHT:String = "windowBuyFighterButtonRight";
+		public static const WINDOW_BUY_FIGHTER_BUTTON_UP:String = "windowBuyFighterButtonUp";
+		public static const WINDOW_BUY_FIGHTER_BUTTON_DOWN:String = "windowBuyFighterButtonDown";
 	}
 
 }

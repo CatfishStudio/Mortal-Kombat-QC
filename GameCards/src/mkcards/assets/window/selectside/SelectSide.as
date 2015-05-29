@@ -91,11 +91,11 @@ package mkcards.assets.window.selectside
 		
 		private function showBackground():void
 		{
-			var bitmap:Bitmap = new Resource.TextureSelectFighterBackground();
+			var bitmap:Bitmap = new Resource.TextureWindowBackground();
 			var image:Image = new Image(Texture.fromBitmap(bitmap));
 			addChild(image);
 			
-			bitmap = new Resource.TextureSelectFighterBorder();
+			bitmap = new Resource.TextureWindowBorder();
 			image = new Image(Texture.fromBitmap(bitmap));
 			addChild(image);
 			

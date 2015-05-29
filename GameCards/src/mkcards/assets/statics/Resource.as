@@ -56,6 +56,10 @@ package mkcards.assets.statics
 		public static var TextureButtonLeft:Class;
 		[Embed(source = '../media/textures/button_right.png')]
 		public static var TextureButtonRight:Class;
+		[Embed(source = '../media/textures/button_up.png')]
+		public static var TextureButtonUp:Class;
+		[Embed(source = '../media/textures/button_down.png')]
+		public static var TextureButtonDown:Class;
 		
 		[Embed(source = '../media/textures/tutorial_dialog.png')]
 		public static var TextureTutorialDialog:Class;
@@ -81,10 +85,10 @@ package mkcards.assets.statics
 		[Embed(source = '../media/textures/yellow.png')]
 		public static var TextureYellow:Class;
 		
-		[Embed(source = '../media/textures/window_select_fighter_background.png')]
-		public static var TextureSelectFighterBackground:Class;
-		[Embed(source = '../media/textures/window_select_fighter_border.png')]
-		public static var TextureSelectFighterBorder:Class;
+		[Embed(source = '../media/textures/window_background.png')]
+		public static var TextureWindowBackground:Class;
+		[Embed(source = '../media/textures/window_border.png')]
+		public static var TextureWindowBorder:Class;
 		
 			
 		/* -------------------------------- */
