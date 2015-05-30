@@ -39,8 +39,14 @@ package mkcards.assets.window.buyfighter
 		private var _bitmap:Bitmap;
 		private var _image:Image;
 		
+		private var _cards:Sprite;
 		private var _cardsLeft:Sprite;
 		private var _cardsRight:Sprite;
+		
+		private var _tween:Tween;		// анимация
+		private var _yStart:int;		// начальное значение по Y
+		private var _move:Boolean = true; // флаг движения
+		
 		
 		public function Fighter(_name:String) 
 		{
@@ -48,6 +54,7 @@ package mkcards.assets.window.buyfighter
 			name = _name;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			addEventListener(Event.TRIGGERED, onButtonsClick);
 		}
 		
 		private function onAddedToStage(e:Event):void 
@@ -78,24 +85,28 @@ package mkcards.assets.window.buyfighter
 			_textField = new TextField(200, 150, text, "Arial", 14, 0xffffff, false);
 			_textField.hAlign = "left";
 			_textField.x = 40;
-			_textField.y = 5;
+			_textField.y = 15;
 			addChild(_textField);
 			
 			_textField = new TextField(100, 50, textLeftCard, "Arial", 16, 0xffffff, false);
 			_textField.hAlign = "left";
-			_textField.x = 250;
-			_textField.y = 25;
+			_textField.x = 245;
+			_textField.y = 45;
 			addChild(_textField);
 			
 			_textField = new TextField(100, 50, textRightCard, "Arial", 16, 0xffffff, false);
 			_textField.hAlign = "left";
-			_textField.x = 350;
-			_textField.y = 25;
+			_textField.x = 370;
+			_textField.y = 45;
 			addChild(_textField);
 			
+			_cards = new Sprite();
 			initCardsLeft();
 			initCardsRight();
 			setMask();
+			addChild(_cards);
+			
+			navigationButtons();
 			
 			_bitmap = null;
 			_image.dispose();
@@ -117,6 +128,8 @@ package mkcards.assets.window.buyfighter
 			_textField = null;
 			if (_button) _button.dispose();
 			_button = null;
+			
+			Starling.juggler.remove(_tween);
 			
 			while (this.numChildren)
 			{
@@ -141,7 +154,7 @@ package mkcards.assets.window.buyfighter
 				_image.x = 225; _image.y = 100 + (160 * i);
 				_cardsLeft.addChild(_image);
 			}
-			addChild(_cardsLeft);
+			_cards.addChild(_cardsLeft);
 		}
 		
 		private function initCardsRight():void
@@ -156,14 +169,82 @@ package mkcards.assets.window.buyfighter
 				_image.x = 340; _image.y = 100 + (160 * i);
 				_cardsRight.addChild(_image);
 			}
-			addChild(_cardsRight);
+			_cards.addChild(_cardsRight);
 		}
 		
 		private function setMask():void
 		{
-			_cardsLeft.clipRect = new Rectangle(225, 100, 105, 155);
-			_cardsRight.clipRect = new Rectangle(340, 100, 105, 155);
+			_cards.clipRect = new Rectangle(225, 100, 220, 155);
 		}
+		
+		private function navigationButtons():void 
+		{
+			var bitmap:Bitmap = new Resource.TextureButtonUp();
+			_button = new Button(Texture.fromBitmap(bitmap));
+			_button.name = Constants.WINDOW_BUY_FIGHTER_BUTTON_UP;
+			_button.x = 305;
+			_button.y = 45;
+			_button.scaleX -= 0.3;
+			_button.scaleY -= 0.3;
+			addChild(_button);
+			
+			bitmap = new Resource.TextureButtonDown();
+			_button = new Button(Texture.fromBitmap(bitmap));
+			_button.name = Constants.WINDOW_BUY_FIGHTER_BUTTON_DOWN;
+			_button.x = 305;
+			_button.y = 255;
+			_button.scaleX -= 0.3;
+			_button.scaleY -= 0.3;
+			addChild(_button);
+			
+			bitmap = null;
+		}
+		
+		private function onButtonsClick(e:Event):void 
+		{
+			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_UP) leafThroughUp();
+			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_DOWN) leafThroughDown();
+		}
+		
+		private function leafThroughUp():void 
+		{
+			if (_move == true)
+			{
+				if (_cardsLeft.y > ((_cardsLeft.height -160) * -1)) {
+					_move = false;
+					_tween = new Tween(_cardsLeft, 0.5); 
+					_tween.moveTo(_cardsLeft.x, _cardsLeft.y - 160);
+					Starling.juggler.add(_tween);
+					_tween = new Tween(_cardsRight, 0.5); 
+					_tween.moveTo(_cardsRight.x, _cardsRight.y - 160);
+					_tween.onComplete = endMove;
+					Starling.juggler.add(_tween);
+				}
+			}
+		}
+		
+		private function leafThroughDown():void 
+		{
+			if (_move == true)
+			{
+				if (_cardsLeft.y < 0) {
+					_move = false;
+					_tween = new Tween(_cardsLeft, 0.5); 
+					_tween.moveTo(_cardsLeft.x, _cardsLeft.y + 160);
+					Starling.juggler.add(_tween);
+					_tween = new Tween(_cardsRight, 0.5); 
+					_tween.moveTo(_cardsRight.x, _cardsRight.y + 160);
+					_tween.onComplete = endMove;
+					Starling.juggler.add(_tween);
+				}
+			}
+		}
+		
+		private function endMove():void
+		{
+			_move = true; // движение разрешено
+		}
+		
 	}
 
 }

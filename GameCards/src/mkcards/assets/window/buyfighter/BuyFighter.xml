@@ -25,8 +25,8 @@
 	<Fighter>
 		<Name>cyrax</Name>
 		<Title>CYREX</Title>
-		<TextRus>Второй киборг созданный кланом Лин Куэй</TextRus>
-		<TextEng>Second cyborg created clan Lin Kuei</TextEng>
+		<TextRus>Второй киборг созданный кланом "Лин Куэй"</TextRus>
+		<TextEng>Second cyborg created clan "Lin Kuei"</TextEng>
 		<TextLeftCardRus>Атака</TextLeftCardRus>
 		<TextLeftCardEng>Attack</TextLeftCardEng>
 		<TextRightCardRus>Защита</TextRightCardRus>
@@ -36,8 +36,8 @@
 	<Fighter>
 		<Name>kano</Name>
 		<Title>KANO</Title>
-		<TextRus></TextRus>
-		<TextEng></TextEng>
+		<TextRus>Лидер преступной группировки "Чёрный Дракон"</TextRus>
+		<TextEng>The leader of the gang "Black Dragon"</TextEng>
 		<TextLeftCardRus>Атака</TextLeftCardRus>
 		<TextLeftCardEng>Attack</TextLeftCardEng>
 		<TextRightCardRus>Защита</TextRightCardRus>
@@ -47,8 +47,8 @@
 	<Fighter>
 		<Name>sektor</Name>
 		<Title>SEKTOR</Title>
-		<TextRus></TextRus>
-		<TextEng></TextEng>
+		<TextRus>Первый киборг созданный кланом "Лин Куэй"</TextRus>
+		<TextEng>First cyborg created clan "Lin Kuei"</TextEng>
 		<TextLeftCardRus>Атака</TextLeftCardRus>
 		<TextLeftCardEng>Attack</TextLeftCardEng>
 		<TextRightCardRus>Защита</TextRightCardRus>
@@ -58,8 +58,8 @@
 	<Fighter>
 		<Name>sonia</Name>
 		<Title>SONIA</Title>
-		<TextRus></TextRus>
-		<TextEng></TextEng>
+		<TextRus>Лейтенант отряда особого назначения армии США</TextRus>
+		<TextEng>Lieutenant special detachment of the US Army</TextEng>
 		<TextLeftCardRus>Атака</TextLeftCardRus>
 		<TextLeftCardEng>Attack</TextLeftCardEng>
 		<TextRightCardRus>Защита</TextRightCardRus>
@@ -69,8 +69,8 @@
 	<Fighter>
 		<Name>stryker</Name>
 		<Title>STRYKER</Title>
-		<TextRus></TextRus>
-		<TextEng></TextEng>
+		<TextRus>Лидер отряда по подавлению беспорядков</TextRus>
+		<TextEng>The leader of the riot squad</TextEng>
 		<TextLeftCardRus>Атака</TextLeftCardRus>
 		<TextLeftCardEng>Attack</TextLeftCardEng>
 		<TextRightCardRus>Защита</TextRightCardRus>
@@ -80,8 +80,8 @@
 	<Fighter>
 		<Name>subzero</Name>
 		<Title>SUB-ZERO</Title>
-		<TextRus></TextRus>
-		<TextEng></TextEng>
+		<TextRus>Куай-Лянь брат Би-Хана ниндзя клана "Лин Куэй"</TextRus>
+		<TextEng>Kuailiang brother Bihan ninja clan "Lin Kuei"</TextEng>
 		<TextLeftCardRus>Атака</TextLeftCardRus>
 		<TextLeftCardEng>Attack</TextLeftCardEng>
 		<TextRightCardRus>Защита</TextRightCardRus>

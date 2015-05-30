@@ -78,7 +78,9 @@ package mkcards.assets.window.buyfighter
 			if (_button) _button.dispose();
 			_button = null;
 			_xmlFont = null;
-				
+			
+			Starling.juggler.remove(_tween);
+			
 			Resource.disposeTextureAtlas(); // очистка атласа
 			
 			while (this.numChildren)
