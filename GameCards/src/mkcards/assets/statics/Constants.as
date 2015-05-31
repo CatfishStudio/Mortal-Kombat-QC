@@ -15,6 +15,12 @@ package mkcards.assets.statics
 		public static const MENU_BUTTON_INVATE:String = "menuButtonInvite";
 		
 		public static const BUTTON_OK:String = "buttonOK";
+		
+		public static const RED:String = "red";
+		public static const BLUE:String = "blue";
+		public static const YELLOW:String = "yellow";
+		public static const GREEN:String = "green";
+		public static const VIOLET:String = "violet";
 			
 		public static const WINDOW_SELECT_SIDE:String = "windowSelectSide";
 		public static const WINDOW_SELECT_SIDE_DARK:String = "windowSelectSideDark";

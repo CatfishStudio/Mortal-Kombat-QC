@@ -150,12 +150,37 @@ package mkcards.assets.window.buyfighter
 		private function initListFighters():Vector.<Sprite> 
 		{
 			var list:Vector.<Sprite> = new Vector.<Sprite>();
+			var cardsAttack:Array = [];
+			var cardsDefence:Array = [];
 			var fighter:Fighter;
-			
+				
 			var n:int = _fileXML.Fighter.length();
 			for (var i:int = 0; i < n; i++)
 			{
-				fighter = new Fighter(_fileXML.Fighter[i].Name);
+				cardsAttack = [];
+				cardsDefence = [];
+				var m:int = _fileXML.Fighter[i].CardAttack.length();
+				for (var j:int = 0; j < m; j++)
+				{
+					cardsAttack.push([_fileXML.Fighter[i].CardAttack[j].Name,
+									_fileXML.Fighter[i].CardAttack[j].Factor,
+									_fileXML.Fighter[i].CardAttack[j].Effectiveness,
+									_fileXML.Fighter[i].CardAttack[j].Skill,
+									_fileXML.Fighter[i].CardAttack[j].ImageAction,
+									_fileXML.Fighter[i].CardAttack[j].ImageSkill,
+									_fileXML.Fighter[i].CardAttack[j].CardColor
+					]);
+					cardsDefence.push([_fileXML.Fighter[i].CardDefence[j].Name,
+									_fileXML.Fighter[i].CardDefence[j].Factor,
+									_fileXML.Fighter[i].CardDefence[j].Effectiveness,
+									_fileXML.Fighter[i].CardDefence[j].Skill,
+									_fileXML.Fighter[i].CardDefence[j].ImageAction,
+									_fileXML.Fighter[i].CardDefence[j].ImageSkill,
+									_fileXML.Fighter[i].CardDefence[j].CardColor
+					]);
+				}
+				
+				fighter = new Fighter(_fileXML.Fighter[i].Name, cardsAttack, cardsDefence);
 				fighter.title = _fileXML.Fighter[i].Title;
 				if (Resource.languageRus == true)
 				{

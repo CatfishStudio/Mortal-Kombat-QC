@@ -42,16 +42,20 @@ package mkcards.assets.window.buyfighter
 		private var _cards:Sprite;
 		private var _cardsLeft:Sprite;
 		private var _cardsRight:Sprite;
+		private var _cardsAttack:Array = [];
+		private var _cardsDefence:Array = [];
 		
 		private var _tween:Tween;		// анимация
 		private var _yStart:int;		// начальное значение по Y
 		private var _move:Boolean = true; // флаг движения
 		
 		
-		public function Fighter(_name:String) 
+		public function Fighter(_name:String, cardsAttack:Array, cardsDefence:Array) 
 		{
 			super();
 			name = _name;
+			_cardsAttack = cardsAttack;
+			_cardsDefence = cardsDefence;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 			addEventListener(Event.TRIGGERED, onButtonsClick);
@@ -148,11 +152,32 @@ package mkcards.assets.window.buyfighter
 			_cardsLeft.width = 105;
 			_cardsLeft.height = 2000;
 			
-			for (var i:int = 0; i < 12; i++)
+			var n:int = _cardsAttack.length;
+			for (var i:int = 0; i < n; i++)
 			{
-				_image = new Image(Resource.textureAtlas.getTexture("card_front_1.png"));
-				_image.x = 225; _image.y = 100 + (160 * i);
+				_image = new Image(Resource.textureAtlas.getTexture("card_front_" + _cardsAttack[i][6] + ".png"));
+				_image.x = 225; 
+				_image.y = 100 + (160 * i);
 				_cardsLeft.addChild(_image);
+				
+				_image = new Image(Resource.textureAtlas.getTexture(_cardsAttack[i][4]));
+				_image.x = 215 + (105 / 2) - (_image.width / 3);
+				_image.y = (100 + (160 * i)) + (155 / 2) - (_image.height / 3);
+				_image.scaleX -= 0.2;
+				_image.scaleY -= 0.2;
+				_cardsLeft.addChild(_image);
+				
+				_textField = new TextField(100, 50, "x" + _cardsAttack[i][1], "Arial Black", 20, 0xffffff, false);
+				_textField.hAlign = "left";
+				_textField.x = 235;
+				_textField.y = 95 + (160 * i);
+				_cardsLeft.addChild(_textField);
+				
+				_textField = new TextField(120, 60, _cardsAttack[i][2], "Arial Black", 48, 0xffffff, false);
+				_textField.hAlign = "right";
+				_textField.x = 200;
+				_textField.y = 190 + (160 * i);
+				_cardsLeft.addChild(_textField);
 			}
 			_cards.addChild(_cardsLeft);
 		}
@@ -163,11 +188,32 @@ package mkcards.assets.window.buyfighter
 			_cardsRight.width = 105;
 			_cardsRight.height = 2000;
 			
-			for (var i:int = 0; i < 12; i++)
+			var n:int = _cardsDefence.length;
+			for (var i:int = 0; i < n; i++)
 			{
-				_image = new Image(Resource.textureAtlas.getTexture("card_front_1.png"));
-				_image.x = 340; _image.y = 100 + (160 * i);
+				_image = new Image(Resource.textureAtlas.getTexture("card_front_" + _cardsDefence[i][6] + ".png"));
+				_image.x = 340; 
+				_image.y = 100 + (160 * i);
 				_cardsRight.addChild(_image);
+				
+				_image = new Image(Resource.textureAtlas.getTexture(_cardsDefence[i][4]));
+				_image.x = 330 + (105 / 2) - (_image.width / 3);
+				_image.y = (100 + (160 * i)) + (155 / 2) - (_image.height / 3);
+				_image.scaleX -= 0.2;
+				_image.scaleY -= 0.2;
+				_cardsRight.addChild(_image);
+				
+				_textField = new TextField(100, 50, "x" + _cardsDefence[i][1], "Arial Black", 20, 0xffffff, false);
+				_textField.hAlign = "left";
+				_textField.x = 350;
+				_textField.y = 95 + (160 * i);
+				_cardsRight.addChild(_textField);
+				
+				_textField = new TextField(120, 60, _cardsDefence[i][2], "Arial Black", 48, 0xffffff, false);
+				_textField.hAlign = "right";
+				_textField.x = 315;
+				_textField.y = 190 + (160 * i);
+				_cardsRight.addChild(_textField);
 			}
 			_cards.addChild(_cardsRight);
 		}
