@@ -107,12 +107,12 @@
     <asset path="src\mkcards\assets\media\font\rusfont.png" />
     <asset path="src\mkcards\assets\media\font\font.png" />
     <asset path="src\mkcards\assets\media\atlas\mklogo.png" />
-    <asset path="src\mkcards\assets\media\atlas\loader.png" />
     <asset path="src\mkcards\assets\media\atlas\fighter_buy.png" />
     <asset path="src\mkcards\assets\media\textures\window_background.png" />
     <asset path="src\mkcards\assets\media\textures\window_border.png" />
     <asset path="src\mkcards\assets\media\textures\button_down.png" />
     <asset path="src\mkcards\assets\media\textures\button_up.png" />
+    <asset path="src\mkcards\assets\media\atlas\spinner.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

@@ -65,11 +65,15 @@ package mkcards.assets.window.buyfighter
 			_listFighters = initListFighters(); // Инициализация ленты бойцов
 						
 			showListFighters(); // Отображение ленты бойцов 
+			
+			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.ON_ADDED_TO_STAGE }));
 		}
 		
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			
+			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.ON_REMOVE_FROM_STAGE }));
 			
 			if(_textureFont) _textureFont.dispose();
 			_textureFont = null;

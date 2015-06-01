@@ -45,6 +45,11 @@ package mkcards.assets.statics
 		[Embed(source = '../media/atlas/fighter_buy.xml', mimeType='application/octet-stream')]
 		public static var AtlasFighterBuyXML:Class;
 		
+		[Embed(source = '../media/atlas/spinner.png')]
+		public static var AtlasSpinner:Class;
+		[Embed(source = '../media/atlas/spinner.xml', mimeType='application/octet-stream')]
+		public static var AtlasSpinnerXML:Class;
+		
 		/* Текстуры ----------------------- */
 		[Embed(source = '../media/textures/background_game.jpg')]
 		public static var TextureBackgroundGame:Class;
@@ -165,6 +170,11 @@ package mkcards.assets.statics
 				textureAtlas.dispose();
 				textureAtlas = null;
 			}
+			trace("### Очистка: глобальных атласов");
+		}
+		
+		public static function disposeTextureAtlasAnimation():void
+		{
 			if (textureAtlasAnimation != null)
 			{
 				textureAtlasAnimation.dispose();

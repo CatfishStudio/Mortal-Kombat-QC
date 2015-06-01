@@ -21,6 +21,11 @@ package mkcards.assets.statics
 		public static const YELLOW:String = "yellow";
 		public static const GREEN:String = "green";
 		public static const VIOLET:String = "violet";
+		
+		public static const ON_ADDED_TO_STAGE:String = "onAddedToStage";
+		public static const ON_REMOVE_FROM_STAGE:String = "onRemoveFromStage";
+		
+		public static const ANIMATION_SPINNER:String = "animationSpinner";
 			
 		public static const WINDOW_SELECT_SIDE:String = "windowSelectSide";
 		public static const WINDOW_SELECT_SIDE_DARK:String = "windowSelectSideDark";
@@ -34,6 +39,10 @@ package mkcards.assets.statics
 		public static const WINDOW_BUY_FIGHTER_BUTTON_RIGHT:String = "windowBuyFighterButtonRight";
 		public static const WINDOW_BUY_FIGHTER_BUTTON_UP:String = "windowBuyFighterButtonUp";
 		public static const WINDOW_BUY_FIGHTER_BUTTON_DOWN:String = "windowBuyFighterButtonDown";
+		
+		public static const WINDOW_PRELOADER:String = "windowPreloader";
+		
+		
 	}
 
 }

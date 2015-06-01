@@ -22,6 +22,7 @@ package mkcards.assets
 	import mkcards.assets.menu.Menu;
 	import mkcards.assets.window.selectside.SelectSide;
 	import mkcards.assets.window.buyfighter.BuyFighter;
+	import mkcards.assets.window.preloader.Preloader;
 	
 	public class Game extends Sprite 
 	{
@@ -42,6 +43,7 @@ package mkcards.assets
 			
 			userInitialization();
 			
+			preloader();
 			if (Resource.userID != null) menu();
 			else selectSide();
 		}
@@ -50,6 +52,18 @@ package mkcards.assets
 		{
 			switch(event.data.id)
 			{
+				case Constants.ON_ADDED_TO_STAGE: // Событие: объект добавлен на сцену
+				{
+					preloader(); // удаляем прелоадер
+					break;
+				}
+				
+				case Constants.ON_REMOVE_FROM_STAGE: // Событие: объект даляется со сцены
+				{
+					preloader(); // показываем прелоадер
+					break;
+				}
+				
 				case Constants.MENU_BUTTON_SINGLE_PLAYER: // кнопка меню
 				{
 					break;
@@ -85,7 +99,7 @@ package mkcards.assets
 		
 		private function userInitialization():void 
 		{
-			Resource.userID = null;
+			Resource.userID =  null;
 			Resource.userName = null;
 			Resource.userSide = "DARK";
 			Resource.userMoney = 1000;
@@ -96,9 +110,9 @@ package mkcards.assets
 		
 		private function windowAllClose():void
 		{
-			if (getChildByName(Constants.WINDOW_SELECT_SIDE) != null)	removeChild(getChildByName(Constants.WINDOW_SELECT_SIDE));
-			if (getChildByName(Constants.WINDOW_BUY_FIGHTER) != null)	removeChild(getChildByName(Constants.WINDOW_BUY_FIGHTER));
-			//if (getChildByName(Constants.WINDOW_BACK_STAIRS) != null) removeChild(getChildByName(Constants.WINDOW_BACK_STAIRS));
+			if (getChildByName(Constants.MENU) != null) removeChild(getChildByName(Constants.MENU));
+			if (getChildByName(Constants.WINDOW_SELECT_SIDE) != null) removeChild(getChildByName(Constants.WINDOW_SELECT_SIDE));
+			if (getChildByName(Constants.WINDOW_BUY_FIGHTER) != null) removeChild(getChildByName(Constants.WINDOW_BUY_FIGHTER));
 			//if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
 			//if (getChildByName(Constants.WINDOW_LOST) != null)	removeChild(getChildByName(Constants.WINDOW_LOST));
 			//if (getChildByName(Constants.WINDOW_VICTORY) != null) removeChild(getChildByName(Constants.WINDOW_VICTORY));
@@ -144,6 +158,19 @@ package mkcards.assets
 				addChild(new BuyFighter());
 			}
 		}
+		
+		private function preloader():void
+		{
+			if (getChildByName(Constants.WINDOW_PRELOADER) != null)
+			{
+				removeChild(getChildByName(Constants.WINDOW_PRELOADER));
+			}
+			else 
+			{
+				addChild(new Preloader());
+			}
+		}
+		
 		
 	}
 
