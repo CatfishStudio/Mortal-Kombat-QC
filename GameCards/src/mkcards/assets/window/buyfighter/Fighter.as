@@ -113,9 +113,9 @@ package mkcards.assets.window.buyfighter
 			navigationButtons();
 			
 			_bitmap = null;
-			_image.dispose();
+			if (_image) _image.dispose();
 			_image = null;
-			_textField.dispose();
+			if (_textField) _textField.dispose();
 			_textField = null;
 		}
 		
@@ -252,7 +252,7 @@ package mkcards.assets.window.buyfighter
 			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_DOWN) leafThroughDown();
 		}
 		
-		private function leafThroughUp():void 
+		private function leafThroughDown():void 
 		{
 			if (_move == true)
 			{
@@ -269,7 +269,7 @@ package mkcards.assets.window.buyfighter
 			}
 		}
 		
-		private function leafThroughDown():void 
+		private function leafThroughUp():void 
 		{
 			if (_move == true)
 			{

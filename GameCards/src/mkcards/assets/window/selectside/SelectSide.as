@@ -41,15 +41,11 @@ package mkcards.assets.window.selectside
 			y = Constants.GAME_WINDOW_HEIGHT / 3.5;
 			showBackground();
 			createFromXML();
-			
-			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.ON_ADDED_TO_STAGE }));
 		}
 		
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			
-			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.ON_REMOVE_FROM_STAGE }));
 			
 			ClassFileXML = null;
 			_fileXML = null;

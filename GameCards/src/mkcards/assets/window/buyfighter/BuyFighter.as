@@ -23,8 +23,9 @@ package mkcards.assets.window.buyfighter
 	import mkcards.assets.events.Navigation;
 	import mkcards.assets.statics.Constants;
 	import mkcards.assets.statics.Resource;
-	
 	import mkcards.assets.xml.FileXML;
+	import mkcards.assets.window.buyfighter.Fighter;
+	import mkcards.assets.panel.money.Money;
 	
 	public class BuyFighter extends Sprite 
 	{
@@ -38,6 +39,7 @@ package mkcards.assets.window.buyfighter
 		private var _xStart:int;		// начальное значение по Х
 		private var _textField:TextField;
 		private var _button:Button;
+		private var _money:Money;
 		
 		private var _textureFont:Texture = Texture.fromEmbeddedAsset(Resource.FontTexture);
 		private	var _xmlFont:XML = XML(new Resource.FontXml());
@@ -66,14 +68,12 @@ package mkcards.assets.window.buyfighter
 						
 			showListFighters(); // Отображение ленты бойцов 
 			
-			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.ON_ADDED_TO_STAGE }));
+			showMoney() // Отображение количества доступных денег у игрока
 		}
 		
 		private function onRemoveFromStage(e:Event):void 
 		{
 			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
-			
-			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.ON_REMOVE_FROM_STAGE }));
 			
 			if(_textureFont) _textureFont.dispose();
 			_textureFont = null;
@@ -81,6 +81,8 @@ package mkcards.assets.window.buyfighter
 			_textField = null;
 			if (_button) _button.dispose();
 			_button = null;
+			if (_money) _money.dispose();
+			_money = null;
 			_xmlFont = null;
 			
 			Starling.juggler.remove(_tween);
@@ -267,7 +269,11 @@ package mkcards.assets.window.buyfighter
 		}
 		
 		
-		
+		private function showMoney():void
+		{
+			_money = new Money(Constants.GAME_WINDOW_WIDTH - 125, 10, Resource.userMoney.toString());
+			addChild(_money);
+		}
 		
 	}
 

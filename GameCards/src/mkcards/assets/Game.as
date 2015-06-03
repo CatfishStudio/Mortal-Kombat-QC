@@ -41,9 +41,8 @@ package mkcards.assets
 			
 			showBackground();
 			
-			userInitialization();
+			Resource.userInitialization();
 			
-			preloader();
 			if (Resource.userID != null) menu();
 			else selectSide();
 		}
@@ -54,13 +53,11 @@ package mkcards.assets
 			{
 				case Constants.ON_ADDED_TO_STAGE: // Событие: объект добавлен на сцену
 				{
-					preloader(); // удаляем прелоадер
 					break;
 				}
 				
 				case Constants.ON_REMOVE_FROM_STAGE: // Событие: объект даляется со сцены
 				{
-					preloader(); // показываем прелоадер
 					break;
 				}
 				
@@ -97,23 +94,12 @@ package mkcards.assets
 			image = null;
 		}
 		
-		private function userInitialization():void 
-		{
-			Resource.userID =  null;
-			Resource.userName = null;
-			Resource.userSide = "DARK";
-			Resource.userMoney = 1000;
-			Resource.userFighter = null;
-			Resource.userDeckCardsProtection = [];
-			Resource.userDeckCardsAttack = [];
-		}
-		
 		private function windowAllClose():void
 		{
 			if (getChildByName(Constants.MENU) != null) removeChild(getChildByName(Constants.MENU));
 			if (getChildByName(Constants.WINDOW_SELECT_SIDE) != null) removeChild(getChildByName(Constants.WINDOW_SELECT_SIDE));
 			if (getChildByName(Constants.WINDOW_BUY_FIGHTER) != null) removeChild(getChildByName(Constants.WINDOW_BUY_FIGHTER));
-			//if (getChildByName(Constants.WINDOW_ENDED_LIFE) != null)removeChild(getChildByName(Constants.WINDOW_ENDED_LIFE));
+			if (getChildByName(Constants.WINDOW_PRELOADER) != null)removeChild(getChildByName(Constants.WINDOW_PRELOADER));
 			//if (getChildByName(Constants.WINDOW_LOST) != null)	removeChild(getChildByName(Constants.WINDOW_LOST));
 			//if (getChildByName(Constants.WINDOW_VICTORY) != null) removeChild(getChildByName(Constants.WINDOW_VICTORY));
 			//if (getChildByName(Constants.WINDOW_END_GAME) != null) removeChild(getChildByName(Constants.WINDOW_END_GAME));
@@ -167,6 +153,7 @@ package mkcards.assets
 			}
 			else 
 			{
+				windowAllClose();
 				addChild(new Preloader());
 			}
 		}

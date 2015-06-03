@@ -50,6 +50,11 @@ package mkcards.assets.statics
 		[Embed(source = '../media/atlas/spinner.xml', mimeType='application/octet-stream')]
 		public static var AtlasSpinnerXML:Class;
 		
+		[Embed(source = '../media/atlas/coin.png')]
+		public static var AtlasCoin:Class;
+		[Embed(source = '../media/atlas/coin.xml', mimeType='application/octet-stream')]
+		public static var AtlasCoinXML:Class;
+		
 		/* Текстуры ----------------------- */
 		[Embed(source = '../media/textures/background_game.jpg')]
 		public static var TextureBackgroundGame:Class;
@@ -97,6 +102,17 @@ package mkcards.assets.statics
 		
 			
 		/* -------------------------------- */
+		
+		public static function userInitialization():void 
+		{
+			Resource.userID =  null;
+			Resource.userName = null;
+			Resource.userSide = "DARK";
+			Resource.userMoney = 1000;
+			Resource.userFighter = null;
+			Resource.userDeckCardsProtection = [];
+			Resource.userDeckCardsAttack = [];
+		}
 		
 		
 		public static function initTextureAtlas(atlasSprite:Class, atlasXML:Class, fromBitmap:Boolean = false, embeddedAsset:Boolean = false):void

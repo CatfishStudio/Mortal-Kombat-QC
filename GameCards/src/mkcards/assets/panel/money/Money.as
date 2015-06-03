@@ -1,27 +1,35 @@
-package mkcards.assets.window.preloader 
+package mkcards.assets.panel.money 
 {
 	import flash.system.*;
+	import starling.text.BitmapFont;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.text.TextField;
+	import starling.textures.Texture;
 	
-	import mkcards.assets.animation.Spinner;
+	import mkcards.assets.animation.Coin;
 	import mkcards.assets.statics.Constants;
 	import mkcards.assets.statics.Resource;
 	
-	public class Preloader extends Sprite 
+	public class Money extends Sprite 
 	{
 		private var _textField:TextField;
+		private var _coin:Coin;
+		public var price:String;
 		
-		public function Preloader() 
+		private var _textureFont:Texture = Texture.fromEmbeddedAsset(Resource.FontTexture);
+		private	var _xmlFont:XML = XML(new Resource.FontXml());
+		
+		public function Money(_x:int, _y:int, _price:String) 
 		{
 			super();
-			x = 0;
-			y = 0;
+			x = _x;
+			y = _y;
+			price = _price;
 			width = Constants.GAME_WINDOW_WIDTH;
 			height = Constants.GAME_WINDOW_HEIGHT;
-			name = Constants.WINDOW_PRELOADER;
+			name = Constants.PANEL_MONEY;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 		}
@@ -29,13 +37,23 @@ package mkcards.assets.window.preloader
 		private function onAddedToStage(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addChild(new Spinner((Constants.GAME_WINDOW_HEIGHT / 2) + 20, Constants.GAME_WINDOW_WIDTH / 2));
 			
-			_textField = new TextField(600, 200, "Загрузка... \n\nПожалуйста подождите пока не закончится загрузка данных с сервера. \n Если загрузка не заканчивается, попробуйте очистить кэш и обновить страницу.", "Arial", 16, 0xFF6F6F, false);
+			TextField.registerBitmapFont(new BitmapFont(_textureFont, _xmlFont), "Font01");
+			
+			_coin = new Coin(0, 0);
+			_coin.scaleX -= 0.5;
+			_coin.scaleY -= 0.5;
+			addChild(_coin);
+			
+			_textField = new TextField(100, 50, price, "Arial", 18, 0xFFFFFF, false);
 			_textField.hAlign = "center";
-			_textField.x = Constants.GAME_WINDOW_HEIGHT / 5.5;
-			_textField.y = Constants.GAME_WINDOW_WIDTH / 3.5;
+			_textField.fontName = "Font01";
+			_textField.x = 10;
+			_textField.y = -5;
 			addChild(_textField);
+			
+			if (_coin) _coin.dispose()
+			_coin = null;
 		}
 		
 		private function onRemoveFromStage(e:Event):void 
@@ -44,6 +62,10 @@ package mkcards.assets.window.preloader
 			
 			if (_textField) _textField.dispose();
 			_textField = null;
+			
+			if (_coin) _coin.dispose()
+			_coin = null;
+			
 			while (this.numChildren)
 			{
 				this.removeChildren(0, -1, true);
@@ -54,6 +76,11 @@ package mkcards.assets.window.preloader
 			trace("[X] onRemoveFromStage: " + this.name);
 		}
 		
+		public function setMoney(_price:String):void
+		{
+			price = _price;
+			_textField.text = price;
+		}
 	}
 
 }

@@ -10,19 +10,19 @@ package mkcards.assets.animation
 	import mkcards.assets.statics.Constants;
 	import mkcards.assets.statics.Resource;
 	
-	public class Spinner extends MovieClip 
+	public class Coin extends MovieClip 
 	{
-		public function Spinner(_x:int, _y:int) 
+		
+		public function Coin(_x:int, _y:int) 
 		{
-			Resource.setTextureAtlasEmbeddedAsset(Resource.AtlasSpinner, Resource.AtlasSpinnerXML);
-			super(Resource.textureAtlasAnimation.getTextures("spinner_"), 12);
+			Resource.setTextureAtlasEmbeddedAsset(Resource.AtlasCoin, Resource.AtlasCoinXML);
+			super(Resource.textureAtlasAnimation.getTextures("coin_"), 12);
 			x = _x;
 			y = _y;
-			name = Constants.ANIMATION_SPINNER;
+			name = Constants.ANIMATION_COIN;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
 		}
-		
 		
 		private function onAddedToStage(e:Event):void 
 		{

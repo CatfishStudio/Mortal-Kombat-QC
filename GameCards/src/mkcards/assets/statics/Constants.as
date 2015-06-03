@@ -26,6 +26,7 @@ package mkcards.assets.statics
 		public static const ON_REMOVE_FROM_STAGE:String = "onRemoveFromStage";
 		
 		public static const ANIMATION_SPINNER:String = "animationSpinner";
+		public static const ANIMATION_COIN:String = "animationCoin";
 			
 		public static const WINDOW_SELECT_SIDE:String = "windowSelectSide";
 		public static const WINDOW_SELECT_SIDE_DARK:String = "windowSelectSideDark";
@@ -42,7 +43,7 @@ package mkcards.assets.statics
 		
 		public static const WINDOW_PRELOADER:String = "windowPreloader";
 		
-		
+		public static const PANEL_MONEY:String = "panelMoney";
 	}
 
 }
