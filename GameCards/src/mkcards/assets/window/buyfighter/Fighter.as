@@ -30,6 +30,7 @@ package mkcards.assets.window.buyfighter
 		public var text:String;
 		public var textLeftCard:String;
 		public var textRightCard:String;
+		public var price:int;
 		
 		private var _textField:TextField;
 		private var _button:Button;
@@ -289,6 +290,27 @@ package mkcards.assets.window.buyfighter
 		private function endMove():void
 		{
 			_move = true; // движение разрешено
+		}
+		
+		
+		public function get CardsAttack():Array
+		{
+			return _cardsAttack;
+		}
+
+		public function set CardsAttack(value:Array):void
+		{
+			_cardsAttack = value;
+		}
+		
+		public function get CardsDefence():Array
+		{
+			return _cardsDefence;
+		}
+
+		public function set CardsDefence(value:Array):void
+		{
+			_cardsDefence = value;
 		}
 		
 	}

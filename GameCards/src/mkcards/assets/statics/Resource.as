@@ -13,9 +13,9 @@ package mkcards.assets.statics
 		public static var userName:String;			// Имя пользователя как оно значится в соц. сети
 		public static var userSide:String; 			// Выбранная сторона тьма или свет ( DARK or WHITE )
 		public static var userMoney:int;			// Количество денег у пользователя
-		public static var userFighter:Array; 		// Активный боец пользователя
-		public static var userDeckCardsProtection:Array;// Колода карт для защиты
-		public static var userDeckCardsAttack:Array;	// Колода карт для нападения
+		public static var userFighterName:String; 		// Активный боец пользователя
+		public static var userDeckCardsProtection:Array;// Активная колода карт для защиты
+		public static var userDeckCardsAttack:Array;	// Активная колода карт для нападения
 		/* -------------------------------- */
 		
 		
@@ -109,7 +109,7 @@ package mkcards.assets.statics
 			Resource.userName = null;
 			Resource.userSide = "DARK";
 			Resource.userMoney = 1000;
-			Resource.userFighter = null;
+			Resource.userFighterName = null;
 			Resource.userDeckCardsProtection = [];
 			Resource.userDeckCardsAttack = [];
 		}

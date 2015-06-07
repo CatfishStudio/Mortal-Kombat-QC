@@ -44,6 +44,12 @@ package mkcards.assets.window.buyfighter
 		private var _textureFont:Texture = Texture.fromEmbeddedAsset(Resource.FontTexture);
 		private	var _xmlFont:XML = XML(new Resource.FontXml());
 		
+		private var _selectFighterIndex:int = 0;
+		private var _selectFighterName:String;
+		private var _selectFighterPrice:int = 0;
+		private var _selectFighterDeckCardsAttack:Array = [];
+		private var _selectFighterDeckCardsProtection:Array = [];
+		
 		public function BuyFighter() 
 		{
 			super();
@@ -66,7 +72,9 @@ package mkcards.assets.window.buyfighter
 			
 			_listFighters = initListFighters(); // Инициализация ленты бойцов
 						
-			showListFighters(); // Отображение ленты бойцов 
+			showListFighters(); // Отображение ленты бойцов
+			
+			buttonPrice();
 			
 			showMoney() // Отображение количества доступных денег у игрока
 		}
@@ -103,6 +111,8 @@ package mkcards.assets.window.buyfighter
 		{
 			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_LEFT) leafThroughLeft();
 			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_RIGHT) leafThroughRight();
+			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_BACK) back();
+			if ((e.target as Button).name == Constants.WINDOW_BUY_FIGHTER_BUTTON_BUY) buy();
 		}
 		
 		private function buttons():void 
@@ -188,6 +198,7 @@ package mkcards.assets.window.buyfighter
 				
 				fighter = new Fighter(_fileXML.Fighter[i].Name, cardsAttack, cardsDefence);
 				fighter.title = _fileXML.Fighter[i].Title;
+				fighter.price = _fileXML.Fighter[i].Price;
 				if (Resource.languageRus == true)
 				{
 					fighter.text = _fileXML.Fighter[i].TextRus;
@@ -242,37 +253,68 @@ package mkcards.assets.window.buyfighter
 		
 		private function leafThroughRight():void
 		{
-			if((_listFighters[_listFighters.length - 1] as Sprite).x > 300){
+			if ((_listFighters[_listFighters.length - 1] as Sprite).x > 300) {
+				_selectFighterIndex++;
 				var fighter:Sprite;
 				var n:int = _listFighters.length;
 				for (var i:int = 0; i < n; i++) {
 					fighter = (_listFighters[i] as Sprite); 
 					_tween = new Tween(fighter, 0.5); 
 					_tween.moveTo(fighter.x - 550, Constants.GAME_WINDOW_HEIGHT / 3.5);
+					_tween.onComplete = endMove;
 					Starling.juggler.add(_tween);
 				}
+				buttonPrice();
 			}
 		}
 		
 		private function leafThroughLeft():void
 		{
-			if((_listFighters[0] as Sprite).x < 200){
+			if ((_listFighters[0] as Sprite).x < 200) {
+				_selectFighterIndex--;
 				var fighter:Sprite;
 				var n:int = _listFighters.length;
 				for (var i:int = 0; i < n; i++) {
 					fighter = (_listFighters[i] as Sprite); 
 					_tween = new Tween(fighter, 0.5); 
 					_tween.moveTo(fighter.x + 550, Constants.GAME_WINDOW_HEIGHT / 3.5);
+					_tween.onComplete = endMove;
 					Starling.juggler.add(_tween);
 				}
+				buttonPrice();
 			}
 		}
 		
+		private function endMove():void
+		{
+			
+		}
 		
 		private function showMoney():void
 		{
 			_money = new Money(Constants.GAME_WINDOW_WIDTH - 125, 10, Resource.userMoney.toString());
 			addChild(_money);
+		}
+		
+		private function buttonPrice():void
+		{
+			_button = (getChildByName(Constants.WINDOW_BUY_FIGHTER_BUTTON_BUY) as Button);
+			_button.text = "Купить " + (_listFighters[_selectFighterIndex] as Fighter).price.toString();
+		}
+		
+		private function back():void
+		{
+			dispatchEvent(new Navigation(Navigation.CHANGE_SCREEN, true, { id: Constants.WINDOW_BUY_FIGHTER_BUTTON_BACK }));
+		}
+		
+		private function buy():void
+		{
+			if (Resource.userMoney >= (_listFighters[_selectFighterIndex] as Fighter).price)
+			{
+				Resource.userMoney = Resource.userMoney - (_listFighters[_selectFighterIndex] as Fighter).price;
+				_money.setMoney(Resource.userMoney.toString());
+				trace(Resource.userMoney.toString());
+			}
 		}
 		
 	}

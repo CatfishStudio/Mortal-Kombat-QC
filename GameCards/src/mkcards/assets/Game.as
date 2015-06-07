@@ -69,8 +69,15 @@ package mkcards.assets
 				case Constants.WINDOW_SELECT_SIDE_BUTTON_OK: // сделан выбор пользователя: свет или тьма
 				{
 					selectSide(); 									// закрываем выбор стороны
-					if (Resource.userFighter == null) buyFighter(); // открываем покупку бойца
+					if (Resource.userFighterName == null) buyFighter(); // открываем покупку бойца
 					else menu(); 									// открываем меню
+					break;
+				}
+				
+				case Constants.WINDOW_BUY_FIGHTER_BUTTON_BACK: // кнопка назад в окне покупки бойца
+				{
+					buyFighter();
+					menu(); 
 					break;
 				}
 				
