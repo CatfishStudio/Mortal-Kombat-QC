@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Side>
+	<Title>Выберите сторону</Title>
+	<Text>Изменить свой выбор вы можите в настройках персонажа. При смене стороны статистика побед и проигрышей обнулится.</Text>
+	<Button>
+		<Name>windowSideShaoKahn</Name>
+		<X>25</X>
+		<Y>80</Y>
+	</Button>
+	<Button>
+		<Name>windowSideRaiden</Name>
+		<X>260</X>
+		<Y>80</Y>
+	</Button>
+	<Button>
+		<Name>windowSideClose</Name>
+		<TextRus>Назад</TextRus>
+		<TextEng>Back</TextEng>
+		<FontName>Arial</FontName>
+		<FontColor>0xffffff</FontColor>
+		<FontSize>14</FontSize>
+		<X>150</X>
+		<Y>260</Y>
+	</Button>
+</Side>
+

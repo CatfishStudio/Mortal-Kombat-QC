@@ -1,0 +1,58 @@
+package mkcards.game.animation 
+{
+	import flash.system.*;
+	
+	import starling.events.Event;
+	import starling.display.MovieClip;
+	import starling.core.Starling;
+	import starling.events.EventDispatcher;
+	
+	import mkcards.game.statics.Constants;
+	import mkcards.game.statics.Resource;
+	
+	public class Coin extends MovieClip 
+	{
+		
+		public function Coin(_x:int, _y:int) 
+		{
+			Resource.setTextureAtlasEmbeddedAsset(Resource.AtlasCoin, Resource.AtlasCoinXML);
+			super(Resource.textureAtlasAnimation.getTextures("coin_"), 12);
+			x = _x;
+			y = _y;
+			name = Constants.ANIMATION_COIN;
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			addEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+		}
+		
+		private function onAddedToStage(e:Event):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+						
+			loop = true;
+			play();
+			
+			Starling.juggler.add(this);
+		}
+		
+		private function onRemoveFromStage(e:Event):void 
+		{
+			removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
+			
+			stop();
+			Starling.juggler.removeTweens(this);
+			
+			Resource.disposeTextureAtlasAnimation(); // очистка атласа
+			
+			while (this.numFrames > 1)
+			{
+				this.removeFrameAt(0);
+			}
+			this.removeFromParent(true);
+			super.dispose();
+			System.gc();
+			trace("[X] onRemoveFromStage: " + this.name);
+		}
+		
+	}
+
+}

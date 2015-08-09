@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="fighters.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="baraka.png"	x="402"	y="602"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="jax.png"	x="402"	y="301"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="johnnycage.png"	x="402"	y="0"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="kitana.png"	x="603"	y="602"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="kunglao.png"	x="201"	y="301"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="liukang.png"	x="201"	y="0"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="mileena.png"	x="0"	y="602"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="raiden.png"	x="0"	y="301"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="reptile.png"	x="0"	y="0"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="scorpion.png"	x="201"	y="602"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="shangtsung.png"	x="603"	y="301"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+	<SubTexture name="subzero.png"	x="603"	y="0"	width="200"	height="300" frameX="-0" frameY="-0" frameWidth="200" frameHeight="300"/>
+</TextureAtlas>

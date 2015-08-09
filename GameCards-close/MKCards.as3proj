@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="Application" />
+    <movie input="" />
+    <movie path="bin\MKCards.swf" />
+    <movie fps="60" />
+    <movie width="860" />
+    <movie height="730" />
+    <movie version="11" />
+    <movie minorVersion="0" />
+    <movie platform="Flash Player" />
+    <movie background="#FFFFFF" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="src" />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option accessible="False" />
+    <option advancedTelemetry="False" />
+    <option allowSourcePathOverlap="False" />
+    <option benchmark="False" />
+    <option es="False" />
+    <option inline="False" />
+    <option locale="" />
+    <option loadConfig="" />
+    <option optimize="True" />
+    <option omitTraces="True" />
+    <option showActionScriptWarnings="True" />
+    <option showBindingWarnings="True" />
+    <option showInvalidCSS="True" />
+    <option showDeprecationWarnings="True" />
+    <option showUnusedTypeSelectorWarnings="True" />
+    <option strict="True" />
+    <option useNetwork="True" />
+    <option useResourceBundleMetadata="True" />
+    <option warnings="True" />
+    <option verboseStackTraces="False" />
+    <option linkReport="" />
+    <option loadExterns="" />
+    <option staticLinkRSL="True" />
+    <option additional="" />
+    <option compilerConstants="" />
+    <option minorVersion="" />
+  </build>
+  <!-- SWC Include Libraries -->
+  <includeLibraries>
+    <!-- example: <element path="..." /> -->
+  </includeLibraries>
+  <!-- SWC Libraries -->
+  <libraryPaths>
+    <element path="lib\starling.swc" />
+  </libraryPaths>
+  <!-- External Libraries -->
+  <externalLibraryPaths>
+    <!-- example: <element path="..." /> -->
+  </externalLibraryPaths>
+  <!-- Runtime Shared Libraries -->
+  <rslPaths>
+    <!-- example: <element path="..." /> -->
+  </rslPaths>
+  <!-- Intrinsic Libraries -->
+  <intrinsics>
+    <!-- example: <element path="..." /> -->
+  </intrinsics>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <asset path="src\mkcards\assets\media\textures\background_game.jpg" />
+    <asset path="src\mkcards\assets\media\textures\button.png" />
+    <asset path="src\mkcards\assets\media\textures\button_left.png" />
+    <asset path="src\mkcards\assets\media\textures\button_right.png" />
+    <asset path="src\mkcards\assets\media\textures\card_back.png" />
+    <asset path="src\mkcards\assets\media\textures\card_front_1.png" />
+    <asset path="src\mkcards\assets\media\textures\card_front_2.png" />
+    <asset path="src\mkcards\assets\media\textures\card_front_3.png" />
+    <asset path="src\mkcards\assets\media\textures\card_front_4.png" />
+    <asset path="src\mkcards\assets\media\textures\card_front_5.png" />
+    <asset path="src\mkcards\assets\media\textures\cards_panel.png" />
+    <asset path="src\mkcards\assets\media\textures\fullscreen.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_1.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_10.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_11.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_12.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_2.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_3.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_4.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_5.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_6.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_7.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_8.png" />
+    <asset path="src\mkcards\assets\media\textures\level_bg_9.png" />
+    <asset path="src\mkcards\assets\media\textures\level_border.png" />
+    <asset path="src\mkcards\assets\media\textures\tutorial_dialog.png" />
+    <asset path="src\mkcards\assets\media\textures\tutorial_down.png" />
+    <asset path="src\mkcards\assets\media\textures\tutorial_left.png" />
+    <asset path="src\mkcards\assets\media\textures\tutorial_right.png" />
+    <asset path="src\mkcards\assets\media\textures\tutorial_shaokahn.png" />
+    <asset path="src\mkcards\assets\media\textures\tutorial_up.png" />
+    <asset path="src\mkcards\assets\media\textures\dark_side.png" />
+    <asset path="src\mkcards\assets\media\textures\light_side.png" />
+    <asset path="src\mkcards\assets\media\textures\text_box.png" />
+    <asset path="src\mkcards\assets\media\textures\white.png" />
+    <asset path="src\mkcards\assets\media\textures\yellow.png" />
+    <asset path="src\mkcards\assets\media\font\rusfont.png" />
+    <asset path="src\mkcards\assets\media\font\font.png" />
+    <asset path="src\mkcards\assets\media\atlas\fighter_buy.png" />
+    <asset path="src\mkcards\assets\media\textures\window_background.png" />
+    <asset path="src\mkcards\assets\media\textures\window_border.png" />
+    <asset path="src\mkcards\assets\media\textures\button_down.png" />
+    <asset path="src\mkcards\assets\media\textures\button_up.png" />
+    <asset path="src\mkcards\assets\media\atlas\spinner.png" />
+    <asset path="src\mkcards\assets\media\atlas\coin.png" />
+  </library>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="src\mkcards\Main.as" />
+  </compileTargets>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <hidden path="obj" />
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand />
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Default" />
+    <option testMovieCommand="" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+</project>

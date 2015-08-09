@@ -12,15 +12,18 @@ package mkcards
 	import starling.core.Starling;
 	import starling.display.Stage;
 	
-	import mkcards.assets.vkAPI.VK;
-	import mkcards.assets.Game;
-	import mkcards.assets.statics.Constants;
+	import mkcards.game.statics.Constants;
+	import mkcards.game.Game;
 	
+	/**
+	 * ...
+	 * @author Catfish Studio Games
+	 */
 	[SWF(width="860", height="730", frameRate="60", backgroundColor="#ffffff", allowFullscreen="true")]
 	public class Main extends Sprite 
 	{
 		private var _starling:Starling;
-		
+
 		public function Main() 
 		{
 			if (stage) init();
@@ -30,9 +33,7 @@ package mkcards
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			
 			vkInit();
-			
 			initializationStarling();
 		}
 		
@@ -59,8 +60,6 @@ package mkcards
 			_starling.stage.stageWidth = Constants.GAME_WINDOW_WIDTH;
 			_starling.stage.stageHeight = Constants.GAME_WINDOW_HEIGHT;
 		}
-		
-		
 		
 	}
 	

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="spinner.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="spinner_01.png"	x="247"	y="201"	width="80"	height="50" frameX="-3" frameY="-7" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_10.png"	x="247"	y="110"	width="81"	height="42" frameX="-1" frameY="-10" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_11.png"	x="247"	y="153"	width="80"	height="47" frameX="-1" frameY="-8" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_12.png"	x="328"	y="153"	width="80"	height="50" frameX="-1" frameY="-7" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_13.png"	x="410"	y="58"	width="80"	height="54" frameX="-1" frameY="-5" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_14.png"	x="410"	y="0"	width="80"	height="57" frameX="-1" frameY="-3" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_15.png"	x="248"	y="0"	width="80"	height="60" frameX="-1" frameY="-2" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_16.png"	x="409"	y="170"	width="80"	height="62" frameX="-1" frameY="-1" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_17.png"	x="166"	y="0"	width="81"	height="62" frameX="-1" frameY="-1" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_18.png"	x="165"	y="111"	width="81"	height="64" frameX="-1" frameY="-0" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_19.png"	x="0"	y="173"	width="82"	height="64" frameX="-1" frameY="-0" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_02.png"	x="166"	y="63"	width="81"	height="46" frameX="-2" frameY="-8" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_20.png"	x="83"	y="174"	width="81"	height="64" frameX="-2" frameY="-0" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_21.png"	x="83"	y="111"	width="81"	height="62" frameX="-2" frameY="-1" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_22.png"	x="0"	y="111"	width="82"	height="61" frameX="-2" frameY="-2" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_23.png"	x="329"	y="0"	width="80"	height="58" frameX="-3" frameY="-3" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_24.png"	x="329"	y="59"	width="80"	height="56" frameX="-3" frameY="-4" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_25.png"	x="409"	y="116"	width="80"	height="53" frameX="-3" frameY="-5" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_03.png"	x="165"	y="176"	width="81"	height="42" frameX="-2" frameY="-10" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_04.png"	x="0"	y="0"	width="82"	height="38" frameX="-1" frameY="-12" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_05.png"	x="0"	y="39"	width="82"	height="36" frameX="-1" frameY="-13" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_06.png"	x="0"	y="76"	width="82"	height="34" frameX="-1" frameY="-14" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_07.png"	x="83"	y="76"	width="82"	height="34" frameX="-1" frameY="-14" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_08.png"	x="83"	y="0"	width="82"	height="36" frameX="-1" frameY="-13" frameWidth="84" frameHeight="64"/>
+	<SubTexture name="spinner_09.png"	x="83"	y="37"	width="82"	height="38" frameX="-1" frameY="-12" frameWidth="84" frameHeight="64"/>
+</TextureAtlas>

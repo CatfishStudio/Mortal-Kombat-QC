@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="coin.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="coin_1.png"	x="68"	y="0"	width="65"	height="67" frameX="-2" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_10.png"	x="186"	y="136"	width="31"	height="67" frameX="-18" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_11.png"	x="218"	y="68"	width="25"	height="67" frameX="-25" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_12.png"	x="134"	y="0"	width="50"	height="67" frameX="-13" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_13.png"	x="68"	y="68"	width="64"	height="67" frameX="-5" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_14.png"	x="0"	y="0"	width="67"	height="67" frameX="-2" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_2.png"	x="132"	y="136"	width="53"	height="67" frameX="-6" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_3.png"	x="186"	y="68"	width="31"	height="67" frameX="-18" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_4.png"	x="218"	y="136"	width="25"	height="67" frameX="-25" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_5.png"	x="185"	y="0"	width="50"	height="67" frameX="-13" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_6.png"	x="66"	y="136"	width="65"	height="67" frameX="-4" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_7.png"	x="0"	y="68"	width="67"	height="67" frameX="-2" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_8.png"	x="0"	y="136"	width="65"	height="67" frameX="-2" frameY="-2" frameWidth="71" frameHeight="71"/>
+	<SubTexture name="coin_9.png"	x="133"	y="68"	width="52"	height="67" frameX="-7" frameY="-2" frameWidth="71" frameHeight="71"/>
+</TextureAtlas>
