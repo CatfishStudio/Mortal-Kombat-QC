@@ -30,6 +30,26 @@
 		<Life>30</Life>
 		<Mana>40</Mana>
 		<Price>1000</Price>
+		<Card><Name>card_b_1</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>10</Damage><Protection>0</Protection><Life>22</Life><Action>1</Action><Mana>1</Mana><Price>199</Price></Card>
+		<Card><Name>card_b_2</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>11</Damage><Protection>0</Protection><Life>21</Life><Action>1</Action><Mana>1</Mana><Price>199</Price></Card>
+		<Card><Name>card_b_4</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>13</Damage><Protection>0</Protection><Life>19</Life><Action>1</Action><Mana>1</Mana><Price>199</Price></Card>
+		<Card><Name>card_b_5</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>14</Damage><Protection>0</Protection><Life>18</Life><Action>1</Action><Mana>1</Mana><Price>199</Price></Card>
+		<Card><Name>card_b_7</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>15</Damage><Protection>0</Protection><Life>17</Life><Action>1</Action><Mana>1</Mana><Price>199</Price></Card>
+		<Card><Name>card_b_9</Name><View>Base</View><Type>Defense</Type><Skill>no</Skill><Damage>0</Damage><Protection>15</Protection><Life>12</Life><Action>1</Action><Mana>1</Mana><Price>199</Price></Card>
+		<Card><Name>card_b_10</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>20</Damage><Protection>0</Protection><Life>15</Life><Action>1</Action><Mana>2</Mana><Price>249</Price></Card>
+		<Card><Name>card_b_12</Name><View>Base</View><Type>Defense</Type><Skill>no</Skill><Damage>0</Damage><Protection>25</Protection><Life>7</Life><Action>1</Action><Mana>2</Mana><Price>249</Price></Card>
+		<Card><Name>card_b_14</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>22</Damage><Protection>0</Protection><Life>13</Life><Action>1</Action><Mana>2</Mana><Price>249</Price></Card>
+		<Card><Name>card_b_15</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>23</Damage><Protection>0</Protection><Life>12</Life><Action>1</Action><Mana>2</Mana><Price>249</Price></Card>
+		<Card><Name>card_b_16</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>24</Damage><Protection>0</Protection><Life>11</Life><Action>1</Action><Mana>2</Mana><Price>249</Price></Card>
+		<Card><Name>card_b_18</Name><View>Base</View><Type>Defense</Type><Skill>no</Skill><Damage>0</Damage><Protection>30</Protection><Life>5</Life><Action>1</Action><Mana>2</Mana><Price>249</Price></Card>
+		<Card><Name>card_b_20</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>27</Damage><Protection>0</Protection><Life>8</Life><Action>1</Action><Mana>3</Mana><Price>299</Price></Card>
+		<Card><Name>card_b_21</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>28</Damage><Protection>0</Protection><Life>7</Life><Action>1</Action><Mana>3</Mana><Price>299</Price></Card>
+		<Card><Name>card_b_23</Name><View>Base</View><Type>Attaka</Type><Skill>no</Skill><Damage>30</Damage><Protection>0</Protection><Life>5</Life><Action>1</Action><Mana>3</Mana><Price>299</Price></Card>
+		<Card><Name>card_b_24</Name><View>Rare</View><Type>Attaka</Type><Skill>no</Skill><Damage>31</Damage><Protection>0</Protection><Life>33</Life><Action>2</Action><Mana>3</Mana><Price>449</Price></Card>
+		<Card><Name>card_b_28</Name><View>Rare</View><Type>Defense</Type><Skill>no</Skill><Damage>0</Damage><Protection>40</Protection><Life>22</Life><Action>2</Action><Mana>4</Mana><Price>499</Price></Card>
+		<Card><Name>card_b_33</Name><View>Rare</View><Type>Attaka</Type><Skill>no</Skill><Damage>38</Damage><Protection>0</Protection><Life>26</Life><Action>2</Action><Mana>4</Mana><Price>499</Price></Card>
+		<Card><Name>card_b_39</Name><View>Rare</View><Type>Attaka</Type><Skill>no</Skill><Damage>43</Damage><Protection>0</Protection><Life>21</Life><Action>2</Action><Mana>5</Mana><Price>549</Price></Card>
+		<Card><Name>card_b_45</Name><View>Rare</View><Type>Defense</Type><Skill>no</Skill><Damage>0</Damage><Protection>50</Protection><Life>15</Life><Action>2</Action><Mana>5</Mana><Price>549</Price></Card>
 	</Fighter>
 	<Fighter>
 		<Name>kunglao</Name>

@@ -3,23 +3,34 @@ package mkcards.game.fighters
 	import starling.display.Sprite;
 	import starling.text.TextField;
 	
+	import mkcards.game.cards.Card;
+	
 	public class FighterCard extends Sprite 
 	{
 		private var _textField:TextField;
-		private var _damage:int;
-		private var _protection:int;
-		private var _life:int;
-		private var _mana:int;
-		private var _price:int;
-		private var _index:int;
-		
+		private var _damage:int;			// Урон
+		private var _protection:int;		// Защита
+		private var _life:int;				// Жизнь
+		private var _mana:int;				// Мана
+		private var _price:int;				// Цена
+		private var _index:int;				// индекс
+		private var _cards:Vector.<Card> = new Vector.<Card>();	// колода карт (Name, View, Type, Skill, Damage, Protection, Life, Action, Mana, Price)
 		
 		public function FighterCard() 
 		{
 			super();
-			
 		}
-	
+		
+		public function get Cards():Vector.<Card>
+		{
+			return _cards;
+		}
+		
+		public function set Cards(value:Vector.<Card>):void
+		{
+			_cards = value;
+		}
+		
 		public function get Price():int
 		{
 			return _price;

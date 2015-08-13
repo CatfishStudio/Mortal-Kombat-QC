@@ -23,6 +23,7 @@ package mkcards.game.fighters
 	import mkcards.game.statics.Constants;
 	import mkcards.game.statics.Resource;
 	import mkcards.game.fighters.FighterCard;
+	import mkcards.game.cards.Card;
 	import mkcards.xml.FileXML;
 	
 	public class StoreFighters extends Sprite 
@@ -151,18 +152,41 @@ package mkcards.game.fighters
 		
 		private function initListFighters():Vector.<FighterCard> 
 		{
+			var cards:Vector.<Card> = new Vector.<Card>();
 			var list:Vector.<FighterCard> = new Vector.<FighterCard>();
 			var fighter:Sprite;
-				
+			var damage:int = 0;
+			var protection:int = 0;
+			var life:int = 0;
+			var mana:int = 0;
+			
 			var n:int = _fileXML.Fighter.length();
 			for (var i:int = 0; i < n; i++)
 			{
+				damage = 0;
+				protection = 0;
+				life = 0;
+				mana = 0;
+				
+				cards = new Vector.<Card>();
+				
+				var m:int = _fileXML.Fighter.Card.length();
+				for (var j:int = 0; j < m; j++)
+				{
+					damage += fileXML.Fighter.Card[j].Damage;
+					protection += fileXML.Fighter.Card[j].Protection;
+					life += fileXML.Fighter.Card[j].Life;
+					mana += fileXML.Fighter.Card[j].Mana;
+					cards.push(new Card());
+				}
+			
 				fighter = new FighterCard();
 				fighter.name = _fileXML.Fighter[i].Name;
 				fighter.addChild(new Image(Resource.textureAtlas.getTexture(_fileXML.Fighter[i].Name + ".png")));
 				(fighter as FighterCard).Price = _fileXML.Fighter[i].Price;
 				(fighter as FighterCard).Index = i;
-				(fighter as FighterCard).specifications(_fileXML.Fighter[i].Damage, _fileXML.Fighter[i].Protection, _fileXML.Fighter[i].Life, _fileXML.Fighter[i].Mana);
+				(fighter as FighterCard).Cards = cards;
+				(fighter as FighterCard).specifications(damage, protection, life, mana);
 				list.push(fighter);
 			}
 			
