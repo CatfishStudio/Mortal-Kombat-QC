@@ -69,6 +69,7 @@
   <!-- Assets to embed into the output SWF -->
   <library>
     <asset path="src\gameload\textures\background.jpg" />
+    <asset path="src\gameload\textures\logo.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

@@ -1,5 +1,6 @@
 package mkquest.assets.menu 
 {
+	import flash.display.Loader;
 	import flash.system.*;
 	import flash.utils.ByteArray;
 	import starling.display.Sprite;
@@ -87,6 +88,8 @@ package mkquest.assets.menu
 			System.gc();
 			trace("[X] Удалена сцена меню");
 		}
+		
+		
 	}
 
 }
