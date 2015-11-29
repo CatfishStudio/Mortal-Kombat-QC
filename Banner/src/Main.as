@@ -84,7 +84,7 @@ package
 			
 			var params: BannersPanelVO = new BannersPanelVO(); // создание класса параметров баннера
 			// изменение стандартных параметров:
-			params.demo = '1'; // показывает тестовые баннеры
+			params.demo = '0'; // 1 - показывает тестовые баннеры
 			
 			// вертикальный (AD_TYPE_VERTICAL) или горизонтальный (AD_TYPE_HORIZONTAL) блок баннеров
 			params.ad_type = BannersPanelVO.AD_TYPE_VERTICAL; 
@@ -171,9 +171,10 @@ package
 
             var context:LoaderContext = new LoaderContext(false, new ApplicationDomain());
             var adrequest:URLRequest = new URLRequest("//ad.mail.ru/static/vkcontainer.swf");
-            var requestParams : URLVariables = new URLVariables();
-            requestParams['preview'] = '8';
-            adrequest.data = requestParams;
+            // параметры запроса для отображения тестовых рекламных блоков
+			//var requestParams : URLVariables = new URLVariables();
+            //requestParams['preview'] = '8';
+            //adrequest.data = requestParams;
 
             loaderMB.load(adrequest, context);
         }
