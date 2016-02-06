@@ -243,7 +243,7 @@ package gameload
 			
 			_loader = new Loader();
 			_loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain, SecurityDomain.currentDomain);
-			_request = new URLRequest("http://app.vk.com/c420925/u99302165/bb30ec3626a4ca.swf");
+			_request = new URLRequest("http://app.vk.com/c420925/u99302165/a2dd16a54b8b44.swf");
 			//_request = new URLRequest("http://catfishstudio.besaba.com/games/mkquest/MKQuest.swf");
 			_loader.contentLoaderInfo.addEventListener(Event.COMPLETE, LoadComplite);
 			_loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, onProgress);

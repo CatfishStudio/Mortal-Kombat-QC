@@ -172,6 +172,8 @@ package
             var context:LoaderContext = new LoaderContext(false, new ApplicationDomain());
             var adrequest:URLRequest = new URLRequest("//ad.mail.ru/static/vkcontainer.swf");
             // параметры запроса для отображения тестовых рекламных блоков
+			// !!! Если раскомментировать строчки кода снизу то реклама будет показываться в тестовом режиме.
+			//Т.е. реклама появиться обязательно но за показы вы не заработаете.
 			//var requestParams : URLVariables = new URLVariables();
             //requestParams['preview'] = '8';
             //adrequest.data = requestParams;
@@ -322,7 +324,7 @@ package
 			
 			_loader = new Loader();
 			_loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain, SecurityDomain.currentDomain);
-			_request = new URLRequest("http://app.vk.com/c420925/u99302165/bb30ec3626a4ca.swf");
+			_request = new URLRequest("http://app.vk.com/c420925/u99302165/a2dd16a54b8b44.swf");
 			//_request = new URLRequest("http://app.vk.com/c420925/u99302165/635e67a8fc45a6.swf"); // DEV
 			_loader.contentLoaderInfo.addEventListener(Event.COMPLETE, LoadComplite);
 			_loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, onProgress);

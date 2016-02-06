@@ -3,11 +3,13 @@ package mkquest.assets.menu
 	import flash.display.Loader;
 	import flash.system.*;
 	import flash.utils.ByteArray;
+	import flash.display.Bitmap;
+	
 	import starling.display.Sprite;
 	import starling.display.Button;
 	import starling.events.Event;
 	import starling.textures.Texture;
-	
+		
 	import mkquest.assets.events.Navigation;
 	import mkquest.assets.statics.Constants;
 	import mkquest.assets.statics.Resource;
@@ -61,6 +63,13 @@ package mkquest.assets.menu
 				_button.y = _button.height * i;
 				addChild(_button);
 			}
+			
+			var bitmap:Bitmap = new Resource.TextureStarWarsBanner();
+			_button = new Button(Texture.fromBitmap(bitmap));
+			_button.name = "starwars";
+			_button.x = 230;
+			_button.y = 155;
+			addChild(_button);
 		}
 		
 		private function onButtonsClick(event:Event):void 

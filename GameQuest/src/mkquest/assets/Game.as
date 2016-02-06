@@ -4,6 +4,8 @@ package mkquest.assets
 	import flash.geom.Rectangle;
 	import flash.display.Bitmap;
 	import flash.display.StageDisplayState;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	
 	import starling.display.Image;
 	import starling.display.Button;
@@ -529,6 +531,11 @@ package mkquest.assets
 				{
 					tutorClose();
 					break;
+				}
+				
+				case "starwars":
+				{
+					navigateToURL(new URLRequest('https://vk.com/app5170657'));
 				}
 				
 				default:

@@ -121,6 +121,7 @@
     <asset path="src\mkquest\assets\media\textures\tutorial_shaokahn.png" />
     <asset path="src\mkquest\assets\media\textures\tutorial_up.png" />
     <asset path="src\mkquest\assets\media\textures\end_game.jpg" />
+    <asset path="src\mkquest\assets\media\textures\StarWarsHeroes.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

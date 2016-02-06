@@ -61,6 +61,8 @@ package mkquest.assets.statics
 		public static var TextureTutorialRight:Class;
 		[Embed(source = '../media/textures/tutorial_up.png')]
 		public static var TextureTutorialUp:Class;
+		[Embed(source = '../media/textures/StarWarsHeroes.png')]
+		public static var TextureStarWarsBanner:Class;
 		/* -------------------------------- */
 		
 		/* Атласы ------------------------- */
