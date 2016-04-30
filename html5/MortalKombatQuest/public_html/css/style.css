@@ -1,0 +1,29 @@
+body,html 
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    line-height: 1;
+}
+
+#game
+{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 188px;
+    height: 100px;
+    background-image: url("../assets/image/textures/load.png");
+    background-color: #FFFFFF;
+    background-repeat: none;
+}
+
+#vk_ads_64655
+{
+    position: absolute;
+    top: 0;
+    left: 860px;
+}
