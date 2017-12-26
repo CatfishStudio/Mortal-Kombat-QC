@@ -63,6 +63,7 @@ package RemoveLoadGame
 			Security.allowDomain("*");
             Security.allowInsecureDomain("*");
 			
+			/*
 			loader = new Loader();
 			loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain);
 			loaderContext.securityDomain = SecurityDomain.currentDomain;
@@ -78,7 +79,10 @@ package RemoveLoadGame
 				// если приложение запущено локально, то здесь можно разместить заглушку рекламного блока
 				messageAdd("Ошибка загрузки vk_ads.swf : " + e.message)
 			}
-
+			*/
+			
+			processStartGame = 1;
+			loadPreloader();
 		}
 		
 		private function onProgress(e:ProgressEvent):void 
@@ -101,6 +105,7 @@ package RemoveLoadGame
 			loader.contentLoaderInfo.removeEventListener(ProgressEvent.PROGRESS, onProgress);
 			
 			if (processStartGame == 0){ // Banners - complete
+				/*
 				messageAdd("Загрузка банера завершена!");
 				try
 				{
@@ -113,6 +118,7 @@ package RemoveLoadGame
 				
 				processStartGame = 1;
 				loadPreloader();
+				*/
 				
 			}else if (processStartGame == 1){ // Preloader - complete
 				messageAdd("Загрузка прелоадера завершена!");
@@ -140,6 +146,7 @@ package RemoveLoadGame
 		}
 		
 		/* == BANNER ============================================================================================================ */
+		/*
 		private function initBanner() : void 
 		{
 			var ad_unit_id: String = "64017"; // укажите тут свой id
@@ -192,7 +199,7 @@ package RemoveLoadGame
 			var event: MainVKBannerEvent = e as MainVKBannerEvent;
 			trace('Main.banner_onError :', event.errorMessage, event.errorCode);
 		}
-		
+		*/
 		/* ================================================================================================================= */
 		
 		/* == PRELOADER ==================================================================================================== */
@@ -201,6 +208,7 @@ package RemoveLoadGame
 			loader = new Loader();
 			loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain, SecurityDomain.currentDomain);
 			request = new URLRequest("https://catfishstudio.github.io/mortalkombatquest/Preloader.swf");
+			//request = new URLRequest("http://localhost:8080/Preloader.swf");
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete);
 			loader.contentLoaderInfo.removeEventListener(ProgressEvent.PROGRESS, onProgress);
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onError);
@@ -215,6 +223,7 @@ package RemoveLoadGame
 			loader = new Loader();
 			loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain, SecurityDomain.currentDomain);
 			request = new URLRequest("https://catfishstudio.github.io/mortalkombatquest/MKQuest.swf");
+			//request = new URLRequest("http://localhost:8080/MKQuest.swf");
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete);
 			loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, onProgress);
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onError);
@@ -225,14 +234,14 @@ package RemoveLoadGame
 		
 		private function messageShow():void
 		{
-			messageText = new Label(0, 0, 800, 600, "Arial", 14, 0x000000, "Загрузка...", false);
-			messageText.text = "Загрузка ...";
-			this.addChild(messageText);
+			//messageText = new Label(0, 0, 800, 600, "Arial", 14, 0x000000, "Загрузка...", false);
+			//messageText.text = "Загрузка ...";
+			//this.addChild(messageText);
 		}
 		
 		private function messageAdd(text:String):void
 		{
-			messageText.text = messageText.text + "\n" + text;
+			//messageText.text = messageText.text + "\n" + text;
 		}
 	}
 }
