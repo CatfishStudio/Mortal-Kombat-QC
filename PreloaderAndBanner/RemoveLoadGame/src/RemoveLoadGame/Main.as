@@ -35,7 +35,7 @@ package RemoveLoadGame
 	 * ...
 	 * @author Catfish Studio
 	 */
-	[SWF(width="1010", height="730", frameRate="60", backgroundColor="#ffffff")]
+	[SWF(width="860", height="730", frameRate="60", backgroundColor="#ffffff")]
 	public class Main extends Sprite 
 	{
 		private var messageText:Label;

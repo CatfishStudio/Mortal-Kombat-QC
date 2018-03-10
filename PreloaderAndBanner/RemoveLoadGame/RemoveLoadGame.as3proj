@@ -6,7 +6,7 @@
     <movie input="" />
     <movie path="bin\RemoveLoadGame.swf" />
     <movie fps="60" />
-    <movie width="1010" />
+    <movie width="860" />
     <movie height="730" />
     <movie version="11" />
     <movie minorVersion="0" />
