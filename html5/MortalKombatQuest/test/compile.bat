@@ -1,1 +1,0 @@
-copy *.js mortalkombat.game.js

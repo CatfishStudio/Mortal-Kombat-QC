@@ -1,0 +1,26 @@
+{
+  "name": "mortalkombatquest",
+  "title": "mortalkombatquest",
+  "author": "CatfishStudio",
+  "version": "1.0.0",
+  "description": "This is the game Mortal Kombat Quest",
+  "contributors": [
+    {
+      "name": "Evgeniy Somov",
+      "email": "somov@i.ua"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CatfishStudio/Mortal-Kombat-QC"
+  },
+  "private": true,
+  "devDependencies": {
+    "phaser-ce": "^2.9.4",
+    "typescript": "^2.0.x",
+    "node-static": "^0.7.10"
+  },
+  "engines": {
+    "node": "5.x.x"
+  }
+}

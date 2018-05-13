@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Street Fighter Cards</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/default.css" type="text/css" />
+		<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+        <script src="phaser/phaser.min.js"></script>
+        <script src="game.js"></script>
+</head>
+
+<body>
+	<div id="content"></div>
+	<script type="text/javascript">
+        /* Инициализация ВКонтакте */
+        /*
+		VK.init({
+			apiId: 5883565
+        });
+        */
+		var game = new MortalKombatQuest.Game.getInstance();
+		game.start();
+	</script>
+</body>
+
+</html>
