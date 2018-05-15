@@ -2,8 +2,8 @@ module Utilits {
     export class Data {
 
         /* Debug отладка */
-        public static debugLog(title:string, value: any):void {
-            if(Config.buildDev) console.log(title, value);
+        public static debugLog(title: string, value: any): void {
+            if (Config.buildDev) console.log(title, value);
         }
 
         /* Проверка четности и нечетности */
@@ -22,10 +22,10 @@ module Utilits {
         }
 
         /* Генератор случайных чисел из диапазона чисел мин/макс */
-        public static getRandomRangeIndex(min: number, max: number):number {
+        public static getRandomRangeIndex(min: number, max: number): number {
             max -= min;
             let index: number = (Math.random() * ++max) + min;
-            return  Math.floor(index);
+            return Math.floor(index);
         }
 
         /* Функция перемешивает элементы массива */

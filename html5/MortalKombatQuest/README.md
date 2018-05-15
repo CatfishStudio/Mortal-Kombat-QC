@@ -8,6 +8,9 @@
 
     npm install node-static
 
+Чтобы установить typescript глобально
+
+	npm install -g typescript
 
 Чтобы узнать какие пакеты и какой версии уже установлены воспользуйтесь командой:
 

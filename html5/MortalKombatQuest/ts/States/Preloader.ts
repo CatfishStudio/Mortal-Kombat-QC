@@ -34,7 +34,7 @@ module MortalKombatQuest {
         }
 
         private onLoadStart() {
-            this.preloadText = this.game.add.text(310, 490, "ЗАГРУЗКА 0%", {font: "24px Georgia", fill: "#000000"});
+            this.preloadText = this.game.add.text(310, 490, "ЗАГРУЗКА 0%", {font: "24px Georgia", fill: "#FFFFFF"});
         }
 
         private onFileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
@@ -46,7 +46,6 @@ module MortalKombatQuest {
         }
        
         private onLoadComplete() {
-            GameData.Data.initPersonages(this.game);
             this.game.stage.removeChildren();
             this.game.state.start(this.config.nextStage, true, false);
         }

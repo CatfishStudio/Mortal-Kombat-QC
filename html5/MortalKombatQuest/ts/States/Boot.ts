@@ -19,7 +19,7 @@ module MortalKombatQuest {
         }
         
         public preload() {
-            this.game.load.image(Images.PreloaderImage, 'assets/images/' + Images.PreloaderImage);
+            this.game.load.image(Images.PreloaderImage, 'assets/image/textures/' + Images.PreloaderImage);
         }
         
         public create() {
@@ -27,31 +27,12 @@ module MortalKombatQuest {
                 nextStage: Menu.Name,
                 preloadHandler: (): void => {
                     Images.preloadList.forEach((assetName: string) => {
-                        this.game.load.image(assetName, 'assets/images/' + assetName);
+                        this.game.load.image(assetName, 'assets/image/textures/' + assetName);
                     });
-                    
-                    /*
-                    Atlases.preloadList.forEach((assetName: string) => {
-                        this.game.load.atlas(assetName, 'assets/atlas/' + assetName + '.png','assets/atlas/' + assetName + '.json');
-                    });
-
-                    Animations.preloadList.forEach((assetName: string) => {
-                        this.game.load.json(assetName, 'assets/atlas/'+ assetName);
-                    });
-                    */
                     
                     /*
                     Sheet.preloadList.forEach((assetName: string) => {
-                        this.game.load.spritesheet(assetName, 'assets/images/' + assetName, 186, 46);
-                    });
-                    */
-                    //this.game.load.spritesheet(Sheet.preloadList[0], 'assets/images/' + Sheet.preloadList[0], 186, 46);
-                    //this.game.load.spritesheet(Sheet.preloadList[1], 'assets/images/' + Sheet.preloadList[1], 187, 56);
-                    //this.game.load.spritesheet(Sheet.preloadList[2], 'assets/images/' + Sheet.preloadList[2], 108, 31);
-                    
-                    /*
-                    Sounds.preloadList.forEach((assetName: string)=>{
-                        this.game.load.audio(assetName, ['assets/sounds/'+assetName+'.mp3', 'assets/sounds/'+assetName+'.ogg']);
+                        this.game.load.spritesheet(assetName, 'assets/sheets/' + assetName, 186, 46);
                     });
                     */
                 }

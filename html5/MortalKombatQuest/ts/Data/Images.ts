@@ -1,9 +1,9 @@
 class Images {
-    public static PreloaderImage: string = 'preloader.png';
-
-    //public static MenuImage: string = 'menu.png';
-
+    public static PreloaderImage: string = 'preloader.jpg';
+    public static BackgroundImage: string = 'background.jpg';
+    
     public static preloadList:Array<string> = [
-        //Images.MenuImage,
+        Images.BackgroundImage,
+        
     ]; 
 }
