@@ -30,11 +30,9 @@ module MortalKombatQuest {
                         this.game.load.image(assetName, 'assets/image/textures/' + assetName);
                     });
                     
-                    /*
                     Sheet.preloadList.forEach((assetName: string) => {
-                        this.game.load.spritesheet(assetName, 'assets/sheets/' + assetName, 186, 46);
+                        this.game.load.spritesheet(assetName, 'assets/image/textures/' + assetName, 170, 60);
                     });
-                    */
                 }
             });
         }

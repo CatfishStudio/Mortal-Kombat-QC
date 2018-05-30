@@ -18,7 +18,7 @@ module Fabrique {
 
             this.event = new Phaser.Signal();
 
-            let button = new Phaser.Button(this.game, 0, 0, Sheet.Button, this.onButtonClick, this, 1, 2);
+            let button = new Phaser.Button(this.game, 0, 0, Sheet.Buttons, this.onButtonClick, this, 1, 2);
             button.name = name;
             button.events.onInputOut.add(this.onButtonInputOut, this);
             button.events.onInputOver.add(this.onButtonInputOver, this);

@@ -68,9 +68,9 @@ var Images = (function () {
 var Sheet = (function () {
     function Sheet() {
     }
-    Sheet.Button = 'button_sheet.png';
+    Sheet.Buttons = 'buttons.png';
     Sheet.preloadList = [
-        Sheet.Button,
+        Sheet.Buttons,
     ];
     return Sheet;
 }());
@@ -127,7 +127,7 @@ var Fabrique;
             this.x = x;
             this.y = y;
             this.event = new Phaser.Signal();
-            var button = new Phaser.Button(this.game, 0, 0, Sheet.Button, this.onButtonClick, this, 1, 2);
+            var button = new Phaser.Button(this.game, 0, 0, Sheet.Buttons, this.onButtonClick, this, 1, 2);
             button.name = name;
             button.events.onInputOut.add(this.onButtonInputOut, this);
             button.events.onInputOver.add(this.onButtonInputOver, this);
@@ -179,11 +179,9 @@ var MortalKombatQuest;
                     Images.preloadList.forEach(function (assetName) {
                         _this.game.load.image(assetName, 'assets/image/textures/' + assetName);
                     });
-                    /*
-                    Sheet.preloadList.forEach((assetName: string) => {
-                        this.game.load.spritesheet(assetName, 'assets/sheets/' + assetName, 186, 46);
+                    Sheet.preloadList.forEach(function (assetName) {
+                        _this.game.load.spritesheet(assetName, 'assets/image/textures/' + assetName, 170, 60);
                     });
-                    */
                 }
             });
         };

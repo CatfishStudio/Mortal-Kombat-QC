@@ -1,8 +1,8 @@
 class Sheet {
-    public static Button: string = 'button_sheet.png';
+    public static Buttons: string = 'buttons.png';
     
     public static preloadList:Array<string> = [
-        Sheet.Button,
+        Sheet.Buttons,
 
     ]; 
     
